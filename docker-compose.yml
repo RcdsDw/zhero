@@ -25,4 +25,4 @@ services:
       - .:/usr/src/app
 
 volumes:
-  postgres_data:
+  zhero_data:
