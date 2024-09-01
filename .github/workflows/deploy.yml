@@ -21,7 +21,7 @@ jobs:
       - name: Add VPS to known_hosts
         run: |
           mkdir -p ~/.ssh
-          ssh-keyscan ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+          ssh-keyscan ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
           cat ~/.ssh/known_hosts
 
       - name: Install dependencies
@@ -35,7 +35,7 @@ jobs:
 
       - name: Deploy to VPS
         run: |
-          ssh -o StrictHostKeyChecking=no -T ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} << 'EOF'
+          ssh -o StrictHostKeyChecking=no -T ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }} << 'EOF'
             set -x  
             echo "Connected to VPS"
             cd dev/zhero
@@ -48,7 +48,7 @@ jobs:
 
       - name: Start zhero_bot container and zhero_db container
         run: |
-          ssh ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} << 'EOSSH'
+          ssh ${{ secrets.VPS_USERNAME }}@${{ secrets.VPS_HOST }} << 'EOSSH'
             cd dev/zhero
             sudo docker compose up -d --build
           EOSSH
