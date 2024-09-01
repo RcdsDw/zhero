@@ -1,0 +1,33 @@
+{
+  "name": "bot_test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "docker compose up",
+    "dev": "nodemon --legacy-watch index.ts",
+    "pretty": "prettier --write .",
+    "lint": "eslint .",
+    "checkall": "npm run pretty && npm run lint"
+  },
+  "author": "Rafael & Alexis",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5",
+    "moment": "^2.30.1",
+    "pg": "^8.12.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.3",
+    "sequelize-typescript": "^2.1.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.0",
+    "@types/pg": "^8.11.6",
+    "eslint": "^8.0.0",
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}

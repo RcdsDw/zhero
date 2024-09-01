@@ -1,0 +1,28 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: zhero_db
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - '5555:5555'
+    volumes:
+      - zhero_data:/var/lib/postgresql/data
+
+  bot:
+    build:
+      context: .
+    container_name: zhero_bot
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: ${DB_URL}
+    ports:
+      - '3333:3333'
+    volumes:
+      - .:/usr/src/app
+
+volumes:
+  postgres_data:
