@@ -3,7 +3,9 @@ import {
     Column,
     Model,
     DataType,
+    BelongsTo,
 } from 'sequelize-typescript'
+import { ZheroUser } from './user';
 
 @Table
 export class ZheroItem extends Model {
@@ -18,6 +20,9 @@ export class ZheroItem extends Model {
 
     @Column(DataType.STRING)
     desc?: string
+
+    @Column(DataType.STRING)
+    type?: string
     
     @Column(DataType.DATE)
     created_at?: Date
@@ -63,4 +68,7 @@ export class ZheroItem extends Model {
 
     @Column(DataType.FLOAT)
     price?: number
+
+    @BelongsTo(() => ZheroUser)
+    user?: ZheroUser
 }

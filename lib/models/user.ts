@@ -3,7 +3,9 @@ import {
     Column,
     Model,
     DataType,
+    HasMany,
 } from 'sequelize-typescript'
+import { ZheroItem } from './item';
 
 @Table
 export class ZheroUser extends Model {
@@ -21,7 +23,7 @@ export class ZheroUser extends Model {
     
     @Column(DataType.DATE)
     updated_at?: Date
-    
+
     @Column(DataType.STRING)
     strength?: string
 
@@ -55,5 +57,6 @@ export class ZheroUser extends Model {
     @Column(DataType.FLOAT)
     gold?: number
 
-
+    @HasMany(() => ZheroItem)
+    items?: ZheroItem[]
 }
