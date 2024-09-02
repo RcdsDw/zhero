@@ -21,6 +21,5 @@ module.exports = {
     'dist/',
     'lib/',
     'index.ts',
-    'deploy-commands.js',
   ],
 };
