@@ -1,5 +1,5 @@
 import { Collection } from 'discord.js';
-import { Command } from './interfaces/command';
+import { Command } from '../../interfaces/command';
 
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -7,7 +7,7 @@ import * as path from 'node:path';
 export const getCommands = (): Collection<string, Command> => {
   const commands = new Collection<string, Command>();
 
-  const foldersPath = path.join(__dirname, './commands');
+  const foldersPath = path.join(__dirname, '../../commands');
   const commandFolders = fs.readdirSync(foldersPath);
 
   for (const folder of commandFolders) {

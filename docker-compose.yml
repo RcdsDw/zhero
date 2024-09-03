@@ -1,26 +1,22 @@
 services:
-  db:
-    image: postgres:latest
+  mongodb:
     container_name: zhero_db
+    image: mongo:7.0.14
+    restart: unless-stopped
     environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_NAME}
-    ports:
-      - '5555:5555'
+      - MONGO_INITDB_ROOT_USERNAME=${DB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${DB_PASSWORD}
     volumes:
-      - zhero_data:/var/lib/postgresql/data
+      - zhero_data:/data/db
 
   bot:
     build:
       context: .
     container_name: zhero_bot
     depends_on:
-      - db
+      - mongodb
     environment:
-      DATABASE_URL: ${DB_URL}
-    ports:
-      - '3333:3333'
+      DB_URL: mongodb://${DB_USER}:${DB_PASSWORD}@mongodb:27017
     volumes:
       - .:/usr/src/app
 

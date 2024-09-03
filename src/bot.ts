@@ -6,14 +6,7 @@ import {
   Interaction,
 } from 'discord.js';
 
-import { Command } from './interfaces/command';
-import { getCommands } from './get-commands';
-
-declare module 'discord.js' {
-  interface Client {
-    commands: Collection<string, Command>;
-  }
-}
+import { getCommands } from './libs/commands/get-commands';
 
 export const bot = new Client({
   intents: [
