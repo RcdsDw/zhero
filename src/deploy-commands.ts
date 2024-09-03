@@ -1,13 +1,13 @@
 import { REST, Routes } from "discord.js";
 import dotenv from "dotenv";
-import { getCommands } from "./get-commands";
+import { getCommands } from "./libs/commands/get-commands";
 
 dotenv.config();
 
 const commands : string[] = getCommands().map((command : any) => command.data.toJSON());
 
 // Construct and prepare an instance of the REST module
-const rest = new REST().setToken(process.env.DISCORD_TOKEN ?? '');
+const rest = new REST().setToken(process.env.TOKEN_BOT ?? '');
 
 // and deploy your commands!
 (async () => {
