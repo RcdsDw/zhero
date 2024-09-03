@@ -1,0 +1,17 @@
+name: Pretty and Lint
+
+on:
+  push:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Prettier
+        run: npm run prettier --if-present -- --write .
+
+      - name: Run ESLint
+        run: npm run lint --if-present -- --fix .
