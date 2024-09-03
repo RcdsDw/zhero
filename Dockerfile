@@ -13,8 +13,5 @@ RUN npm install
 # Copier le reste des fichiers du projet dans le conteneur
 COPY . .
 
-# Exposer le port sur lequel l'application écoute
-EXPOSE 3333
-
 # Commande à exécuter au démarrage du conteneur
 CMD ["npm", "run", "dev"]
