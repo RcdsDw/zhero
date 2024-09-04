@@ -1,62 +1,55 @@
-import {
-    Table,
-    Column,
-    Model,
-    DataType,
-    HasMany,
-} from 'sequelize-typescript'
-import { ZheroItem } from './item';
+import { User as DiscordUser } from "discord.js";
+import { model, Model, Schema } from "mongoose";
+import { UserAttributesSchema, IUserAttributes } from "./userAttributes";
 
-@Table
-export class ZheroUser extends Model {
-    @Column({
-        type: DataType.STRING,
-        primaryKey: true,
-    })
-    id?: string;
-
-    @Column(DataType.STRING)
-    name?: string
-
-    @Column(DataType.DATE)
-    created_at?: Date
-    
-    @Column(DataType.DATE)
-    updated_at?: Date
-
-    @Column(DataType.STRING)
-    strength?: string
-
-    @Column(DataType.FLOAT)
-    magic?: number
-
-    @Column(DataType.FLOAT)
-    armor?: number
-
-    @Column(DataType.FLOAT)
-    resistance?: number
-
-    @Column(DataType.FLOAT)
-    dodge?: number
-
-    @Column(DataType.FLOAT)
-    critical?: number
-
-    @Column(DataType.FLOAT)
-    luck?: number
-
-    @Column(DataType.FLOAT)
-    dexterity?: number
-
-    @Column(DataType.FLOAT)
-    speed?: number
-
-    @Column(DataType.FLOAT)
-    level?: number
-
-    @Column(DataType.FLOAT)
-    gold?: number
-
-    @HasMany(() => ZheroItem)
-    items?: ZheroItem[]
+interface IUser {
+    id : string,
+    gold : number,
+    xp : number,
+    attributes : IUserAttributes
 }
+
+// Méthodes sur l'instance
+interface IUserDocument extends IUser, Document {
+    
+}
+
+// Méthodes statiques
+interface IUserModel extends Model<IUserDocument> {
+    findByDiscordUser(user : DiscordUser) : Promise<IUser|null>
+}
+
+const UserSchema : Schema = new Schema<IUserDocument>({
+    id : {
+        type : String,
+        required : true,
+        unique : true
+    },
+    gold : {
+        type : Number,
+        required : true,
+        default : 0
+    },
+    xp : {
+        type : Number,
+        required : true,
+        default : 0
+    },
+    attributes : {
+        type : UserAttributesSchema,
+        required : true,
+        default: () => ({}) // On doit mettre ça pour que ça prenne les valeurs par défaut du schéma enfant
+    }
+}, {
+    timestamps : true,
+})
+
+UserSchema.statics.findByDiscordUser = async (user : DiscordUser) : Promise<IUser|null> => {
+    return await User.findOne({
+        id : user.id
+    });
+}
+
+const User = model<IUserDocument, IUserModel>('User', UserSchema);
+
+export { User };
