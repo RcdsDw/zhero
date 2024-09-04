@@ -1,46 +1,29 @@
 import {
   Client,
   GatewayIntentBits,
-  Events,
-  Collection,
-  Interaction,
 } from 'discord.js';
+import { getCommands } from './libs/discord/getCommands';
+import { getButtons } from './libs/discord/getButtons';
+import { getEvents } from './libs/discord/getEvents';
+import { Event } from './interfaces/event';
 
-import { getCommands } from './libs/commands/get-commands';
-
-export const bot = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMembers,
-  ],
+const bot = new Client({
+    intents: [
+        GatewayIntentBits.Guilds
+    ],
 });
 
 bot.commands = getCommands();
+bot.buttons = getButtons();
 
-bot.on(Events.InteractionCreate, async (interaction: Interaction) => {
-    if (!interaction.isChatInputCommand()) return;
+const events = getEvents();
 
-    const command = interaction.client.commands.get(interaction.commandName);
-
-    if (!command) {
-        console.error(`No command matching ${interaction.commandName} was found.`);
-        return;
+events.forEach((event : Event) => {
+    if(event.once) {
+        bot.once(event.name, (...args) => event.execute(...args));
+    } else {
+        bot.on(event.name, (...args) => event.execute(...args));
     }
+})
 
-    try {
-        command.execute(interaction);
-    } catch (error) {
-        console.error(error);
-        if (interaction.replied || interaction.deferred) {
-        await interaction.followUp({
-            content: 'There was an error while executing this command!',
-            ephemeral: true,
-        });
-        } else {
-        await interaction.reply({
-            content: 'There was an error while executing this command!',
-            ephemeral: true,
-        });
-        }
-    }
-});
+export default bot;

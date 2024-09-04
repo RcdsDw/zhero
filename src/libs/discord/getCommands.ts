@@ -4,6 +4,9 @@ import { Command } from '../../interfaces/command';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
+/**
+ * Retourne une collection contenant les commandes du dossier commandes. Le nom de la commande en clé et les données de la commande en valeur
+ */
 export const getCommands = (): Collection<string, Command> => {
   const commands = new Collection<string, Command>();
 
@@ -15,17 +18,18 @@ export const getCommands = (): Collection<string, Command> => {
     const commandFiles = fs
       .readdirSync(commandsPath)
       .filter((file) => file.endsWith('.ts'));
-    for (const file of commandFiles) {
-      const filePath = path.join(commandsPath, file);
-      const command = require(filePath);
 
-      if ('data' in command && 'execute' in command) {
-        commands.set(command.data.name, command);
-      } else {
-        console.log(
-          `[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`,
-        );
-      }
+    for (const file of commandFiles) {
+        const filePath = path.join(commandsPath, file);
+        const command = require(filePath);
+
+        if ('data' in command && 'execute' in command) {
+            commands.set(command.data.name, command);
+        } else {
+            console.log(
+                `[WARNING] The command at ${filePath} is missing a required "data" or "execute" property.`,
+            );
+        }
     }
   }
   return commands;
