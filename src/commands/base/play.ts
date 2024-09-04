@@ -1,5 +1,6 @@
 import { CommandInteraction, SlashCommandBuilder } from "discord.js";
-import { User } from "../../models/user";
+import { UserModel } from "../../models/user/user";
+import UserBuilder from "../../libs/embed/UserBuilder";
 
 export const data = new SlashCommandBuilder()
 		.setName('play')
@@ -7,11 +8,11 @@ export const data = new SlashCommandBuilder()
 
 export async function execute(interaction : CommandInteraction) {
 
-    const user = await User.findByDiscordUser(interaction.user);
+    let user = await UserModel.findByDiscordUser(interaction.user);
 
     // Pas de compte trouvée, on crée un nouveau compte
     if(user === null) {
-        await User.create({
+        user = await UserModel.create({
             id : interaction.user.id
         })
 
@@ -23,8 +24,12 @@ export async function execute(interaction : CommandInteraction) {
         return;
     }
 
+    user.experience.add(10);
+
     interaction.reply({
-        content : `Vous avez bien un compte avec ${user.xp} xp`
+        embeds : [UserBuilder.profile(user)]
     })
+
+    user.save();
 }
 
