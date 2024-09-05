@@ -1,5 +1,5 @@
 import { Schema, model, connect } from 'mongoose';
-import dotenv from "dotenv";
+import dotenv from 'dotenv';
 import bot from './bot';
 
 dotenv.config();
