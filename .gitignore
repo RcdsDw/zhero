@@ -2,3 +2,5 @@
 *.env
 # ignore node_modules
 /node_modules
+
+/public/skin/*.png

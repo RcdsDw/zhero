@@ -1,7 +1,7 @@
-import { CommandInteraction, SlashCommandBuilder } from 'discord.js';
+import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
 import { UserModel } from '../../models/user/user';
 import UserBuilder from '../../libs/embed/UserBuilder';
-import LayerManager from '../../libs/montage/LayerManager';
+import PartManager from '../../libs/montage/PartManager';
 
 export const data = new SlashCommandBuilder().setName('play').setDescription('Joue');
 
@@ -11,13 +11,13 @@ export async function execute(interaction: CommandInteraction) {
     // Pas de compte trouvée, on crée un nouveau compte
     if (user === null) {
 
-        const layerManager = new LayerManager();
+        const layerManager = new PartManager();
 
-        console.log(layerManager.getRandomSkin());
+        const skin = layerManager.getRandomSkin();
 
         interaction.reply({
             content: "Vous n'aviez pas de compte, on en a crée un pour vous",
-            //embeds: [UserBuilder.profile(user)],
+            files : [await layerManager.getImage(skin)],
             ephemeral: true,
         });
 

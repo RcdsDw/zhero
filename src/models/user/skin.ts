@@ -1,13 +1,14 @@
-import { HydratedDocument, Schema } from "mongoose";
+import { HydratedDocument, model, Model, Schema } from "mongoose";
 
-enum Gender {
+export enum Gender {
     Women = 'Femme',
     Men = 'Homme'
 }
 
 // Données du document
-interface ISkin {
-    genre : Gender;
+export interface ISkin {
+    [key: string]: any;
+    gender : Gender;
     color : number;
     eyes : number;
     eyebrows : number;
@@ -21,22 +22,25 @@ interface ISkin {
 
 const schemaProperty = {
     type : Number,
-    required : true,
-    default : 1
+    required : true
 }
 
 // Méthodes sur l'instance
 interface ISkinMethods {
 }
 
+// Méthodes statiques
+interface ISkinModel extends Model<ISkin, {}, ISkinMethods> {
+    generateRandom() : SkinModule
+}
+
 export type SkinModule = HydratedDocument<ISkin, ISkinMethods>;
 
 export const SkinSchema: Schema = new Schema<ISkin, {}, ISkinMethods>({
-    genre: {
+    gender: {
         type: String,
         enum : Gender,
-        required : true,
-        default : Gender.Men
+        required : true
     },
     color : schemaProperty,
     eyes : schemaProperty,
@@ -48,3 +52,7 @@ export const SkinSchema: Schema = new Schema<ISkin, {}, ISkinMethods>({
     decoration : schemaProperty,
     facial_hair : schemaProperty
 });
+
+const SkinModel = model<ISkin, ISkinModel>('Skin', SkinSchema);
+
+export { SkinModel };
