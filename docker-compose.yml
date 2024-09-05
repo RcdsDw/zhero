@@ -8,6 +8,8 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=${DB_PASSWORD}
     volumes:
       - zhero_data:/data/db
+    ports:
+      - "27017:27017"
 
   bot:
     build:

@@ -5,7 +5,7 @@ import {
     DataType,
     BelongsTo,
 } from 'sequelize-typescript'
-import { ZheroUser } from './user';
+import { ZheroUser } from './user/user';
 
 @Table
 export class ZheroItem extends Model {
