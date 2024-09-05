@@ -1,26 +1,26 @@
 services:
-  mongodb:
-    container_name: zhero_db
-    image: mongo:7.0.14
-    restart: unless-stopped
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=${DB_USER}
-      - MONGO_INITDB_ROOT_PASSWORD=${DB_PASSWORD}
-    volumes:
-      - zhero_data:/data/db
-    ports:
-      - '27017:27017'
+    mongodb:
+        container_name: zhero_db
+        image: mongo:7.0.14
+        restart: unless-stopped
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=${DB_USER}
+            - MONGO_INITDB_ROOT_PASSWORD=${DB_PASSWORD}
+        volumes:
+            - zhero_data:/data/db
+        ports:
+            - '27017:27017'
 
-  bot:
-    build:
-      context: .
-    container_name: zhero_bot
-    depends_on:
-      - mongodb
-    environment:
-      DB_URL: mongodb://${DB_USER}:${DB_PASSWORD}@mongodb:27017
-    volumes:
-      - .:/usr/src/app
+    bot:
+        build:
+            context: .
+        container_name: zhero_bot
+        depends_on:
+            - mongodb
+        environment:
+            DB_URL: mongodb://${DB_USER}:${DB_PASSWORD}@mongodb:27017
+        volumes:
+            - .:/usr/src/app
 
 volumes:
-  zhero_data:
+    zhero_data:
