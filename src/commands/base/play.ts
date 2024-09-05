@@ -18,6 +18,7 @@ export async function execute(interaction : CommandInteraction) {
 
         interaction.reply({
             content : "Vous n'aviez pas de compte, on en a crée un pour vous",
+            embeds : [UserBuilder.profile(user)],
             ephemeral : true
         })
 
