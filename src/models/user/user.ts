@@ -21,7 +21,7 @@ interface IUserModel extends Model<IUser, {}, IUserMethods> {
 
 export type User = HydratedDocument<IUser, IUserMethods>;
 
-const UserSchema: Schema = new Schema<IUser, IUserModel, IUserMethods>(
+const UserSchema: Schema = new Schema<IUser, {}, IUserMethods>(
     {
         id: {
             type: String,

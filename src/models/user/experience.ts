@@ -12,12 +12,9 @@ interface IExperienceMethods {
     add(amount: number): void;
 }
 
-// Méthodes statiques
-interface IExperienceModel extends Model<IExperience, {}, IExperienceMethods> {}
-
 export type ExperienceModule = HydratedDocument<IExperience, IExperienceMethods>;
 
-export const ExperienceSchema: Schema = new Schema<IExperience, IExperienceModel, IExperienceMethods>({
+export const ExperienceSchema: Schema = new Schema<IExperience, {}, IExperienceMethods>({
     total: {
         type: Number,
         required: true,

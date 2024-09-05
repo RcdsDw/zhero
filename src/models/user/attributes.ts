@@ -11,12 +11,9 @@ interface IAttributesMethods {
     getTotalPoints(): number;
 }
 
-// Méthodes statiques
-interface IAttributesModel extends Model<IAttributes, {}, IAttributesMethods> {}
-
 export type AttributesModule = HydratedDocument<IAttributes, IAttributesMethods>;
 
-export const AttributesSchema: Schema = new Schema<IAttributes, IAttributesModel, IAttributesMethods>({
+export const AttributesSchema: Schema = new Schema<IAttributes, {}, IAttributesMethods>({
     strength: {
         type: Number,
         required: true,
