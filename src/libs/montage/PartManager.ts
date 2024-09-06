@@ -7,26 +7,23 @@ import * as path from 'path';
 import * as fs from 'fs';
 
 export default class PartManager {
-    private parts : Part[];
-
-    constructor() {
-        this.parts = [
-            new Part("color"),
-            new PartWithColor("head"),
-            new PartWithColor("nose"),
-            new PartWithColor("mouth"),
-            new Part("eyes"),
-            new Part("eyebrows"),
-            new Part("hair"),
-            new Part("decoration")
-        ]
-    }
+    private static parts : Part[] =  [
+        new Part("color"),
+        new PartWithColor("head"),
+        new PartWithColor("nose"),
+        new PartWithColor("mouth"),
+        new Part("eyes"),
+        new Part("eyebrows"),
+        new Part("hair"),
+        new Part("facial_hair"),
+        new Part("decoration")
+    ];
 
     /**
      * Génère un skin aléatoire avec des valeurs possibles
      * @returns Skin
      */
-    public getRandomSkin() : SkinModule {
+    public static getRandomSkin() : SkinModule {
 
         const randomGender = randomEnumValue(Gender);
 
@@ -46,7 +43,7 @@ export default class PartManager {
     /**
      * Retourne l'image du skin
      */
-    public async getImage(skin : SkinModule) : Promise<string> {
+    public static async getImage(skin : SkinModule) : Promise<string> {
         const imagePath = this.getSkinImagePath(skin);
 
         if(fs.existsSync(imagePath)) {
@@ -61,7 +58,7 @@ export default class PartManager {
     /**
      * Génère une image en fonction d'un skin
      */
-    private async generateImage(skin : SkinModule) : Promise<void> {
+    private static async generateImage(skin : SkinModule) : Promise<void> {
 
         const canvas = createCanvas(350, 900);
         const ctx = canvas.getContext('2d');
@@ -78,8 +75,8 @@ export default class PartManager {
     /**
      * Retourne le chemin de l'image en fonction du skin
      */
-    private getSkinImagePath(skin : SkinModule) {
-        const skinValues = Object.values(Object.values(skin).at(1)).slice(0, -1);
+    private static getSkinImagePath(skin : SkinModule) {
+        const skinValues = Object.values(skin.toObject()).slice(0, -1);
         return path.join("public/skin", skinValues.join('_') + ".png");
     }
 }

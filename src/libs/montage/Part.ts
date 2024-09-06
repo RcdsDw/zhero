@@ -23,6 +23,12 @@ export default class Part {
      * Retourne un nombre aléatoire
      */
     public getRandom(gender : Gender) : number {
+        const path = this.getFolderPath(gender);
+
+        if(!fs.existsSync(path)) {
+            return 0;
+        }
+
         const { length } = fs.readdirSync(this.getFolderPath(gender));
 
         return Math.floor(Math.random() * (length - 1) + 1);

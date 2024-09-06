@@ -2,6 +2,8 @@ import { User as DiscordUser } from 'discord.js';
 import { HydratedDocument, model, Model, Schema } from 'mongoose';
 import { ExperienceModule, ExperienceSchema } from './experience';
 import { AttributesModule, AttributesSchema } from './attributes';
+import { SkinModule, SkinSchema } from './skin';
+import PartManager from '../../libs/montage/PartManager';
 
 // Données du document
 interface IUser {
@@ -9,6 +11,7 @@ interface IUser {
     gold: number;
     experience: ExperienceModule;
     attributes: AttributesModule;
+    skin : SkinModule;
 }
 
 // Méthodes sur l'instance
@@ -43,6 +46,11 @@ const UserSchema: Schema = new Schema<IUser, {}, IUserMethods>(
             required: true,
             default: () => ({}), // On doit mettre ça pour que ça prenne les valeurs par défaut du schéma enfant
         },
+        skin: {
+            type : SkinSchema,
+            required : true,
+            default : PartManager.getRandomSkin()
+        }
     },
     {
         timestamps: true,

@@ -1,4 +1,5 @@
 import { HydratedDocument, model, Model, Schema } from "mongoose";
+import PartManager from "../../libs/montage/PartManager";
 
 export enum Gender {
     Women = 'Femme',
@@ -27,11 +28,11 @@ const schemaProperty = {
 
 // Méthodes sur l'instance
 interface ISkinMethods {
+    getImage() : Promise<string>
 }
 
 // Méthodes statiques
 interface ISkinModel extends Model<ISkin, {}, ISkinMethods> {
-    generateRandom() : SkinModule
 }
 
 export type SkinModule = HydratedDocument<ISkin, ISkinMethods>;
@@ -51,6 +52,10 @@ export const SkinSchema: Schema = new Schema<ISkin, {}, ISkinMethods>({
     nose : schemaProperty,
     decoration : schemaProperty,
     facial_hair : schemaProperty
+});
+
+SkinSchema.method('getImage', async function () : Promise<string> {
+    return await PartManager.getImage(this);
 });
 
 const SkinModel = model<ISkin, ISkinModel>('Skin', SkinSchema);
