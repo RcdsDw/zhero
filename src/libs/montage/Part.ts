@@ -2,13 +2,16 @@ import { CanvasRenderingContext2D, loadImage } from "canvas";
 import { Gender, SkinModule } from "../../models/user/skin";
 import * as fs from 'fs';
 import * as path from 'path';
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, StringSelectMenuBuilder, StringSelectMenuOptionBuilder } from "discord.js";
 
 export default class Part {
 
     protected attribute : string;
+    protected label : string;
 
-    constructor(attribute : string) {
+    constructor(attribute : string, label : string) {
         this.attribute = attribute;
+        this.label = label;
     }
 
     protected getFolderPath(gender : Gender) {
@@ -73,5 +76,25 @@ export default class Part {
         } else if(skin.gender === Gender.Women) {
             ctx.drawImage(image, 57, 20);
         }
+    }
+
+    /**
+     * Retourne les boutons pour choisir son apparence
+     */
+    public getButtons() : ButtonBuilder[] {
+
+        return [
+            new ButtonBuilder()
+                .setCustomId(`SkinButton-previous-${this.attribute}`)
+                .setLabel(`${this.label}`)
+                .setStyle(ButtonStyle.Secondary)
+                .setEmoji('⬅️'),
+
+            new ButtonBuilder()
+                .setCustomId(`SkinButton-next-${this.attribute}`)
+                .setLabel(`${this.label}`)
+                .setStyle(ButtonStyle.Secondary)
+                .setEmoji('➡️')
+        ];
     }
 }

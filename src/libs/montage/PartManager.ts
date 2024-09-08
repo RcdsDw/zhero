@@ -5,18 +5,19 @@ import Part from "./Part";
 import PartWithColor from "./PartWithColor";
 import * as path from 'path';
 import * as fs from 'fs';
+import { ActionRowBuilder, ButtonBuilder, StringSelectMenuBuilder } from "discord.js";
 
 export default class PartManager {
     private static parts : Part[] =  [
-        new Part("color"),
-        new PartWithColor("head"),
-        new PartWithColor("nose"),
-        new PartWithColor("mouth"),
-        new Part("eyes"),
-        new Part("eyebrows"),
-        new Part("hair"),
-        new Part("facial_hair"),
-        new Part("decoration")
+        new Part("color", "Couleur"),
+        new PartWithColor("head", "Visage"),
+        new PartWithColor("nose", "Nez"),
+        new PartWithColor("mouth", "Bouche"),
+        new Part("eyes", "Yeux"),
+        new Part("eyebrows", "Sourcils"),
+        new Part("hair", "Cheveux"),
+        new Part("facial_hair", "Barbe"),
+        new Part("decoration", "Extra")
     ];
 
     /**
@@ -53,6 +54,25 @@ export default class PartManager {
         await this.generateImage(skin);
 
         return imagePath;
+    }
+
+    /**
+     * Retourne les sélecteurs pour chaque attribut
+     */
+    public static getRows() : ActionRowBuilder<ButtonBuilder>[] {
+
+        let rows : ActionRowBuilder<ButtonBuilder>[] = [];
+
+        for (let i = 0; i < this.parts.length; i += 2) {
+            const chunk = this.parts.slice(i, i + 2);
+            const row = new ActionRowBuilder<ButtonBuilder>();
+
+            chunk.forEach(c => row.addComponents(c.getButtons()));
+
+            rows.push(row);
+        }
+
+        return rows;
     }
 
     /**
