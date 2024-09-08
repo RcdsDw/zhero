@@ -1,4 +1,5 @@
 import { Events, Interaction } from 'discord.js';
+import { Button } from '../interfaces/button';
 
 export default {
     name: Events.InteractionCreate,
@@ -29,10 +30,16 @@ export default {
                     });
                 }
             }
-        } else if (interaction.isButton()) {
-            const button = interaction.client.buttons.get(interaction.customId);
+        } else if (interaction.isButton()) { // Redirigue sur les boutons
+            let button = interaction.client.buttons.find(b => {
+                if(b.id instanceof RegExp) {
+                    return interaction.customId.match(b.id); 
+                } else {
+                    return interaction.customId === b.id;
+                }
+            })
 
-            if (!button) {
+            if (button === undefined) {
                 console.error(`No button matching ${interaction.customId} was found.`);
                 return;
             }

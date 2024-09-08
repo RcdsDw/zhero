@@ -5,6 +5,6 @@ import { Button } from './interfaces/button';
 export declare module 'discord.js' {
     interface Client {
         commands: Collection<string, Command>;
-        buttons: Collection<string, Button>;
+        buttons: Collection<string|RegExp, Button>;
     }
 }

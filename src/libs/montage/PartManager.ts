@@ -5,7 +5,7 @@ import Part from "./Part";
 import PartWithColor from "./PartWithColor";
 import * as path from 'path';
 import * as fs from 'fs';
-import { ActionRowBuilder, ButtonBuilder, StringSelectMenuBuilder } from "discord.js";
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, StringSelectMenuBuilder } from "discord.js";
 
 export default class PartManager {
     private static parts : Part[] =  [
@@ -59,7 +59,7 @@ export default class PartManager {
     /**
      * Retourne les sélecteurs pour chaque attribut
      */
-    public static getRows() : ActionRowBuilder<ButtonBuilder>[] {
+    public static getRows(skin : SkinModule) : ActionRowBuilder<ButtonBuilder>[] {
 
         let rows : ActionRowBuilder<ButtonBuilder>[] = [];
 
@@ -71,6 +71,31 @@ export default class PartManager {
 
             rows.push(row);
         }
+
+        rows.at(0)?.setComponents(
+            new ButtonBuilder()
+                .setLabel("Aléatoire")
+                .setCustomId('SkinButton-random')
+                .setStyle(ButtonStyle.Primary)
+                .setEmoji('🎲'),
+            ...rows.at(0)?.components ?? []
+        )
+
+        rows.at(4)?.addComponents(
+            new ButtonBuilder()
+                .setLabel(skin.gender === Gender.Men ? 'Femme' : 'Homme')
+                .setCustomId('SkinButton-gender')
+                .setStyle(ButtonStyle.Primary)
+                .setEmoji(skin.gender === Gender.Men ? '🚺' : '🚹'),
+            new ButtonBuilder()
+                .setLabel("Annuler")
+                .setCustomId('SkinButton-cancel')
+                .setStyle(ButtonStyle.Danger),
+            new ButtonBuilder()
+                .setLabel("Confirmer")
+                .setCustomId('SkinButton-confirm')
+                .setStyle(ButtonStyle.Success)
+        )
 
         return rows;
     }

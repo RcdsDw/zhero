@@ -25,32 +25,7 @@ export default class UserBuilder {
             name : "skin.png"
         }); 
 
-        const rows = PartManager.getRows();
-
-        rows.at(0)?.setComponents(
-            new ButtonBuilder()
-                .setLabel("Aléatoire")
-                .setCustomId('SkinButton-random')
-                .setStyle(ButtonStyle.Primary)
-                .setEmoji('🎲'),
-            ...rows.at(0)?.components ?? []
-        )
-
-        rows.at(4)?.addComponents(
-            new ButtonBuilder()
-                .setLabel(user.skin.gender === Gender.Men ? 'Femme' : 'Homme')
-                .setCustomId('SkinButton-gender')
-                .setStyle(ButtonStyle.Primary)
-                .setEmoji(user.skin.gender === Gender.Men ? '🚺' : '🚹'),
-            new ButtonBuilder()
-                .setLabel("Annuler")
-                .setCustomId('SkinButton-cancel')
-                .setStyle(ButtonStyle.Danger),
-            new ButtonBuilder()
-                .setLabel("Confirmer")
-                .setCustomId('SkinButton-confirm')
-                .setStyle(ButtonStyle.Success)
-        )
+        const rows = PartManager.getRows(user.skin);
 
         const embed = new EmbedBuilder({
             title : user.isNew ? "Création de votre Zero" : "Modification de votre Zero",
