@@ -4,7 +4,7 @@ import { ExperienceModule, ExperienceSchema } from './experience';
 import { AttributesModule, AttributesSchema } from './attributes';
 import { SkinModule, SkinSchema } from './skin';
 import PartManager from '../../libs/montage/PartManager';
-import { MissionModule, MissionSchema } from './missions';
+import { Mission, MissionSchema } from './missions';
 
 // Données du document
 interface IUser {
@@ -13,7 +13,7 @@ interface IUser {
     experience: ExperienceModule;
     attributes: AttributesModule;
     skin: SkinModule;
-    missions: MissionModule[];
+    missions: Mission[];
 }
 
 // Méthodes sur l'instance

@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.ts",
     "scripts": {
-        "dev": "nodemon --legacy-watch --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'ts-node-transpile-only --swc src/index.ts'",
+        "dev": "nodemon --legacy-watch --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'ts-node-transpile-only src/index.ts'",
         "start": "node dist/index.js",
         "build": "tsc",
         "pretty": "prettier --write .",
@@ -22,7 +22,6 @@
     },
     "devDependencies": {
         "@eslint/js": "^9.10.0",
-        "@swc/core": "^1.7.23",
         "@types/eslint__js": "^8.42.3",
         "@types/node": "^22.5.0",
         "eslint": "^8.57.0",

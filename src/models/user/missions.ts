@@ -11,7 +11,7 @@ interface IMissionMethods {}
 
 interface IMissionModel extends Model<IMission, {}, IMissionMethods> {}
 
-export type MissionModule = HydratedDocument<IMission, IMissionMethods>;
+export type Mission = HydratedDocument<IMission, IMissionMethods>;
 
 export const MissionSchema: Schema = new Schema<IMission, {}, IMissionMethods>({
     title: {

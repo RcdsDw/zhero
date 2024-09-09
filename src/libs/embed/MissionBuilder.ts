@@ -1,8 +1,8 @@
 import { EmbedBuilder } from 'discord.js';
-import { MissionModule } from '../../models/user/missions';
+import { Mission } from '../../models/user/missions';
 
 export default class MissionBuilder {
-    public static showMissions(missions: MissionModule[]): EmbedBuilder {
+    public static showMissions(missions: Mission[]): EmbedBuilder {
         const embed = new EmbedBuilder().setTitle('Missions actuelles');
 
         const fields = missions.map((mission, i) => ({
