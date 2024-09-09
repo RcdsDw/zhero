@@ -10,12 +10,16 @@ export const data = new SlashCommandBuilder().setName('missions').setDescription
 export async function execute(interaction: CommandInteraction) {
     let user = await UserModel.findByDiscordUser(interaction.user);
 
+    console.log(user)
+    return;
+
     if (user === null) {
         interaction.reply('Veuillez vous créer un compte pour commencer à faire vos preuves.');
         return;
     }
 
-    if (user.missions === null) {
+    if (!user.missions ||user.missions.length === 0) {
+        console.log('user.missions === null')
         let newMissions = [];
 
         for (let i = 0; i < 3; i++) {
@@ -33,6 +37,7 @@ export async function execute(interaction: CommandInteraction) {
             embeds: [MissionBuilder.showMissions(newMissions)],
         });
     } else {
+        console.log('user.missions is not null')
         interaction.reply({
             embeds: [MissionBuilder.showMissions(user?.missions)],
         });
