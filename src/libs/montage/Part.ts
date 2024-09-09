@@ -90,8 +90,15 @@ export default class Part {
         }
 
         const { length } = fs.readdirSync(this.getFolderPath(gender));
+        const max = length;
 
-        return clamp(value, min, length);
+        if (value < min) {
+            return max;
+        } else if (value > max) {
+            return min;
+        } else {
+            return value;
+        }
     }
 
     /**

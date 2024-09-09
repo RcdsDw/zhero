@@ -47,7 +47,7 @@ export default class PartManager {
     /**
      * Retourne l'image du skin
      */
-    public static async getImage(skin : SkinModule): Promise<string> {
+    public static async getImage(skin: any): Promise<string> {
         const imagePath = this.getSkinImagePath(skin);
 
         if (fs.existsSync(imagePath)) {

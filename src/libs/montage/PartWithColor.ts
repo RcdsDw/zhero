@@ -5,6 +5,28 @@ import Part from './Part';
 
 export default class PartWithColor extends Part {
     /**
+     * Clamp une valeur en fonction des possibilités pour cette partie
+     */
+    public clamp(value: number, gender: Gender) {
+        let min = 1;
+
+        if (!this.required) {
+            min = 0;
+        }
+
+        const { length } = fs.readdirSync(path.join(this.getFolderPath(gender), '1'));
+        const max = length;
+
+        if (value < min) {
+            return max;
+        } else if (value > max) {
+            return min;
+        } else {
+            return value;
+        }
+    }
+
+    /**
      * Retourne un nombre aléatoire
      */
     public getRandom(gender: Gender): number {

@@ -72,8 +72,6 @@ SkinSchema.methods.increaseAttribute = function (attribute: keyof ISkin): void {
         return;
     }
 
-    console.log(attribute);
-
     this[attribute] = PartManager.getPart(attribute)?.clamp(this[attribute] + 1, this.gender);
 };
 
@@ -82,11 +80,7 @@ SkinSchema.methods.decreaseAttribute = function (attribute: keyof ISkin): void {
         return;
     }
 
-    console.log(this);
-
     this[attribute] = PartManager.getPart(attribute)?.clamp(this[attribute] - 1, this.gender);
-
-    console.log(this);
 };
 
 const SkinModel = model<ISkin, ISkinModel>('Skin', SkinSchema);
