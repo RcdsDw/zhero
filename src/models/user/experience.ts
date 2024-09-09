@@ -1,4 +1,4 @@
-import { HydratedDocument, Model, Schema } from 'mongoose';
+import { HydratedDocument, Schema } from 'mongoose';
 
 // Données du document
 interface IExperience {

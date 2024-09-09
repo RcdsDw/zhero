@@ -11,7 +11,7 @@ interface IUser {
     gold: number;
     experience: ExperienceModule;
     attributes: AttributesModule;
-    skin : SkinModule;
+    skin: SkinModule;
 }
 
 // Méthodes sur l'instance
@@ -47,10 +47,10 @@ const UserSchema: Schema = new Schema<IUser, {}, IUserMethods>(
             default: () => ({}), // On doit mettre ça pour que ça prenne les valeurs par défaut du schéma enfant
         },
         skin: {
-            type : SkinSchema,
-            required : true,
-            default : PartManager.getRandomSkin()
-        }
+            type: SkinSchema,
+            required: true,
+            default: PartManager.getRandomSkin(),
+        },
     },
     {
         timestamps: true,

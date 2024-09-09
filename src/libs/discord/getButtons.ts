@@ -6,8 +6,8 @@ import { Button } from '../../interfaces/button';
 /**
  * Retourne une collection contenant les buttons du dossier buttons. L'id du button en clé et les données de la commande en valeur
  */
-export const getButtons = (): Collection<string|RegExp, Button> => {
-    const buttons = new Collection<string|RegExp, Button>();
+export const getButtons = (): Collection<string | RegExp, Button> => {
+    const buttons = new Collection<string | RegExp, Button>();
 
     const foldersPath = path.join(__dirname, '../../buttons');
     const buttonFolders = fs.readdirSync(foldersPath);

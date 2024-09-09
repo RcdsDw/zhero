@@ -1,4 +1,4 @@
-import { HydratedDocument, Model, Schema } from 'mongoose';
+import { HydratedDocument, Schema } from 'mongoose';
 
 interface IAttributes {
     strength: number;

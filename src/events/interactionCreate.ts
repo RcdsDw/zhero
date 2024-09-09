@@ -30,14 +30,15 @@ export default {
                     });
                 }
             }
-        } else if (interaction.isButton()) { // Redirigue sur les boutons
-            let button = interaction.client.buttons.find(b => {
-                if(b.id instanceof RegExp) {
-                    return interaction.customId.match(b.id); 
+        } else if (interaction.isButton()) {
+            // Redirigue sur les boutons
+            let button = interaction.client.buttons.find((b) => {
+                if (b.id instanceof RegExp) {
+                    return interaction.customId.match(b.id);
                 } else {
                     return interaction.customId === b.id;
                 }
-            })
+            });
 
             if (button === undefined) {
                 console.error(`No button matching ${interaction.customId} was found.`);

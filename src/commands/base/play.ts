@@ -9,21 +9,20 @@ export async function execute(interaction: CommandInteraction) {
 
     // Pas de compte trouvée, on crée un nouveau compte
     if (user === null) {
-
-        user = new UserModel({
-            id : interaction.user.id
+        user = await UserModel.create({
+            id: interaction.user.id,
         });
 
-        interaction.reply(await UserBuilder.skinForm(user));
+        const form = await UserBuilder.skinForm(user);
+
+        interaction.reply(form);
 
         return;
     }
 
     user.experience.add(10);
 
-    interaction.reply({
-        embeds: [UserBuilder.profile(user)],
-    });
+    interaction.reply(await UserBuilder.profile(user));
 
     user.save();
 }
