@@ -22,7 +22,7 @@ interface IBaseItem {
     asset_women : string,
     level : number,
     type : ItemType
-    attributes: AttributesModule
+    attributes : AttributesModule
 }
 
 // Méthodes sur l'instance
@@ -32,7 +32,7 @@ interface IBaseItemMethods {
 
 // Méthodes statiques
 interface IBaseItemModel extends Model<IBaseItem, object, IBaseItemMethods> {
-    populateDb() : Promise<void>
+    populateDb(force : boolean) : Promise<void>
 }
 
 export type BaseItem = HydratedDocument<IBaseItem, IBaseItemMethods>;
@@ -75,12 +75,77 @@ const BaseItemSchema: Schema = new Schema<IBaseItem, object, IBaseItemMethods>(
     },
 );
 
-BaseItemSchema.statics.populateDb = async (): Promise<void> => {
+BaseItemSchema.statics.populateDb = async (force : boolean = false): Promise<void> => {
+
+    const hasItem = await BaseItemModel.countDocuments();
+
+    if(hasItem > 0 && force === false) {
+        return;
+    }
+
+    await BaseItemModel.deleteMany();
+
     const files = fs.readdirSync("images/items");
 
     const iconFiles = files.filter(f => f.match(/_i.png/i));
 
-    console.log(iconFiles);
+    const totalByItem = {
+        'gadget' : 317,
+        'weapon' : 180,
+        'mask' : 335,
+        'suit' : 494,
+        'boots' : 286,
+        'sidekick' : 172,
+        'cape' : 319,
+        'belt' : 327
+    };
+
+    const currentByItem = {
+        'gadget' : 0,
+        'weapon' : 0,
+        'mask' : 0,
+        'suit' : 0,
+        'boots' : 0,
+        'sidekick' : 0,
+        'cape' : 0,
+        'belt' : 0
+    }
+
+    iconFiles.map(async (f : string) => {
+        const match = f.match(/^(?<type>.+?)_(?<name>.+)_i.png$/);
+
+        if(!match) {
+            return;
+        }
+
+        const type = match[1] as ItemType;
+        const name = match[2];
+
+        const asset_path_women = path.join("images/items", `${type}_${name}_m.png`);
+        const asset_path_men = path.join("images/items", `${type}_${name}_m.png`);
+
+        const multiplier = 400 / totalByItem[type];
+
+        currentByItem[type] = currentByItem[type] + 1;
+
+        const level = Math.round(multiplier * currentByItem[type])
+
+        const doc = new BaseItemModel({
+            icon : path.join("images/items", f),
+            name : name,
+            type : type,
+            level : level,
+        });
+
+        if(fs.existsSync(asset_path_men) && fs.existsSync(asset_path_women)) {
+            doc.asset_men = asset_path_men;
+            doc.asset_women = asset_path_women;
+        }
+
+        doc.attributes.distributePoints(level * 3);
+
+        await doc.save();
+    })
 };
 
 const BaseItemModel = model<IBaseItem, IBaseItemModel>('BaseItem', BaseItemSchema);
