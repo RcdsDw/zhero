@@ -4,7 +4,9 @@ import { ExperienceModule, ExperienceSchema } from './experience';
 import { AttributesModule, AttributesSchema } from './attributes';
 import { SkinModule, SkinSchema } from './skin';
 import PartManager from '../../libs/montage/PartManager';
-import { Mission, MissionSchema } from './missions';
+import { Missions, MissionsSchema } from './missions';
+import { MissionSchema } from './mission/mission';
+import { CurrentSchema } from './mission/current';
 
 // Données du document
 interface IUser {
@@ -13,7 +15,7 @@ interface IUser {
     experience: ExperienceModule;
     attributes: AttributesModule;
     skin: SkinModule;
-    missions: Mission[];
+    mission: Missions;
 }
 
 // Méthodes sur l'instance
@@ -55,10 +57,10 @@ const UserSchema: Schema = new Schema<IUser, object, IUserMethods>(
             required: true,
             default: PartManager.getRandomSkin(),
         },
-        missions: {
-            type: [MissionSchema],
+        mission: {
+            type: MissionsSchema,
             required: true,
-            default: () => [],
+            default: () => ({})
         },
     },
     {
