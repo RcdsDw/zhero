@@ -1,10 +1,11 @@
 import { REST, Routes } from 'discord.js';
 import dotenv from 'dotenv';
 import { getCommands } from './libs/discord/getCommands';
+import { Command } from './interfaces/command';
 
 dotenv.config();
 
-const commands: string[] = getCommands().map((command: any) => command.data.toJSON());
+const commands = getCommands().map((command: Command) => command.data.toJSON());
 
 // Construct and prepare an instance of the REST module
 const rest = new REST().setToken(process.env.TOKEN_BOT ?? '');
@@ -15,7 +16,7 @@ const rest = new REST().setToken(process.env.TOKEN_BOT ?? '');
         console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
         // The put method is used to fully refresh all commands in the guild with the current set
-        const data_commands: any = await rest.put(Routes.applicationCommands(process.env.CLIENT_ID ?? ''), {
+        const data_commands = await rest.put(Routes.applicationCommands(process.env.CLIENT_ID ?? ''), {
             body: Array.from(commands),
         });
 

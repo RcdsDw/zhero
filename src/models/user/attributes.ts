@@ -1,4 +1,4 @@
-import { HydratedDocument, Model, Schema } from 'mongoose';
+import { HydratedDocument, Schema } from 'mongoose';
 
 interface IAttributes {
     strength: number;
@@ -13,7 +13,7 @@ interface IAttributesMethods {
 
 export type AttributesModule = HydratedDocument<IAttributes, IAttributesMethods>;
 
-export const AttributesSchema: Schema = new Schema<IAttributes, {}, IAttributesMethods>({
+export const AttributesSchema: Schema = new Schema<IAttributes, object, IAttributesMethods>({
     strength: {
         type: Number,
         required: true,

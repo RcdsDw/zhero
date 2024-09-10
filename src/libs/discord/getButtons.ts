@@ -6,8 +6,8 @@ import { Button } from '../../interfaces/button';
 /**
  * Retourne une collection contenant les buttons du dossier buttons. L'id du button en clé et les données de la commande en valeur
  */
-export const getButtons = (): Collection<string, Button> => {
-    const buttons = new Collection<string, Button>();
+export const getButtons = async (): Promise<Collection<string | RegExp, Button>> => {
+    const buttons = new Collection<string | RegExp, Button>();
 
     const foldersPath = path.join(__dirname, '../../buttons');
     const buttonFolders = fs.readdirSync(foldersPath);
@@ -23,7 +23,7 @@ export const getButtons = (): Collection<string, Button> => {
         const buttonFiles = fs.readdirSync(buttonsPath).filter((file) => file.endsWith('.ts'));
         for (const file of buttonFiles) {
             const filePath = path.join(buttonsPath, file);
-            const button = require(filePath);
+            const button = await import(filePath);
             // Set a new item in the Collection with the key as the button name and the value as the exported module
             if ('id' in button && 'execute' in button) {
                 buttons.set(button.id, button);

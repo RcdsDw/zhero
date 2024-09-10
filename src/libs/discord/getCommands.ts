@@ -7,7 +7,7 @@ import * as path from 'node:path';
 /**
  * Retourne une collection contenant les commandes du dossier commandes. Le nom de la commande en clé et les données de la commande en valeur
  */
-export const getCommands = (): Collection<string, Command> => {
+export const getCommands = async (): Promise<Collection<string, Command>> => {
     const commands = new Collection<string, Command>();
 
     const foldersPath = path.join(__dirname, '../../commands');
@@ -19,7 +19,7 @@ export const getCommands = (): Collection<string, Command> => {
 
         for (const file of commandFiles) {
             const filePath = path.join(commandsPath, file);
-            const command = require(filePath);
+            const command = await import(filePath);
 
             if ('data' in command && 'execute' in command) {
                 commands.set(command.data.name, command);

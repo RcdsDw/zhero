@@ -1,6 +1,6 @@
 import { CommandInteraction, SlashCommandBuilder } from 'discord.js';
 import { UserModel } from '../../models/user/user';
-import UserBuilder from '../../libs/embed/UserBuilder';
+import UserBuilder from '../../libs/message/UserBuilder';
 
 export const data = new SlashCommandBuilder().setName('play').setDescription('Joue');
 
@@ -13,20 +13,16 @@ export async function execute(interaction: CommandInteraction) {
             id: interaction.user.id,
         });
 
-        interaction.reply({
-            content: "Vous n'aviez pas de compte, on en a crée un pour vous",
-            embeds: [UserBuilder.profile(user)],
-            ephemeral: true,
-        });
+        const form = await UserBuilder.skinForm(user);
+
+        interaction.reply(form);
 
         return;
     }
 
     user.experience.add(10);
 
-    interaction.reply({
-        embeds: [UserBuilder.profile(user)],
-    });
+    interaction.reply(await UserBuilder.profile(user));
 
     user.save();
 }
