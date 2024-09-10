@@ -15,16 +15,18 @@ interface IUser {
 }
 
 // Méthodes sur l'instance
-interface IUserMethods {}
+interface IUserMethods {
+    static : () => void
+}
 
 // Méthodes statiques
-interface IUserModel extends Model<IUser, {}, IUserMethods> {
+interface IUserModel extends Model<IUser, object, IUserMethods> {
     findByDiscordUser(user: DiscordUser): Promise<User | null>;
 }
 
 export type User = HydratedDocument<IUser, IUserMethods>;
 
-const UserSchema: Schema = new Schema<IUser, {}, IUserMethods>(
+const UserSchema: Schema = new Schema<IUser, object, IUserMethods>(
     {
         id: {
             type: String,

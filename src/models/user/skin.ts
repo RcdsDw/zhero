@@ -1,4 +1,4 @@
-import { Document, HydratedDocument, model, Model, Schema } from 'mongoose';
+import { HydratedDocument, model, Model, Schema } from 'mongoose';
 import PartManager from '../../libs/montage/PartManager';
 
 export enum Gender {
@@ -34,11 +34,13 @@ interface ISkinMethods {
 }
 
 // Méthodes statiques
-interface ISkinModel extends Model<ISkin, {}, ISkinMethods> {}
+interface ISkinModel extends Model<ISkin, object, ISkinMethods> {
+    static : () => void
+}
 
 export type SkinModule = HydratedDocument<ISkin, ISkinMethods>;
 
-export const SkinSchema: Schema = new Schema<ISkin, {}, ISkinMethods>({
+export const SkinSchema: Schema = new Schema<ISkin, object, ISkinMethods>({
     gender: {
         type: String,
         enum: Gender,

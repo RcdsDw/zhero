@@ -1,7 +1,6 @@
-import { ClientEvents, Events } from 'discord.js';
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface Event {
     name: string;
     once: boolean;
-    execute: (...args: any) => void;
+    execute: (...args: any[]) => void;
 }

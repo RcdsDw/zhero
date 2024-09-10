@@ -3,7 +3,6 @@ import { Gender, ISkin, SkinModule } from '../../models/user/skin';
 import * as fs from 'fs';
 import * as path from 'path';
 import { ButtonBuilder, ButtonStyle } from 'discord.js';
-import { clamp } from '../utils';
 
 export default class Part {
     protected attribute: keyof ISkin;
@@ -20,7 +19,7 @@ export default class Part {
         return path.join('images/character', gender, this.attribute + '_type');
     }
 
-    public getAttribute(): keyof ISkin {
+    public getAttribute(): string {
         return this.attribute;
     }
 

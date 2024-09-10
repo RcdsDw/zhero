@@ -29,12 +29,12 @@ export default class PartManager {
     public static getRandomSkin(): SkinModule {
         const randomGender = randomEnumValue(Gender);
 
-        let attributes: { [k: string]: any } = {
+        const attributes: { [k: string]: number|string } = {
             gender: randomGender,
         };
 
         this.parts.forEach((part) => {
-            attributes[part.getAttribute()] = part.getRandom(randomGender);
+            attributes[part.getAttribute()] = part.getRandom(randomGender as Gender);
         });
 
         attributes['hair_back'] = attributes['hair'];
@@ -47,7 +47,7 @@ export default class PartManager {
     /**
      * Retourne l'image du skin
      */
-    public static async getImage(skin: any): Promise<string> {
+    public static async getImage(skin: SkinModule): Promise<string> {
         const imagePath = this.getSkinImagePath(skin);
 
         if (fs.existsSync(imagePath)) {
@@ -63,7 +63,7 @@ export default class PartManager {
      * Retourne les sélecteurs pour chaque attribut
      */
     public static getRows(skin: SkinModule): ActionRowBuilder<ButtonBuilder>[] {
-        let rows: ActionRowBuilder<ButtonBuilder>[] = [];
+        const rows: ActionRowBuilder<ButtonBuilder>[] = [];
 
         // On enlève la barbe pour les femmes
         const filteredParts = this.parts

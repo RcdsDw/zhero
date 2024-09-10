@@ -1,4 +1,4 @@
-import { AttachmentBuilder, EmbedBuilder, InteractionReplyOptions } from 'discord.js';
+import { AttachmentBuilder, BaseMessageOptions, EmbedBuilder, InteractionReplyOptions } from 'discord.js';
 import { User } from '../../models/user/user';
 import PartManager from '../montage/PartManager';
 
@@ -31,7 +31,7 @@ export default class UserBuilder {
         };
     }
 
-    public static async skinForm(user: User): Promise<any> {
+    public static async skinForm(user: User): Promise<BaseMessageOptions | InteractionReplyOptions> {
         const file = new AttachmentBuilder(await user.skin.getImage(), {
             name: 'skin.png',
         });

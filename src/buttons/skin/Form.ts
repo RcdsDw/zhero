@@ -1,5 +1,5 @@
 import { ButtonInteraction } from 'discord.js';
-import { UserModel, User } from '../../models/user/user';
+import { UserModel } from '../../models/user/user';
 import UserBuilder from '../../libs/message/UserBuilder';
 import PartManager from '../../libs/montage/PartManager';
 import { ISkin } from '../../models/user/skin';

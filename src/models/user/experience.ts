@@ -14,7 +14,7 @@ interface IExperienceMethods {
 
 export type ExperienceModule = HydratedDocument<IExperience, IExperienceMethods>;
 
-export const ExperienceSchema: Schema = new Schema<IExperience, {}, IExperienceMethods>({
+export const ExperienceSchema: Schema = new Schema<IExperience, object, IExperienceMethods>({
     total: {
         type: Number,
         required: true,
@@ -41,8 +41,8 @@ ExperienceSchema.methods.add = function (amount: number) {
 
     this.level = Math.floor(Math.sqrt(this.total / 100));
 
-    let xpNiveauActuel = 100 * this.level * this.level;
-    let xpNiveauSuivant = 100 * (this.level + 1) * (this.level + 1);
+    const xpNiveauActuel = 100 * this.level * this.level;
+    const xpNiveauSuivant = 100 * (this.level + 1) * (this.level + 1);
 
     this.progression = ((this.total - xpNiveauActuel) / (xpNiveauSuivant - xpNiveauActuel)) * 100;
 };

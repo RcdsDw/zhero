@@ -1,4 +1,3 @@
-import { ButtonBuilder } from 'discord.js';
 import Part from './Part';
 import { ISkin, SkinModule } from '../../models/user/skin';
 import * as fs from 'fs';

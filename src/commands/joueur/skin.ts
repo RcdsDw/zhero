@@ -5,7 +5,7 @@ import UserBuilder from '../../libs/message/UserBuilder';
 export const data = new SlashCommandBuilder().setName('skin').setDescription('Modifie votre apparence');
 
 export async function execute(interaction: CommandInteraction) {
-    let user = await UserModel.findByDiscordUser(interaction.user);
+    const user = await UserModel.findByDiscordUser(interaction.user);
 
     // Pas de compte trouvée, on crée un nouveau compte
     if (user === null) {

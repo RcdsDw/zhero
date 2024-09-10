@@ -1,5 +1,4 @@
 import { Events, Interaction } from 'discord.js';
-import { Button } from '../interfaces/button';
 
 export default {
     name: Events.InteractionCreate,
@@ -32,7 +31,7 @@ export default {
             }
         } else if (interaction.isButton()) {
             // Redirigue sur les boutons
-            let button = interaction.client.buttons.find((b) => {
+            const button = interaction.client.buttons.find((b) => {
                 if (b.id instanceof RegExp) {
                     return interaction.customId.match(b.id);
                 } else {
