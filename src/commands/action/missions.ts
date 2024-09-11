@@ -11,8 +11,8 @@ export async function execute(interaction: CommandInteraction) {
         interaction.reply('Veuillez vous créer un compte pour commencer à faire vos preuves.');
         return;
     }
-
-    interaction.reply({
-        embeds: [MissionBuilder.showMissions(user)],
-    });
+    
+    interaction.reply(
+        await MissionBuilder.showMissions(user),
+    );
 }

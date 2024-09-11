@@ -12,7 +12,7 @@ interface IMissions {
 
 // Méthodes sur l'instance
 interface IMissionsMethods {
-    getMissions(): Mission[] | Current;
+    getMissions(user: User): Promise<Mission[] | Current>;
 }
 
 interface IMissionsModel extends Model<IMissions, {}, IMissionsMethods> {}
@@ -43,7 +43,7 @@ MissionsSchema.methods.getMissions = async function (user: User): Promise<Missio
                 title: data.title,
                 desc: data.description,
                 rank: data.rank,
-                time: data.rank * Math.floor(Math.random() * 100),
+                time: (data.rank * Math.floor(Math.random() * 100)) + 100 * (data.rank - 1),
             });
 
             newMissions.push(mission);
@@ -51,6 +51,7 @@ MissionsSchema.methods.getMissions = async function (user: User): Promise<Missio
 
         this.missions = newMissions;
         await user.save();
+        return this.missions;
     } 
     if (this.current) {
         return this.current;

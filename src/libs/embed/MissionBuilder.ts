@@ -1,31 +1,44 @@
-import { EmbedBuilder } from 'discord.js';
+import { EmbedBuilder, InteractionReplyOptions } from 'discord.js';
 import { CurrentModel } from '../../models/user/mission/current';
 import { Mission } from '../../models/user/mission/mission';
 import { User } from '../../models/user/user';
 
 export default class MissionBuilder {
-    public static showMissions(user: User): EmbedBuilder {
-        const res = user?.mission?.getMissions();
+    public static async showMissions(user: User): Promise<InteractionReplyOptions> {
+        const res = await user?.mission?.getMissions(user);
+
         if (res instanceof CurrentModel) {
-            return new EmbedBuilder().setTitle('Mission en cours').addFields({
-                name: `En cours : ${res.title}`,
-                value: `${res.desc}\n\nNiveau: ${res.rank} / Temps restant: ${res.getRemainingTime()}`
-            });
+            const embed = new EmbedBuilder()
+                .setTitle(`En cours : ${res.title}`)
+                .addFields({
+                    name: `${res.desc}`,
+                    value: `${res.desc}\n\nNiveau: ${res.rank} / Temps restant: ${res.getRemainingTime()}\n\n` +
+                    `Récompenses : ${Math.floor((user.experience.level * 0.7) * res.time)} 🦸‍♂️ / ${(user.experience.level / 2) * (res.time / 2)} 🪙`
+                });
+        
+            return {
+                content: '# Mission en cours',
+                embeds: [embed],
+            };
         } else {
             const missions = res as Mission[];
-            const embed = new EmbedBuilder().setTitle('Mission possibles')
+            const embeds: EmbedBuilder[] = [];
 
-            const fields = missions?.map((mission, i) => ({
-                name: `Mission ${i + 1} : ${mission.title}`,
-                value: `${mission.desc}\n\nNiveau: ${mission.rank}` +
-                ` / Temps: ${Math.floor(mission.time / 60)}h${mission.time % 60}m`
-            }));
+            missions.forEach((mission, i) => {
+                const embed = new EmbedBuilder().setTitle(`Mission ${i + 1} : ${mission.title}`)
+                .addFields({
+                    name: `${mission.desc}`,
+                    value: `Niveau: ${mission.rank}` +
+                    ` / Temps: ${Math.floor(mission.time / 60)}h${mission.time % 60}m\n\n` +
+                    `Récompenses : ${Math.floor((user.experience.level * 0.7) * mission.time)} 🦸‍♂️ / ${(user.experience.level / 2) * (mission.time / 2) } 🪙`
+                });
+                embeds.push(embed);
+            });
 
-            embed.addFields(fields);
-
-            // return 3 embed différents
-
-        return embed;
+            return {
+                content: '# Mission possibles',
+                embeds: embeds,
+            };
         }
     }
 }
