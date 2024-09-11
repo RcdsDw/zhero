@@ -5,6 +5,7 @@ import { AttributesModule, AttributesSchema } from './attributes';
 import { SkinModule, SkinSchema } from './skin';
 import PartManager from '../../libs/montage/PartManager';
 import { Missions, MissionsSchema } from './missions';
+import { ShopModule, ShopSchema } from '../item/Shop';
 
 // Données du document
 interface IUser {
@@ -14,6 +15,7 @@ interface IUser {
     attributes: AttributesModule;
     skin: SkinModule;
     mission: Missions;
+    shop : ShopModule;
 }
 
 // Méthodes sur l'instance
@@ -60,6 +62,11 @@ const UserSchema: Schema = new Schema<IUser, object, IUserMethods>(
             required: true,
             default: () => ({})
         },
+        shop : {
+            type : ShopSchema,
+            required : true,
+            default : () => ({})
+        }
     },
     {
         timestamps: true,

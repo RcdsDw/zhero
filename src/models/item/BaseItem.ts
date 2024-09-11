@@ -3,7 +3,7 @@ import { AttributesModule, AttributesSchema } from '../user/attributes';
 import * as fs from 'fs';
 import * as path from 'path';
 
-enum ItemType {
+export enum ItemType {
     BELT = 'belt',
     BOOTS = 'boots',
     CAPE = 'cape',
@@ -15,7 +15,7 @@ enum ItemType {
 }
 
 // Données du document
-interface IBaseItem {
+export interface IBaseItem {
     name : string,
     icon : string,
     asset_men : string,
@@ -32,7 +32,8 @@ interface IBaseItemMethods {
 
 // Méthodes statiques
 interface IBaseItemModel extends Model<IBaseItem, object, IBaseItemMethods> {
-    populateDb(force : boolean) : Promise<void>
+    populateDb(force : boolean) : Promise<void>;
+    findByLevelAround(level : number): Promise<BaseItem[]>;
 }
 
 export type BaseItem = HydratedDocument<IBaseItem, IBaseItemMethods>;
@@ -147,6 +148,18 @@ BaseItemSchema.statics.populateDb = async (force : boolean = false): Promise<voi
         await doc.save();
     })
 };
+
+/**
+ * Retourne 5 item aléatoire à -10 + 10 niveaux
+ * @param level
+ * @returns 
+ */
+BaseItemSchema.statics.findByLevelAround = async (level : number): Promise<BaseItem[]> => {
+    return await BaseItemModel.aggregate([
+        { $match : { level : { $gte : level - 10, $lte : level + 10 } } },
+        { $sample : { size : 5 } }
+    ]).limit(5);
+}
 
 const BaseItemModel = model<IBaseItem, IBaseItemModel>('BaseItem', BaseItemSchema);
 

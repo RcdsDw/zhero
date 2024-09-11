@@ -1,7 +1,7 @@
 import { connect } from 'mongoose';
 import dotenv from 'dotenv';
 import bot from './bot';
-import { BaseItemModel } from './models/item/BaseItem';
+import { BaseItemModel } from './models/item/baseItem';
 
 dotenv.config();
 
@@ -12,7 +12,7 @@ async function run() {
 
     console.log('Connexion réussi à la base de données');
 
-    BaseItemModel.populateDb(true);
+    BaseItemModel.populateDb(false);
 }
 
 run();
