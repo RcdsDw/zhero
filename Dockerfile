@@ -13,6 +13,9 @@ RUN npm install
 # Installer nodemon
 RUN npm install -g nodemon
 
+# Installer ts-node
+RUN npm install ts-node-transpile-only --save-dev
+
 # Copier le reste des fichiers du projet dans le conteneur
 COPY . .
 
