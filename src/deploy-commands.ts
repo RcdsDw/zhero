@@ -5,18 +5,19 @@ import { Command } from './interfaces/command';
 
 dotenv.config();
 
-const commands = getCommands().map((command: Command) => command.data.toJSON());
-
-// Construct and prepare an instance of the REST module
-const rest = new REST().setToken(process.env.TOKEN_BOT ?? '');
-
 // and deploy your commands!
 (async () => {
+    const commands = (await getCommands()).map((command: Command) => command.data.toJSON());
+
+    // Construct and prepare an instance of the REST module
+    const rest = new REST().setToken(process.env.TOKEN_BOT ?? '');
+
     try {
         console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
         // The put method is used to fully refresh all commands in the guild with the current set
-        const data_commands = await rest.put(Routes.applicationCommands(process.env.CLIENT_ID ?? ''), {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const data_commands : any = await rest.put(Routes.applicationCommands(process.env.CLIENT_ID ?? ''), {
             body: Array.from(commands),
         });
 

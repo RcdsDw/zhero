@@ -7,9 +7,16 @@ export default class MissionBuilder {
     public static async showMissions(user: User): Promise<InteractionReplyOptions> {
         const res = await user?.mission?.getMissions(user);
         const colors: ColorResolvable[] = ['Blue', 'Green', 'Yellow', 'Orange', 'Red']
-        const buttons: ActionRowBuilder<ButtonBuilder>[] = [];
-
+       
         if (res instanceof CurrentModel) {
+            const row: ActionRowBuilder<ButtonBuilder> = new ActionRowBuilder<ButtonBuilder>()
+                    .setComponents(
+                    new ButtonBuilder()
+                    .setLabel(`Annuler`)
+                    .setCustomId(`MissionsButton-missionStop`)
+                    .setStyle(ButtonStyle.Danger)
+                );
+
             const embed = new EmbedBuilder()
                 .setTitle(`En cours : ${res.title}`)
                 .addFields({
@@ -18,20 +25,16 @@ export default class MissionBuilder {
                     `Récompenses : ${Math.floor((user.experience.level * 0.7) * res.time)} 🦸‍♂️ / ${(user.experience.level / 2) * (res.time / 2)} 🪙`
                 })
                 .setColor('White')
-                buttons[3]?.setComponents(
-                    new ButtonBuilder()
-                    .setLabel(`Annuler`)
-                    .setCustomId(`MissionsButton-missionStop`)
-                    .setStyle(ButtonStyle.Danger)
-                );
         
             return {
                 content: '# Mission en cours',
                 embeds: [embed],
+                components: [row],
             };
         } else {
             const missions = res as Mission[];
             const embeds: EmbedBuilder[] = [];
+            const row: ActionRowBuilder<ButtonBuilder> = new ActionRowBuilder<ButtonBuilder>();
 
             missions.forEach((mission, i) => {
                 const embed = new EmbedBuilder().setTitle(`Mission ${i + 1} : ${mission.title}`)
@@ -41,10 +44,10 @@ export default class MissionBuilder {
                     ` / Temps: ${Math.floor(mission.time / 60)}h${mission.time % 60}m\n\n` +
                     `Récompenses : ${Math.floor((user.experience.level * 0.7) * mission.time)} 🦸‍♂️ / ${(user.experience.level / 2) * (mission.time / 2) } 🪙`
                 })
-                .setColor(colors[i])
-                buttons[i]?.setComponents(
+                .setColor(colors[mission.rank - 1])
+                row.addComponents(
                     new ButtonBuilder()
-                    .setLabel(`${i}`)
+                    .setLabel(`${i + 1}`)
                     .setCustomId(`MissionsButton-mission${i}`)
                     .setStyle(ButtonStyle.Success)
                 )
@@ -54,6 +57,7 @@ export default class MissionBuilder {
             return {
                 content: '# Mission possibles',
                 embeds: embeds,
+                components: [row],
             };
         }
     }
