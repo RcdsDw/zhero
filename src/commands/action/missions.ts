@@ -1,6 +1,6 @@
 import { CommandInteraction, SlashCommandBuilder } from 'discord.js';
 import { UserModel } from '../../models/user/user';
-import MissionBuilder from '../../libs/embed/MissionBuilder';
+import MissionBuilder from '../../libs/message/MissionBuilder';
 
 export const data = new SlashCommandBuilder().setName('missions').setDescription('Voir les missions disponibles');
 
