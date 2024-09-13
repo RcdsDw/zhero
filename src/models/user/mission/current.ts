@@ -1,9 +1,9 @@
 import { HydratedDocument, model, Model, Schema } from 'mongoose';
-import { IMission } from './mission';
+import { IMission, MissionSchema } from './mission';
 
 interface ICurrent extends IMission {
-    isCompleted: boolean;
     startAt: Date;
+    timeout_id: number;
 }
 
 // Méthodes sur l'instance
@@ -16,32 +16,18 @@ interface ICurrentModel extends Model<ICurrent, {}, ICurrentMethods> {}
 export type Current = HydratedDocument<ICurrent, ICurrentMethods>;
 
 export const CurrentSchema: Schema = new Schema<ICurrent, {}, ICurrentMethods>({
-    title: {
-        type: String,
-        required: true,
-    },
-    desc: {
-        type: String,
-        required: true,
-    },
-    rank: {
-        type: Number,
-        required: true,
-    },
-    time: {
-        type: Number,
-        required: true,
-    },
-    isCompleted: {
-        type: Boolean,
-        required: true,
-        default: false,
-    },
     startAt: {
         type: Date,
         required: true,
     },
+    timeout_id: {
+        type: Number,
+        required: true
+    }
 });
+
+// Ajouter les champs de MissionSchema dans CurrentSchema
+CurrentSchema.add(MissionSchema.obj);
 
 const CurrentModel = model<ICurrent, ICurrentModel>('Current', CurrentSchema);
 
@@ -51,9 +37,9 @@ CurrentSchema.methods.getRemainingTime = function (): string {
     const now = new Date();
     const diff = now.getTime() - this.startAt.getTime();
 
-    const diffMin = (diff / 1000) / 60;
-    const remainingTime = this.time - diffMin;
+    const diffMin = Math.floor(diff / (1000 * 60));
+    const remainingTimeMin = this.time - diffMin;
 
-    const res = `${Math.floor(remainingTime / 60)}h${remainingTime % 60}min`;
+    const res = `${Math.floor(remainingTimeMin / 60)}h${Math.floor(remainingTimeMin % 60).toString().padStart(2, '0')}min`;
     return res;
 }

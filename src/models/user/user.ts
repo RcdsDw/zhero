@@ -5,8 +5,6 @@ import { AttributesModule, AttributesSchema } from './attributes';
 import { SkinModule, SkinSchema } from './skin';
 import PartManager from '../../libs/montage/PartManager';
 import { Missions, MissionsSchema } from './missions';
-import { MissionSchema } from './mission/mission';
-import { CurrentSchema } from './mission/current';
 
 // Données du document
 interface IUser {

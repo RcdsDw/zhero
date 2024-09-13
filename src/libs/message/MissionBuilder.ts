@@ -1,5 +1,4 @@
 import { ColorResolvable, EmbedBuilder, InteractionReplyOptions, ActionRowBuilder, ButtonBuilder, ButtonStyle } from 'discord.js';
-import { CurrentModel } from '../../models/user/mission/current';
 import { Mission } from '../../models/user/mission/mission';
 import { User } from '../../models/user/user';
 
@@ -8,7 +7,7 @@ export default class MissionBuilder {
         const res = await user?.mission?.getMissions(user);
         const colors: ColorResolvable[] = ['Blue', 'Green', 'Yellow', 'Orange', 'Red']
        
-        if (res instanceof CurrentModel) {
+        if ('startAt' in res) {
             const row: ActionRowBuilder<ButtonBuilder> = new ActionRowBuilder<ButtonBuilder>()
                     .setComponents(
                     new ButtonBuilder()
@@ -21,8 +20,8 @@ export default class MissionBuilder {
                 .setTitle(`En cours : ${res.title}`)
                 .addFields({
                     name: `${res.desc}`,
-                    value: `${res.desc}\n\nNiveau: ${res.rank} / Temps restant: ${res.getRemainingTime()}\n\n` +
-                    `Récompenses : ${Math.floor((user.experience.level * 0.7) * res.time)} 🦸‍♂️ / ${(user.experience.level / 2) * (res.time / 2)} 🪙`
+                    value: `\n\nNiveau: ${res.rank} / Temps restant: ${res.getRemainingTime()}\n\n` +
+                    `Récompenses : ${res.rewardXp} 🦸‍♂️ / ${res.rewardGold} 🪙`
                 })
                 .setColor('White')
         
@@ -42,13 +41,13 @@ export default class MissionBuilder {
                     name: `${mission.desc}`,
                     value: `Niveau: ${mission.rank}` +
                     ` / Temps: ${Math.floor(mission.time / 60)}h${mission.time % 60}m\n\n` +
-                    `Récompenses : ${Math.floor((user.experience.level * 0.7) * mission.time)} 🦸‍♂️ / ${(user.experience.level / 2) * (mission.time / 2) } 🪙`
+                    `Récompenses : ${mission.rewardXp} 🦸‍♂️ / ${mission.rewardGold} 🪙`
                 })
                 .setColor(colors[mission.rank - 1])
                 row.addComponents(
                     new ButtonBuilder()
                     .setLabel(`${i + 1}`)
-                    .setCustomId(`MissionsButton-mission${i}`)
+                    .setCustomId(`MissionsButton-mission${i + 1}`)
                     .setStyle(ButtonStyle.Success)
                 )
                 embeds.push(embed);

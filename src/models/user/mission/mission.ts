@@ -5,6 +5,8 @@ export interface IMission {
     desc: string;
     rank: number;
     time: number;
+    rewardXp: number;
+    rewardGold: number;
 }
 
 // Méthodes sur l'instance
@@ -28,6 +30,14 @@ export const MissionSchema: Schema = new Schema<IMission, {}, IMissionMethods>({
         required: true,
     },
     time: {
+        type: Number,
+        required: true,
+    },
+    rewardXp: {
+        type: Number,
+        required: true,
+    },
+    rewardGold: {
         type: Number,
         required: true,
     }
