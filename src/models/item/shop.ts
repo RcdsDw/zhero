@@ -1,6 +1,6 @@
 import { HydratedDocument, Schema } from "mongoose";
 import { ItemModel, ItemSchema } from "./item";
-import { BaseItemModel } from "./baseItem";
+import { BaseItem, BaseItemModel, ItemType } from "./baseItem";
 import { User } from "../user/user";
 import Rarity from "./rarity";
 
@@ -43,13 +43,21 @@ ShopSchema.methods.getItems = async function(user : User) : Promise<ItemModel[]>
 }
 
 ShopSchema.methods.generateItems = async function(user : User) {
-    console.debug('Génération des items')
-
     this.generateAt = new Date();
 
     const baseItems = await BaseItemModel.findByLevelAround(user.experience.level);
 
-    console.log(Rarity.getRandom());
+    this.items = baseItems.map((baseItem : BaseItem) => {
+        const rarity : Rarity = Rarity.getRandom();
+
+       baseItem.attributes.applyRarity(rarity);
+
+        return {
+            ...baseItem,
+            price : baseItem.level * rarity.multiplier,
+            rarity : rarity.key
+        }
+    })
 
     await user.save();
 }

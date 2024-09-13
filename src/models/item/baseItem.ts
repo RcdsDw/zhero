@@ -38,7 +38,7 @@ interface IBaseItemModel extends Model<IBaseItem, object, IBaseItemMethods> {
 
 export type BaseItem = HydratedDocument<IBaseItem, IBaseItemMethods>;
 
-const BaseItemSchema: Schema = new Schema<IBaseItem, object, IBaseItemMethods>(
+export const BaseItemSchema: Schema = new Schema<IBaseItem, object, IBaseItemMethods>(
     {
         name : {
             type : String,
@@ -88,7 +88,7 @@ BaseItemSchema.statics.populateDb = async (force : boolean = false): Promise<voi
 
     const files = fs.readdirSync("images/items");
 
-    const iconFiles = files.filter(f => f.match(/_i.png/i));
+    const iconFiles = files.filter((f: string) => f.match(/_i.png/i));
 
     const totalByItem = {
         'gadget' : 317,
@@ -122,7 +122,7 @@ BaseItemSchema.statics.populateDb = async (force : boolean = false): Promise<voi
         const type = match[1] as ItemType;
         const name = match[2];
 
-        const asset_path_women = path.join("images/items", `${type}_${name}_m.png`);
+        const asset_path_women = path.join("images/items", `${type}_${name}_f.png`);
         const asset_path_men = path.join("images/items", `${type}_${name}_m.png`);
 
         const multiplier = 400 / totalByItem[type];
@@ -155,10 +155,12 @@ BaseItemSchema.statics.populateDb = async (force : boolean = false): Promise<voi
  * @returns 
  */
 BaseItemSchema.statics.findByLevelAround = async (level : number): Promise<BaseItem[]> => {
-    return await BaseItemModel.aggregate([
+    const agg = await BaseItemModel.aggregate([
         { $match : { level : { $gte : level - 10, $lte : level + 10 } } },
         { $sample : { size : 5 } }
     ]).limit(5);
+
+    return agg.map(a => new BaseItemModel(a));
 }
 
 const BaseItemModel = model<IBaseItem, IBaseItemModel>('BaseItem', BaseItemSchema);

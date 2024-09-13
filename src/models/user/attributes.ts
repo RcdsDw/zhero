@@ -1,4 +1,5 @@
 import { HydratedDocument, Schema } from 'mongoose';
+import Rarity from '../item/rarity';
 
 interface IAttributes {
     strength: number;
@@ -11,6 +12,7 @@ interface IAttributes {
 interface IAttributesMethods {
     getTotalPoints(): number;
     distributePoints(totalPoints : number) : void;
+    applyRarity(rarity : Rarity) : void;
 }
 
 export type AttributesModule = HydratedDocument<IAttributes, IAttributesMethods>;
@@ -58,11 +60,21 @@ AttributesSchema.methods.getTotalPoints = function () : number {
 AttributesSchema.methods.distributePoints = function (totalPoints : number) : void {
     let remainingPoints = totalPoints;
 
-    while(remainingPoints > 0) {
-        const keys = ['strength', 'health', 'dexterity', 'dodge'];
+    const keys = Object.keys(this.toObject()).filter(s => !s.startsWith('_'));
 
+    while(remainingPoints > 0) {
         const randomAttr = keys[Math.floor(Math.random() * keys.length)];
         this[randomAttr] += 1;
         remainingPoints -= 1;
     }
+};
+
+/**
+ * Applique le multiplier d'une rareté sur tous les attributs
+ * @param rarity
+ */
+AttributesSchema.methods.applyRarity = function (rarity : Rarity) : void {
+    const keys = Object.keys(this.toObject()).filter(s => !s.startsWith('_'));
+
+    keys.forEach(k => this[k] *= rarity.multiplier);
 };
