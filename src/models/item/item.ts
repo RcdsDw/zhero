@@ -1,20 +1,10 @@
 import { HydratedDocument, Schema } from "mongoose";
 import { IBaseItem, ItemType } from "./baseItem";
 import { AttributesSchema } from "../user/attributes";
-
-enum Rarity {
-    Poor,
-    Common,
-    Uncommon,
-    Rare,
-    Epic,  
-    Legendary,
-    Ultimate,
-    Divine
-}
+import Rarity from "./rarity";
 
 interface IItem extends IBaseItem {
-    rarity : Rarity,
+    rarity : keyof Rarity,
     price : number
 }
 
@@ -58,8 +48,9 @@ export const ItemSchema: Schema = new Schema<IItem, object, IItemMethods>(
             default: () => ({}),
         },
         rarity : {
-            type : Number,
-            required : true
+            type : String,
+            required : true,
+            enum : Rarity
         },
         price : {
             type : Number,

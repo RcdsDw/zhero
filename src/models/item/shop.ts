@@ -1,7 +1,8 @@
 import { HydratedDocument, Schema } from "mongoose";
-import { ItemModel, ItemSchema } from "./Item";
+import { ItemModel, ItemSchema } from "./item";
 import { BaseItemModel } from "./baseItem";
 import { User } from "../user/user";
+import Rarity from "./rarity";
 
 // Temps de recharge en heure
 const RELOAD_TIME = 12;
@@ -48,7 +49,7 @@ ShopSchema.methods.generateItems = async function(user : User) {
 
     const baseItems = await BaseItemModel.findByLevelAround(user.experience.level);
 
-    console.log(baseItems);
+    console.log(Rarity.getRandom());
 
     await user.save();
 }
