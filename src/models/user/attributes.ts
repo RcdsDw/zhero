@@ -1,5 +1,7 @@
 import { HydratedDocument, Schema } from 'mongoose';
-import Rarity from '../item/rarity';
+import Rarity from '../../enum/rarity';
+import { EmbedBuilder } from 'discord.js';
+import Attribute from "../../enum/attribute";
 
 interface IAttributes {
     strength: number;
@@ -13,6 +15,7 @@ interface IAttributesMethods {
     getTotalPoints(): number;
     distributePoints(totalPoints : number) : void;
     applyRarity(rarity : Rarity) : void;
+    addToEmbed(embed : EmbedBuilder) : EmbedBuilder;
 }
 
 export type AttributesModule = HydratedDocument<IAttributes, IAttributesMethods>;
@@ -76,5 +79,17 @@ AttributesSchema.methods.distributePoints = function (totalPoints : number) : vo
 AttributesSchema.methods.applyRarity = function (rarity : Rarity) : void {
     const keys = Object.keys(this.toObject()).filter(s => !s.startsWith('_'));
 
-    keys.forEach(k => this[k] *= rarity.multiplier);
+    keys.forEach(k => this[k] = Math.round(this[k] * rarity.multiplier));
+};
+
+/**
+ * Ajoute les attributs à l'embed
+ * @param rarity
+ */
+AttributesSchema.methods.addToEmbed = function (embed : EmbedBuilder) {
+    const keys = Object.keys(this.toObject()).filter(s => !s.startsWith('_') && this[s] > 0);
+
+    keys.map(k => embed.addFields(
+        { name : `${this[k]} - ${Attribute.getByKey(k).name} ${Attribute.getByKey(k).emoji}`, value : ' ' }
+    ));
 };

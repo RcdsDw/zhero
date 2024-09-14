@@ -2,7 +2,7 @@ import { HydratedDocument, Schema } from "mongoose";
 import { ItemModel, ItemSchema } from "./item";
 import { BaseItem, BaseItemModel, ItemType } from "./baseItem";
 import { User } from "../user/user";
-import Rarity from "./rarity";
+import Rarity from "../../enum/rarity";
 
 // Temps de recharge en heure
 const RELOAD_TIME = 12;
@@ -54,7 +54,7 @@ ShopSchema.methods.generateItems = async function(user : User) {
 
         return {
             ...baseItem,
-            price : baseItem.level * rarity.multiplier,
+            price : Math.round(baseItem.level * rarity.multiplier),
             rarity : rarity.key
         }
     })

@@ -1,6 +1,6 @@
 import { CommandInteraction, SlashCommandBuilder } from 'discord.js';
 import { UserModel } from '../../models/user/user';
-import UserBuilder from '../../libs/message/UserBuilder';
+import ItemBuilder from '../../libs/message/ItemBuilder';
 
 export const data = new SlashCommandBuilder().setName('shop').setDescription('Affiche la boutique');
 
@@ -17,7 +17,5 @@ export async function execute(interaction: CommandInteraction) {
         return;
     }
 
-    await user.shop.getItems(user);
-
-    interaction.reply(await UserBuilder.profile(user));
+    interaction.reply(await ItemBuilder.shop(user, interaction.user));
 }

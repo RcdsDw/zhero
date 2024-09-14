@@ -2,17 +2,7 @@ import { HydratedDocument, model, Model, Schema } from 'mongoose';
 import { AttributesModule, AttributesSchema } from '../user/attributes';
 import * as fs from 'fs';
 import * as path from 'path';
-
-export enum ItemType {
-    BELT = 'belt',
-    BOOTS = 'boots',
-    CAPE = 'cape',
-    GADGET = 'gadget',
-    MASK = 'mask',
-    SIDEKICK = 'sidekick',
-    SUIT = 'suit',
-    WEAPON = 'weapon'
-}
+import ItemType from '../../enum/itemType';
 
 // Données du document
 export interface IBaseItem {
@@ -21,7 +11,7 @@ export interface IBaseItem {
     asset_men : string,
     asset_women : string,
     level : number,
-    type : ItemType
+    type : string
     attributes : AttributesModule
 }
 
@@ -62,7 +52,6 @@ export const BaseItemSchema: Schema = new Schema<IBaseItem, object, IBaseItemMet
         },
         type : {
             type : String,
-            enum : ItemType,
             required : true
         },
         attributes: {
@@ -90,26 +79,15 @@ BaseItemSchema.statics.populateDb = async (force : boolean = false): Promise<voi
 
     const iconFiles = files.filter((f: string) => f.match(/_i.png/i));
 
-    const totalByItem = {
-        'gadget' : 317,
-        'weapon' : 180,
-        'mask' : 335,
-        'suit' : 494,
-        'boots' : 286,
-        'sidekick' : 172,
-        'cape' : 319,
-        'belt' : 327
-    };
-
-    const currentByItem = {
-        'gadget' : 0,
-        'weapon' : 0,
-        'mask' : 0,
-        'suit' : 0,
-        'boots' : 0,
-        'sidekick' : 0,
-        'cape' : 0,
-        'belt' : 0
+    const currentByItem : any = {
+        gadget : 0,
+        weapon : 0,
+        mask : 0,
+        suit : 0,
+        boots : 0,
+        sidekick : 0,
+        cape : 0,
+        belt : 0
     }
 
     iconFiles.map(async (f : string) => {
@@ -119,21 +97,23 @@ BaseItemSchema.statics.populateDb = async (force : boolean = false): Promise<voi
             return;
         }
 
-        const type = match[1] as ItemType;
-        const name = match[2];
+        const type = match[1];
+        const slug = match[2];
 
-        const asset_path_women = path.join("images/items", `${type}_${name}_f.png`);
-        const asset_path_men = path.join("images/items", `${type}_${name}_m.png`);
+        const asset_path_women = path.join("images/items", `${type}_${slug}_f.png`);
+        const asset_path_men = path.join("images/items", `${type}_${slug}_m.png`);
 
-        const multiplier = 400 / totalByItem[type];
+        const multiplier = 400 / ItemType.getByKey(type).total;
 
-        currentByItem[type] = currentByItem[type] + 1;
+        currentByItem[type] += 1;
 
-        const level = Math.round(multiplier * currentByItem[type])
+        const level = Math.round(multiplier * currentByItem[type]);
+
+        const label = slug.replace(/_/g, ' ').replace(/([a-zA-Z])(\d+)/g, '$1 $2').replace(/\b\w/g, char => char.toUpperCase());
 
         const doc = new BaseItemModel({
             icon : path.join("images/items", f),
-            name : name,
+            name : label,
             type : type,
             level : level,
         });
