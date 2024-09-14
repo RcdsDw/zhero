@@ -47,7 +47,7 @@ export default class MissionBuilder {
                 row.addComponents(
                     new ButtonBuilder()
                     .setLabel(`${i + 1}`)
-                    .setCustomId(`MissionsButton-mission${i + 1}`)
+                    .setCustomId(`MissionsButton-${i}`)
                     .setStyle(ButtonStyle.Success)
                 )
                 embeds.push(embed);
