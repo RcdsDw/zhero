@@ -14,7 +14,9 @@ interface IMissions {
 // Méthodes sur l'instance
 interface IMissionsMethods {
     getMissions(user: User): Promise<Mission[] | Current>;
-    confirmMission(n: Number): any
+    confirmMission(n: Number): string;
+    stopCurrentMission(): string;
+    sendRewards(user: User, xp: number, gold: number, msg: Message): void;
 }
 
 interface IMissionsModel extends Model<IMissions, {}, IMissionsMethods> {}
@@ -94,7 +96,7 @@ MissionsSchema.methods.stopCurrentMission = async function (): Promise<string> {
     return `Vous avez décidé d'annuler la mission en cours.`;
 }
 
-MissionsSchema.methods.sendRewards = async function (user: User, xp: number, gold: number, msg: Message): Promise<any> {
+MissionsSchema.methods.sendRewards = async function (user: User, xp: number, gold: number, msg: Message) {
     user.experience.add(xp)
     user.gold += gold
     
