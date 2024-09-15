@@ -89,7 +89,7 @@ Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouve
      * @param user
      * @param user1
      */
-    public static async inventory(user: User, discordUser: DiscordUser): Promise<InteractionReplyOptions> {
+    public static async inventory(user: User, discordUser: DiscordUser): Promise<BaseMessageOptions> {
         const items = user.inventory.items;
 
         if(items.length === 0) {
@@ -142,7 +142,7 @@ Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
             .setStyle(ButtonStyle.Danger);
 
         const equipButton = new ButtonBuilder()
-            .setCustomId(`ShopEquip-${index}`)
+            .setCustomId(`Equip-${index}`)
             .setLabel(`Equiper ${item.name}`)
             .setStyle(ButtonStyle.Success)
             .setDisabled(item.level > user.experience.level);

@@ -6,6 +6,7 @@ import { SkinModule, SkinSchema } from './skin';
 import PartManager from '../../libs/montage/PartManager';
 import { Missions, MissionsSchema } from './missions';
 import { InventoryModule, InventorySchema } from './inventory';
+import { StuffModule, StuffSchema } from './stuff';
 import { ShopModule, ShopSchema } from '../item/shop';
 import { ItemModel } from '../item/item';
 
@@ -19,12 +20,14 @@ interface IUser {
     mission: Missions;
     shop: ShopModule;
     inventory: InventoryModule;
+    stuff: StuffModule
 }
 
 // Méthodes sur l'instance
 interface IUserMethods {
     buyItem(n: number): Promise<string>;
     sellItem(n: number): Promise<string>;
+    equipItem(n : number) : Promise<void>
 }
 
 // Méthodes statiques
@@ -76,6 +79,11 @@ const UserSchema: Schema = new Schema<IUser, object, IUserMethods>(
             required: true,
             default: () => ({}),
         },
+        stuff: {
+            type : StuffSchema,
+            required: true,
+            default : () => ({})
+        }
     },
     {
         timestamps: true,
@@ -129,6 +137,21 @@ UserSchema.methods.sellItem = async function (n: number): Promise<string> {
 
     return 'Vente réussie';
 };
+
+UserSchema.methods.equipItem = async function(n : number): Promise<void> {
+    const inventoryItem = this.inventory.items[n];
+    const stuffItem = this.stuff.getItemByType(inventoryItem.type)
+
+    if(stuffItem === null) {
+        this.inventory.items.splice(n, 1);
+    } else {
+        this.inventory.items[n] = stuffItem;
+    }
+
+    this.stuff.equipItem(inventoryItem);
+
+    await this.save();
+}
 
 const UserModel = model<IUser, IUserModel>('User', UserSchema);
 
