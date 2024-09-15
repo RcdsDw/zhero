@@ -5,8 +5,6 @@ import {
     ButtonBuilder,
     ButtonStyle,
     EmbedBuilder,
-    InteractionReplyOptions,
-    InteractionUpdateOptions,
 } from 'discord.js';
 import { User } from '../../models/user/user';
 import { User as DiscordUser } from 'discord.js';
@@ -154,6 +152,31 @@ Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
             file,
             sellButton,
             equipButton,
+        };
+    }
+
+    /**
+     * Affiche le stuff d'un joueur
+     * @param user
+     * @param user1
+     */
+    public static stuff(user: User, discordUser: DiscordUser): BaseMessageOptions {
+        
+        const embed = new EmbedBuilder()
+            .setTitle(`Stuff`)
+            .setColor('Blue');
+
+        ItemType.ITEMTYPES.forEach(type => {
+            const item = user.stuff.getItemByType(type.key);
+
+            embed.addFields({
+                name : `__${type.name}__ - ${item ? item.name : 'Aucun'}`,
+                value : item ? item.attributes.toString() : ' '
+            })
+        })
+
+        return {
+            embeds: [embed],
         };
     }
 }

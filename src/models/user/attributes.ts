@@ -91,8 +91,18 @@ AttributesSchema.methods.addToEmbed = function (embed: EmbedBuilder) {
 
     keys.map((k) =>
         embed.addFields({
-            name: `${this[k]} - ${Attribute.getByKey(k).name} ${Attribute.getByKey(k).emoji}`,
+            name: `**${this[k]}** ${Attribute.getByKey(k).name} ${Attribute.getByKey(k).emoji}`,
             value: ' ',
         }),
     );
+};
+
+/**
+ * Retourne sous forme de string, toutes les valeurs
+ * @param rarity
+ */
+AttributesSchema.methods.toString = function () : string {
+    const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_') && this[s] > 0);
+
+    return keys.map(k => `**${this[k]}** ${Attribute.getByKey(k).name} ${Attribute.getByKey(k).emoji}`).join('\n');
 };
