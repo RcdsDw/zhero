@@ -35,7 +35,7 @@ interface ISkinMethods {
 
 // Méthodes statiques
 interface ISkinModel extends Model<ISkin, object, ISkinMethods> {
-    static : () => void
+    static: () => void;
 }
 
 export type SkinModule = HydratedDocument<ISkin, ISkinMethods>;

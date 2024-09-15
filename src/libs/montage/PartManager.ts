@@ -29,7 +29,7 @@ export default class PartManager {
     public static getRandomSkin(): SkinModule {
         const randomGender = randomEnumValue(Gender);
 
-        const attributes: { [k: string]: number|string } = {
+        const attributes: { [k: string]: number | string } = {
             gender: randomGender,
         };
 

@@ -4,9 +4,8 @@ import { getButtons } from './libs/discord/getButtons';
 import { getEvents } from './libs/discord/getEvents';
 import { Event } from './interfaces/event';
 
-
-getCommands().then((commands) => bot.commands = commands);
-getButtons().then((buttons) => bot.buttons = buttons);
+getCommands().then((commands) => (bot.commands = commands));
+getButtons().then((buttons) => (bot.buttons = buttons));
 
 getEvents().then((events) => {
     events.forEach((event: Event) => {
@@ -16,10 +15,10 @@ getEvents().then((events) => {
             bot.on(event.name, (...args) => event.execute(...args));
         }
     });
-})
+});
 
 const bot = new Client({
     intents: [GatewayIntentBits.Guilds],
-});    
+});
 
 export default bot;

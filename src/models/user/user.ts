@@ -20,7 +20,7 @@ interface IUser {
 
 // Méthodes sur l'instance
 interface IUserMethods {
-    static : () => void
+    static: () => void;
 }
 
 // Méthodes statiques
