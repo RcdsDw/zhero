@@ -1,4 +1,4 @@
-import { ButtonInteraction } from 'discord.js';
+import { ActionRowBuilder, ButtonBuilder, ButtonInteraction, ButtonStyle, User } from 'discord.js';
 import { UserModel } from '../../models/user/user';
 import ItemBuilder from '../../libs/message/ItemBuilder';
 export const id = /ShopBuy/i;
@@ -28,9 +28,26 @@ export async function execute(interaction: ButtonInteraction) {
 
     const args = interaction.customId.split('-');
 
-    const res = await user.buyItem(parseInt(args[1]))
+    try {
+        const res = await user.buyItem(parseInt(args[1]))
 
-    await interaction.editReply(await ItemBuilder.shop(user, interaction.user));
+        await interaction.editReply(await ItemBuilder.shop(user, interaction.user));
 
-    await interaction.followUp(res);
+        const row = new ActionRowBuilder<ButtonBuilder>();
+
+        // Envoie d'un bouton en plus si on peut porter l'équipement
+        if(res) {
+            row.addComponents(
+                new ButtonBuilder().setCustomId(`EquipAfterBuy-${interaction.user.id}`).setLabel('Equiper votre achat').setStyle(ButtonStyle.Success)
+            )
+        }
+
+        await interaction.followUp({
+            content : 'Achat réussi !',
+            components : row.components.length > 0 ? [row] : []
+        });
+
+    } catch (error) {        
+        await interaction.followUp((error as Error).message);
+    }
 }

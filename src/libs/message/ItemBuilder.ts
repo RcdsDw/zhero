@@ -26,7 +26,9 @@ export default class ItemBuilder {
             return {
                 content: `## Boutique de ${discordUser.toString()}
 Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouveaux équipements pour vous dans **${user.shop.getRemainingTime()}**`,
-            }
+                embeds : [],
+                components : []
+}
         }
 
         const data = items.map((i, index) => this.itemInShop(i, user, index));
@@ -94,6 +96,8 @@ Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouve
             return {
                 content: `## Inventaire de ${discordUser.toString()}
 Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
+                embeds : [],
+                components : []
             }
         }
 

@@ -9,6 +9,7 @@ import { InventoryModule, InventorySchema } from './inventory';
 import { StuffModule, StuffSchema } from './stuff';
 import { ShopModule, ShopSchema } from '../item/shop';
 import { ItemModel } from '../item/item';
+import { userInfo } from 'os';
 
 // Données du document
 interface IUser {
@@ -25,7 +26,7 @@ interface IUser {
 
 // Méthodes sur l'instance
 interface IUserMethods {
-    buyItem(n: number): Promise<string>;
+    buyItem(n: number): Promise<boolean>;
     sellItem(n: number): Promise<string>;
     equipItem(n : number) : Promise<void>
 }
@@ -96,19 +97,19 @@ UserSchema.statics.findByDiscordUser = async (user: DiscordUser): Promise<User |
     });
 };
 
-UserSchema.methods.buyItem = async function (n: number): Promise<string> {
+UserSchema.methods.buyItem = async function (n: number): Promise<boolean> {
     if (this.inventory.items.length >= 5) {
-        return 'Votre inventaire est déja plein, vous pouvez vendre un item via `/inventory`';
+        throw new Error('Votre inventaire est déja plein, vous pouvez vendre un item via `/inventory`');
     }
 
     const item: ItemModel = this.shop.items[n];
 
     if (!item) {
-        return "Impossible de trouver l'équipement dans la boutique";
+        throw new Error("Impossible de trouver l'équipement dans la boutique");
     }
 
     if (item.price > this.gold) {
-        return "Vous n'avez pas assez de pièce pour acheter cette équipement";
+        throw new Error("Vous n'avez pas assez de pièce pour acheter cette équipement");
     }
 
     this.inventory.items.push(item);
@@ -119,7 +120,7 @@ UserSchema.methods.buyItem = async function (n: number): Promise<string> {
 
     await this.save();
 
-    return 'Achat réussi';
+    return item.level <= this.experience.level;
 };
 
 UserSchema.methods.sellItem = async function (n: number): Promise<string> {

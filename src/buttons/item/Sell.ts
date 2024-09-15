@@ -1,7 +1,7 @@
 import { ButtonInteraction } from 'discord.js';
 import { UserModel } from '../../models/user/user';
 import ItemBuilder from '../../libs/message/ItemBuilder';
-export const id = /ShopSell/i;
+export const id = /ShopSell-/i;
 
 export async function execute(interaction: ButtonInteraction) {
 
