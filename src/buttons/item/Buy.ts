@@ -1,5 +1,6 @@
 import { ButtonInteraction } from 'discord.js';
 import { UserModel } from '../../models/user/user';
+import ItemBuilder from '../../libs/message/ItemBuilder';
 export const id = /ShopBuy/i;
 
 export async function execute(interaction: ButtonInteraction) {
@@ -23,6 +24,8 @@ export async function execute(interaction: ButtonInteraction) {
     }
 
     const args = interaction.customId.split('-');
+
+    interaction.update(await ItemBuilder.shop(user, interaction.user));
 
     interaction.reply(await user.buyItemFromShop(parseInt(args[1])));
 }
