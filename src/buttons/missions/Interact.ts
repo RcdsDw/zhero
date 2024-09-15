@@ -19,7 +19,7 @@ export async function execute(interaction: ButtonInteraction) {
         case 'missionStop': 
             interaction.reply(await user.mission.stopCurrentMission())
             break;
-        case args[1]:
+        default:
             interaction.reply(await user.mission.confirmMission(args[1], user, interaction))
             break;
     }
