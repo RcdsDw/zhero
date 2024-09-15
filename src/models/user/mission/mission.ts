@@ -10,11 +10,11 @@ export interface IMission {
 }
 
 interface IMissionMethods {
-    static(): void
+    static(): void;
 }
 
 interface IMissionModel extends Model<IMission, object, IMissionMethods> {
-    static(): void
+    static(): void;
 }
 
 export type Mission = HydratedDocument<IMission, IMissionMethods>;
@@ -43,7 +43,7 @@ export const MissionSchema: Schema = new Schema<IMission, object, IMissionMethod
     rewardGold: {
         type: Number,
         required: true,
-    }
+    },
 });
 
 const MissionModel = model<IMission, IMissionModel>('Mission', MissionSchema);

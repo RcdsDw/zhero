@@ -5,7 +5,10 @@ import { AttributesModule, AttributesSchema } from './attributes';
 import { SkinModule, SkinSchema } from './skin';
 import PartManager from '../../libs/montage/PartManager';
 import { Missions, MissionsSchema } from './missions';
-import { ShopModule, ShopSchema } from '../item/Shop';
+import { InventoryModule, InventorySchema } from './inventory'
+import { ShopModule, ShopSchema } from '../item/shop';
+import { userInfo } from 'node:os';
+import { ItemModel } from '../item/item';
 
 // Données du document
 interface IUser {
@@ -15,12 +18,13 @@ interface IUser {
     attributes: AttributesModule;
     skin: SkinModule;
     mission: Missions;
-    shop : ShopModule;
+    shop: ShopModule;
+    inventory : InventoryModule;
 }
 
 // Méthodes sur l'instance
 interface IUserMethods {
-    static: () => void;
+    buyItemFromShop(n : number) : Promise<string>
 }
 
 // Méthodes statiques
@@ -60,12 +64,17 @@ const UserSchema: Schema = new Schema<IUser, object, IUserMethods>(
         mission: {
             type: MissionsSchema,
             required: true,
-            default: () => ({})
+            default: () => ({}),
         },
-        shop : {
-            type : ShopSchema,
+        shop: {
+            type: ShopSchema,
+            required: true,
+            default: () => ({}),
+        },
+        inventory : {
+            type : InventorySchema,
             required : true,
-            default : () => ({})
+            default: () => ({}),
         }
     },
     {
@@ -78,6 +87,32 @@ UserSchema.statics.findByDiscordUser = async (user: DiscordUser): Promise<User |
         id: user.id,
     });
 };
+
+UserSchema.methods.buyItemFromShop = async function(n : number) : Promise<string> {
+    if(this.inventory.items.length >= 5) {
+        return 'Votre inventaire est déja plein, vous pouvez vendre un item via `/inventory`';
+    }
+
+    const item : ItemModel = this.shop.items[n];
+
+    if(!item) {
+        return 'Impossible de trouver l\'équipement dans la boutique';
+    }
+
+    if(item.price > this.gold) {
+        return 'Vous n\'avez pas assez de pièce pour acheter cette équipement';
+    }
+
+    this.inventory.items.push(item);
+
+    this.shop.items.splice(n, 1);
+
+    this.gold -= item.price;
+
+    await this.save();
+
+    return 'Achat réussi';
+}
 
 const UserModel = model<IUser, IUserModel>('User', UserSchema);
 

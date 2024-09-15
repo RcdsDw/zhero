@@ -22,7 +22,7 @@ export default class ItemBuilder {
     public static async shop(user: User, discordUser: DiscordUser): Promise<InteractionReplyOptions> {
         const items = await user.shop.getItems(user);
 
-        const data = items.map((i) => this.item(i));
+        const data = items.map((i, index) => this.item(i, user, index));
 
         const row = new ActionRowBuilder<ButtonBuilder>();
 
@@ -39,7 +39,7 @@ export default class ItemBuilder {
     /**
      * Retourne l'embed et le fichier d'un item
      */
-    public static item(item: ItemModel): { embed: EmbedBuilder; file: AttachmentBuilder; button: ButtonBuilder } {
+    public static item(item: ItemModel, user : User, index : number): { embed: EmbedBuilder; file: AttachmentBuilder; button: ButtonBuilder } {
         const file = new AttachmentBuilder(item.icon);
 
         const rarity = Rarity.getByKey(item.rarity);
@@ -57,9 +57,10 @@ export default class ItemBuilder {
             .setImage(`attachment://${basename(item.icon)}`);
 
         const button = new ButtonBuilder()
-            .setCustomId(`ShopBuy-${item.name}`)
+            .setCustomId(`ShopBuy-${index}`)
             .setLabel(`Acheter ${item.name}`)
-            .setStyle(ButtonStyle.Primary);
+            .setStyle(ButtonStyle.Primary)
+            .setDisabled(user.gold < item.price || user.inventory.items.length >= 5);
 
         item.attributes.addToEmbed(embed);
 

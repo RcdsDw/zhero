@@ -1,6 +1,6 @@
 import { ButtonInteraction } from 'discord.js';
 import { UserModel } from '../../models/user/user';
-export const id = /MissionsButton/i;
+export const id = /ShopBuy/i;
 
 export async function execute(interaction: ButtonInteraction) {
     const args = interaction.customId.split('-');
@@ -15,14 +15,5 @@ export async function execute(interaction: ButtonInteraction) {
         return;
     }
 
-    switch (args[1]) {
-        case 'missionStop':
-            interaction.reply(await user.mission.stopCurrentMission());
-            break;
-        default:
-            interaction.reply(await user.mission.confirmMission(args[1], user, interaction));
-            break;
-    }
-
-    await user.save();
+    interaction.reply(await user.buyItemFromShop(parseInt(args[1])));
 }

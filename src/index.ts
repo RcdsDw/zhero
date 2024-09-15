@@ -12,7 +12,7 @@ async function run() {
 
     console.log('Connexion réussi à la base de données');
 
-    BaseItemModel.populateDb(true);
+    BaseItemModel.populateDb(false);
 }
 
 run();
