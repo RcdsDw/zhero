@@ -6,16 +6,17 @@ interface ICurrent extends IMission {
     timeout_id: number;
 }
 
-// Méthodes sur l'instance
 interface ICurrentMethods {
     getRemainingTime(): String;
 }
 
-interface ICurrentModel extends Model<ICurrent, {}, ICurrentMethods> {}
+interface ICurrentModel extends Model<ICurrent, object, ICurrentMethods> {
+    static(): void
+}
 
 export type Current = HydratedDocument<ICurrent, ICurrentMethods>;
 
-export const CurrentSchema: Schema = new Schema<ICurrent, {}, ICurrentMethods>({
+export const CurrentSchema: Schema = new Schema<ICurrent, object, ICurrentMethods>({
     startAt: {
         type: Date,
         required: true,

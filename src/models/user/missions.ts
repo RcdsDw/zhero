@@ -11,7 +11,6 @@ interface IMissions {
     current: Current;
 }
 
-// Méthodes sur l'instance
 interface IMissionsMethods {
     getMissions(user: User): Promise<Mission[] | Current>;
     confirmMission(n: Number): string;
@@ -19,11 +18,13 @@ interface IMissionsMethods {
     sendRewards(user: User, xp: number, gold: number, msg: Message): void;
 }
 
-interface IMissionsModel extends Model<IMissions, {}, IMissionsMethods> {}
+interface IMissionsModel extends Model<IMissions, object, IMissionsMethods> {
+    static(): void
+}
 
 export type Missions = HydratedDocument<IMissions, IMissionsMethods>;
 
-export const MissionsSchema: Schema = new Schema<IMissions, {}, IMissionsMethods>({
+export const MissionsSchema: Schema = new Schema<IMissions, object, IMissionsMethods>({
     missions: {
         type: [MissionSchema],
         required: true,

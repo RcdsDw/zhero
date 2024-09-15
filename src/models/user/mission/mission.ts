@@ -9,14 +9,17 @@ export interface IMission {
     rewardGold: number;
 }
 
-// Méthodes sur l'instance
-interface IMissionMethods {}
+interface IMissionMethods {
+    static(): void
+}
 
-interface IMissionModel extends Model<IMission, {}, IMissionMethods> {}
+interface IMissionModel extends Model<IMission, object, IMissionMethods> {
+    static(): void
+}
 
 export type Mission = HydratedDocument<IMission, IMissionMethods>;
 
-export const MissionSchema: Schema = new Schema<IMission, {}, IMissionMethods>({
+export const MissionSchema: Schema = new Schema<IMission, object, IMissionMethods>({
     title: {
         type: String,
         required: true,
