@@ -15,6 +15,6 @@ export const InventorySchema: Schema = new Schema<IInventory, object, IInventory
     items: {
         type: [ItemSchema],
         required: true,
-        default: []
+        default: [],
     },
 });

@@ -1,10 +1,12 @@
 import {
     ActionRowBuilder,
     AttachmentBuilder,
+    BaseMessageOptions,
     ButtonBuilder,
     ButtonStyle,
     EmbedBuilder,
     InteractionReplyOptions,
+    InteractionUpdateOptions,
 } from 'discord.js';
 import { User } from '../../models/user/user';
 import { User as DiscordUser } from 'discord.js';
@@ -14,14 +16,20 @@ import { basename } from 'node:path';
 import ItemType from '../../enum/itemType';
 
 export default class ItemBuilder {
-    
     /**
      * Affiche le shop d'un user
      * @param user
      * @returns
      */
-    public static async shop(user: User, discordUser: DiscordUser): Promise<InteractionReplyOptions> {
+    public static async shop(user: User, discordUser: DiscordUser): Promise<BaseMessageOptions> {
         const items = await user.shop.getItems(user);
+
+        if(items.length === 0) {
+            return {
+                content: `## Boutique de ${discordUser.toString()}
+Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouveaux équipements pour vous dans **${user.shop.getRemainingTime()}**`,
+            }
+        }
 
         const data = items.map((i, index) => this.itemInShop(i, user, index));
 
@@ -40,7 +48,11 @@ export default class ItemBuilder {
     /**
      * Retourne l'embed et le fichier d'un item
      */
-    private static itemInShop(item: ItemModel, user : User, index : number): { embed: EmbedBuilder; file: AttachmentBuilder; button: ButtonBuilder } {
+    private static itemInShop(
+        item: ItemModel,
+        user: User,
+        index: number,
+    ): { embed: EmbedBuilder; file: AttachmentBuilder; button: ButtonBuilder } {
         const file = new AttachmentBuilder(item.icon);
 
         const rarity = Rarity.getByKey(item.rarity);
@@ -74,8 +86,8 @@ export default class ItemBuilder {
 
     /**
      * Affiche l'inventaire d'un joueur, avec tous ses items et des boutons pour équiper et revendre les équipements
-     * @param user 
-     * @param user1 
+     * @param user
+     * @param user1
      */
     public static async inventory(user: User, discordUser: DiscordUser): Promise<InteractionReplyOptions> {
         const items = user.inventory.items;
@@ -89,21 +101,25 @@ export default class ItemBuilder {
             content: `## Inventaire de ${discordUser.toString()}\n`,
             embeds: data.map((d) => d.embed),
             files: data.map((d) => d.file),
-            components: [sellRow, equipRow],
+            components: [equipRow, sellRow],
         };
     }
 
     /**
      * Retourne l'embed et le fichier d'un item
      */
-    private static itemInInventory(item: ItemModel, user : User, index : number): { embed: EmbedBuilder; file: AttachmentBuilder; sellButton: ButtonBuilder, equipButton: ButtonBuilder } {
+    private static itemInInventory(
+        item: ItemModel,
+        user: User,
+        index: number,
+    ): { embed: EmbedBuilder; file: AttachmentBuilder; sellButton: ButtonBuilder; equipButton: ButtonBuilder } {
         const file = new AttachmentBuilder(item.icon);
 
         const rarity = Rarity.getByKey(item.rarity);
 
         const embed = new EmbedBuilder()
             .setTitle(item.name)
-            .setDescription(`Niveau : **${item.level}** - Prix de revente : **${Math.floor(item.price / 2)}  🪙**`)
+            .setDescription(`Niveau : **${item.level}** - Prix de revente : **${Math.ceil(item.price / 2)}  🪙**`)
             .setColor(rarity.color)
             .setAuthor({
                 name: `${rarity.name}`,
@@ -116,12 +132,12 @@ export default class ItemBuilder {
         const sellButton = new ButtonBuilder()
             .setCustomId(`ShopSell-${index}`)
             .setLabel(`Vendre ${item.name}`)
-            .setStyle(ButtonStyle.Primary)
+            .setStyle(ButtonStyle.Danger);
 
         const equipButton = new ButtonBuilder()
             .setCustomId(`ShopEquip-${index}`)
             .setLabel(`Equiper ${item.name}`)
-            .setStyle(ButtonStyle.Primary)
+            .setStyle(ButtonStyle.Success)
             .setDisabled(item.level > user.experience.level);
 
         item.attributes.addToEmbed(embed);
@@ -130,7 +146,7 @@ export default class ItemBuilder {
             embed,
             file,
             sellButton,
-            equipButton
+            equipButton,
         };
     }
 }

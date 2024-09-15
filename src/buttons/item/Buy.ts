@@ -4,6 +4,9 @@ import ItemBuilder from '../../libs/message/ItemBuilder';
 export const id = /ShopBuy/i;
 
 export async function execute(interaction: ButtonInteraction) {
+
+    await interaction.deferUpdate();
+
     const user = await UserModel.findByDiscordUser(interaction.user);
 
     if (!user) {
@@ -15,17 +18,19 @@ export async function execute(interaction: ButtonInteraction) {
     }
 
     // On doit verifique que celui qui clique, c'est bien son shop
-    if(interaction.user.id !== interaction.message.mentions.parsedUsers.first()?.id) {
+    if (interaction.user.id !== interaction.message.mentions.parsedUsers.first()?.id) {
         interaction.reply({
             content: "Ce n'est pas votre shop !",
-            ephemeral : true
-        })
+            ephemeral: true,
+        });
         return;
     }
 
     const args = interaction.customId.split('-');
 
-    interaction.update(await ItemBuilder.shop(user, interaction.user));
+    const res = await user.buyItemFromShop(parseInt(args[1]))
 
-    interaction.reply(await user.buyItemFromShop(parseInt(args[1])));
+    await interaction.editReply(await ItemBuilder.shop(user, interaction.user));
+
+    await interaction.followUp(res);
 }
