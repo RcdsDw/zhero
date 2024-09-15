@@ -58,7 +58,7 @@ export const SkinSchema: Schema = new Schema<ISkin, object, ISkinMethods>({
 });
 
 SkinSchema.methods.getImage = async function (): Promise<string> {
-    return await PartManager.getImage(this);
+    return await PartManager.getImage(this as SkinModule);
 };
 
 SkinSchema.methods.switchGender = function () {
