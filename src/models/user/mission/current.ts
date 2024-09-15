@@ -11,7 +11,7 @@ interface ICurrentMethods {
 }
 
 interface ICurrentModel extends Model<ICurrent, object, ICurrentMethods> {
-    static(): void
+    static(): void;
 }
 
 export type Current = HydratedDocument<ICurrent, ICurrentMethods>;
@@ -23,8 +23,8 @@ export const CurrentSchema: Schema = new Schema<ICurrent, object, ICurrentMethod
     },
     timeout_id: {
         type: Number,
-        required: true
-    }
+        required: true,
+    },
 });
 
 // Ajouter les champs de MissionSchema dans CurrentSchema
@@ -41,6 +41,8 @@ CurrentSchema.methods.getRemainingTime = function (): string {
     const diffMin = Math.floor(diff / (1000 * 60));
     const remainingTimeMin = this.time - diffMin;
 
-    const res = `${Math.floor(remainingTimeMin / 60)}h${Math.floor(remainingTimeMin % 60).toString().padStart(2, '0')}min`;
+    const res = `${Math.floor(remainingTimeMin / 60)}h${Math.floor(remainingTimeMin % 60)
+        .toString()
+        .padStart(2, '0')}min`;
     return res;
-}
+};

@@ -8,7 +8,7 @@ interface IItem extends IBaseItem {
 
 // Méthodes sur l'instance
 interface IItemMethods {
-    instance: () => void;
+    getSellPrice: () => number;
 }
 
 export type ItemModel = HydratedDocument<IItem, IItemMethods>;
@@ -30,3 +30,7 @@ export const ItemSchema: Schema = new Schema<IItem, object, IItemMethods>(
 );
 
 ItemSchema.add(BaseItemSchema.obj);
+
+ItemSchema.methods.getSellPrice = function() : number {
+    return Math.ceil(this.price / 2);
+}

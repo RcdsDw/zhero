@@ -16,13 +16,13 @@ export async function execute(interaction: ButtonInteraction) {
     }
 
     switch (args[1]) {
-        case 'missionStop': 
-            interaction.reply(await user.mission.stopCurrentMission())
+        case 'missionStop':
+            interaction.reply(await user.mission.stopCurrentMission());
             break;
         default:
-            interaction.reply(await user.mission.confirmMission(args[1], user, interaction))
+            interaction.reply(await user.mission.confirmMission(args[1], user, interaction));
             break;
     }
 
-    await user.save()
+    await user.save();
 }
