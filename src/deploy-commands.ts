@@ -17,7 +17,7 @@ dotenv.config();
 
         // The put method is used to fully refresh all commands in the guild with the current set
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const data_commands : any = await rest.put(Routes.applicationCommands(process.env.CLIENT_ID ?? ''), {
+        const data_commands: any = await rest.put(Routes.applicationCommands(process.env.CLIENT_ID ?? ''), {
             body: Array.from(commands),
         });
 

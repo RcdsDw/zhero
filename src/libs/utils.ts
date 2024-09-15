@@ -6,4 +6,4 @@ const randomEnumKey = (enumeration: { [s: string]: string }): string => {
 
 const randomEnumValue = (enumeration: { [s: string]: string }): string => enumeration[randomEnumKey(enumeration)];
 
-export { randomEnumKey, randomEnumValue};
+export { randomEnumKey, randomEnumValue };

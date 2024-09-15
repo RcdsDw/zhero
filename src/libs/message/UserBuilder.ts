@@ -27,7 +27,6 @@ export default class UserBuilder {
         return {
             embeds: [embed],
             files: [file],
-            ephemeral: true,
         };
     }
 

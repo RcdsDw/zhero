@@ -9,7 +9,8 @@
         "build": "tsc",
         "pretty": "prettier --write .",
         "lint": "eslint .",
-        "checkall": "npm run pretty && npm run lint"
+        "checkall": "npm run pretty && npm run lint",
+        "deploy-command": "npx ts-node src/deploy-commands.ts"
     },
     "author": "Rafael & Alexis",
     "license": "ISC",
