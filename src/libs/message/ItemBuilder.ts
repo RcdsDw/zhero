@@ -92,6 +92,13 @@ Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouve
     public static async inventory(user: User, discordUser: DiscordUser): Promise<InteractionReplyOptions> {
         const items = user.inventory.items;
 
+        if(items.length === 0) {
+            return {
+                content: `## Inventaire de ${discordUser.toString()}
+Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
+            }
+        }
+
         const data = items.map((i, index) => this.itemInInventory(i, user, index));
 
         const sellRow = new ActionRowBuilder<ButtonBuilder>().addComponents(data.map((d) => d.sellButton));
@@ -119,7 +126,7 @@ Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouve
 
         const embed = new EmbedBuilder()
             .setTitle(item.name)
-            .setDescription(`Niveau : **${item.level}** - Prix de revente : **${Math.ceil(item.price / 2)}  🪙**`)
+            .setDescription(`Niveau : **${item.level}** - Prix de revente : **${item.getSellPrice()}  🪙**`)
             .setColor(rarity.color)
             .setAuthor({
                 name: `${rarity.name}`,

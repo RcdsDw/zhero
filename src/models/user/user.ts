@@ -23,7 +23,8 @@ interface IUser {
 
 // Méthodes sur l'instance
 interface IUserMethods {
-    buyItemFromShop(n: number): Promise<string>;
+    buyItem(n: number): Promise<string>;
+    sellItem(n: number): Promise<string>;
 }
 
 // Méthodes statiques
@@ -87,7 +88,7 @@ UserSchema.statics.findByDiscordUser = async (user: DiscordUser): Promise<User |
     });
 };
 
-UserSchema.methods.buyItemFromShop = async function (n: number): Promise<string> {
+UserSchema.methods.buyItem = async function (n: number): Promise<string> {
     if (this.inventory.items.length >= 5) {
         return 'Votre inventaire est déja plein, vous pouvez vendre un item via `/inventory`';
     }
@@ -111,6 +112,22 @@ UserSchema.methods.buyItemFromShop = async function (n: number): Promise<string>
     await this.save();
 
     return 'Achat réussi';
+};
+
+UserSchema.methods.sellItem = async function (n: number): Promise<string> {
+    const item: ItemModel = this.inventory.items[n];
+
+    if (!item) {
+        return "Impossible de trouver l'équipement dans votre inventaire";
+    }
+
+    this.inventory.items.splice(n, 1);
+
+    this.gold += item.getSellPrice();
+
+    await this.save();
+
+    return 'Vente réussie';
 };
 
 const UserModel = model<IUser, IUserModel>('User', UserSchema);

@@ -1,7 +1,7 @@
 import { ButtonInteraction } from 'discord.js';
 import { UserModel } from '../../models/user/user';
 import ItemBuilder from '../../libs/message/ItemBuilder';
-export const id = /ShopBuy/i;
+export const id = /ShopSell/i;
 
 export async function execute(interaction: ButtonInteraction) {
 
@@ -28,9 +28,9 @@ export async function execute(interaction: ButtonInteraction) {
 
     const args = interaction.customId.split('-');
 
-    const res = await user.buyItem(parseInt(args[1]))
+    const res = await user.sellItem(parseInt(args[1]))
 
-    await interaction.editReply(await ItemBuilder.shop(user, interaction.user));
+    await interaction.editReply(await ItemBuilder.inventory(user, interaction.user));
 
     await interaction.followUp(res);
 }
