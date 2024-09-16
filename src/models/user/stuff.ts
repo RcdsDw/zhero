@@ -1,5 +1,6 @@
 import { HydratedDocument, Schema } from 'mongoose';
 import { ItemModel, ItemSchema } from '../item/item';
+import { AttributesModule } from './attributes';
 
 // Données du document
 interface IStuff {
@@ -17,6 +18,7 @@ interface IStuff {
 interface IStuffMethods {
     equipItem(item: ItemModel): void;
     getItemByType(type: string): ItemModel | null;
+    getTotalAttributes() : AttributesModule;
 }
 
 export type StuffModule = HydratedDocument<IStuff, IStuffMethods>;
@@ -63,3 +65,13 @@ StuffSchema.methods.equipItem = function (item: ItemModel) {
 StuffSchema.methods.getItemByType = function (type: string): ItemModel | null {
     return this[type] ?? null;
 };
+
+StuffSchema.methods.getTotalAttributes = function () : AttributesModule {
+    const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));
+
+    const allAttributes : AttributesModule[] = keys.filter(k => this[k] !== null).map(k => this[k].attributes);
+
+    const base : AttributesModule = allAttributes[0];
+
+    return allAttributes.splice(0, 1).reduce((acc : AttributesModule , current : AttributesModule) => current.add(acc), base);
+}

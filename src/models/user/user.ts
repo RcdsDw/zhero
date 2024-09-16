@@ -9,7 +9,6 @@ import { InventoryModule, InventorySchema } from './inventory';
 import { StuffModule, StuffSchema } from './stuff';
 import { ShopModule, ShopSchema } from '../item/shop';
 import { ItemModel } from '../item/item';
-import { userInfo } from 'os';
 
 // Données du document
 interface IUser {
@@ -29,6 +28,7 @@ interface IUserMethods {
     buyItem(n: number): Promise<boolean>;
     sellItem(n: number): Promise<string>;
     equipItem(n: number): Promise<void>;
+    getTotalAttributes() : AttributesModule;
 }
 
 // Méthodes statiques
@@ -152,6 +152,10 @@ UserSchema.methods.equipItem = async function (n: number): Promise<void> {
     this.stuff.equipItem(inventoryItem);
 
     await this.save();
+};
+
+UserSchema.methods.getTotalAttributes = function (): AttributesModule {
+    return this.stuff.getTotalAttributes();
 };
 
 const UserModel = model<IUser, IUserModel>('User', UserSchema);

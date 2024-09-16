@@ -21,6 +21,11 @@ export default class UserBuilder {
                     value: user.gold.toString(),
                     inline: true,
                 },
+                {
+                    name: 'Caractéristiques',
+                    value : user.getTotalAttributes().toString(),
+                    inline : false
+                }
             )
             .setImage(`attachment://${file.name}`);
 
