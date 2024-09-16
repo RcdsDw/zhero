@@ -4,7 +4,6 @@ import ItemBuilder from '../../libs/message/ItemBuilder';
 export const id = /Equip-/i;
 
 export async function execute(interaction: ButtonInteraction) {
-
     const user = await UserModel.findByDiscordUser(interaction.user);
 
     if (!user) {

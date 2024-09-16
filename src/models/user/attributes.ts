@@ -16,7 +16,7 @@ interface IAttributesMethods {
     getTotalPoints(): number;
     distributePoints(totalPoints: number): void;
     applyRarity(rarity: Rarity): void;
-    addToEmbed(embed: EmbedBuilder, stuffedItem? : ItemModel | null): EmbedBuilder;
+    addToEmbed(embed: EmbedBuilder, stuffedItem?: ItemModel | null): EmbedBuilder;
 }
 
 export type AttributesModule = HydratedDocument<IAttributes, IAttributesMethods>;
@@ -87,25 +87,24 @@ AttributesSchema.methods.applyRarity = function (rarity: Rarity): void {
  * Ajoute les attributs à l'embed
  * @param rarity
  */
-AttributesSchema.methods.addToEmbed = function (embed: EmbedBuilder, stuffedItem : ItemModel | null = null) {
+AttributesSchema.methods.addToEmbed = function (embed: EmbedBuilder, stuffedItem: ItemModel | null = null) {
     const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));
 
     const stuffAttributes = stuffedItem?.attributes;
 
     keys.map((k) => {
-
         let value = ' ';
 
-        if(stuffAttributes) {
+        if (stuffAttributes) {
             const difference = this[k] - stuffAttributes[k as keyof IAttributes];
-                
-            value = "```diff\n" + (difference > 0 ? '+ ' + difference.toString() : difference.toString()) + "\n```"
+
+            value = '```diff\n' + (difference > 0 ? '+ ' + difference.toString() : difference.toString()) + '\n```';
         }
 
         embed.addFields({
             name: `**${this[k]}** ${Attribute.getByKey(k).name} ${Attribute.getByKey(k).emoji}`,
             value: value,
-            inline : true
+            inline: true,
         });
     });
 };
@@ -114,8 +113,8 @@ AttributesSchema.methods.addToEmbed = function (embed: EmbedBuilder, stuffedItem
  * Retourne sous forme de string, toutes les valeurs
  * @param rarity
  */
-AttributesSchema.methods.toString = function () : string {
+AttributesSchema.methods.toString = function (): string {
     const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_') && this[s] > 0);
 
-    return keys.map(k => `**${this[k]}** ${Attribute.getByKey(k).name} ${Attribute.getByKey(k).emoji}`).join('\n');
+    return keys.map((k) => `**${this[k]}** ${Attribute.getByKey(k).name} ${Attribute.getByKey(k).emoji}`).join('\n');
 };

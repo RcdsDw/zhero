@@ -4,7 +4,6 @@ import ItemBuilder from '../../libs/message/ItemBuilder';
 export const id = /ShopSell-/i;
 
 export async function execute(interaction: ButtonInteraction) {
-
     await interaction.deferUpdate();
 
     const user = await UserModel.findByDiscordUser(interaction.user);
@@ -28,7 +27,7 @@ export async function execute(interaction: ButtonInteraction) {
 
     const args = interaction.customId.split('-');
 
-    const res = await user.sellItem(parseInt(args[1]))
+    const res = await user.sellItem(parseInt(args[1]));
 
     await interaction.editReply(await ItemBuilder.inventory(user, interaction.user));
 

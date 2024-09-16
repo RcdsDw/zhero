@@ -4,7 +4,6 @@ import ItemBuilder from '../../libs/message/ItemBuilder';
 export const id = /EquipAfterBuy-/i;
 
 export async function execute(interaction: ButtonInteraction) {
-
     const user = await UserModel.findByDiscordUser(interaction.user);
 
     if (!user) {
@@ -29,7 +28,7 @@ export async function execute(interaction: ButtonInteraction) {
     await user.equipItem(user.inventory.items.length - 1);
 
     await interaction.update({
-        content : 'Achat réussi ! Vous avez équipé directement votre équipement',
-        components : []
+        content: 'Achat réussi ! Vous avez équipé directement votre équipement',
+        components: [],
     });
 }

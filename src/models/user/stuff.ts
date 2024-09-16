@@ -15,8 +15,8 @@ interface IStuff {
 
 // Méthodes sur l'instance
 interface IStuffMethods {
-    equipItem(item : ItemModel) : void
-    getItemByType(type : string) : ItemModel | null
+    equipItem(item: ItemModel): void;
+    getItemByType(type: string): ItemModel | null;
 }
 
 export type StuffModule = HydratedDocument<IStuff, IStuffMethods>;
@@ -56,10 +56,10 @@ export const StuffSchema: Schema = new Schema<IStuff, object, IStuffMethods>({
     },
 });
 
-StuffSchema.methods.equipItem = function(item : ItemModel) {
+StuffSchema.methods.equipItem = function (item: ItemModel) {
     this[item.type] = item;
-}
+};
 
-StuffSchema.methods.getItemByType = function(type : string): ItemModel | null {
+StuffSchema.methods.getItemByType = function (type: string): ItemModel | null {
     return this[type] ?? null;
-}
+};

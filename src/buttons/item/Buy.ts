@@ -4,7 +4,6 @@ import ItemBuilder from '../../libs/message/ItemBuilder';
 export const id = /ShopBuy/i;
 
 export async function execute(interaction: ButtonInteraction) {
-
     await interaction.deferUpdate();
 
     const user = await UserModel.findByDiscordUser(interaction.user);
@@ -29,25 +28,27 @@ export async function execute(interaction: ButtonInteraction) {
     const args = interaction.customId.split('-');
 
     try {
-        const res = await user.buyItem(parseInt(args[1]))
+        const res = await user.buyItem(parseInt(args[1]));
 
         await interaction.editReply(await ItemBuilder.shop(user, interaction.user));
 
         const row = new ActionRowBuilder<ButtonBuilder>();
 
         // Envoie d'un bouton en plus si on peut porter l'équipement
-        if(res) {
+        if (res) {
             row.addComponents(
-                new ButtonBuilder().setCustomId(`EquipAfterBuy-${interaction.user.id}`).setLabel('Equiper votre achat').setStyle(ButtonStyle.Success)
-            )
+                new ButtonBuilder()
+                    .setCustomId(`EquipAfterBuy-${interaction.user.id}`)
+                    .setLabel('Equiper votre achat')
+                    .setStyle(ButtonStyle.Success),
+            );
         }
 
         await interaction.followUp({
-            content : 'Achat réussi !',
-            components : row.components.length > 0 ? [row] : []
+            content: 'Achat réussi !',
+            components: row.components.length > 0 ? [row] : [],
         });
-
-    } catch (error) {        
+    } catch (error) {
         await interaction.followUp((error as Error).message);
     }
 }

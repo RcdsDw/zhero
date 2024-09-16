@@ -31,6 +31,6 @@ export const ItemSchema: Schema = new Schema<IItem, object, IItemMethods>(
 
 ItemSchema.add(BaseItemSchema.obj);
 
-ItemSchema.methods.getSellPrice = function() : number {
+ItemSchema.methods.getSellPrice = function (): number {
     return Math.ceil(this.price / 2);
-}
+};

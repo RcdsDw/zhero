@@ -22,13 +22,13 @@ export default class ItemBuilder {
     public static async shop(user: User, discordUser: DiscordUser): Promise<BaseMessageOptions> {
         const items = await user.shop.getItems(user);
 
-        if(items.length === 0) {
+        if (items.length === 0) {
             return {
                 content: `## Boutique de ${discordUser.toString()}
 Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouveaux équipements pour vous dans **${user.shop.getRemainingTime()}**`,
-                embeds : [],
-                components : []
-}
+                embeds: [],
+                components: [],
+            };
         }
 
         const data = items.map((i, index) => this.itemInShop(i, user, index));
@@ -94,13 +94,13 @@ Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouve
     public static async inventory(user: User, discordUser: DiscordUser): Promise<BaseMessageOptions> {
         const items = user.inventory.items;
 
-        if(items.length === 0) {
+        if (items.length === 0) {
             return {
                 content: `## Inventaire de ${discordUser.toString()}
 Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
-                embeds : [],
-                components : []
-            }
+                embeds: [],
+                components: [],
+            };
         }
 
         const data = items.map((i, index) => this.itemInInventory(i, user, index));
@@ -169,19 +169,16 @@ Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
      * @param user1
      */
     public static stuff(user: User, discordUser: DiscordUser): BaseMessageOptions {
-        
-        const embed = new EmbedBuilder()
-            .setTitle(`Stuff`)
-            .setColor('Blue');
+        const embed = new EmbedBuilder().setTitle(`Stuff`).setColor('Blue');
 
-        ItemType.ITEMTYPES.forEach(type => {
+        ItemType.ITEMTYPES.forEach((type) => {
             const item = user.stuff.getItemByType(type.key);
 
             embed.addFields({
-                name : `__${type.name}__ - ${item ? item.name : 'Aucun'}`,
-                value : item ? item.attributes.toString() : ' '
-            })
-        })
+                name: `__${type.name}__ - ${item ? item.name : 'Aucun'}`,
+                value: item ? item.attributes.toString() : ' ',
+            });
+        });
 
         return {
             embeds: [embed],
