@@ -62,12 +62,12 @@ Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouve
             .setDescription(`Niveau : **${item.level}** - Prix : **${item.price}  🪙**`)
             .setColor(rarity.color)
             .setAuthor({
-                name: `${rarity.name}`,
+                name: ItemType.getByKey(item.type).name,
             })
             .setFooter({
-                text: ItemType.getByKey(item.type).name,
+                text: rarity.name,
             })
-            .setImage(`attachment://${basename(item.icon)}`);
+            .setThumbnail(`attachment://${basename(item.icon)}`);
 
         const button = new ButtonBuilder()
             .setCustomId(`ShopBuy-${index}`)
@@ -75,7 +75,9 @@ Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouve
             .setStyle(ButtonStyle.Primary)
             .setDisabled(user.gold < item.price || user.inventory.items.length >= 5);
 
-        item.attributes.addToEmbed(embed);
+        const stuffedItem = user.stuff.getItemByType(item.type);
+
+        item.attributes.addToEmbed(embed, stuffedItem);
 
         return {
             embed: embed,
@@ -131,12 +133,12 @@ Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
             .setDescription(`Niveau : **${item.level}** - Prix de revente : **${item.getSellPrice()}  🪙**`)
             .setColor(rarity.color)
             .setAuthor({
-                name: `${rarity.name}`,
+                name: ItemType.getByKey(item.type).name,
             })
             .setFooter({
-                text: ItemType.getByKey(item.type).name,
+                text: rarity.name,
             })
-            .setImage(`attachment://${basename(item.icon)}`);
+            .setThumbnail(`attachment://${basename(item.icon)}`);
 
         const sellButton = new ButtonBuilder()
             .setCustomId(`ShopSell-${index}`)
@@ -149,7 +151,9 @@ Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
             .setStyle(ButtonStyle.Success)
             .setDisabled(item.level > user.experience.level);
 
-        item.attributes.addToEmbed(embed);
+        const stuffedItem = user.stuff.getItemByType(item.type);
+
+        item.attributes.addToEmbed(embed, stuffedItem);
 
         return {
             embed,

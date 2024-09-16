@@ -2,6 +2,7 @@ import { HydratedDocument, Schema } from 'mongoose';
 import Rarity from '../../enum/rarity';
 import { EmbedBuilder } from 'discord.js';
 import Attribute from '../../enum/attribute';
+import { ItemModel } from '../item/item';
 
 interface IAttributes {
     strength: number;
@@ -15,7 +16,7 @@ interface IAttributesMethods {
     getTotalPoints(): number;
     distributePoints(totalPoints: number): void;
     applyRarity(rarity: Rarity): void;
-    addToEmbed(embed: EmbedBuilder): EmbedBuilder;
+    addToEmbed(embed: EmbedBuilder, stuffedItem? : ItemModel | null): EmbedBuilder;
 }
 
 export type AttributesModule = HydratedDocument<IAttributes, IAttributesMethods>;
@@ -86,15 +87,27 @@ AttributesSchema.methods.applyRarity = function (rarity: Rarity): void {
  * Ajoute les attributs à l'embed
  * @param rarity
  */
-AttributesSchema.methods.addToEmbed = function (embed: EmbedBuilder) {
-    const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_') && this[s] > 0);
+AttributesSchema.methods.addToEmbed = function (embed: EmbedBuilder, stuffedItem : ItemModel | null = null) {
+    const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));
 
-    keys.map((k) =>
+    const stuffAttributes = stuffedItem?.attributes;
+
+    keys.map((k) => {
+
+        let value = ' ';
+
+        if(stuffAttributes) {
+            const difference = this[k] - stuffAttributes[k as keyof IAttributes];
+                
+            value = "```diff\n" + (difference > 0 ? '+ ' + difference.toString() : difference.toString()) + "\n```"
+        }
+
         embed.addFields({
             name: `**${this[k]}** ${Attribute.getByKey(k).name} ${Attribute.getByKey(k).emoji}`,
-            value: ' ',
-        }),
-    );
+            value: value,
+            inline : true
+        });
+    });
 };
 
 /**
