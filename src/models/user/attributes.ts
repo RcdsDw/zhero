@@ -90,7 +90,7 @@ AttributesSchema.methods.applyRarity = function (rarity: Rarity): void {
  * @returns
  */
 AttributesSchema.methods.add = function (attr: AttributesModule): AttributesModule {
-    const result: AttributesModule = attr;
+    const result = Object.assign({}, attr);
 
     const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));
 
@@ -99,5 +99,5 @@ AttributesSchema.methods.add = function (attr: AttributesModule): AttributesModu
         result[key] = (result[key] || 0) + this[k];
     });
 
-    return result;
+    return result as AttributesModule;
 };

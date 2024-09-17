@@ -17,5 +17,5 @@ export async function execute(interaction: CommandInteraction) {
         return;
     }
 
-    interaction.reply(ItemBuilder.stuff(user, interaction.user));
+    interaction.reply(await ItemBuilder.stuff(user));
 }
