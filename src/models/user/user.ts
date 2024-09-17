@@ -28,7 +28,7 @@ interface IUserMethods {
     buyItem(n: number): Promise<boolean>;
     sellItem(n: number): Promise<string>;
     equipItem(n: number): Promise<void>;
-    getTotalAttributes() : AttributesModule;
+    getTotalAttributes(): AttributesModule;
 }
 
 // Méthodes statiques

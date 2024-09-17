@@ -1,7 +1,6 @@
-import { HydratedDocument, Model, model, Schema } from 'mongoose';
+import { HydratedDocument, Schema } from 'mongoose';
 import Rarity from '../../enum/rarity';
 import { EmbedBuilder } from 'discord.js';
-import Attribute from '../../enum/attribute';
 import { ItemModel } from '../item/item';
 
 export interface IAttributes {
@@ -17,8 +16,8 @@ interface IAttributesMethods {
     distributePoints(totalPoints: number): void;
     applyRarity(rarity: Rarity): void;
     addToEmbed(embed: EmbedBuilder, stuffedItem?: ItemModel | null): EmbedBuilder;
-    add(attr : AttributesModule) : AttributesModule;
-    toString() : string;
+    add(attr: AttributesModule): AttributesModule;
+    toString(): string;
 }
 
 export type AttributesModule = HydratedDocument<IAttributes, IAttributesMethods>;
@@ -86,50 +85,19 @@ AttributesSchema.methods.applyRarity = function (rarity: Rarity): void {
 };
 
 /**
- * Ajoute les attributs à l'embed
- * @param rarity
+ * Additionne deux objets attributs ensemble
+ * @param attr
+ * @returns
  */
-AttributesSchema.methods.addToEmbed = function (embed: EmbedBuilder, stuffedItem: ItemModel | null = null) {
-    const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));
-
-    const stuffAttributes = stuffedItem?.attributes;
-
-    keys.map((k) => {
-        let value = ' ';
-
-        if (stuffAttributes) {
-            const difference = this[k] - stuffAttributes[k as keyof IAttributes];
-
-            value = '```diff\n' + (difference > 0 ? '+ ' + difference.toString() : difference.toString()) + '\n```';
-        }
-
-        embed.addFields({
-            name: `**${this[k]}** ${Attribute.getByKey(k).name} ${Attribute.getByKey(k).emoji}`,
-            value: value,
-            inline: true,
-        });
-    });
-};
-
-/**
- * Retourne sous forme de string, toutes les valeurs
- * @param rarity
- */
-AttributesSchema.methods.toString = function (): string {
-    const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_') && this[s] > 0);
-
-    return keys.map((k) => `**${this[k]}** ${Attribute.getByKey(k).name} ${Attribute.getByKey(k).emoji}`).join('\n');
-};
-
-AttributesSchema.methods.add = function(attr : AttributesModule) : AttributesModule {
+AttributesSchema.methods.add = function (attr: AttributesModule): AttributesModule {
     const result: AttributesModule = attr;
 
     const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));
 
-    keys.map(k => {
+    keys.map((k) => {
         let key = k as keyof IAttributes;
         result[key] = (result[key] || 0) + this[k];
     });
 
     return result;
-}
+};

@@ -12,6 +12,7 @@ import { ItemModel } from '../../models/item/item';
 import Rarity from '../../enum/rarity';
 import { basename } from 'node:path';
 import ItemType from '../../enum/itemType';
+import AttributeBuilder from './AttributeBuilder';
 
 export default class ItemBuilder {
     /**
@@ -77,7 +78,7 @@ Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouve
 
         const stuffedItem = user.stuff.getItemByType(item.type);
 
-        item.attributes.addToEmbed(embed, stuffedItem);
+        embed.addFields(AttributeBuilder.getFields(item.attributes, stuffedItem));
 
         return {
             embed: embed,
@@ -153,7 +154,7 @@ Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
 
         const stuffedItem = user.stuff.getItemByType(item.type);
 
-        item.attributes.addToEmbed(embed, stuffedItem);
+        embed.addFields(AttributeBuilder.getFields(item.attributes, stuffedItem));
 
         return {
             embed,
@@ -176,7 +177,7 @@ Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
 
             embed.addFields({
                 name: `__${type.name}__ - ${item ? item.name : 'Aucun'}`,
-                value: item ? item.attributes.toString() : ' ',
+                value: item ? AttributeBuilder.toString(item.attributes) : ' ',
             });
         });
 
