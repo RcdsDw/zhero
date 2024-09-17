@@ -167,6 +167,8 @@ UserSchema.methods.equipItem = async function (n: number): Promise<void> {
 
     this.stuff.equipItem(inventoryItem);
 
+    StuffMontage.generateImage(this as User);
+
     await this.save();
 };
 

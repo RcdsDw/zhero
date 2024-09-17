@@ -8,9 +8,9 @@ export default class StuffMontage {
     public static async getImage(user : User) : Promise<string> {
         const imagePath = this.getStuffImagePath(user);
 
-        /* if (fs.existsSync(imagePath)) {
+        if (fs.existsSync(imagePath)) {
             return imagePath;
-        } */
+        }
 
         await this.generateImage(user);
 
