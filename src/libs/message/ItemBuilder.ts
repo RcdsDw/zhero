@@ -169,20 +169,27 @@ Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
      * @param user
      * @param user1
      */
-    public static stuff(user: User, discordUser: DiscordUser): BaseMessageOptions {
-        const embed = new EmbedBuilder().setTitle(`Stuff`).setColor('Blue');
+    public static async stuff(user: User): Promise<BaseMessageOptions> {
+        const imagePath = await user.getImage();
+        const file = new AttachmentBuilder(imagePath);
+       
+        const embed = new EmbedBuilder()
+            .setTitle(`Stuff`)
+            .setColor('Red')
+            .setThumbnail(`attachment://${basename(imagePath)}`);
 
         ItemType.ITEMTYPES.forEach((type) => {
             const item = user.stuff.getItemByType(type.key);
 
             embed.addFields({
                 name: `__${type.name}__ - ${item ? item.name : 'Aucun'}`,
-                value: item ? AttributeBuilder.toString(item.attributes) : ' ',
+                value: item ? AttributeBuilder.toString(item.attributes.toObject()) : ' ',
             });
         });
 
         return {
             embeds: [embed],
+            files : [file]
         };
     }
 }

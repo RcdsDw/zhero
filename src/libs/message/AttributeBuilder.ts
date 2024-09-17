@@ -27,7 +27,7 @@ export default class AttributeBuilder {
     }
 
     public static toString(attribute: AttributesModule): string {
-        const keys = Object.keys(attribute.toObject()).filter(
+        const keys = Object.keys(attribute).filter(
             (s) => !s.startsWith('_') && attribute[s as keyof IAttributes] > 0,
         );
 
