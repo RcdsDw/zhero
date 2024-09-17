@@ -5,12 +5,13 @@ import {
     ActionRowBuilder,
     ButtonBuilder,
     ButtonStyle,
+    BaseMessageOptions,
 } from 'discord.js';
 import { Mission } from '../../models/user/mission/mission';
 import { User } from '../../models/user/user';
 
 export default class MissionBuilder {
-    public static async showMissions(user: User): Promise<InteractionReplyOptions> {
+    public static async showMissions(user: User): Promise<BaseMessageOptions> {
         const res = await user?.mission?.getMissions(user);
         const colors: ColorResolvable[] = ['Blue', 'Green', 'Yellow', 'Orange', 'Red'];
 
@@ -36,6 +37,7 @@ export default class MissionBuilder {
                 content: '# Mission en cours',
                 embeds: [embed],
                 components: [row],
+                files : []
             };
         } else {
             const missions = res as Mission[];
@@ -66,6 +68,7 @@ export default class MissionBuilder {
                 content: '# Mission possibles',
                 embeds: embeds,
                 components: [row],
+                files : []
             };
         }
     }

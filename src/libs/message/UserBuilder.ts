@@ -1,4 +1,4 @@
-import { AttachmentBuilder, BaseMessageOptions, EmbedBuilder, InteractionReplyOptions } from 'discord.js';
+import { ActionRowBuilder, AttachmentBuilder, BaseMessageOptions, ButtonBuilder, ButtonStyle, EmbedBuilder, InteractionReplyOptions } from 'discord.js';
 import { User } from '../../models/user/user';
 import PartManager from '../montage/PartManager';
 import AttributeBuilder from './AttributeBuilder';
@@ -23,7 +23,7 @@ export default class UserBuilder {
                     inline: true,
                 },
                 {
-                    name: 'Caractéristiques',
+                    name: 'Caractéristiques totale',
                     value: AttributeBuilder.toString(user.getTotalAttributes()),
                     inline: false,
                 },
@@ -33,6 +33,7 @@ export default class UserBuilder {
         return {
             embeds: [embed],
             files: [file],
+            components : []
         };
     }
 
@@ -57,5 +58,56 @@ export default class UserBuilder {
             components: rows,
             ephemeral: true,
         };
+    }
+
+    public static async menu(user : User): Promise<InteractionReplyOptions> {
+        const file = new AttachmentBuilder(await user.getImage(), {
+            name: 'skin.png',
+        });
+
+        const embed = new EmbedBuilder()
+            .setTitle('Résumé de votre aventure')
+            .setImage(`attachment://${file.name}`)
+
+        embed.addFields({
+                name: 'Level',
+                value: `${user.experience.level} (${user.experience.progression.toFixed(2)} %)`,
+                inline: true,
+            },
+            {
+                name: 'Or  🪙',
+                value: user.gold.toString(),
+                inline: true,
+            },
+            {
+                name : 'Mission',
+                value : user.mission.current === undefined ? 'Aucune mission en cours, **/shop** pour voir vos missions' : ('Votre mission se termine dans ' + user.mission.current.getRemainingTime())
+            },
+            {
+                name : 'Boutique',
+                value : 'De nouveaux items apparaissent dans ' + user.shop.getRemainingTime()
+            }
+        )
+
+        const rows = [
+            new ActionRowBuilder<ButtonBuilder>().addComponents(
+                new ButtonBuilder().setCustomId('Menu-Mission').setLabel('Missions').setStyle(ButtonStyle.Primary),
+                new ButtonBuilder().setCustomId('Menu-Shop').setLabel('Boutique').setStyle(ButtonStyle.Primary),
+                new ButtonBuilder().setCustomId('Menu-Inventory').setLabel('Inventaire').setStyle(ButtonStyle.Primary),
+                
+            ),
+            new ActionRowBuilder<ButtonBuilder>().addComponents(
+                new ButtonBuilder().setCustomId('Menu-Skin').setLabel('Apparence').setStyle(ButtonStyle.Primary),
+                new ButtonBuilder().setCustomId('Menu-Stuff').setLabel('Equipement').setStyle(ButtonStyle.Primary),
+                new ButtonBuilder().setCustomId('Menu-Profile').setLabel('Profile').setStyle(ButtonStyle.Primary)
+            )
+        ]
+
+        return {
+            embeds : [embed],
+            files : [file],
+            components : rows,
+            ephemeral : false
+        }
     }
 }

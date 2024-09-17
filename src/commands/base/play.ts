@@ -20,7 +20,5 @@ export async function execute(interaction: CommandInteraction) {
         return;
     }
 
-    interaction.reply(await UserBuilder.profile(user));
-
-    user.save();
+    interaction.reply(await UserBuilder.menu(user));
 }
