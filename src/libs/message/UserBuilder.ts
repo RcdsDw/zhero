@@ -1,6 +1,7 @@
 import { AttachmentBuilder, BaseMessageOptions, EmbedBuilder, InteractionReplyOptions } from 'discord.js';
 import { User } from '../../models/user/user';
 import PartManager from '../montage/PartManager';
+import AttributeBuilder from './AttributeBuilder';
 
 export default class UserBuilder {
     public static async profile(user: User): Promise<InteractionReplyOptions> {
@@ -20,6 +21,11 @@ export default class UserBuilder {
                     name: 'Or  🪙',
                     value: user.gold.toString(),
                     inline: true,
+                },
+                {
+                    name: 'Caractéristiques',
+                    value: AttributeBuilder.toString(user.getTotalAttributes()),
+                    inline: false,
                 },
             )
             .setImage(`attachment://${file.name}`);

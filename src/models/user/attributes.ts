@@ -1,9 +1,9 @@
 import { HydratedDocument, Schema } from 'mongoose';
 import Rarity from '../../enum/rarity';
 import { EmbedBuilder } from 'discord.js';
-import Attribute from '../../enum/attribute';
+import { ItemModel } from '../item/item';
 
-interface IAttributes {
+export interface IAttributes {
     strength: number;
     health: number;
     dexterity: number;
@@ -15,7 +15,9 @@ interface IAttributesMethods {
     getTotalPoints(): number;
     distributePoints(totalPoints: number): void;
     applyRarity(rarity: Rarity): void;
-    addToEmbed(embed: EmbedBuilder): EmbedBuilder;
+    addToEmbed(embed: EmbedBuilder, stuffedItem?: ItemModel | null): EmbedBuilder;
+    add(attr: AttributesModule): AttributesModule;
+    toString(): string;
 }
 
 export type AttributesModule = HydratedDocument<IAttributes, IAttributesMethods>;
@@ -83,16 +85,19 @@ AttributesSchema.methods.applyRarity = function (rarity: Rarity): void {
 };
 
 /**
- * Ajoute les attributs à l'embed
- * @param rarity
+ * Additionne deux objets attributs ensemble
+ * @param attr
+ * @returns
  */
-AttributesSchema.methods.addToEmbed = function (embed: EmbedBuilder) {
-    const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_') && this[s] > 0);
+AttributesSchema.methods.add = function (attr: AttributesModule): AttributesModule {
+    const result: AttributesModule = attr;
 
-    keys.map((k) =>
-        embed.addFields({
-            name: `${this[k]} - ${Attribute.getByKey(k).name} ${Attribute.getByKey(k).emoji}`,
-            value: ' ',
-        }),
-    );
+    const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));
+
+    keys.map((k) => {
+        let key = k as keyof IAttributes;
+        result[key] = (result[key] || 0) + this[k];
+    });
+
+    return result;
 };

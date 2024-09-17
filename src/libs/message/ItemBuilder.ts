@@ -5,8 +5,6 @@ import {
     ButtonBuilder,
     ButtonStyle,
     EmbedBuilder,
-    InteractionReplyOptions,
-    InteractionUpdateOptions,
 } from 'discord.js';
 import { User } from '../../models/user/user';
 import { User as DiscordUser } from 'discord.js';
@@ -14,6 +12,7 @@ import { ItemModel } from '../../models/item/item';
 import Rarity from '../../enum/rarity';
 import { basename } from 'node:path';
 import ItemType from '../../enum/itemType';
+import AttributeBuilder from './AttributeBuilder';
 
 export default class ItemBuilder {
     /**
@@ -24,11 +23,13 @@ export default class ItemBuilder {
     public static async shop(user: User, discordUser: DiscordUser): Promise<BaseMessageOptions> {
         const items = await user.shop.getItems(user);
 
-        if(items.length === 0) {
+        if (items.length === 0) {
             return {
                 content: `## Boutique de ${discordUser.toString()}
 Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouveaux équipements pour vous dans **${user.shop.getRemainingTime()}**`,
-            }
+                embeds: [],
+                components: [],
+            };
         }
 
         const data = items.map((i, index) => this.itemInShop(i, user, index));
@@ -62,12 +63,12 @@ Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouve
             .setDescription(`Niveau : **${item.level}** - Prix : **${item.price}  🪙**`)
             .setColor(rarity.color)
             .setAuthor({
-                name: `${rarity.name}`,
+                name: ItemType.getByKey(item.type).name,
             })
             .setFooter({
-                text: ItemType.getByKey(item.type).name,
+                text: rarity.name,
             })
-            .setImage(`attachment://${basename(item.icon)}`);
+            .setThumbnail(`attachment://${basename(item.icon)}`);
 
         const button = new ButtonBuilder()
             .setCustomId(`ShopBuy-${index}`)
@@ -75,7 +76,9 @@ Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouve
             .setStyle(ButtonStyle.Primary)
             .setDisabled(user.gold < item.price || user.inventory.items.length >= 5);
 
-        item.attributes.addToEmbed(embed);
+        const stuffedItem = user.stuff.getItemByType(item.type);
+
+        embed.addFields(AttributeBuilder.getFields(item.attributes, stuffedItem));
 
         return {
             embed: embed,
@@ -89,14 +92,16 @@ Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouve
      * @param user
      * @param user1
      */
-    public static async inventory(user: User, discordUser: DiscordUser): Promise<InteractionReplyOptions> {
+    public static async inventory(user: User, discordUser: DiscordUser): Promise<BaseMessageOptions> {
         const items = user.inventory.items;
 
-        if(items.length === 0) {
+        if (items.length === 0) {
             return {
                 content: `## Inventaire de ${discordUser.toString()}
 Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
-            }
+                embeds: [],
+                components: [],
+            };
         }
 
         const data = items.map((i, index) => this.itemInInventory(i, user, index));
@@ -129,12 +134,12 @@ Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
             .setDescription(`Niveau : **${item.level}** - Prix de revente : **${item.getSellPrice()}  🪙**`)
             .setColor(rarity.color)
             .setAuthor({
-                name: `${rarity.name}`,
+                name: ItemType.getByKey(item.type).name,
             })
             .setFooter({
-                text: ItemType.getByKey(item.type).name,
+                text: rarity.name,
             })
-            .setImage(`attachment://${basename(item.icon)}`);
+            .setThumbnail(`attachment://${basename(item.icon)}`);
 
         const sellButton = new ButtonBuilder()
             .setCustomId(`ShopSell-${index}`)
@@ -142,18 +147,42 @@ Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
             .setStyle(ButtonStyle.Danger);
 
         const equipButton = new ButtonBuilder()
-            .setCustomId(`ShopEquip-${index}`)
+            .setCustomId(`Equip-${index}`)
             .setLabel(`Equiper ${item.name}`)
             .setStyle(ButtonStyle.Success)
             .setDisabled(item.level > user.experience.level);
 
-        item.attributes.addToEmbed(embed);
+        const stuffedItem = user.stuff.getItemByType(item.type);
+
+        embed.addFields(AttributeBuilder.getFields(item.attributes, stuffedItem));
 
         return {
             embed,
             file,
             sellButton,
             equipButton,
+        };
+    }
+
+    /**
+     * Affiche le stuff d'un joueur
+     * @param user
+     * @param user1
+     */
+    public static stuff(user: User, discordUser: DiscordUser): BaseMessageOptions {
+        const embed = new EmbedBuilder().setTitle(`Stuff`).setColor('Blue');
+
+        ItemType.ITEMTYPES.forEach((type) => {
+            const item = user.stuff.getItemByType(type.key);
+
+            embed.addFields({
+                name: `__${type.name}__ - ${item ? item.name : 'Aucun'}`,
+                value: item ? AttributeBuilder.toString(item.attributes) : ' ',
+            });
+        });
+
+        return {
+            embeds: [embed],
         };
     }
 }

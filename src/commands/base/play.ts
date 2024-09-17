@@ -20,8 +20,6 @@ export async function execute(interaction: CommandInteraction) {
         return;
     }
 
-    user.experience.add(10);
-
     interaction.reply(await UserBuilder.profile(user));
 
     user.save();

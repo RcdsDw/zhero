@@ -1,11 +1,9 @@
 import { ButtonInteraction } from 'discord.js';
 import { UserModel } from '../../models/user/user';
 import ItemBuilder from '../../libs/message/ItemBuilder';
-export const id = /ShopSell-/i;
+export const id = /EquipAfterBuy-/i;
 
 export async function execute(interaction: ButtonInteraction) {
-    await interaction.deferUpdate();
-
     const user = await UserModel.findByDiscordUser(interaction.user);
 
     if (!user) {
@@ -16,20 +14,21 @@ export async function execute(interaction: ButtonInteraction) {
         return;
     }
 
+    const args = interaction.customId.split('-');
+
     // On doit verifique que celui qui clique, c'est bien son shop
-    if (interaction.user.id !== interaction.message.mentions.parsedUsers.first()?.id) {
+    if (interaction.user.id !== args[1]) {
         interaction.reply({
-            content: "Ce n'est pas votre shop !",
+            content: "Ce n'est pas votre achat !",
             ephemeral: true,
         });
         return;
     }
 
-    const args = interaction.customId.split('-');
+    await user.equipItem(user.inventory.items.length - 1);
 
-    const res = await user.sellItem(parseInt(args[1]));
-
-    await interaction.editReply(await ItemBuilder.inventory(user, interaction.user));
-
-    await interaction.followUp(res);
+    await interaction.update({
+        content: 'Achat réussi ! Vous avez équipé directement votre équipement',
+        components: [],
+    });
 }

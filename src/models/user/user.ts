@@ -6,6 +6,7 @@ import { SkinModule, SkinSchema } from './skin';
 import PartManager from '../../libs/montage/PartManager';
 import { Missions, MissionsSchema } from './missions';
 import { InventoryModule, InventorySchema } from './inventory';
+import { StuffModule, StuffSchema } from './stuff';
 import { ShopModule, ShopSchema } from '../item/shop';
 import { ItemModel } from '../item/item';
 
@@ -19,12 +20,15 @@ interface IUser {
     mission: Missions;
     shop: ShopModule;
     inventory: InventoryModule;
+    stuff: StuffModule;
 }
 
 // Méthodes sur l'instance
 interface IUserMethods {
-    buyItem(n: number): Promise<string>;
+    buyItem(n: number): Promise<boolean>;
     sellItem(n: number): Promise<string>;
+    equipItem(n: number): Promise<void>;
+    getTotalAttributes(): AttributesModule;
 }
 
 // Méthodes statiques
@@ -76,6 +80,11 @@ const UserSchema: Schema = new Schema<IUser, object, IUserMethods>(
             required: true,
             default: () => ({}),
         },
+        stuff: {
+            type: StuffSchema,
+            required: true,
+            default: () => ({}),
+        },
     },
     {
         timestamps: true,
@@ -88,19 +97,24 @@ UserSchema.statics.findByDiscordUser = async (user: DiscordUser): Promise<User |
     });
 };
 
-UserSchema.methods.buyItem = async function (n: number): Promise<string> {
+/**
+ * Achète l'item numéro N de la boutique et la place dans l'inventaire
+ * @param n
+ * @returns 
+ */
+UserSchema.methods.buyItem = async function (n: number): Promise<boolean> {
     if (this.inventory.items.length >= 5) {
-        return 'Votre inventaire est déja plein, vous pouvez vendre un item via `/inventory`';
+        throw new Error('Votre inventaire est déja plein, vous pouvez vendre un item via `/inventory`');
     }
 
     const item: ItemModel = this.shop.items[n];
 
     if (!item) {
-        return "Impossible de trouver l'équipement dans la boutique";
+        throw new Error("Impossible de trouver l'équipement dans la boutique");
     }
 
     if (item.price > this.gold) {
-        return "Vous n'avez pas assez de pièce pour acheter cette équipement";
+        throw new Error("Vous n'avez pas assez de pièce pour acheter cette équipement");
     }
 
     this.inventory.items.push(item);
@@ -111,9 +125,14 @@ UserSchema.methods.buyItem = async function (n: number): Promise<string> {
 
     await this.save();
 
-    return 'Achat réussi';
+    return item.level <= this.experience.level;
 };
 
+/**
+ * Vend l'item numéro N de l'inventaire
+ * @param n 
+ * @returns 
+ */
 UserSchema.methods.sellItem = async function (n: number): Promise<string> {
     const item: ItemModel = this.inventory.items[n];
 
@@ -128,6 +147,33 @@ UserSchema.methods.sellItem = async function (n: number): Promise<string> {
     await this.save();
 
     return 'Vente réussie';
+};
+
+/**
+ * Equipe l'item numéro N de l'inventaire, si un équipement est déja équipé il va dans l'inventaire
+ * @param n 
+ */
+UserSchema.methods.equipItem = async function (n: number): Promise<void> {
+    const inventoryItem = this.inventory.items[n];
+    const stuffItem = this.stuff.getItemByType(inventoryItem.type);
+
+    if (stuffItem === null) {
+        this.inventory.items.splice(n, 1);
+    } else {
+        this.inventory.items[n] = stuffItem;
+    }
+
+    this.stuff.equipItem(inventoryItem);
+
+    await this.save();
+};
+
+/**
+ * Compte toutes les caractéristiques en prenant en compte le stuff et les points de carac du joueur
+ * @returns 
+ */
+UserSchema.methods.getTotalAttributes = function (): AttributesModule {
+    return this.attributes.add(this.stuff.getTotalAttributes());
 };
 
 const UserModel = model<IUser, IUserModel>('User', UserSchema);
