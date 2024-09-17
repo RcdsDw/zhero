@@ -4,4 +4,5 @@
 /node_modules
 
 /public/skin/*.png
+/public/stuff/*.png
 /images/items

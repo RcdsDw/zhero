@@ -5,7 +5,7 @@ import AttributeBuilder from './AttributeBuilder';
 
 export default class UserBuilder {
     public static async profile(user: User): Promise<InteractionReplyOptions> {
-        const file = new AttachmentBuilder(await user.skin.getImage(), {
+        const file = new AttachmentBuilder(await user.getImage(), {
             name: 'skin.png',
         });
 
