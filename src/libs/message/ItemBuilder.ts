@@ -188,6 +188,7 @@ Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
         });
 
         return {
+            content : "",
             embeds: [embed],
             files : [file],
             components : []

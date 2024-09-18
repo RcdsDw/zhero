@@ -31,6 +31,7 @@ export default class UserBuilder {
             .setImage(`attachment://${file.name}`);
 
         return {
+            content : "",
             embeds: [embed],
             files: [file],
             components : []
@@ -53,6 +54,7 @@ export default class UserBuilder {
         });
 
         return {
+            content : "",
             embeds: [embed],
             files: [file],
             components: rows,
@@ -104,6 +106,7 @@ export default class UserBuilder {
         ]
 
         return {
+            content : "",
             embeds : [embed],
             files : [file],
             components : rows,
