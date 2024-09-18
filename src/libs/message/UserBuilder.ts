@@ -71,6 +71,16 @@ export default class UserBuilder {
             .setTitle('Résumé de votre aventure')
             .setImage(`attachment://${file.name}`)
 
+        let remainingTimeShop = user.shop.getRemainingTime();
+
+        if(remainingTimeShop.startsWith('-'))
+        {
+            await user.shop.getItems(user);
+            await user.save();
+
+            remainingTimeShop = user.shop.getRemainingTime();
+        }
+
         embed.addFields({
                 name: 'Level',
                 value: `${user.experience.level} (${user.experience.progression.toFixed(2)} %)`,
