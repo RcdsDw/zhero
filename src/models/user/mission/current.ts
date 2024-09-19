@@ -10,10 +10,6 @@ interface ICurrentMethods {
     getRemainingTime(): String;
 }
 
-interface ICurrentModel extends Model<ICurrent, object, ICurrentMethods> {
-    static(): void;
-}
-
 export type Current = HydratedDocument<ICurrent, ICurrentMethods>;
 
 export const CurrentSchema: Schema = new Schema<ICurrent, object, ICurrentMethods>({
@@ -29,10 +25,6 @@ export const CurrentSchema: Schema = new Schema<ICurrent, object, ICurrentMethod
 
 // Ajouter les champs de MissionSchema dans CurrentSchema
 CurrentSchema.add(MissionSchema.obj);
-
-const CurrentModel = model<ICurrent, ICurrentModel>('Current', CurrentSchema);
-
-export { CurrentModel };
 
 CurrentSchema.methods.getRemainingTime = function (): string {
     const now = new Date();

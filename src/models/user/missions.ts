@@ -13,9 +13,9 @@ interface IMissions {
 
 interface IMissionsMethods {
     getMissions(user: User): Promise<Mission[] | Current>;
-    confirmMission(n: Number): string;
+    confirmMission(n: Number, user: User, interaction: ButtonInteraction): Promise<string>;
     stopCurrentMission(): string;
-    sendRewards(user: User, xp: number, gold: number, msg: Message): void;
+    sendRewards(user: User, xp: number, gold: number, msg?: Message): Promise<void>;
 }
 
 interface IMissionsModel extends Model<IMissions, object, IMissionsMethods> {
@@ -46,7 +46,6 @@ MissionsSchema.methods.getMissions = async function (user: User): Promise<Missio
         for (let i = 0; i < 5; i++) {
             await this.createMission(user);
         }
-        return this.missions;
     }
     return this.missions;
 };
@@ -93,7 +92,7 @@ MissionsSchema.methods.confirmMission = async function (
     return `Vous avez décidé de réaliser la mission n°${parseInt(n) + 1}.`;
 };
 
-MissionsSchema.methods.stopCurrentMission = async function (): Promise<string> {
+MissionsSchema.methods.stopCurrentMission = function (): string {
     if (!this.current) {
         return "Vous n'avez pas de mission en cours.";
     }

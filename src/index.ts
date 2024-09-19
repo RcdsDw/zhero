@@ -8,7 +8,9 @@ dotenv.config();
 bot.login(process.env.TOKEN_BOT);
 
 async function run() {
-    await connect(process.env.DB_URL ?? '');
+    await connect(process.env.DB_URL ?? '', {
+        dbName: 'zhero',
+    });
 
     console.log('Connexion réussi à la base de données');
 
