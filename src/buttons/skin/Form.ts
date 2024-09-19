@@ -3,6 +3,7 @@ import { UserModel } from '../../models/user/user';
 import UserBuilder from '../../libs/message/UserBuilder';
 import PartManager from '../../libs/montage/PartManager';
 import { ISkin } from '../../models/user/skin';
+import StuffMontage from '../../libs/montage/StuffMontage';
 
 export const id = /SkinButton/i;
 
@@ -48,6 +49,8 @@ export async function execute(interaction: ButtonInteraction) {
     await user.save();
 
     const form = await UserBuilder.skinForm(user);
+
+    StuffMontage.generateImage(user);
 
     interaction.update({ ...form, fetchReply: true });
 }

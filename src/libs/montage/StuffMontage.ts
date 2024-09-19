@@ -8,7 +8,7 @@ export default class StuffMontage {
     public static async getImage(user : User) : Promise<string> {
         const imagePath = this.getStuffImagePath(user);
 
-        /* if (fs.existsSync(imagePath)) {
+      /*   if (fs.existsSync(imagePath)) {
             return imagePath;
         } */
 
@@ -44,7 +44,11 @@ export default class StuffMontage {
 
             const itemImage = await loadImage(itemPath);
 
-            ctx.drawImage(itemImage, -201, -35, 683, 1010);
+            if(user.skin.gender === Gender.Men) {
+                ctx.drawImage(itemImage, -201, -35, 683, 1010);
+            } else {
+                ctx.drawImage(itemImage, -205, -12, 687, 1010);
+            }
         }));
 
         // Génération de l'image
