@@ -8,6 +8,10 @@ export interface IAttributes {
     health: number;
     dexterity: number;
     dodge: number;
+    armor: number;
+    critical: number;
+    luck: number;
+    speed: number;
 }
 
 // Méthodes sur l'instance
@@ -39,6 +43,26 @@ export const AttributesSchema: Schema = new Schema<IAttributes, object, IAttribu
         default: 0,
     },
     dodge: {
+        type: Number,
+        required: true,
+        default: 0,
+    },
+    armor: {
+        type: Number,
+        required: true,
+        default: 0,
+    },
+    critical: {
+        type: Number,
+        required: true,
+        default: 0,
+    },
+    luck: {
+        type: Number,
+        required: true,
+        default: 0,
+    },
+    speed: {
         type: Number,
         required: true,
         default: 0,
