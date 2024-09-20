@@ -1,15 +1,26 @@
 import { User } from "../../models/user/user";
 
 export async function makeFight(player: User, ennemy: User): Promise<Boolean> {
-    let playerTurn: Boolean = false
-    let ennemyTurn: Boolean = false
+    let firstPlayer: any;
+    let turnCount: number = 0;
+
     let res = whoIsFirst()
     if (res === "player") {
-        playerTurn = true
+        firstPlayer = player
     } else {
-        ennemyTurn = true
+        firstPlayer = ennemy
     }
 
+    do while (player.health > 0 && ennemy.health > 0) {
+        let currentPlayer: any;
+
+        if (turnCount === 0) {
+            currentPlayer = firstPlayer
+        }
+
+        attack(currentPlayer)
+        turnCount ++
+    }
     return false
 }
 
@@ -21,4 +32,8 @@ function whoIsFirst(): String {
     } else {
         return "enemy"
     }
+}
+
+function attack(user) {
+
 }
