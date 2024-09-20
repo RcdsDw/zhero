@@ -25,8 +25,5 @@ export default class Attribute {
         }
 
         return a;
-
-
-        
     }
 }
