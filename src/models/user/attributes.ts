@@ -6,11 +6,11 @@ import { ItemModel } from '../item/item';
 export interface IAttributes {
     strength: number;
     health: number;
-    dexterity: number;
+    // dexterity: number;
     dodge: number;
     armor: number;
     critical: number;
-    luck: number;
+    // luck: number;
     speed: number;
 }
 
@@ -37,11 +37,11 @@ export const AttributesSchema: Schema = new Schema<IAttributes, object, IAttribu
         required: true,
         default: 0,
     },
-    dexterity: {
-        type: Number,
-        required: true,
-        default: 0,
-    },
+    // dexterity: {
+    //     type: Number,
+    //     required: true,
+    //     default: 0,
+    // },
     dodge: {
         type: Number,
         required: true,
@@ -57,11 +57,11 @@ export const AttributesSchema: Schema = new Schema<IAttributes, object, IAttribu
         required: true,
         default: 0,
     },
-    luck: {
-        type: Number,
-        required: true,
-        default: 0,
-    },
+    // luck: {
+    //     type: Number,
+    //     required: true,
+    //     default: 0,
+    // },
     speed: {
         type: Number,
         required: true,
