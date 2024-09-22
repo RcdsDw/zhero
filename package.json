@@ -11,8 +11,8 @@
         "lint": "eslint .",
         "checkall": "npm run pretty && npm run lint",
         "deploy-command": "npx ts-node src/deploy-commands.ts",
-        "test": "mocha -r ts-node/register 'test/**/*.ts'",
-        "test-dev": "nodemon --legacy-watch --watch 'test/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'npm run test'"
+        "test": "mocha -r ts-node/register 'test/**/*.test.ts'",
+        "test-dev": "nodemon --legacy-watch --watch 'test/**/*.test.ts' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'npm run test'"
     },
     "author": "Rafael & Alexis",
     "license": "ISC",

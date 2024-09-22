@@ -54,8 +54,8 @@ MissionsSchema.methods.createMission = async function (user: User) {
     let data = datas[Math.floor(Math.random() * datas.length)];
     let time = data.rank * Math.floor(Math.random() * 100) + 100 * (data.rank - 1);
 
-    let rewardXp = Math.floor(user.experience.level * 0.7 * time);
-    let rewardGold = Math.floor((user.experience.level / 2) * (time / 2));
+    let rewardXp = Math.floor(time * 0.507);
+    let rewardGold = Math.floor((user.experience.level / 10) * (time / 50));
 
     let mission = await MissionModel.create({
         title: data.title,
@@ -66,7 +66,6 @@ MissionsSchema.methods.createMission = async function (user: User) {
         rewardGold: rewardGold,
     });
     this.missions.push(mission);
-    await user.save();
 };
 
 MissionsSchema.methods.confirmMission = async function (
@@ -88,7 +87,6 @@ MissionsSchema.methods.confirmMission = async function (
         ),
     };
     this.missions.splice(n, 1);
-    await user.save();
     return `Vous avez décidé de réaliser la mission n°${parseInt(n) + 1}.`;
 };
 
@@ -110,7 +108,6 @@ MissionsSchema.methods.sendRewards = async function (user: User, xp: number, gol
     clearTimeout(this.current.timeout_id);
     await this.createMission(user);
     this.current = null;
-    await user.save();
 
     interaction.reply(
         `Félicitations ${userMention(user.id)} ! Vous avez gagné ${xp} XP et ${gold} pièces d'or pour avoir terminé votre mission !`,
