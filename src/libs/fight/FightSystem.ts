@@ -22,6 +22,7 @@ export async function makeFight(player: User, enemy: User): Promise<boolean> {
             const criticalMultiplier = await isAttackCritical(currentPlayer)
             attack(currentPlayer, criticalMultiplier, otherPlayer)
         } else {
+            // remplacer par une interaction
             console.log(`${otherPlayer.name} a esquivé l'attaque.`)
         }
 
@@ -29,6 +30,7 @@ export async function makeFight(player: User, enemy: User): Promise<boolean> {
         if (!turnDoubled) {
             switchPlayers(player, enemy)
         } else {
+            // remplacer par une interaction
             console.log(`${otherPlayer.name} est trop rapide et rejoue.`) // remplacer le .name par le nom de discord en allant chercher avec l'id
         }
 
