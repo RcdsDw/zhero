@@ -82,7 +82,6 @@ export default class UserBuilder {
 
         if (remainingTimeShop.startsWith('-')) {
             await user.shop.getItems(user);
-            await user.save();
 
             remainingTimeShop = user.shop.getRemainingTime();
         }

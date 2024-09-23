@@ -33,7 +33,7 @@ describe('Mission', () => {
     });
 
     it('should choose a mission', async () => {
-        await user.mission.confirmMission(0, user, {} as ButtonInteraction);
+        await user.mission.confirmMission(0, user);
 
         expect(user.mission.current).to.not.be.null;
     });
@@ -51,14 +51,14 @@ describe('Mission', () => {
     });
 
     it('should choose a mission and get reward', async () => {
-        await user.mission.confirmMission(0, user, {} as ButtonInteraction);
-
-        const currentMission = user.mission.current;
+        const currentMission = user.mission.missions[0];
+        
+        await user.mission.confirmMission(0, user);
 
         const goldBefore = user.gold;
         const xpBefore = user.experience.total;
 
-        await user.mission.sendRewards(user, currentMission.rewardXp, currentMission.rewardGold);
+        await user.mission.sendRewards(user);
 
         expect(user.mission.current).to.be.null;
         expect(user.gold).to.be.equal(goldBefore + currentMission.rewardGold);

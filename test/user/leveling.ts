@@ -1,7 +1,6 @@
 import { connect, connection } from 'mongoose';
 import dotenv from 'dotenv';
 import { UserModel } from '../../src/models/user/user';
-import { ButtonInteraction } from 'discord.js';
 
 dotenv.config();
 
@@ -18,13 +17,13 @@ connect(process.env.DB_URL ?? '', {
     await user.mission.getMissions(user);
     
     do {
-        await user.mission.confirmMission(0, user, {} as ButtonInteraction);
+        await user.mission.confirmMission(0, user);
         const currentMission = user.mission.current;
     
         totalMission++;
         totalTime += currentMission.time;
         
-        await user.mission.sendRewards(user, currentMission.rewardXp, currentMission.rewardGold);
+        await user.mission.sendRewards(user);
 
         console.log('Mission N°', totalMission)
         console.log('Level : ', user.experience.level)
