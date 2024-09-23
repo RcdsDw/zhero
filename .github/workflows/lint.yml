@@ -4,7 +4,7 @@ on:
     push:
 
 jobs:
-    lint:
+    quality:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout code
@@ -14,7 +14,7 @@ jobs:
               run: npm install
 
             - name: Run Prettier
-              run: npm run prettier --if-present -- --write .
+              run: npm run pretty
 
             - name: Run ESLint
-              run: npm run lint --if-present -- --fix .
+              run: npm run lint

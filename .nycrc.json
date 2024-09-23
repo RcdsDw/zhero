@@ -4,5 +4,4 @@
     "exclude": ["test/**/*.test.ts"],
     "reporter": ["text", "text-summary"],
     "report-dir": "coverage"
-  }
-  
+}

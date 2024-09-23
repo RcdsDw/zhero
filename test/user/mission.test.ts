@@ -52,7 +52,7 @@ describe('Mission', () => {
 
     it('should choose a mission and get reward', async () => {
         const currentMission = user.mission.missions[0];
-        
+
         await user.mission.confirmMission(0, user);
 
         const goldBefore = user.gold;

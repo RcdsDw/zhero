@@ -20,10 +20,14 @@ export async function execute(interaction: ButtonInteraction) {
             interaction.reply(await user.mission.stopCurrentMission());
             break;
         default:
-            interaction.reply(await user.mission.confirmMission(parseInt(args[1]), user, (xp , gold) => {
-                interaction.channel?.send(`Félicitations ${interaction.user.toString()} ! Vous avez gagné ${xp} XP et ${gold} pièces d'or pour avoir terminé votre mission !`,)
-                user.save();
-            }));
+            interaction.reply(
+                await user.mission.confirmMission(parseInt(args[1]), user, (xp, gold) => {
+                    interaction.channel?.send(
+                        `Félicitations ${interaction.user.toString()} ! Vous avez gagné ${xp} XP et ${gold} pièces d'or pour avoir terminé votre mission !`,
+                    );
+                    user.save();
+                }),
+            );
             break;
     }
 

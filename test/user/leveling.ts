@@ -10,29 +10,29 @@ connect(process.env.DB_URL ?? '', {
     const user = new UserModel({
         id: '123',
     });
-    
+
     let totalTime = 0;
     let totalMission = 0;
-    
+
     await user.mission.getMissions(user);
-    
+
     do {
         await user.mission.confirmMission(0, user);
         const currentMission = user.mission.current;
-    
+
         totalMission++;
         totalTime += currentMission.time;
-        
+
         await user.mission.sendRewards(user);
 
-        console.log('Mission N°', totalMission)
-        console.log('Level : ', user.experience.level)
+        console.log('Mission N°', totalMission);
+        console.log('Level : ', user.experience.level);
         console.log('Temps : ', secondsToHumanReadable(totalTime));
-        console.log("Gold : ", user.gold);
+        console.log('Gold : ', user.gold);
     } while (user.experience.level < 400);
-    
+
     await connection.dropDatabase();
-    await connection.close();    
+    await connection.close();
 });
 
 function secondsToHumanReadable(seconds: number): string {
