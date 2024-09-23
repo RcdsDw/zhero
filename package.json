@@ -12,7 +12,8 @@
         "checkall": "npm run pretty && npm run lint",
         "deploy-command": "npx ts-node src/deploy-commands.ts",
         "test": "mocha -r ts-node/register 'test/**/*.test.ts'",
-        "test-dev": "nodemon --legacy-watch --watch 'test/**/*.test.ts' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'npm run test'"
+        "test-dev": "nodemon --legacy-watch --watch 'test/**/*.test.ts' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'npm run test'",
+        "coverage": "nyc npm test"
     },
     "author": "Rafael & Alexis",
     "license": "ISC",
@@ -27,6 +28,7 @@
     },
     "devDependencies": {
         "@eslint/js": "^9.10.0",
+        "@istanbuljs/nyc-config-typescript": "^1.0.2",
         "@types/chai": "^4.3.19",
         "@types/eslint__js": "^8.42.3",
         "@types/mocha": "^10.0.8",
@@ -37,6 +39,7 @@
         "eslint-plugin-unused-imports": "^4.1.3",
         "mocha": "^10.7.3",
         "nodemon": "^3.1.4",
+        "nyc": "^17.1.0",
         "prettier": "^3.3.3",
         "ts-node": "^10.9.2",
         "ts-node-transpile-only": "^10.9.2",
