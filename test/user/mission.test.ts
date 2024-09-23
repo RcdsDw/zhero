@@ -2,7 +2,6 @@ import { expect } from 'chai';
 import { connect, connection } from 'mongoose';
 import dotenv from 'dotenv';
 import { User, UserModel } from '../../src/models/user/user';
-import { ButtonInteraction } from 'discord.js';
 
 dotenv.config();
 
@@ -15,7 +14,7 @@ describe('Mission', () => {
         });
 
         user = await UserModel.create({
-            id: '123',
+            id: 'mission',
         });
     });
 

@@ -100,7 +100,7 @@ export default class UserBuilder {
             {
                 name: 'Mission',
                 value:
-                    user.mission.current === undefined
+                    user.mission.current === null
                         ? 'Aucune mission en cours, **/shop** pour voir vos missions'
                         : 'Votre mission se termine dans ' + user.mission.current.getRemainingTime(),
             },

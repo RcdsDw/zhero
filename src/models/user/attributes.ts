@@ -75,9 +75,9 @@ export const AttributesSchema: Schema = new Schema<IAttributes, object, IAttribu
 AttributesSchema.methods.getTotalPoints = function (): number {
     let total = 0;
 
-    for (const key in this) {
-        total += this[key];
-    }
+    const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));
+
+    keys.forEach((k) => total += this[k]);
 
     return total;
 };
@@ -114,13 +114,13 @@ AttributesSchema.methods.applyRarity = function (rarity: Rarity): void {
  * @returns
  */
 AttributesSchema.methods.add = function (attr: AttributesModule): AttributesModule {
-    const result = Object.assign({}, attr);
+    const result = JSON.parse(JSON.stringify(attr));
 
     const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));
 
     keys.map((k) => {
         let key = k as keyof IAttributes;
-        result[key] = (result[key] || 0) + this[k];
+        result[key] = result[key] + this[k];
     });
 
     return result as AttributesModule;
