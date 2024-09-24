@@ -19,7 +19,7 @@ interface IStuffMethods {
     equipItem(item: ItemModel): void;
     getItemByType(type: string): ItemModel | null;
     getTotalAttributes(): AttributesModule;
-    getAllItems() : ItemModel[];
+    getAllItems(): ItemModel[];
 }
 
 export type StuffModule = HydratedDocument<IStuff, IStuffMethods>;
@@ -67,10 +67,10 @@ StuffSchema.methods.getItemByType = function (type: string): ItemModel | null {
     return this[type] ?? null;
 };
 
-StuffSchema.methods.getAllItems = function () : ItemModel[] {
+StuffSchema.methods.getAllItems = function (): ItemModel[] {
     const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));
-    return keys.map(k => this[k]);
-}
+    return keys.map((k) => this[k]);
+};
 
 StuffSchema.methods.getTotalAttributes = function (): AttributesModule {
     const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));

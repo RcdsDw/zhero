@@ -1,4 +1,12 @@
-import { ActionRowBuilder, AttachmentBuilder, BaseMessageOptions, ButtonBuilder, ButtonStyle, EmbedBuilder, InteractionReplyOptions } from 'discord.js';
+import {
+    ActionRowBuilder,
+    AttachmentBuilder,
+    BaseMessageOptions,
+    ButtonBuilder,
+    ButtonStyle,
+    EmbedBuilder,
+    InteractionReplyOptions,
+} from 'discord.js';
 import { User } from '../../models/user/user';
 import PartManager from '../montage/PartManager';
 import AttributeBuilder from './AttributeBuilder';
@@ -31,10 +39,10 @@ export default class UserBuilder {
             .setImage(`attachment://${file.name}`);
 
         return {
-            content : "",
+            content: '',
             embeds: [embed],
             files: [file],
-            components : []
+            components: [],
         };
     }
 
@@ -54,7 +62,7 @@ export default class UserBuilder {
         });
 
         return {
-            content : "",
+            content: '',
             embeds: [embed],
             files: [file],
             components: rows,
@@ -62,26 +70,24 @@ export default class UserBuilder {
         };
     }
 
-    public static async menu(user : User): Promise<InteractionReplyOptions> {
+    public static async menu(user: User): Promise<InteractionReplyOptions> {
         const file = new AttachmentBuilder(await user.getImage(), {
             name: 'skin.png',
         });
 
-        const embed = new EmbedBuilder()
-            .setTitle('Résumé de votre aventure')
-            .setImage(`attachment://${file.name}`)
+        const embed = new EmbedBuilder().setTitle('Résumé de votre aventure').setImage(`attachment://${file.name}`);
 
         let remainingTimeShop = user.shop.getRemainingTime();
 
-        if(remainingTimeShop.startsWith('-'))
-        {
+        if (remainingTimeShop.startsWith('-')) {
             await user.shop.getItems(user);
             await user.save();
 
             remainingTimeShop = user.shop.getRemainingTime();
         }
 
-        embed.addFields({
+        embed.addFields(
+            {
                 name: 'Level',
                 value: `${user.experience.level} (${user.experience.progression.toFixed(2)} %)`,
                 inline: true,
@@ -92,35 +98,37 @@ export default class UserBuilder {
                 inline: true,
             },
             {
-                name : 'Mission',
-                value : user.mission.current === undefined ? 'Aucune mission en cours, **/shop** pour voir vos missions' : ('Votre mission se termine dans ' + user.mission.current.getRemainingTime())
+                name: 'Mission',
+                value:
+                    user.mission.current === undefined
+                        ? 'Aucune mission en cours, **/shop** pour voir vos missions'
+                        : 'Votre mission se termine dans ' + user.mission.current.getRemainingTime(),
             },
             {
-                name : 'Boutique',
-                value : 'De nouveaux items apparaissent dans ' + user.shop.getRemainingTime()
-            }
-        )
+                name: 'Boutique',
+                value: 'De nouveaux items apparaissent dans ' + user.shop.getRemainingTime(),
+            },
+        );
 
         const rows = [
             new ActionRowBuilder<ButtonBuilder>().addComponents(
                 new ButtonBuilder().setCustomId('Menu-Mission').setLabel('Missions').setStyle(ButtonStyle.Primary),
                 new ButtonBuilder().setCustomId('Menu-Shop').setLabel('Boutique').setStyle(ButtonStyle.Primary),
                 new ButtonBuilder().setCustomId('Menu-Inventory').setLabel('Inventaire').setStyle(ButtonStyle.Primary),
-                
             ),
             new ActionRowBuilder<ButtonBuilder>().addComponents(
                 new ButtonBuilder().setCustomId('Menu-Skin').setLabel('Apparence').setStyle(ButtonStyle.Primary),
                 new ButtonBuilder().setCustomId('Menu-Stuff').setLabel('Equipement').setStyle(ButtonStyle.Primary),
-                new ButtonBuilder().setCustomId('Menu-Profile').setLabel('Profile').setStyle(ButtonStyle.Primary)
-            )
-        ]
+                new ButtonBuilder().setCustomId('Menu-Profile').setLabel('Profile').setStyle(ButtonStyle.Primary),
+            ),
+        ];
 
         return {
-            content : "",
-            embeds : [embed],
-            files : [file],
-            components : rows,
-            ephemeral : false
-        }
+            content: '',
+            embeds: [embed],
+            files: [file],
+            components: rows,
+            ephemeral: false,
+        };
     }
 }

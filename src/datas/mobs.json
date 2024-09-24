@@ -2,309 +2,309 @@
     {
         "id": "npc_adventurer.png",
         "name": "npc_adventurer",
-        "lvl": 0,
+        "lvl": 298,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_adventurer.png",
         "attributes": {
-            "strength": 3,
-            "health": 0,
-            "dodge": 6,
-            "armor": 1,
-            "critical": 9,
-            "speed": 5
+            "strength": 303,
+            "health": 307,
+            "dodge": 305,
+            "armor": 304,
+            "critical": 299,
+            "speed": 306
         }
     },
     {
         "id": "npc_alps_alien.png",
         "name": "npc_alps_alien",
-        "lvl": 40,
+        "lvl": 72,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_alps_alien.png",
         "attributes": {
-            "strength": 48,
-            "health": 45,
-            "dodge": 46,
-            "armor": 46,
-            "critical": 46,
-            "speed": 41
+            "strength": 78,
+            "health": 74,
+            "dodge": 79,
+            "armor": 72,
+            "critical": 79,
+            "speed": 72
         }
     },
     {
         "id": "npc_animator.png",
         "name": "npc_animator",
-        "lvl": 246,
+        "lvl": 370,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_animator.png",
         "attributes": {
-            "strength": 253,
-            "health": 250,
-            "dodge": 252,
-            "armor": 250,
-            "critical": 248,
-            "speed": 251
+            "strength": 373,
+            "health": 375,
+            "dodge": 379,
+            "armor": 371,
+            "critical": 377,
+            "speed": 374
         }
     },
     {
         "id": "npc_arrogant_skateboarder.png",
         "name": "npc_arrogant_skateboarder",
-        "lvl": 51,
+        "lvl": 54,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_arrogant_skateboarder.png",
         "attributes": {
-            "strength": 57,
-            "health": 55,
-            "dodge": 54,
-            "armor": 59,
-            "critical": 58,
-            "speed": 57
+            "strength": 59,
+            "health": 54,
+            "dodge": 63,
+            "armor": 57,
+            "critical": 56,
+            "speed": 56
         }
     },
     {
         "id": "npc_bad_artist.png",
         "name": "npc_bad_artist",
-        "lvl": 39,
+        "lvl": 20,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_bad_artist.png",
         "attributes": {
-            "strength": 41,
-            "health": 40,
-            "dodge": 46,
-            "armor": 48,
-            "critical": 46,
-            "speed": 48
+            "strength": 24,
+            "health": 20,
+            "dodge": 20,
+            "armor": 26,
+            "critical": 20,
+            "speed": 24
         }
     },
     {
         "id": "npc_ball_stabber.png",
         "name": "npc_ball_stabber",
-        "lvl": 101,
+        "lvl": 87,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_ball_stabber.png",
         "attributes": {
-            "strength": 107,
-            "health": 108,
-            "dodge": 106,
-            "armor": 107,
-            "critical": 108,
-            "speed": 104
+            "strength": 96,
+            "health": 88,
+            "dodge": 92,
+            "armor": 95,
+            "critical": 90,
+            "speed": 88
         }
     },
     {
         "id": "npc_business_man_artless.png",
         "name": "npc_business_man_artless",
-        "lvl": 126,
+        "lvl": 180,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_business_man_artless.png",
         "attributes": {
-            "strength": 132,
-            "health": 126,
-            "dodge": 128,
-            "armor": 129,
-            "critical": 133,
-            "speed": 131
+            "strength": 183,
+            "health": 182,
+            "dodge": 183,
+            "armor": 187,
+            "critical": 185,
+            "speed": 185
         }
     },
     {
         "id": "npc_business_man_cool.png",
         "name": "npc_business_man_cool",
-        "lvl": 108,
+        "lvl": 138,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_business_man_cool.png",
         "attributes": {
-            "strength": 115,
-            "health": 114,
-            "dodge": 114,
-            "armor": 112,
-            "critical": 111,
-            "speed": 112
+            "strength": 142,
+            "health": 142,
+            "dodge": 146,
+            "armor": 145,
+            "critical": 145,
+            "speed": 144
         }
     },
     {
         "id": "npc_business_man_respectable.png",
         "name": "npc_business_man_respectable",
-        "lvl": 206,
+        "lvl": 389,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_business_man_respectable.png",
         "attributes": {
-            "strength": 210,
-            "health": 213,
-            "dodge": 207,
-            "armor": 215,
-            "critical": 214,
-            "speed": 208
+            "strength": 395,
+            "health": 391,
+            "dodge": 391,
+            "armor": 391,
+            "critical": 390,
+            "speed": 391
         }
     },
     {
         "id": "npc_business_man_threatening.png",
         "name": "npc_business_man_threatening",
-        "lvl": 78,
+        "lvl": 170,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_business_man_threatening.png",
         "attributes": {
-            "strength": 78,
-            "health": 82,
-            "dodge": 83,
-            "armor": 80,
-            "critical": 78,
-            "speed": 79
+            "strength": 179,
+            "health": 173,
+            "dodge": 173,
+            "armor": 171,
+            "critical": 177,
+            "speed": 173
         }
     },
     {
         "id": "npc_casualguy.png",
         "name": "npc_casualguy",
-        "lvl": 223,
+        "lvl": 3,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_casualguy.png",
         "attributes": {
-            "strength": 225,
-            "health": 231,
-            "dodge": 232,
-            "armor": 229,
-            "critical": 228,
-            "speed": 224
+            "strength": 9,
+            "health": 4,
+            "dodge": 8,
+            "armor": 5,
+            "critical": 7,
+            "speed": 6
         }
     },
     {
         "id": "npc_cheater.png",
         "name": "npc_cheater",
-        "lvl": 285,
+        "lvl": 75,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_cheater.png",
         "attributes": {
-            "strength": 289,
-            "health": 290,
-            "dodge": 289,
-            "armor": 291,
-            "critical": 287,
-            "speed": 291
+            "strength": 80,
+            "health": 77,
+            "dodge": 82,
+            "armor": 78,
+            "critical": 84,
+            "speed": 79
         }
     },
     {
         "id": "npc_cheeky_rumour_spreader.png",
         "name": "npc_cheeky_rumour_spreader",
-        "lvl": 333,
+        "lvl": 104,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_cheeky_rumour_spreader.png",
         "attributes": {
-            "strength": 338,
-            "health": 340,
-            "dodge": 338,
-            "armor": 335,
-            "critical": 337,
-            "speed": 341
+            "strength": 113,
+            "health": 111,
+            "dodge": 107,
+            "armor": 109,
+            "critical": 105,
+            "speed": 113
         }
     },
     {
         "id": "npc_cheese_technic.png",
         "name": "npc_cheese_technic",
-        "lvl": 246,
+        "lvl": 120,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_cheese_technic.png",
         "attributes": {
-            "strength": 249,
-            "health": 247,
-            "dodge": 253,
-            "armor": 250,
-            "critical": 253,
-            "speed": 253
+            "strength": 125,
+            "health": 126,
+            "dodge": 123,
+            "armor": 120,
+            "critical": 122,
+            "speed": 121
         }
     },
     {
         "id": "npc_concierge.png",
         "name": "npc_concierge",
-        "lvl": 54,
+        "lvl": 100,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_concierge.png",
         "attributes": {
-            "strength": 55,
-            "health": 63,
-            "dodge": 56,
-            "armor": 56,
-            "critical": 59,
-            "speed": 60
+            "strength": 105,
+            "health": 100,
+            "dodge": 107,
+            "armor": 103,
+            "critical": 107,
+            "speed": 109
         }
     },
     {
         "id": "npc_cook.png",
         "name": "npc_cook",
-        "lvl": 150,
+        "lvl": 336,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_cook.png",
         "attributes": {
-            "strength": 156,
-            "health": 159,
-            "dodge": 153,
-            "armor": 156,
-            "critical": 155,
-            "speed": 158
+            "strength": 344,
+            "health": 343,
+            "dodge": 339,
+            "armor": 345,
+            "critical": 344,
+            "speed": 344
         }
     },
     {
         "id": "npc_cyclist_rowdy.png",
         "name": "npc_cyclist_rowdy",
-        "lvl": 174,
+        "lvl": 32,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_cyclist_rowdy.png",
         "attributes": {
-            "strength": 179,
-            "health": 178,
-            "dodge": 178,
-            "armor": 181,
-            "critical": 181,
-            "speed": 182
+            "strength": 36,
+            "health": 40,
+            "dodge": 38,
+            "armor": 40,
+            "critical": 34,
+            "speed": 36
         }
     },
     {
         "id": "npc_disturbing_neighbor.png",
         "name": "npc_disturbing_neighbor",
-        "lvl": 394,
+        "lvl": 287,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_disturbing_neighbor.png",
         "attributes": {
-            "strength": 397,
-            "health": 401,
-            "dodge": 402,
-            "armor": 395,
-            "critical": 401,
-            "speed": 398
+            "strength": 296,
+            "health": 294,
+            "dodge": 296,
+            "armor": 290,
+            "critical": 290,
+            "speed": 296
         }
     },
     {
         "id": "npc_doglady.png",
         "name": "npc_doglady",
-        "lvl": 166,
+        "lvl": 199,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_doglady.png",
         "attributes": {
-            "strength": 173,
-            "health": 166,
-            "dodge": 173,
-            "armor": 169,
-            "critical": 173,
-            "speed": 173
+            "strength": 208,
+            "health": 207,
+            "dodge": 202,
+            "armor": 203,
+            "critical": 204,
+            "speed": 207
         }
     },
     {
         "id": "npc_drummer_street_musician.png",
         "name": "npc_drummer_street_musician",
-        "lvl": 104,
+        "lvl": 152,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_drummer_street_musician.png",
         "attributes": {
-            "strength": 107,
-            "health": 106,
-            "dodge": 113,
-            "armor": 108,
-            "critical": 105,
-            "speed": 106
+            "strength": 152,
+            "health": 157,
+            "dodge": 161,
+            "armor": 155,
+            "critical": 160,
+            "speed": 161
         }
     },
     {
         "id": "npc_dubious_trader.png",
         "name": "npc_dubious_trader",
-        "lvl": 48,
+        "lvl": 381,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_dubious_trader.png",
         "attributes": {
-            "strength": 54,
-            "health": 49,
-            "dodge": 49,
-            "armor": 53,
-            "critical": 51,
-            "speed": 51
+            "strength": 387,
+            "health": 384,
+            "dodge": 384,
+            "armor": 384,
+            "critical": 383,
+            "speed": 382
         }
     },
     {
         "id": "npc_dungeon1_npc1.png",
         "name": "npc_dungeon1_npc1",
-        "lvl": 379,
+        "lvl": 92,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_dungeon1_npc1.png",
         "attributes": {
-            "strength": 382,
-            "health": 383,
-            "dodge": 384,
-            "armor": 381,
-            "critical": 381,
-            "speed": 384
+            "strength": 96,
+            "health": 96,
+            "dodge": 97,
+            "armor": 100,
+            "critical": 93,
+            "speed": 98
         }
     }
 ]
