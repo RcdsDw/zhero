@@ -181,7 +181,7 @@ UserSchema.methods.getTotalAttributes = function (): AttributesModule {
 };
 
 UserSchema.methods.getImage = async function (): Promise<string> {
-    const skin = await StuffMontage.getImage(this);
+    const skin = await StuffMontage.getImage(this as User);
 
     return skin;
 };

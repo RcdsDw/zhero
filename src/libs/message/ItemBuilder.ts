@@ -183,7 +183,7 @@ Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
 
             embed.addFields({
                 name: `__${type.name}__ - ${item ? item.name : 'Aucun'}`,
-                value: item ? AttributeBuilder.toString(item.attributes.toObject()) : ' ',
+                value: item ? AttributeBuilder.toString(item.attributes) : ' ',
             });
         });
 
