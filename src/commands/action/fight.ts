@@ -6,7 +6,7 @@ import { Fighter } from '../../libs/fight/Fighter';
 import FightSystem from '../../libs/fight/FightSystem';
 import mobs from '../../datas/mobs.json';
 
-export const data = new SlashCommandBuilder().setName('missions').setDescription('Voir les missions disponibles');
+export const data = new SlashCommandBuilder().setName('fight').setDescription('Faire un combat test');
 
 export async function execute(interaction: CommandInteraction) {
     let user = await UserModel.findByDiscordUser(interaction.user);
@@ -21,5 +21,5 @@ export async function execute(interaction: CommandInteraction) {
     const fighterUser: Fighter = FighterFactory.fromUser(user);
     const fight = new FightSystem(fighterUser, fighterMob);
 
-    console.log((await fight.makeFight(fighterUser, fighterMob)) === true ? 'Vous avez gagné' : 'Vous avez perdu...');
+    await fight.makeFight(fighterUser, fighterMob).then((res) => {res === true ? console.log('Vous avez gagné') : console.log('Vous avez perdu...')});
 }

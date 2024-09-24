@@ -104,7 +104,7 @@ MissionsSchema.methods.stopCurrentMission = async function (): Promise<string> {
     return `Vous avez décidé d'annuler la mission en cours.`;
 };
 
-MissionsSchema.methods.sendRewards = async function (user: User, xp: number, gold: number, msg: Message) {
+MissionsSchema.methods.sendRewards = async function (user: User, xp: number, gold: number, interaction: Message) {
     user.experience.add(xp);
     user.gold += gold;
 
@@ -113,7 +113,7 @@ MissionsSchema.methods.sendRewards = async function (user: User, xp: number, gol
     this.current = null;
     await user.save();
 
-    msg.channel.send(
+    interaction.reply(
         `Félicitations ${userMention(user.id)} ! Vous avez gagné ${xp} XP et ${gold} pièces d'or pour avoir terminé votre mission !`,
     );
 };

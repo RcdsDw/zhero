@@ -10,6 +10,7 @@ export default class FightSystem {
     }
 
     public async makeFight(player: Fighter, enemy: Fighter): Promise<boolean> {
+        console.log('je suis là')
         let turnCount: number = 0;
 
         let res = this.whoIsFirst();
@@ -25,7 +26,7 @@ export default class FightSystem {
             let attackDodged: boolean = await this.isAttackDodged();
             if (!attackDodged) {
                 const criticalMultiplier = await this.isAttackCritical();
-                this.attack(criticalMultiplier);
+                this.attack(criticalMultiplier)
             } else {
                 // remplacer par une interaction
                 console.log(`${this.otherPlayer} a esquivé l'attaque.`);
@@ -64,6 +65,7 @@ export default class FightSystem {
     public attack(critical: number): string {
         let damage = Math.max(0, this.currentPlayer.attributes.strength * critical - this.otherPlayer.attributes.armor);
         this.otherPlayer.currentHealth -= damage;
+        console.log('il attaque')
         return `${critical === 2 ? 'COUP CRITIQUE !!! ' : ''}${this.currentPlayer} a infligé ${damage} dommages à ${this.otherPlayer}, il lui reste ${this.otherPlayer.currentHealth} PV.`; // remplacer le .name par le nom de discord en allant chercher avec l'id
     }
 
