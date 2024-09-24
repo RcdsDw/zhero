@@ -15,7 +15,7 @@ interface IShop {
 // Méthodes sur l'instance
 interface IShopMethods {
     getItems(user: User): Promise<ItemModel[]>;
-    generateItems(): Promise<void>;
+    generateItems(user: User): Promise<void>;
     getRemainingTime(): string;
 }
 

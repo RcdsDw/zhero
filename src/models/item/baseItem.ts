@@ -22,7 +22,7 @@ interface IBaseItemMethods {
 
 // Méthodes statiques
 interface IBaseItemModel extends Model<IBaseItem, object, IBaseItemMethods> {
-    populateDb(force: boolean): Promise<void>;
+    populateDb(force: boolean, limit? : number): Promise<void>;
     findByLevelAround(level: number): Promise<BaseItem[]>;
 }
 
@@ -65,7 +65,7 @@ export const BaseItemSchema: Schema = new Schema<IBaseItem, object, IBaseItemMet
     },
 );
 
-BaseItemSchema.statics.populateDb = async (force: boolean = false): Promise<void> => {
+BaseItemSchema.statics.populateDb = async (force: boolean = false, limit? : number): Promise<void> => {
     const hasItem = await BaseItemModel.countDocuments();
 
     if (hasItem > 0 && force === false) {
@@ -76,7 +76,11 @@ BaseItemSchema.statics.populateDb = async (force: boolean = false): Promise<void
 
     const files = fs.readdirSync('images/items');
 
-    const iconFiles = files.filter((f: string) => f.match(/_i.png/i));
+    let iconFiles = files.filter((f: string) => f.match(/_i.png/i));
+
+    if(limit) {
+        iconFiles = iconFiles.slice(0, limit)
+    }
 
     const currentByItem: { [key: string]: number } = {
         gadget: 0,
