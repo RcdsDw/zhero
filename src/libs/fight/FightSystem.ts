@@ -1,10 +1,15 @@
-import { User } from '../../models/user/user';
+import { Fighter } from './Fighter';
 
 export default class FightSystem {
-    private currentPlayer: any;
-    private otherPlayer: any;
+    currentPlayer;
+    otherPlayer;
 
-    public async makeFight(player: any, enemy: any): Promise<boolean> {
+    constructor(currentPlayer: Fighter, otherPlayer: Fighter) {
+        this.currentPlayer = currentPlayer;
+        this.otherPlayer = otherPlayer;
+    }
+
+    public async makeFight(player: Fighter, enemy: Fighter): Promise<boolean> {
         let turnCount: number = 0;
 
         let res = this.whoIsFirst();
@@ -16,14 +21,14 @@ export default class FightSystem {
             this.otherPlayer = player;
         }
 
-        while (player.health > 0 && enemy.health > 0) {
+        while (player.currentHealth > 0 && enemy.currentHealth > 0) {
             let attackDodged: boolean = await this.isAttackDodged();
             if (!attackDodged) {
                 const criticalMultiplier = await this.isAttackCritical();
                 this.attack(criticalMultiplier);
             } else {
                 // remplacer par une interaction
-                console.log(`${this.otherPlayer.name} a esquivé l'attaque.`);
+                console.log(`${this.otherPlayer} a esquivé l'attaque.`);
             }
 
             let turnDoubled: boolean = await this.isTurnDoubled();
@@ -31,13 +36,13 @@ export default class FightSystem {
                 this.switchPlayers();
             } else {
                 // remplacer par une interaction
-                console.log(`${this.otherPlayer.name} est trop rapide et rejoue.`); // remplacer le .name par le nom de discord en allant chercher avec l'id
+                console.log(`${this.otherPlayer} est trop rapide et rejoue.`); // remplacer le .name par le nom de discord en allant chercher avec l'id
             }
 
             turnCount++;
         }
 
-        return player.health > 0;
+        return player.currentHealth > 0;
     }
 
     // function qui determine le premier joueur (en random pour l'instant à changer avec de l'initiative surement)
@@ -47,24 +52,24 @@ export default class FightSystem {
 
     // function qui check si l'attaque est esquivée
     public async isAttackDodged(): Promise<boolean> {
-        return Math.floor(Math.random() * 200) < this.otherPlayer.dodge;
+        return Math.floor(Math.random() * 200) < this.otherPlayer.attributes.dodge;
     }
 
     // function qui check si l'attaque est un coup critique
     public async isAttackCritical(): Promise<number> {
-        return Math.floor(Math.random() * 200) < this.currentPlayer.critical ? 2 : 1;
+        return Math.floor(Math.random() * 200) < this.currentPlayer.attributes.critical ? 2 : 1;
     }
 
     // function qui évalue la puissance de l'attaque et enlève les points de l'ennemi
     public attack(critical: number): string {
-        let damage = Math.max(0, this.currentPlayer.strength * critical - this.otherPlayer.armor);
-        this.otherPlayer.health -= damage;
-        return `${critical === 2 ? 'COUP CRITIQUE !!! ' : ''}${this.currentPlayer.name} a infligé ${damage} dommages à ${this.otherPlayer.name}, il lui reste ${this.otherPlayer.health} PV.`; // remplacer le .name par le nom de discord en allant chercher avec l'id
+        let damage = Math.max(0, this.currentPlayer.attributes.strength * critical - this.otherPlayer.attributes.armor);
+        this.otherPlayer.currentHealth -= damage;
+        return `${critical === 2 ? 'COUP CRITIQUE !!! ' : ''}${this.currentPlayer} a infligé ${damage} dommages à ${this.otherPlayer}, il lui reste ${this.otherPlayer.currentHealth} PV.`; // remplacer le .name par le nom de discord en allant chercher avec l'id
     }
 
     // function qui check la vitesse pour skip le tour de l'ennemi actuel
     public async isTurnDoubled(): Promise<boolean> {
-        return Math.floor(Math.random() * 200) < this.currentPlayer.speed;
+        return Math.floor(Math.random() * 200) < this.currentPlayer.attributes.speed;
     }
 
     // function qui change le joueur actuel en autre et inversement
