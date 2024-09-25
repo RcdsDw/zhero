@@ -18,9 +18,8 @@ export async function execute(interaction: CommandInteraction) {
 
     const mob = new Mob(mobs[10].name, mobs[10].lvl, mobs[10].skin, mobs[10].attributes);
     const fighterMob: Fighter = FighterFactory.fromMob(mob);
-    const fighterUser: Fighter = FighterFactory.fromUser(user);
-    console.log("User : ", fighterUser, "Mob : ", fighterMob)
+    const fighterUser: Fighter = FighterFactory.fromUser(user, interaction.user);
     const fight = new FightSystem(fighterUser, fighterMob);
 
-    await fight.makeFight(fighterUser, fighterMob).then((res) => {res === true ? console.log('Vous avez gagné') : console.log('Vous avez perdu...')});
+    interaction.reply(`${await fight.makeFight(fighterUser, fighterMob).then((res) => {res === true ? console.log('Vous avez gagné') : console.log('Vous avez perdu...')})}`);
 }

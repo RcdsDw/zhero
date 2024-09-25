@@ -1,17 +1,21 @@
 import { Fighter } from './Fighter';
 
 export default class FightSystem {
-    currentPlayer;
-    otherPlayer;
+    currentPlayer: Fighter;
+    otherPlayer: Fighter;
+    turnCount: number = 0;
+    intervalId: number;
+    rowBattle: string[];
 
-    constructor(currentPlayer: Fighter, otherPlayer: Fighter) {
+    constructor(currentPlayer: Fighter, otherPlayer: Fighter, intervalId: number, rowBattle: string[]) {
         this.currentPlayer = currentPlayer;
         this.otherPlayer = otherPlayer;
+        this.intervalId = intervalId;
+        this.rowBattle = rowBattle;
     }
 
-    public async makeFight(player: Fighter, enemy: Fighter): Promise<boolean> {
+    public makeFight(player: Fighter, enemy: Fighter) {
         console.log('je suis là')
-        let turnCount: number = 0;
 
         let res = this.whoIsFirst();
         if (res === 'player') {
@@ -22,28 +26,32 @@ export default class FightSystem {
             this.otherPlayer = player;
         }
 
-        while (player.currentHealth > 0 && enemy.currentHealth > 0) {
-            let attackDodged: boolean = await this.isAttackDodged();
-            if (!attackDodged) {
-                const criticalMultiplier = await this.isAttackCritical();
-                this.attack(criticalMultiplier)
-            } else {
-                // remplacer par une interaction
-                console.log(`${this.otherPlayer} a esquivé l'attaque.`);
-            }
+        this.intervalId = setInterval(() => this.makeTurn(player, enemy), 1000)
+    }
 
-            let turnDoubled: boolean = await this.isTurnDoubled();
-            if (!turnDoubled) {
-                this.switchPlayers();
-            } else {
-                // remplacer par une interaction
-                console.log(`${this.otherPlayer} est trop rapide et rejoue.`);
-            }
-
-            turnCount++;
+    public async makeTurn(player: Fighter, enemy: Fighter) {
+        let attackDodged: boolean = await this.isAttackDodged();
+        if (!attackDodged) {
+            const criticalMultiplier = await this.isAttackCritical();
+            this.attack(criticalMultiplier);
+        } else {
+            // remplacer par une interaction
+            console.log(`${this.otherPlayer.name} a esquivé l'attaque.`);
         }
 
-        return player.currentHealth > 0;
+        let turnDoubled: boolean = await this.isTurnDoubled();
+        if (!turnDoubled) {
+            this.switchPlayers();
+        } else {
+            // remplacer par une interaction
+            console.log(`${this.otherPlayer.name} est trop rapide et rejoue.`);
+        }
+
+        if(player.currentHealth > 0 && enemy.currentHealth > 0) {
+            clearInterval(this.intervalId)
+            return player.currentHealth > 0;
+        }
+        this.turnCount++;
     }
 
     // function qui determine le premier joueur (en random pour l'instant à changer avec de l'initiative surement)
@@ -65,8 +73,8 @@ export default class FightSystem {
     public attack(critical: number): string {
         let damage = Math.max(0, this.currentPlayer.attributes.strength * critical - this.otherPlayer.attributes.armor);
         this.otherPlayer.currentHealth -= damage;
-        console.log('il attaque')
-        return `${critical === 2 ? 'COUP CRITIQUE !!! ' : ''}${this.currentPlayer} a infligé ${damage} dommages à ${this.otherPlayer}, il lui reste ${this.otherPlayer.currentHealth} PV.`; // remplacer le .name par le nom de discord en allant chercher avec l'id
+        console.log(`${critical === 2 ? 'COUP CRITIQUE !!! ' : ''}${this.currentPlayer.name} a infligé ${damage} dommages à ${this.otherPlayer.name}, il lui reste ${this.otherPlayer.currentHealth} PV.`)
+        return `${critical === 2 ? 'COUP CRITIQUE !!! ' : ''}${this.currentPlayer.name} a infligé ${damage} dommages à ${this.otherPlayer.name}, il lui reste ${this.otherPlayer.currentHealth} PV.`; // remplacer le .name par le nom de discord en allant chercher avec l'id
     }
 
     // function qui check la vitesse pour skip le tour de l'ennemi actuel
