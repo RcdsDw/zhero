@@ -7,7 +7,7 @@ export class Fighter {
 
     constructor(type: 'MOB' | 'USER', attributes: IAttributes | AttributesModule) {
         this.type = type;
-        this.currentHealth = attributes.health * 100;
         this.attributes = attributes;
+        this.currentHealth = this.attributes.health * 100;
     }
 }

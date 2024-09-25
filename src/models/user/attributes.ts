@@ -30,12 +30,12 @@ export const AttributesSchema: Schema = new Schema<IAttributes, object, IAttribu
     strength: {
         type: Number,
         required: true,
-        default: 0,
+        default: 100,
     },
     health: {
         type: Number,
         required: true,
-        default: 0,
+        default: 1000,
     },
     // dexterity: {
     //     type: Number,
@@ -45,17 +45,17 @@ export const AttributesSchema: Schema = new Schema<IAttributes, object, IAttribu
     dodge: {
         type: Number,
         required: true,
-        default: 0,
+        default: 70,
     },
     armor: {
         type: Number,
         required: true,
-        default: 0,
+        default: 70,
     },
     critical: {
         type: Number,
         required: true,
-        default: 0,
+        default: 70,
     },
     // luck: {
     //     type: Number,
@@ -65,7 +65,7 @@ export const AttributesSchema: Schema = new Schema<IAttributes, object, IAttribu
     speed: {
         type: Number,
         required: true,
-        default: 0,
+        default: 70,
     },
 });
 

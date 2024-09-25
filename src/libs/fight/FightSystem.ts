@@ -37,7 +37,7 @@ export default class FightSystem {
                 this.switchPlayers();
             } else {
                 // remplacer par une interaction
-                console.log(`${this.otherPlayer} est trop rapide et rejoue.`); // remplacer le .name par le nom de discord en allant chercher avec l'id
+                console.log(`${this.otherPlayer} est trop rapide et rejoue.`);
             }
 
             turnCount++;
