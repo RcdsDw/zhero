@@ -1,22 +1,22 @@
+import { EmbedBuilder, TextChannel } from 'discord.js';
 import { Fighter } from './Fighter';
 
 export default class FightSystem {
     currentPlayer: Fighter;
     otherPlayer: Fighter;
-    turnCount: number = 0;
-    intervalId: number;
-    rowBattle: string[];
+    turnCount: number = 1;
+    intervalId: number | NodeJS.Timeout = 0;
+    rowBattle: string[] = [];
+    embedMessage: EmbedBuilder;
+    channel: TextChannel;
 
-    constructor(currentPlayer: Fighter, otherPlayer: Fighter, intervalId: number, rowBattle: string[]) {
+    constructor(currentPlayer: Fighter, otherPlayer: Fighter, channel: TextChannel) {
         this.currentPlayer = currentPlayer;
         this.otherPlayer = otherPlayer;
-        this.intervalId = intervalId;
-        this.rowBattle = rowBattle;
+        this.channel = channel;
     }
 
-    public makeFight(player: Fighter, enemy: Fighter) {
-        console.log('je suis là')
-
+    public async makeFight(player: Fighter, enemy: Fighter) {
         let res = this.whoIsFirst();
         if (res === 'player') {
             this.currentPlayer = player;
@@ -26,17 +26,46 @@ export default class FightSystem {
             this.otherPlayer = player;
         }
 
-        this.intervalId = setInterval(() => this.makeTurn(player, enemy), 1000)
+        console.log("User:",player,"Enemy :",enemy )
+
+        let embed = new EmbedBuilder()
+            .setTitle(`${player.name} VS ${enemy.name}`)
+            .setDescription('Que le meilleur gagne...')
+            .addFields(
+                { name: 'Tour', value: `${this.turnCount}`, inline: true },
+                { name: 'Rapport de combat !', value: '...', inline: true}
+            )
+            .setColor('#ff0000');
+
+        this.embedMessage = await this.channel.send({ embeds: [embed] });
+
+        this.intervalId = setInterval(async () => {
+            let isFinished: boolean = await this.makeTurn(player, enemy);
+            if (isFinished) {
+                clearInterval(this.intervalId);
+                embed.setDescription(`${player.currentHealth <= 0 && enemy.currentHealth > 0 ? enemy.name : player.name} a gagné le combat!`);
+                await this.embedMessage.edit({ embeds: [embed] });
+            } else {
+                this.updateEmbed();
+            }
+        }, 2000); 
     }
 
-    public async makeTurn(player: Fighter, enemy: Fighter) {
+    public async updateEmbed() {
+        const embed = this.embedMessage.embeds[0];
+        embed.fields[1].value = this.rowBattle.slice(-5).join('\n');
+        embed.fields[0].value = `[Tour ${this.turnCount}]`;
+        await this.embedMessage.edit({ embeds: [embed] });
+    }
+
+    public async makeTurn(player: Fighter, enemy: Fighter): Promise<boolean> {
         let attackDodged: boolean = await this.isAttackDodged();
         if (!attackDodged) {
             const criticalMultiplier = await this.isAttackCritical();
             this.attack(criticalMultiplier);
         } else {
             // remplacer par une interaction
-            console.log(`${this.otherPlayer.name} a esquivé l'attaque.`);
+            this.rowBattle.push((`${this.otherPlayer.name} a esquivé l'attaque.`));
         }
 
         let turnDoubled: boolean = await this.isTurnDoubled();
@@ -44,14 +73,15 @@ export default class FightSystem {
             this.switchPlayers();
         } else {
             // remplacer par une interaction
-            console.log(`${this.otherPlayer.name} est trop rapide et rejoue.`);
+            this.rowBattle.push((`${this.otherPlayer.name} est trop rapide et rejoue.`));
         }
 
         if(player.currentHealth > 0 && enemy.currentHealth > 0) {
-            clearInterval(this.intervalId)
-            return player.currentHealth > 0;
+            this.turnCount++;
+            return false;
+        } else {
+            return true;
         }
-        this.turnCount++;
     }
 
     // function qui determine le premier joueur (en random pour l'instant à changer avec de l'initiative surement)
@@ -70,11 +100,10 @@ export default class FightSystem {
     }
 
     // function qui évalue la puissance de l'attaque et enlève les points de l'ennemi
-    public attack(critical: number): string {
+    public attack(critical: number) {
         let damage = Math.max(0, this.currentPlayer.attributes.strength * critical - this.otherPlayer.attributes.armor);
         this.otherPlayer.currentHealth -= damage;
-        console.log(`${critical === 2 ? 'COUP CRITIQUE !!! ' : ''}${this.currentPlayer.name} a infligé ${damage} dommages à ${this.otherPlayer.name}, il lui reste ${this.otherPlayer.currentHealth} PV.`)
-        return `${critical === 2 ? 'COUP CRITIQUE !!! ' : ''}${this.currentPlayer.name} a infligé ${damage} dommages à ${this.otherPlayer.name}, il lui reste ${this.otherPlayer.currentHealth} PV.`; // remplacer le .name par le nom de discord en allant chercher avec l'id
+        this.rowBattle.push(`${critical === 2 ? '{{ COUP CRITIQUE !!! }}' : ''}${this.currentPlayer.name} a infligé ${damage} dommages à ${this.otherPlayer.name}, il lui reste ${this.otherPlayer.currentHealth} PV.`);
     }
 
     // function qui check la vitesse pour skip le tour de l'ennemi actuel

@@ -16,10 +16,10 @@ export async function execute(interaction: CommandInteraction) {
         return;
     }
 
-    const mob = new Mob(mobs[10].name, mobs[10].lvl, mobs[10].skin, mobs[10].attributes);
+    const mob = new Mob(mobs[1].name, mobs[1].lvl, mobs[1].skin, mobs[1].attributes);
     const fighterMob: Fighter = FighterFactory.fromMob(mob);
     const fighterUser: Fighter = FighterFactory.fromUser(user, interaction.user);
-    const fight = new FightSystem(fighterUser, fighterMob);
+    const fight = new FightSystem(fighterUser, fighterMob, interaction.channel);
 
-    interaction.reply(`${await fight.makeFight(fighterUser, fighterMob).then((res) => {res === true ? console.log('Vous avez gagné') : console.log('Vous avez perdu...')})}`);
+    await fight.makeFight(fighterUser, fighterMob);
 }

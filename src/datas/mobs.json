@@ -19,8 +19,8 @@
         "lvl": 72,
         "skin": "/home/rafael/Bureau/Dev/zhero/images/npcs/npc/npc_alps_alien.png",
         "attributes": {
-            "strength": 78,
-            "health": 74,
+            "strength": 1,
+            "health": 7400000,
             "dodge": 79,
             "armor": 72,
             "critical": 79,
