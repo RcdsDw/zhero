@@ -29,7 +29,7 @@ export default class FightSystem {
         console.log("User:",player,"Enemy :",enemy )
 
         let embed = new EmbedBuilder()
-            .setTitle(`${player.name} VS ${enemy.name}`)
+            .setTitle(`${player.name} - ${player.currentHealth} VS ${enemy.name} - ${enemy.currentHealth}`)
             .setDescription('Que le meilleur gagne...')
             .addFields(
                 { name: 'Tour', value: `${this.turnCount}`, inline: true },
@@ -46,15 +46,16 @@ export default class FightSystem {
                 embed.setDescription(`${player.currentHealth <= 0 && enemy.currentHealth > 0 ? enemy.name : player.name} a gagné le combat!`);
                 await this.embedMessage.edit({ embeds: [embed] });
             } else {
-                this.updateEmbed();
+                this.updateEmbed(player, enemy);
             }
         }, 2000); 
     }
 
-    public async updateEmbed() {
+    public async updateEmbed(player: Fighter, enemy: Fighter) {
         const embed = this.embedMessage.embeds[0];
         embed.fields[1].value = this.rowBattle.slice(-5).join('\n');
         embed.fields[0].value = `[Tour ${this.turnCount}]`;
+        embed.title.value = `${player.name} - ${player.currentHealth} VS ${enemy.name} - ${enemy.currentHealth}`;
         await this.embedMessage.edit({ embeds: [embed] });
     }
 

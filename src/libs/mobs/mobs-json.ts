@@ -35,7 +35,7 @@ fs.readdir(pathNpc, (err, files) => {
 
     console.log('Mob 1 : ', mobs[0]);
 
-    fs.writeFile('../../datas/mobs.json', JSON.stringify(mobs, null, 4), (err: NodeJS.ErrnoException | null) => {
+    fs.writeFile('../../datas', JSON.stringify(mobs, null, 4), (err: NodeJS.ErrnoException | null) => {
         if (err) {
             console.log('Error :', err);
         } else {
