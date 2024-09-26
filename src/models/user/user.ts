@@ -10,6 +10,7 @@ import { StuffModule, StuffSchema } from './stuff';
 import { ShopModule, ShopSchema } from '../item/shop';
 import { ItemModel } from '../item/item';
 import StuffMontage from '../../libs/montage/StuffMontage';
+import { userInfo } from 'os';
 
 // Données du document
 interface IUser {
@@ -158,6 +159,10 @@ UserSchema.methods.sellItem = async function (n: number): Promise<string> {
 UserSchema.methods.equipItem = async function (n: number): Promise<void> {
     const inventoryItem = this.inventory.items[n];
     const stuffItem = this.stuff.getItemByType(inventoryItem.type);
+
+    if(inventoryItem.level > this.experience.level) {
+        return;
+    }
 
     if (stuffItem === null) {
         this.inventory.items.splice(n, 1);

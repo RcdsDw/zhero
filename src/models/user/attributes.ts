@@ -1,4 +1,4 @@
-import { HydratedDocument, Schema } from 'mongoose';
+import { HydratedDocument, Model, model, Schema } from 'mongoose';
 import Rarity from '../../enum/rarity';
 import { EmbedBuilder } from 'discord.js';
 import { ItemModel } from '../item/item';
@@ -22,6 +22,10 @@ interface IAttributesMethods {
     addToEmbed(embed: EmbedBuilder, stuffedItem?: ItemModel | null): EmbedBuilder;
     add(attr: AttributesModule): AttributesModule;
     toString(): string;
+}
+
+interface IAttributesModel extends Model<IAttributes, object, IAttributesMethods> {
+    static(): void;
 }
 
 export type AttributesModule = HydratedDocument<IAttributes, IAttributesMethods>;
@@ -114,14 +118,18 @@ AttributesSchema.methods.applyRarity = function (rarity: Rarity): void {
  * @returns
  */
 AttributesSchema.methods.add = function (attr: AttributesModule): AttributesModule {
-    const result = JSON.parse(JSON.stringify(attr));
+    const result = new AttributesModel();
 
     const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));
 
     keys.map((k) => {
         let key = k as keyof IAttributes;
-        result[key] = result[key] + this[k];
+        result[key] = attr[key] + this[key];
     });
 
-    return result as AttributesModule;
+    return result
 };
+
+const AttributesModel = model<IAttributes, IAttributesModel>('Attributes', AttributesSchema);
+
+export { AttributesModel };
