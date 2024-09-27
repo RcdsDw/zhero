@@ -6,7 +6,6 @@
 # Image
 /public/skin/*.png
 /public/stuff/*.png
-/images/items
 
 # Test
 /coverage
