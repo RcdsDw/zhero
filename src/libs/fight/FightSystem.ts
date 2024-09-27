@@ -26,8 +26,6 @@ export default class FightSystem {
             this.otherPlayer = player;
         }
 
-        console.log("User:",player,"Enemy :",enemy )
-
         let embed = new EmbedBuilder()
             .setTitle(`${player.name} - ${player.currentHealth} VS ${enemy.name} - ${enemy.currentHealth}`)
             .setDescription('Que le meilleur gagne...')
