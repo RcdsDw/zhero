@@ -21,7 +21,7 @@ describe('Stuff', () => {
 
         user = await UserModel.create({
             id: 'stuff',
-            gold : 50
+            gold: 50,
         });
 
         user.experience.level = 5;
@@ -37,9 +37,9 @@ describe('Stuff', () => {
     it('should equip item with a lower or equal level', async () => {
         const items = await user.shop.getItems(user);
 
-        const itemIndex = items.findIndex(i => i.level <= user.experience.level);
+        const itemIndex = items.findIndex((i) => i.level <= user.experience.level);
 
-        if(itemIndex === -1) {
+        if (itemIndex === -1) {
             return;
         }
 
@@ -65,20 +65,20 @@ describe('Stuff', () => {
         expect(attributes.health).to.be.equal(equipedItem.attributes.health);
     });
 
-    it('shouldn\'t equip item with a higher level', async () => {
+    it("shouldn't equip item with a higher level", async () => {
         const items = await user.shop.getItems(user);
 
-        const itemIndex = items.findIndex(i => i.level > user.experience.level && i.type !== equipedItem.type);
+        const itemIndex = items.findIndex((i) => i.level > user.experience.level && i.type !== equipedItem.type);
 
-        if(itemIndex === -1) {
+        if (itemIndex === -1) {
             return;
         }
 
-        await user.buyItem(itemIndex)
+        await user.buyItem(itemIndex);
 
         const item = user.inventory.items[0];
 
-        user.equipItem(0)
+        user.equipItem(0);
 
         expect(user.stuff.getItemByType(item.type)).to.be.null;
     });

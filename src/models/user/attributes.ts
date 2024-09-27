@@ -81,7 +81,7 @@ AttributesSchema.methods.getTotalPoints = function (): number {
 
     const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));
 
-    keys.forEach((k) => total += this[k]);
+    keys.forEach((k) => (total += this[k]));
 
     return total;
 };
@@ -127,7 +127,7 @@ AttributesSchema.methods.add = function (attr: AttributesModule): AttributesModu
         result[key] = attr[key] + this[key];
     });
 
-    return result
+    return result;
 };
 
 const AttributesModel = model<IAttributes, IAttributesModel>('Attributes', AttributesSchema);

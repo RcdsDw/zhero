@@ -58,7 +58,7 @@ describe('Skin', () => {
     it('should switch gender', async () => {
         const genderExpected = user.skin.gender === Gender.Men ? Gender.Women : Gender.Men;
 
-        user.skin.switchGender()
+        user.skin.switchGender();
 
         expect(user.skin.gender).to.be.equal(genderExpected);
     });

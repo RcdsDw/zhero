@@ -160,7 +160,7 @@ UserSchema.methods.equipItem = async function (n: number): Promise<void> {
     const inventoryItem = this.inventory.items[n];
     const stuffItem = this.stuff.getItemByType(inventoryItem.type);
 
-    if(inventoryItem.level > this.experience.level) {
+    if (inventoryItem.level > this.experience.level) {
         return;
     }
 

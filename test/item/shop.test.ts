@@ -34,9 +34,9 @@ describe('Shop', () => {
         baseItems.forEach((baseItem) => {
             expect(baseItem).to.be.an.instanceOf(BaseItemModel);
 
-            expect(baseItem.level).to.be.lessThanOrEqual(user.experience.level + 10)
-            expect(baseItem.level).to.be.greaterThanOrEqual(user.experience.level - 10)
-        })
+            expect(baseItem.level).to.be.lessThanOrEqual(user.experience.level + 10);
+            expect(baseItem.level).to.be.greaterThanOrEqual(user.experience.level - 10);
+        });
     });
 
     it('should get items of shop', async () => {
@@ -47,11 +47,10 @@ describe('Shop', () => {
         shopItems.forEach((item) => {
             expect(item.level).to.be.lessThanOrEqual(user.experience.level + 10);
             expect(item.level).to.be.greaterThanOrEqual(user.experience.level - 10);
-        })
+        });
     });
 
     it('should buy items', async () => {
-
         const shopItems = await user.shop.getItems(user);
         const item = shopItems[0];
 
@@ -64,7 +63,6 @@ describe('Shop', () => {
     });
 
     it('should sell item', async () => {
-
         const inventoryItem = user.inventory.items[0];
 
         const goldExpected = user.gold + inventoryItem.getSellPrice();

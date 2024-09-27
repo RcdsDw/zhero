@@ -2,7 +2,7 @@ name: Deploy
 
 on:
     workflow_run:
-        workflows: ['Pretty and Lint']
+        workflows: ['Quality']
         types:
             - completed
         branches:

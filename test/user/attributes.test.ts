@@ -30,7 +30,7 @@ describe('Attribute', () => {
         user.attributes.distributePoints(totalBefore);
 
         const rarity = Rarity.RARITIES[4];
-        
+
         user.attributes.applyRarity(rarity);
 
         const totalAfter = user.attributes.getTotalPoints();
