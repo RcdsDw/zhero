@@ -5,10 +5,10 @@ import { createCanvas, loadImage } from 'canvas';
 import { Gender } from '../../models/user/skin';
 
 export default class StuffMontage {
-    public static async getImage(user : User) : Promise<string> {
+    public static async getImage(user: User): Promise<string> {
         const imagePath = this.getStuffImagePath(user);
 
-      /*   if (fs.existsSync(imagePath)) {
+        /*   if (fs.existsSync(imagePath)) {
             return imagePath;
         } */
 
@@ -20,7 +20,7 @@ export default class StuffMontage {
     /**
      * Génère une image en fonction d'un skin
      */
-    public static async generateImage(user : User): Promise<void> {
+    public static async generateImage(user: User): Promise<void> {
         const canvas = createCanvas(350, 900);
         const ctx = canvas.getContext('2d');
 
@@ -31,25 +31,27 @@ export default class StuffMontage {
 
         const items = user.stuff.getAllItems();
 
-        await Promise.all(items.map(async item => {
-            if(item === null || item.asset_men === undefined){
-                return;
-            }
+        await Promise.all(
+            items.map(async (item) => {
+                if (item === null || item.asset_men === undefined) {
+                    return;
+                }
 
-            let itemPath = item.asset_men;
+                let itemPath = item.asset_men;
 
-            if(user.skin.gender === Gender.Women) {
-                itemPath = item.asset_women;
-            }
+                if (user.skin.gender === Gender.Women) {
+                    itemPath = item.asset_women;
+                }
 
-            const itemImage = await loadImage(itemPath);
+                const itemImage = await loadImage(itemPath);
 
-            if(user.skin.gender === Gender.Men) {
-                ctx.drawImage(itemImage, -201, -35, 683, 1010);
-            } else {
-                ctx.drawImage(itemImage, -205, -12, 687, 1010);
-            }
-        }));
+                if (user.skin.gender === Gender.Men) {
+                    ctx.drawImage(itemImage, -201, -35, 683, 1010);
+                } else {
+                    ctx.drawImage(itemImage, -205, -12, 687, 1010);
+                }
+            }),
+        );
 
         // Génération de l'image
         const buffer = canvas.toBuffer('image/png');

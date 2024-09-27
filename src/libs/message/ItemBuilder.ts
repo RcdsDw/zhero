@@ -172,7 +172,7 @@ Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
     public static async stuff(user: User): Promise<BaseMessageOptions> {
         const imagePath = await user.getImage();
         const file = new AttachmentBuilder(imagePath);
-       
+
         const embed = new EmbedBuilder()
             .setTitle(`Stuff`)
             .setColor('Red')
@@ -183,15 +183,15 @@ Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
 
             embed.addFields({
                 name: `__${type.name}__ - ${item ? item.name : 'Aucun'}`,
-                value: item ? AttributeBuilder.toString(item.attributes.toObject()) : ' ',
+                value: item ? AttributeBuilder.toString(item.attributes) : ' ',
             });
         });
 
         return {
-            content : "",
+            content: '',
             embeds: [embed],
-            files : [file],
-            components : []
+            files: [file],
+            components: [],
         };
     }
 }

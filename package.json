@@ -15,11 +15,13 @@
     "author": "Rafael & Alexis",
     "license": "ISC",
     "dependencies": {
+        "@vitalets/google-translate-api": "^9.2.0",
         "canvas": "^2.11.2",
         "discord.js": "^14.15.3",
         "dotenv": "^16.4.5",
         "moment": "^2.30.1",
-        "mongoose": "^8.6.1"
+        "mongoose": "^8.6.1",
+        "zhero": "file:"
     },
     "devDependencies": {
         "@eslint/js": "^9.10.0",

@@ -1,7 +1,6 @@
 import {
     ColorResolvable,
     EmbedBuilder,
-    InteractionReplyOptions,
     ActionRowBuilder,
     ButtonBuilder,
     ButtonStyle,
@@ -37,7 +36,7 @@ export default class MissionBuilder {
                 content: '# Mission en cours',
                 embeds: [embed],
                 components: [row],
-                files : []
+                files: [],
             };
         } else {
             const missions = res as Mission[];
@@ -68,7 +67,7 @@ export default class MissionBuilder {
                 content: '# Mission possibles',
                 embeds: embeds,
                 components: [row],
-                files : []
+                files: [],
             };
         }
     }

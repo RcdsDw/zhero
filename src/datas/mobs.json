@@ -1,0 +1,2900 @@
+[
+    {
+        "id": "npc_adventurer.png",
+        "name": "adventurer undefined",
+        "lvl": 110,
+        "skin": "/usr/src/app/images/npcs/npc/npc_adventurer.png",
+        "attributes": {
+            "strength": 118,
+            "health": 115,
+            "dodge": 115,
+            "armor": 114,
+            "critical": 117,
+            "speed": 114
+        }
+    },
+    {
+        "id": "npc_alps_alien.png",
+        "name": "alps alien",
+        "lvl": 98,
+        "skin": "/usr/src/app/images/npcs/npc/npc_alps_alien.png",
+        "attributes": {
+            "strength": 105,
+            "health": 106,
+            "dodge": 99,
+            "armor": 100,
+            "critical": 105,
+            "speed": 102
+        }
+    },
+    {
+        "id": "npc_animator.png",
+        "name": "animator undefined",
+        "lvl": 393,
+        "skin": "/usr/src/app/images/npcs/npc/npc_animator.png",
+        "attributes": {
+            "strength": 402,
+            "health": 394,
+            "dodge": 396,
+            "armor": 398,
+            "critical": 402,
+            "speed": 395
+        }
+    },
+    {
+        "id": "npc_arrogant_skateboarder.png",
+        "name": "arrogant skateboarder",
+        "lvl": 338,
+        "skin": "/usr/src/app/images/npcs/npc/npc_arrogant_skateboarder.png",
+        "attributes": {
+            "strength": 342,
+            "health": 338,
+            "dodge": 339,
+            "armor": 347,
+            "critical": 345,
+            "speed": 339
+        }
+    },
+    {
+        "id": "npc_bad_artist.png",
+        "name": "bad artist",
+        "lvl": 216,
+        "skin": "/usr/src/app/images/npcs/npc/npc_bad_artist.png",
+        "attributes": {
+            "strength": 224,
+            "health": 220,
+            "dodge": 220,
+            "armor": 224,
+            "critical": 221,
+            "speed": 223
+        }
+    },
+    {
+        "id": "npc_ball_stabber.png",
+        "name": "ball stabber",
+        "lvl": 204,
+        "skin": "/usr/src/app/images/npcs/npc/npc_ball_stabber.png",
+        "attributes": {
+            "strength": 209,
+            "health": 211,
+            "dodge": 210,
+            "armor": 209,
+            "critical": 213,
+            "speed": 210
+        }
+    },
+    {
+        "id": "npc_business_man_artless.png",
+        "name": "business man",
+        "lvl": 288,
+        "skin": "/usr/src/app/images/npcs/npc/npc_business_man_artless.png",
+        "attributes": {
+            "strength": 291,
+            "health": 293,
+            "dodge": 297,
+            "armor": 296,
+            "critical": 290,
+            "speed": 294
+        }
+    },
+    {
+        "id": "npc_business_man_cool.png",
+        "name": "business man",
+        "lvl": 96,
+        "skin": "/usr/src/app/images/npcs/npc/npc_business_man_cool.png",
+        "attributes": {
+            "strength": 103,
+            "health": 102,
+            "dodge": 101,
+            "armor": 99,
+            "critical": 105,
+            "speed": 104
+        }
+    },
+    {
+        "id": "npc_business_man_respectable.png",
+        "name": "business man",
+        "lvl": 191,
+        "skin": "/usr/src/app/images/npcs/npc/npc_business_man_respectable.png",
+        "attributes": {
+            "strength": 197,
+            "health": 198,
+            "dodge": 197,
+            "armor": 191,
+            "critical": 196,
+            "speed": 192
+        }
+    },
+    {
+        "id": "npc_business_man_threatening.png",
+        "name": "business man",
+        "lvl": 200,
+        "skin": "/usr/src/app/images/npcs/npc/npc_business_man_threatening.png",
+        "attributes": {
+            "strength": 203,
+            "health": 201,
+            "dodge": 209,
+            "armor": 205,
+            "critical": 206,
+            "speed": 209
+        }
+    },
+    {
+        "id": "npc_casualguy.png",
+        "name": "casualguy undefined",
+        "lvl": 85,
+        "skin": "/usr/src/app/images/npcs/npc/npc_casualguy.png",
+        "attributes": {
+            "strength": 94,
+            "health": 93,
+            "dodge": 87,
+            "armor": 92,
+            "critical": 89,
+            "speed": 92
+        }
+    },
+    {
+        "id": "npc_cheater.png",
+        "name": "cheater undefined",
+        "lvl": 164,
+        "skin": "/usr/src/app/images/npcs/npc/npc_cheater.png",
+        "attributes": {
+            "strength": 167,
+            "health": 172,
+            "dodge": 172,
+            "armor": 172,
+            "critical": 170,
+            "speed": 164
+        }
+    },
+    {
+        "id": "npc_cheeky_rumour_spreader.png",
+        "name": "cheeky rumour",
+        "lvl": 68,
+        "skin": "/usr/src/app/images/npcs/npc/npc_cheeky_rumour_spreader.png",
+        "attributes": {
+            "strength": 69,
+            "health": 77,
+            "dodge": 76,
+            "armor": 69,
+            "critical": 76,
+            "speed": 74
+        }
+    },
+    {
+        "id": "npc_cheese_technic.png",
+        "name": "cheese technic",
+        "lvl": 209,
+        "skin": "/usr/src/app/images/npcs/npc/npc_cheese_technic.png",
+        "attributes": {
+            "strength": 217,
+            "health": 217,
+            "dodge": 216,
+            "armor": 209,
+            "critical": 210,
+            "speed": 211
+        }
+    },
+    {
+        "id": "npc_concierge.png",
+        "name": "concierge undefined",
+        "lvl": 228,
+        "skin": "/usr/src/app/images/npcs/npc/npc_concierge.png",
+        "attributes": {
+            "strength": 234,
+            "health": 236,
+            "dodge": 235,
+            "armor": 234,
+            "critical": 236,
+            "speed": 232
+        }
+    },
+    {
+        "id": "npc_cook.png",
+        "name": "cook undefined",
+        "lvl": 217,
+        "skin": "/usr/src/app/images/npcs/npc/npc_cook.png",
+        "attributes": {
+            "strength": 222,
+            "health": 219,
+            "dodge": 222,
+            "armor": 226,
+            "critical": 226,
+            "speed": 225
+        }
+    },
+    {
+        "id": "npc_cyclist_rowdy.png",
+        "name": "cyclist rowdy",
+        "lvl": 308,
+        "skin": "/usr/src/app/images/npcs/npc/npc_cyclist_rowdy.png",
+        "attributes": {
+            "strength": 309,
+            "health": 309,
+            "dodge": 309,
+            "armor": 308,
+            "critical": 314,
+            "speed": 313
+        }
+    },
+    {
+        "id": "npc_disturbing_neighbor.png",
+        "name": "disturbing neighbor",
+        "lvl": 44,
+        "skin": "/usr/src/app/images/npcs/npc/npc_disturbing_neighbor.png",
+        "attributes": {
+            "strength": 51,
+            "health": 44,
+            "dodge": 45,
+            "armor": 49,
+            "critical": 46,
+            "speed": 52
+        }
+    },
+    {
+        "id": "npc_doglady.png",
+        "name": "doglady undefined",
+        "lvl": 48,
+        "skin": "/usr/src/app/images/npcs/npc/npc_doglady.png",
+        "attributes": {
+            "strength": 48,
+            "health": 52,
+            "dodge": 56,
+            "armor": 54,
+            "critical": 52,
+            "speed": 49
+        }
+    },
+    {
+        "id": "npc_drummer_street_musician.png",
+        "name": "drummer street",
+        "lvl": 293,
+        "skin": "/usr/src/app/images/npcs/npc/npc_drummer_street_musician.png",
+        "attributes": {
+            "strength": 300,
+            "health": 293,
+            "dodge": 296,
+            "armor": 300,
+            "critical": 298,
+            "speed": 294
+        }
+    },
+    {
+        "id": "npc_dubious_trader.png",
+        "name": "dubious trader",
+        "lvl": 373,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dubious_trader.png",
+        "attributes": {
+            "strength": 374,
+            "health": 377,
+            "dodge": 382,
+            "armor": 379,
+            "critical": 382,
+            "speed": 379
+        }
+    },
+    {
+        "id": "npc_dungeon1_npc1.png",
+        "name": "dungeon1 npc1",
+        "lvl": 58,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon1_npc1.png",
+        "attributes": {
+            "strength": 60,
+            "health": 67,
+            "dodge": 66,
+            "armor": 65,
+            "critical": 62,
+            "speed": 66
+        }
+    },
+    {
+        "id": "npc_dungeon1_npc10.png",
+        "name": "dungeon1 npc10",
+        "lvl": 38,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon1_npc10.png",
+        "attributes": {
+            "strength": 43,
+            "health": 38,
+            "dodge": 38,
+            "armor": 38,
+            "critical": 44,
+            "speed": 39
+        }
+    },
+    {
+        "id": "npc_dungeon1_npc2.png",
+        "name": "dungeon1 npc2",
+        "lvl": 393,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon1_npc2.png",
+        "attributes": {
+            "strength": 397,
+            "health": 397,
+            "dodge": 399,
+            "armor": 393,
+            "critical": 402,
+            "speed": 401
+        }
+    },
+    {
+        "id": "npc_dungeon1_npc3.png",
+        "name": "dungeon1 npc3",
+        "lvl": 237,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon1_npc3.png",
+        "attributes": {
+            "strength": 237,
+            "health": 245,
+            "dodge": 238,
+            "armor": 245,
+            "critical": 239,
+            "speed": 241
+        }
+    },
+    {
+        "id": "npc_dungeon1_npc4.png",
+        "name": "dungeon1 npc4",
+        "lvl": 190,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon1_npc4.png",
+        "attributes": {
+            "strength": 198,
+            "health": 195,
+            "dodge": 193,
+            "armor": 198,
+            "critical": 199,
+            "speed": 190
+        }
+    },
+    {
+        "id": "npc_dungeon1_npc5.png",
+        "name": "dungeon1 npc5",
+        "lvl": 93,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon1_npc5.png",
+        "attributes": {
+            "strength": 98,
+            "health": 101,
+            "dodge": 98,
+            "armor": 93,
+            "critical": 93,
+            "speed": 93
+        }
+    },
+    {
+        "id": "npc_dungeon1_npc6.png",
+        "name": "dungeon1 npc6",
+        "lvl": 125,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon1_npc6.png",
+        "attributes": {
+            "strength": 128,
+            "health": 130,
+            "dodge": 132,
+            "armor": 134,
+            "critical": 133,
+            "speed": 130
+        }
+    },
+    {
+        "id": "npc_dungeon1_npc7.png",
+        "name": "dungeon1 npc7",
+        "lvl": 399,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon1_npc7.png",
+        "attributes": {
+            "strength": 406,
+            "health": 404,
+            "dodge": 406,
+            "armor": 400,
+            "critical": 402,
+            "speed": 399
+        }
+    },
+    {
+        "id": "npc_dungeon1_npc8.png",
+        "name": "dungeon1 npc8",
+        "lvl": 278,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon1_npc8.png",
+        "attributes": {
+            "strength": 284,
+            "health": 279,
+            "dodge": 287,
+            "armor": 286,
+            "critical": 279,
+            "speed": 278
+        }
+    },
+    {
+        "id": "npc_dungeon1_npc9.png",
+        "name": "dungeon1 npc9",
+        "lvl": 296,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon1_npc9.png",
+        "attributes": {
+            "strength": 296,
+            "health": 305,
+            "dodge": 300,
+            "armor": 300,
+            "critical": 305,
+            "speed": 298
+        }
+    },
+    {
+        "id": "npc_dungeon2_npc1.png",
+        "name": "dungeon2 npc1",
+        "lvl": 397,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon2_npc1.png",
+        "attributes": {
+            "strength": 400,
+            "health": 397,
+            "dodge": 402,
+            "armor": 398,
+            "critical": 402,
+            "speed": 403
+        }
+    },
+    {
+        "id": "npc_dungeon2_npc10.png",
+        "name": "dungeon2 npc10",
+        "lvl": 273,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon2_npc10.png",
+        "attributes": {
+            "strength": 277,
+            "health": 274,
+            "dodge": 273,
+            "armor": 279,
+            "critical": 274,
+            "speed": 279
+        }
+    },
+    {
+        "id": "npc_dungeon2_npc2.png",
+        "name": "dungeon2 npc2",
+        "lvl": 177,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon2_npc2.png",
+        "attributes": {
+            "strength": 184,
+            "health": 181,
+            "dodge": 184,
+            "armor": 177,
+            "critical": 178,
+            "speed": 178
+        }
+    },
+    {
+        "id": "npc_dungeon2_npc3.png",
+        "name": "dungeon2 npc3",
+        "lvl": 343,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon2_npc3.png",
+        "attributes": {
+            "strength": 346,
+            "health": 348,
+            "dodge": 344,
+            "armor": 344,
+            "critical": 345,
+            "speed": 343
+        }
+    },
+    {
+        "id": "npc_dungeon2_npc4.png",
+        "name": "dungeon2 npc4",
+        "lvl": 74,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon2_npc4.png",
+        "attributes": {
+            "strength": 81,
+            "health": 77,
+            "dodge": 76,
+            "armor": 75,
+            "critical": 74,
+            "speed": 81
+        }
+    },
+    {
+        "id": "npc_dungeon2_npc5.png",
+        "name": "dungeon2 npc5",
+        "lvl": 258,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon2_npc5.png",
+        "attributes": {
+            "strength": 263,
+            "health": 265,
+            "dodge": 263,
+            "armor": 264,
+            "critical": 260,
+            "speed": 258
+        }
+    },
+    {
+        "id": "npc_dungeon2_npc6.png",
+        "name": "dungeon2 npc6",
+        "lvl": 26,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon2_npc6.png",
+        "attributes": {
+            "strength": 35,
+            "health": 34,
+            "dodge": 27,
+            "armor": 30,
+            "critical": 28,
+            "speed": 33
+        }
+    },
+    {
+        "id": "npc_dungeon2_npc7.png",
+        "name": "dungeon2 npc7",
+        "lvl": 366,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon2_npc7.png",
+        "attributes": {
+            "strength": 373,
+            "health": 373,
+            "dodge": 369,
+            "armor": 370,
+            "critical": 374,
+            "speed": 366
+        }
+    },
+    {
+        "id": "npc_dungeon2_npc8.png",
+        "name": "dungeon2 npc8",
+        "lvl": 179,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon2_npc8.png",
+        "attributes": {
+            "strength": 181,
+            "health": 181,
+            "dodge": 179,
+            "armor": 181,
+            "critical": 179,
+            "speed": 188
+        }
+    },
+    {
+        "id": "npc_dungeon2_npc9.png",
+        "name": "dungeon2 npc9",
+        "lvl": 214,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon2_npc9.png",
+        "attributes": {
+            "strength": 216,
+            "health": 223,
+            "dodge": 219,
+            "armor": 221,
+            "critical": 220,
+            "speed": 214
+        }
+    },
+    {
+        "id": "npc_dungeon3_npc1.png",
+        "name": "dungeon3 npc1",
+        "lvl": 282,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon3_npc1.png",
+        "attributes": {
+            "strength": 290,
+            "health": 285,
+            "dodge": 284,
+            "armor": 284,
+            "critical": 288,
+            "speed": 290
+        }
+    },
+    {
+        "id": "npc_dungeon3_npc10.png",
+        "name": "dungeon3 npc10",
+        "lvl": 241,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon3_npc10.png",
+        "attributes": {
+            "strength": 242,
+            "health": 244,
+            "dodge": 243,
+            "armor": 241,
+            "critical": 243,
+            "speed": 245
+        }
+    },
+    {
+        "id": "npc_dungeon3_npc2.png",
+        "name": "dungeon3 npc2",
+        "lvl": 396,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon3_npc2.png",
+        "attributes": {
+            "strength": 397,
+            "health": 399,
+            "dodge": 398,
+            "armor": 398,
+            "critical": 398,
+            "speed": 397
+        }
+    },
+    {
+        "id": "npc_dungeon3_npc3.png",
+        "name": "dungeon3 npc3",
+        "lvl": 339,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon3_npc3.png",
+        "attributes": {
+            "strength": 340,
+            "health": 342,
+            "dodge": 345,
+            "armor": 342,
+            "critical": 344,
+            "speed": 348
+        }
+    },
+    {
+        "id": "npc_dungeon3_npc4.png",
+        "name": "dungeon3 npc4",
+        "lvl": 188,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon3_npc4.png",
+        "attributes": {
+            "strength": 188,
+            "health": 193,
+            "dodge": 195,
+            "armor": 191,
+            "critical": 195,
+            "speed": 189
+        }
+    },
+    {
+        "id": "npc_dungeon3_npc5.png",
+        "name": "dungeon3 npc5",
+        "lvl": 247,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon3_npc5.png",
+        "attributes": {
+            "strength": 254,
+            "health": 249,
+            "dodge": 248,
+            "armor": 256,
+            "critical": 255,
+            "speed": 253
+        }
+    },
+    {
+        "id": "npc_dungeon3_npc6.png",
+        "name": "dungeon3 npc6",
+        "lvl": 171,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon3_npc6.png",
+        "attributes": {
+            "strength": 179,
+            "health": 173,
+            "dodge": 176,
+            "armor": 171,
+            "critical": 174,
+            "speed": 180
+        }
+    },
+    {
+        "id": "npc_dungeon3_npc7.png",
+        "name": "dungeon3 npc7",
+        "lvl": 273,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon3_npc7.png",
+        "attributes": {
+            "strength": 279,
+            "health": 281,
+            "dodge": 278,
+            "armor": 277,
+            "critical": 278,
+            "speed": 282
+        }
+    },
+    {
+        "id": "npc_dungeon3_npc8.png",
+        "name": "dungeon3 npc8",
+        "lvl": 65,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon3_npc8.png",
+        "attributes": {
+            "strength": 69,
+            "health": 67,
+            "dodge": 70,
+            "armor": 70,
+            "critical": 71,
+            "speed": 69
+        }
+    },
+    {
+        "id": "npc_dungeon3_npc9.png",
+        "name": "dungeon3 npc9",
+        "lvl": 246,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon3_npc9.png",
+        "attributes": {
+            "strength": 254,
+            "health": 254,
+            "dodge": 249,
+            "armor": 254,
+            "critical": 248,
+            "speed": 248
+        }
+    },
+    {
+        "id": "npc_dungeon4_npc1.png",
+        "name": "dungeon4 npc1",
+        "lvl": 301,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon4_npc1.png",
+        "attributes": {
+            "strength": 301,
+            "health": 309,
+            "dodge": 301,
+            "armor": 310,
+            "critical": 307,
+            "speed": 301
+        }
+    },
+    {
+        "id": "npc_dungeon4_npc10.png",
+        "name": "dungeon4 npc10",
+        "lvl": 148,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon4_npc10.png",
+        "attributes": {
+            "strength": 154,
+            "health": 151,
+            "dodge": 153,
+            "armor": 153,
+            "critical": 153,
+            "speed": 154
+        }
+    },
+    {
+        "id": "npc_dungeon4_npc2.png",
+        "name": "dungeon4 npc2",
+        "lvl": 38,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon4_npc2.png",
+        "attributes": {
+            "strength": 38,
+            "health": 42,
+            "dodge": 41,
+            "armor": 40,
+            "critical": 39,
+            "speed": 45
+        }
+    },
+    {
+        "id": "npc_dungeon4_npc3.png",
+        "name": "dungeon4 npc3",
+        "lvl": 193,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon4_npc3.png",
+        "attributes": {
+            "strength": 197,
+            "health": 197,
+            "dodge": 194,
+            "armor": 202,
+            "critical": 194,
+            "speed": 201
+        }
+    },
+    {
+        "id": "npc_dungeon4_npc4.png",
+        "name": "dungeon4 npc4",
+        "lvl": 174,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon4_npc4.png",
+        "attributes": {
+            "strength": 181,
+            "health": 178,
+            "dodge": 182,
+            "armor": 176,
+            "critical": 179,
+            "speed": 183
+        }
+    },
+    {
+        "id": "npc_dungeon4_npc5.png",
+        "name": "dungeon4 npc5",
+        "lvl": 53,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon4_npc5.png",
+        "attributes": {
+            "strength": 57,
+            "health": 55,
+            "dodge": 58,
+            "armor": 59,
+            "critical": 59,
+            "speed": 54
+        }
+    },
+    {
+        "id": "npc_dungeon4_npc6.png",
+        "name": "dungeon4 npc6",
+        "lvl": 228,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon4_npc6.png",
+        "attributes": {
+            "strength": 230,
+            "health": 232,
+            "dodge": 230,
+            "armor": 235,
+            "critical": 233,
+            "speed": 232
+        }
+    },
+    {
+        "id": "npc_dungeon4_npc7.png",
+        "name": "dungeon4 npc7",
+        "lvl": 154,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon4_npc7.png",
+        "attributes": {
+            "strength": 159,
+            "health": 159,
+            "dodge": 154,
+            "armor": 154,
+            "critical": 156,
+            "speed": 160
+        }
+    },
+    {
+        "id": "npc_dungeon4_npc8.png",
+        "name": "dungeon4 npc8",
+        "lvl": 117,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon4_npc8.png",
+        "attributes": {
+            "strength": 117,
+            "health": 117,
+            "dodge": 121,
+            "armor": 125,
+            "critical": 119,
+            "speed": 126
+        }
+    },
+    {
+        "id": "npc_dungeon4_npc9.png",
+        "name": "dungeon4 npc9",
+        "lvl": 58,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon4_npc9.png",
+        "attributes": {
+            "strength": 66,
+            "health": 61,
+            "dodge": 58,
+            "armor": 63,
+            "critical": 59,
+            "speed": 64
+        }
+    },
+    {
+        "id": "npc_dungeon5_npc1.png",
+        "name": "dungeon5 npc1",
+        "lvl": 194,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon5_npc1.png",
+        "attributes": {
+            "strength": 200,
+            "health": 200,
+            "dodge": 202,
+            "armor": 195,
+            "critical": 200,
+            "speed": 195
+        }
+    },
+    {
+        "id": "npc_dungeon5_npc10.png",
+        "name": "dungeon5 npc10",
+        "lvl": 17,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon5_npc10.png",
+        "attributes": {
+            "strength": 25,
+            "health": 19,
+            "dodge": 26,
+            "armor": 22,
+            "critical": 19,
+            "speed": 17
+        }
+    },
+    {
+        "id": "npc_dungeon5_npc2.png",
+        "name": "dungeon5 npc2",
+        "lvl": 351,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon5_npc2.png",
+        "attributes": {
+            "strength": 359,
+            "health": 360,
+            "dodge": 352,
+            "armor": 358,
+            "critical": 360,
+            "speed": 358
+        }
+    },
+    {
+        "id": "npc_dungeon5_npc3.png",
+        "name": "dungeon5 npc3",
+        "lvl": 23,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon5_npc3.png",
+        "attributes": {
+            "strength": 28,
+            "health": 30,
+            "dodge": 25,
+            "armor": 30,
+            "critical": 31,
+            "speed": 29
+        }
+    },
+    {
+        "id": "npc_dungeon5_npc4.png",
+        "name": "dungeon5 npc4",
+        "lvl": 184,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon5_npc4.png",
+        "attributes": {
+            "strength": 193,
+            "health": 190,
+            "dodge": 186,
+            "armor": 192,
+            "critical": 185,
+            "speed": 186
+        }
+    },
+    {
+        "id": "npc_dungeon5_npc5.png",
+        "name": "dungeon5 npc5",
+        "lvl": 277,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon5_npc5.png",
+        "attributes": {
+            "strength": 284,
+            "health": 281,
+            "dodge": 284,
+            "armor": 279,
+            "critical": 279,
+            "speed": 282
+        }
+    },
+    {
+        "id": "npc_dungeon5_npc6.png",
+        "name": "dungeon5 npc6",
+        "lvl": 218,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon5_npc6.png",
+        "attributes": {
+            "strength": 220,
+            "health": 224,
+            "dodge": 219,
+            "armor": 221,
+            "critical": 220,
+            "speed": 227
+        }
+    },
+    {
+        "id": "npc_dungeon5_npc7.png",
+        "name": "dungeon5 npc7",
+        "lvl": 151,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon5_npc7.png",
+        "attributes": {
+            "strength": 158,
+            "health": 152,
+            "dodge": 153,
+            "armor": 160,
+            "critical": 158,
+            "speed": 152
+        }
+    },
+    {
+        "id": "npc_dungeon5_npc8.png",
+        "name": "dungeon5 npc8",
+        "lvl": 362,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon5_npc8.png",
+        "attributes": {
+            "strength": 369,
+            "health": 364,
+            "dodge": 363,
+            "armor": 363,
+            "critical": 369,
+            "speed": 366
+        }
+    },
+    {
+        "id": "npc_dungeon5_npc9.png",
+        "name": "dungeon5 npc9",
+        "lvl": 47,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon5_npc9.png",
+        "attributes": {
+            "strength": 51,
+            "health": 49,
+            "dodge": 52,
+            "armor": 50,
+            "critical": 49,
+            "speed": 48
+        }
+    },
+    {
+        "id": "npc_dungeon6_npc1.png",
+        "name": "dungeon6 npc1",
+        "lvl": 272,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon6_npc1.png",
+        "attributes": {
+            "strength": 275,
+            "health": 272,
+            "dodge": 274,
+            "armor": 280,
+            "critical": 278,
+            "speed": 277
+        }
+    },
+    {
+        "id": "npc_dungeon6_npc10.png",
+        "name": "dungeon6 npc10",
+        "lvl": 6,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon6_npc10.png",
+        "attributes": {
+            "strength": 15,
+            "health": 10,
+            "dodge": 10,
+            "armor": 13,
+            "critical": 10,
+            "speed": 7
+        }
+    },
+    {
+        "id": "npc_dungeon6_npc2.png",
+        "name": "dungeon6 npc2",
+        "lvl": 182,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon6_npc2.png",
+        "attributes": {
+            "strength": 187,
+            "health": 182,
+            "dodge": 183,
+            "armor": 187,
+            "critical": 189,
+            "speed": 187
+        }
+    },
+    {
+        "id": "npc_dungeon6_npc3.png",
+        "name": "dungeon6 npc3",
+        "lvl": 265,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon6_npc3.png",
+        "attributes": {
+            "strength": 267,
+            "health": 266,
+            "dodge": 272,
+            "armor": 271,
+            "critical": 273,
+            "speed": 274
+        }
+    },
+    {
+        "id": "npc_dungeon6_npc4.png",
+        "name": "dungeon6 npc4",
+        "lvl": 346,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon6_npc4.png",
+        "attributes": {
+            "strength": 354,
+            "health": 348,
+            "dodge": 348,
+            "armor": 350,
+            "critical": 353,
+            "speed": 351
+        }
+    },
+    {
+        "id": "npc_dungeon6_npc5.png",
+        "name": "dungeon6 npc5",
+        "lvl": 367,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon6_npc5.png",
+        "attributes": {
+            "strength": 368,
+            "health": 375,
+            "dodge": 370,
+            "armor": 376,
+            "critical": 376,
+            "speed": 375
+        }
+    },
+    {
+        "id": "npc_dungeon6_npc6.png",
+        "name": "dungeon6 npc6",
+        "lvl": 50,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon6_npc6.png",
+        "attributes": {
+            "strength": 55,
+            "health": 52,
+            "dodge": 55,
+            "armor": 59,
+            "critical": 51,
+            "speed": 50
+        }
+    },
+    {
+        "id": "npc_dungeon6_npc7.png",
+        "name": "dungeon6 npc7",
+        "lvl": 359,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon6_npc7.png",
+        "attributes": {
+            "strength": 363,
+            "health": 359,
+            "dodge": 364,
+            "armor": 368,
+            "critical": 364,
+            "speed": 362
+        }
+    },
+    {
+        "id": "npc_dungeon6_npc8.png",
+        "name": "dungeon6 npc8",
+        "lvl": 103,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon6_npc8.png",
+        "attributes": {
+            "strength": 112,
+            "health": 106,
+            "dodge": 108,
+            "armor": 109,
+            "critical": 104,
+            "speed": 109
+        }
+    },
+    {
+        "id": "npc_dungeon6_npc9.png",
+        "name": "dungeon6 npc9",
+        "lvl": 316,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon6_npc9.png",
+        "attributes": {
+            "strength": 319,
+            "health": 319,
+            "dodge": 316,
+            "armor": 320,
+            "critical": 324,
+            "speed": 320
+        }
+    },
+    {
+        "id": "npc_dungeon7_npc1.png",
+        "name": "dungeon7 npc1",
+        "lvl": 220,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon7_npc1.png",
+        "attributes": {
+            "strength": 226,
+            "health": 226,
+            "dodge": 224,
+            "armor": 223,
+            "critical": 224,
+            "speed": 223
+        }
+    },
+    {
+        "id": "npc_dungeon7_npc2.png",
+        "name": "dungeon7 npc2",
+        "lvl": 189,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon7_npc2.png",
+        "attributes": {
+            "strength": 198,
+            "health": 195,
+            "dodge": 190,
+            "armor": 189,
+            "critical": 192,
+            "speed": 189
+        }
+    },
+    {
+        "id": "npc_dungeon7_npc3.png",
+        "name": "dungeon7 npc3",
+        "lvl": 397,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon7_npc3.png",
+        "attributes": {
+            "strength": 402,
+            "health": 398,
+            "dodge": 399,
+            "armor": 403,
+            "critical": 399,
+            "speed": 402
+        }
+    },
+    {
+        "id": "npc_dungeon7_npc4.png",
+        "name": "dungeon7 npc4",
+        "lvl": 133,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon7_npc4.png",
+        "attributes": {
+            "strength": 140,
+            "health": 141,
+            "dodge": 136,
+            "armor": 141,
+            "critical": 137,
+            "speed": 136
+        }
+    },
+    {
+        "id": "npc_dungeon7_npc5.png",
+        "name": "dungeon7 npc5",
+        "lvl": 79,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon7_npc5.png",
+        "attributes": {
+            "strength": 81,
+            "health": 84,
+            "dodge": 88,
+            "armor": 85,
+            "critical": 81,
+            "speed": 79
+        }
+    },
+    {
+        "id": "npc_dungeon7_npc6.png",
+        "name": "dungeon7 npc6",
+        "lvl": 12,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon7_npc6.png",
+        "attributes": {
+            "strength": 20,
+            "health": 15,
+            "dodge": 19,
+            "armor": 16,
+            "critical": 17,
+            "speed": 21
+        }
+    },
+    {
+        "id": "npc_dungeon7_npc7.png",
+        "name": "dungeon7 npc7",
+        "lvl": 130,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon7_npc7.png",
+        "attributes": {
+            "strength": 132,
+            "health": 131,
+            "dodge": 136,
+            "armor": 139,
+            "critical": 132,
+            "speed": 131
+        }
+    },
+    {
+        "id": "npc_dungeon7_npc8.png",
+        "name": "dungeon7 npc8",
+        "lvl": 141,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon7_npc8.png",
+        "attributes": {
+            "strength": 149,
+            "health": 150,
+            "dodge": 148,
+            "armor": 150,
+            "critical": 143,
+            "speed": 149
+        }
+    },
+    {
+        "id": "npc_dungeon7_npc9.png",
+        "name": "dungeon7 npc9",
+        "lvl": 368,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon7_npc9.png",
+        "attributes": {
+            "strength": 376,
+            "health": 368,
+            "dodge": 377,
+            "armor": 377,
+            "critical": 373,
+            "speed": 369
+        }
+    },
+    {
+        "id": "npc_dungeon8_npc1.png",
+        "name": "dungeon8 npc1",
+        "lvl": 36,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon8_npc1.png",
+        "attributes": {
+            "strength": 39,
+            "health": 42,
+            "dodge": 45,
+            "armor": 44,
+            "critical": 37,
+            "speed": 36
+        }
+    },
+    {
+        "id": "npc_dungeon8_npc10.png",
+        "name": "dungeon8 npc10",
+        "lvl": 328,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon8_npc10.png",
+        "attributes": {
+            "strength": 334,
+            "health": 330,
+            "dodge": 337,
+            "armor": 332,
+            "critical": 328,
+            "speed": 337
+        }
+    },
+    {
+        "id": "npc_dungeon8_npc2.png",
+        "name": "dungeon8 npc2",
+        "lvl": 362,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon8_npc2.png",
+        "attributes": {
+            "strength": 365,
+            "health": 365,
+            "dodge": 368,
+            "armor": 365,
+            "critical": 371,
+            "speed": 369
+        }
+    },
+    {
+        "id": "npc_dungeon8_npc3.png",
+        "name": "dungeon8 npc3",
+        "lvl": 152,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon8_npc3.png",
+        "attributes": {
+            "strength": 160,
+            "health": 161,
+            "dodge": 156,
+            "armor": 156,
+            "critical": 156,
+            "speed": 152
+        }
+    },
+    {
+        "id": "npc_dungeon8_npc4.png",
+        "name": "dungeon8 npc4",
+        "lvl": 11,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon8_npc4.png",
+        "attributes": {
+            "strength": 11,
+            "health": 13,
+            "dodge": 12,
+            "armor": 14,
+            "critical": 12,
+            "speed": 14
+        }
+    },
+    {
+        "id": "npc_dungeon8_npc5.png",
+        "name": "dungeon8 npc5",
+        "lvl": 319,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon8_npc5.png",
+        "attributes": {
+            "strength": 326,
+            "health": 324,
+            "dodge": 319,
+            "armor": 321,
+            "critical": 324,
+            "speed": 328
+        }
+    },
+    {
+        "id": "npc_dungeon8_npc6.png",
+        "name": "dungeon8 npc6",
+        "lvl": 170,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon8_npc6.png",
+        "attributes": {
+            "strength": 170,
+            "health": 176,
+            "dodge": 178,
+            "armor": 174,
+            "critical": 172,
+            "speed": 170
+        }
+    },
+    {
+        "id": "npc_dungeon8_npc7.png",
+        "name": "dungeon8 npc7",
+        "lvl": 49,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon8_npc7.png",
+        "attributes": {
+            "strength": 53,
+            "health": 57,
+            "dodge": 51,
+            "armor": 56,
+            "critical": 58,
+            "speed": 54
+        }
+    },
+    {
+        "id": "npc_dungeon8_npc8.png",
+        "name": "dungeon8 npc8",
+        "lvl": 338,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon8_npc8.png",
+        "attributes": {
+            "strength": 347,
+            "health": 344,
+            "dodge": 341,
+            "armor": 346,
+            "critical": 340,
+            "speed": 347
+        }
+    },
+    {
+        "id": "npc_dungeon8_npc9.png",
+        "name": "dungeon8 npc9",
+        "lvl": 23,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon8_npc9.png",
+        "attributes": {
+            "strength": 23,
+            "health": 25,
+            "dodge": 24,
+            "armor": 30,
+            "critical": 30,
+            "speed": 26
+        }
+    },
+    {
+        "id": "npc_dungeon9_npc1.png",
+        "name": "dungeon9 npc1",
+        "lvl": 363,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon9_npc1.png",
+        "attributes": {
+            "strength": 365,
+            "health": 368,
+            "dodge": 368,
+            "armor": 369,
+            "critical": 363,
+            "speed": 370
+        }
+    },
+    {
+        "id": "npc_dungeon9_npc10.png",
+        "name": "dungeon9 npc10",
+        "lvl": 73,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon9_npc10.png",
+        "attributes": {
+            "strength": 79,
+            "health": 77,
+            "dodge": 78,
+            "armor": 79,
+            "critical": 78,
+            "speed": 78
+        }
+    },
+    {
+        "id": "npc_dungeon9_npc2.png",
+        "name": "dungeon9 npc2",
+        "lvl": 273,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon9_npc2.png",
+        "attributes": {
+            "strength": 279,
+            "health": 279,
+            "dodge": 280,
+            "armor": 280,
+            "critical": 277,
+            "speed": 275
+        }
+    },
+    {
+        "id": "npc_dungeon9_npc3.png",
+        "name": "dungeon9 npc3",
+        "lvl": 184,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon9_npc3.png",
+        "attributes": {
+            "strength": 189,
+            "health": 189,
+            "dodge": 189,
+            "armor": 184,
+            "critical": 186,
+            "speed": 186
+        }
+    },
+    {
+        "id": "npc_dungeon9_npc4.png",
+        "name": "dungeon9 npc4",
+        "lvl": 108,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon9_npc4.png",
+        "attributes": {
+            "strength": 110,
+            "health": 116,
+            "dodge": 115,
+            "armor": 111,
+            "critical": 108,
+            "speed": 115
+        }
+    },
+    {
+        "id": "npc_dungeon9_npc5.png",
+        "name": "dungeon9 npc5",
+        "lvl": 68,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon9_npc5.png",
+        "attributes": {
+            "strength": 74,
+            "health": 73,
+            "dodge": 73,
+            "armor": 69,
+            "critical": 73,
+            "speed": 76
+        }
+    },
+    {
+        "id": "npc_dungeon9_npc6.png",
+        "name": "dungeon9 npc6",
+        "lvl": 146,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon9_npc6.png",
+        "attributes": {
+            "strength": 151,
+            "health": 148,
+            "dodge": 153,
+            "armor": 155,
+            "critical": 155,
+            "speed": 150
+        }
+    },
+    {
+        "id": "npc_dungeon9_npc7.png",
+        "name": "dungeon9 npc7",
+        "lvl": 209,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon9_npc7.png",
+        "attributes": {
+            "strength": 218,
+            "health": 217,
+            "dodge": 214,
+            "armor": 213,
+            "critical": 215,
+            "speed": 215
+        }
+    },
+    {
+        "id": "npc_dungeon9_npc8.png",
+        "name": "dungeon9 npc8",
+        "lvl": 39,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon9_npc8.png",
+        "attributes": {
+            "strength": 41,
+            "health": 47,
+            "dodge": 39,
+            "armor": 40,
+            "critical": 44,
+            "speed": 43
+        }
+    },
+    {
+        "id": "npc_dungeon9_npc9.png",
+        "name": "dungeon9 npc9",
+        "lvl": 84,
+        "skin": "/usr/src/app/images/npcs/npc/npc_dungeon9_npc9.png",
+        "attributes": {
+            "strength": 92,
+            "health": 86,
+            "dodge": 85,
+            "armor": 87,
+            "critical": 84,
+            "speed": 89
+        }
+    },
+    {
+        "id": "npc_egypt_animator.png",
+        "name": "egypt animator",
+        "lvl": 290,
+        "skin": "/usr/src/app/images/npcs/npc/npc_egypt_animator.png",
+        "attributes": {
+            "strength": 299,
+            "health": 298,
+            "dodge": 299,
+            "armor": 291,
+            "critical": 292,
+            "speed": 297
+        }
+    },
+    {
+        "id": "npc_egypt_crocodile.png",
+        "name": "egypt crocodile",
+        "lvl": 192,
+        "skin": "/usr/src/app/images/npcs/npc/npc_egypt_crocodile.png",
+        "attributes": {
+            "strength": 196,
+            "health": 198,
+            "dodge": 201,
+            "armor": 196,
+            "critical": 199,
+            "speed": 194
+        }
+    },
+    {
+        "id": "npc_egypt_evil_kids.png",
+        "name": "egypt evil",
+        "lvl": 42,
+        "skin": "/usr/src/app/images/npcs/npc/npc_egypt_evil_kids.png",
+        "attributes": {
+            "strength": 45,
+            "health": 47,
+            "dodge": 47,
+            "armor": 42,
+            "critical": 42,
+            "speed": 46
+        }
+    },
+    {
+        "id": "npc_egypt_guard.png",
+        "name": "egypt guard",
+        "lvl": 340,
+        "skin": "/usr/src/app/images/npcs/npc/npc_egypt_guard.png",
+        "attributes": {
+            "strength": 342,
+            "health": 348,
+            "dodge": 342,
+            "armor": 349,
+            "critical": 342,
+            "speed": 349
+        }
+    },
+    {
+        "id": "npc_egypt_ingenieur.png",
+        "name": "egypt ingenieur",
+        "lvl": 59,
+        "skin": "/usr/src/app/images/npcs/npc/npc_egypt_ingenieur.png",
+        "attributes": {
+            "strength": 65,
+            "health": 65,
+            "dodge": 59,
+            "armor": 62,
+            "critical": 68,
+            "speed": 67
+        }
+    },
+    {
+        "id": "npc_egypt_monkey.png",
+        "name": "egypt monkey",
+        "lvl": 251,
+        "skin": "/usr/src/app/images/npcs/npc/npc_egypt_monkey.png",
+        "attributes": {
+            "strength": 254,
+            "health": 251,
+            "dodge": 254,
+            "armor": 253,
+            "critical": 256,
+            "speed": 255
+        }
+    },
+    {
+        "id": "npc_egypt_mummy.png",
+        "name": "egypt mummy",
+        "lvl": 347,
+        "skin": "/usr/src/app/images/npcs/npc/npc_egypt_mummy.png",
+        "attributes": {
+            "strength": 352,
+            "health": 347,
+            "dodge": 349,
+            "armor": 354,
+            "critical": 347,
+            "speed": 347
+        }
+    },
+    {
+        "id": "npc_egypt_pharao.png",
+        "name": "egypt pharao",
+        "lvl": 29,
+        "skin": "/usr/src/app/images/npcs/npc/npc_egypt_pharao.png",
+        "attributes": {
+            "strength": 32,
+            "health": 36,
+            "dodge": 33,
+            "armor": 36,
+            "critical": 34,
+            "speed": 37
+        }
+    },
+    {
+        "id": "npc_egypt_shark.png",
+        "name": "egypt shark",
+        "lvl": 318,
+        "skin": "/usr/src/app/images/npcs/npc/npc_egypt_shark.png",
+        "attributes": {
+            "strength": 319,
+            "health": 324,
+            "dodge": 327,
+            "armor": 319,
+            "critical": 319,
+            "speed": 326
+        }
+    },
+    {
+        "id": "npc_egypt_tourists.png",
+        "name": "egypt tourists",
+        "lvl": 290,
+        "skin": "/usr/src/app/images/npcs/npc/npc_egypt_tourists.png",
+        "attributes": {
+            "strength": 291,
+            "health": 290,
+            "dodge": 298,
+            "armor": 297,
+            "critical": 294,
+            "speed": 295
+        }
+    },
+    {
+        "id": "npc_egypt_window_cleaner.png",
+        "name": "egypt window",
+        "lvl": 92,
+        "skin": "/usr/src/app/images/npcs/npc/npc_egypt_window_cleaner.png",
+        "attributes": {
+            "strength": 99,
+            "health": 95,
+            "dodge": 98,
+            "armor": 98,
+            "critical": 93,
+            "speed": 93
+        }
+    },
+    {
+        "id": "npc_elvis.png",
+        "name": "elvis undefined",
+        "lvl": 199,
+        "skin": "/usr/src/app/images/npcs/npc/npc_elvis.png",
+        "attributes": {
+            "strength": 200,
+            "health": 205,
+            "dodge": 202,
+            "armor": 207,
+            "critical": 203,
+            "speed": 203
+        }
+    },
+    {
+        "id": "npc_false_mayor.png",
+        "name": "false mayor",
+        "lvl": 289,
+        "skin": "/usr/src/app/images/npcs/npc/npc_false_mayor.png",
+        "attributes": {
+            "strength": 294,
+            "health": 296,
+            "dodge": 297,
+            "armor": 293,
+            "critical": 291,
+            "speed": 294
+        }
+    },
+    {
+        "id": "npc_flyer_distributor.png",
+        "name": "flyer distributor",
+        "lvl": 173,
+        "skin": "/usr/src/app/images/npcs/npc/npc_flyer_distributor.png",
+        "attributes": {
+            "strength": 175,
+            "health": 181,
+            "dodge": 175,
+            "armor": 180,
+            "critical": 178,
+            "speed": 177
+        }
+    },
+    {
+        "id": "npc_fondue_phantom.png",
+        "name": "fondue phantom",
+        "lvl": 234,
+        "skin": "/usr/src/app/images/npcs/npc/npc_fondue_phantom.png",
+        "attributes": {
+            "strength": 240,
+            "health": 239,
+            "dodge": 241,
+            "armor": 235,
+            "critical": 241,
+            "speed": 236
+        }
+    },
+    {
+        "id": "npc_gourmet_geiss.png",
+        "name": "gourmet geiss",
+        "lvl": 138,
+        "skin": "/usr/src/app/images/npcs/npc/npc_gourmet_geiss.png",
+        "attributes": {
+            "strength": 138,
+            "health": 147,
+            "dodge": 142,
+            "armor": 141,
+            "critical": 138,
+            "speed": 143
+        }
+    },
+    {
+        "id": "npc_halloween_ghost.png",
+        "name": "halloween ghost",
+        "lvl": 240,
+        "skin": "/usr/src/app/images/npcs/npc/npc_halloween_ghost.png",
+        "attributes": {
+            "strength": 242,
+            "health": 243,
+            "dodge": 248,
+            "armor": 245,
+            "critical": 243,
+            "speed": 242
+        }
+    },
+    {
+        "id": "npc_hoody_evil.png",
+        "name": "hoody evil",
+        "lvl": 12,
+        "skin": "/usr/src/app/images/npcs/npc/npc_hoody_evil.png",
+        "attributes": {
+            "strength": 14,
+            "health": 12,
+            "dodge": 12,
+            "armor": 14,
+            "critical": 15,
+            "speed": 12
+        }
+    },
+    {
+        "id": "npc_hoody_scruffy.png",
+        "name": "hoody scruffy",
+        "lvl": 357,
+        "skin": "/usr/src/app/images/npcs/npc/npc_hoody_scruffy.png",
+        "attributes": {
+            "strength": 366,
+            "health": 364,
+            "dodge": 366,
+            "armor": 364,
+            "critical": 361,
+            "speed": 364
+        }
+    },
+    {
+        "id": "npc_hoody_very_evil.png",
+        "name": "hoody very",
+        "lvl": 245,
+        "skin": "/usr/src/app/images/npcs/npc/npc_hoody_very_evil.png",
+        "attributes": {
+            "strength": 247,
+            "health": 245,
+            "dodge": 253,
+            "armor": 245,
+            "critical": 252,
+            "speed": 252
+        }
+    },
+    {
+        "id": "npc_joker_hacker.png",
+        "name": "joker hacker",
+        "lvl": 169,
+        "skin": "/usr/src/app/images/npcs/npc/npc_joker_hacker.png",
+        "attributes": {
+            "strength": 169,
+            "health": 170,
+            "dodge": 173,
+            "armor": 177,
+            "critical": 176,
+            "speed": 178
+        }
+    },
+    {
+        "id": "npc_kangaroo.png",
+        "name": "kangaroo undefined",
+        "lvl": 81,
+        "skin": "/usr/src/app/images/npcs/npc/npc_kangaroo.png",
+        "attributes": {
+            "strength": 84,
+            "health": 81,
+            "dodge": 87,
+            "armor": 82,
+            "critical": 90,
+            "speed": 84
+        }
+    },
+    {
+        "id": "npc_kids_one_evil.png",
+        "name": "kids one",
+        "lvl": 105,
+        "skin": "/usr/src/app/images/npcs/npc/npc_kids_one_evil.png",
+        "attributes": {
+            "strength": 114,
+            "health": 110,
+            "dodge": 111,
+            "armor": 113,
+            "critical": 105,
+            "speed": 113
+        }
+    },
+    {
+        "id": "npc_kids_two_evil.png",
+        "name": "kids two",
+        "lvl": 146,
+        "skin": "/usr/src/app/images/npcs/npc/npc_kids_two_evil.png",
+        "attributes": {
+            "strength": 154,
+            "health": 152,
+            "dodge": 147,
+            "armor": 153,
+            "critical": 150,
+            "speed": 155
+        }
+    },
+    {
+        "id": "npc_kids_two_laughing.png",
+        "name": "kids two",
+        "lvl": 362,
+        "skin": "/usr/src/app/images/npcs/npc/npc_kids_two_laughing.png",
+        "attributes": {
+            "strength": 370,
+            "health": 362,
+            "dodge": 364,
+            "armor": 362,
+            "critical": 370,
+            "speed": 367
+        }
+    },
+    {
+        "id": "npc_lonely_satanist.png",
+        "name": "lonely satanist",
+        "lvl": 260,
+        "skin": "/usr/src/app/images/npcs/npc/npc_lonely_satanist.png",
+        "attributes": {
+            "strength": 265,
+            "health": 268,
+            "dodge": 269,
+            "armor": 269,
+            "critical": 269,
+            "speed": 268
+        }
+    },
+    {
+        "id": "npc_loser.png",
+        "name": "loser undefined",
+        "lvl": 233,
+        "skin": "/usr/src/app/images/npcs/npc/npc_loser.png",
+        "attributes": {
+            "strength": 242,
+            "health": 239,
+            "dodge": 242,
+            "armor": 239,
+            "critical": 239,
+            "speed": 241
+        }
+    },
+    {
+        "id": "npc_magicians.png",
+        "name": "magicians undefined",
+        "lvl": 349,
+        "skin": "/usr/src/app/images/npcs/npc/npc_magicians.png",
+        "attributes": {
+            "strength": 358,
+            "health": 357,
+            "dodge": 352,
+            "armor": 356,
+            "critical": 353,
+            "speed": 358
+        }
+    },
+    {
+        "id": "npc_mastermind.png",
+        "name": "mastermind undefined",
+        "lvl": 290,
+        "skin": "/usr/src/app/images/npcs/npc/npc_mastermind.png",
+        "attributes": {
+            "strength": 291,
+            "health": 291,
+            "dodge": 295,
+            "armor": 298,
+            "critical": 292,
+            "speed": 295
+        }
+    },
+    {
+        "id": "npc_media_maniac.png",
+        "name": "media maniac",
+        "lvl": 273,
+        "skin": "/usr/src/app/images/npcs/npc/npc_media_maniac.png",
+        "attributes": {
+            "strength": 278,
+            "health": 274,
+            "dodge": 277,
+            "armor": 276,
+            "critical": 276,
+            "speed": 278
+        }
+    },
+    {
+        "id": "npc_meterman.png",
+        "name": "meterman undefined",
+        "lvl": 23,
+        "skin": "/usr/src/app/images/npcs/npc/npc_meterman.png",
+        "attributes": {
+            "strength": 28,
+            "health": 26,
+            "dodge": 26,
+            "armor": 26,
+            "critical": 23,
+            "speed": 23
+        }
+    },
+    {
+        "id": "npc_midsummer_cat.png",
+        "name": "midsummer cat",
+        "lvl": 30,
+        "skin": "/usr/src/app/images/npcs/npc/npc_midsummer_cat.png",
+        "attributes": {
+            "strength": 37,
+            "health": 30,
+            "dodge": 32,
+            "armor": 36,
+            "critical": 35,
+            "speed": 36
+        }
+    },
+    {
+        "id": "npc_midsummer_fake_shark.png",
+        "name": "midsummer fake",
+        "lvl": 105,
+        "skin": "/usr/src/app/images/npcs/npc/npc_midsummer_fake_shark.png",
+        "attributes": {
+            "strength": 106,
+            "health": 111,
+            "dodge": 109,
+            "armor": 113,
+            "critical": 109,
+            "speed": 112
+        }
+    },
+    {
+        "id": "npc_midsummer_rowdy.png",
+        "name": "midsummer rowdy",
+        "lvl": 140,
+        "skin": "/usr/src/app/images/npcs/npc/npc_midsummer_rowdy.png",
+        "attributes": {
+            "strength": 144,
+            "health": 145,
+            "dodge": 141,
+            "armor": 141,
+            "critical": 140,
+            "speed": 144
+        }
+    },
+    {
+        "id": "npc_moviestar.png",
+        "name": "moviestar undefined",
+        "lvl": 340,
+        "skin": "/usr/src/app/images/npcs/npc/npc_moviestar.png",
+        "attributes": {
+            "strength": 346,
+            "health": 345,
+            "dodge": 340,
+            "armor": 348,
+            "critical": 349,
+            "speed": 342
+        }
+    },
+    {
+        "id": "npc_music_enthusiast.png",
+        "name": "music enthusiast",
+        "lvl": 349,
+        "skin": "/usr/src/app/images/npcs/npc/npc_music_enthusiast.png",
+        "attributes": {
+            "strength": 353,
+            "health": 349,
+            "dodge": 354,
+            "armor": 351,
+            "critical": 355,
+            "speed": 353
+        }
+    },
+    {
+        "id": "npc_nastier_employee.png",
+        "name": "nastier employee",
+        "lvl": 369,
+        "skin": "/usr/src/app/images/npcs/npc/npc_nastier_employee.png",
+        "attributes": {
+            "strength": 374,
+            "health": 369,
+            "dodge": 370,
+            "armor": 370,
+            "critical": 370,
+            "speed": 378
+        }
+    },
+    {
+        "id": "npc_nasty_cheerleader.png",
+        "name": "nasty cheerleader",
+        "lvl": 297,
+        "skin": "/usr/src/app/images/npcs/npc/npc_nasty_cheerleader.png",
+        "attributes": {
+            "strength": 299,
+            "health": 297,
+            "dodge": 305,
+            "armor": 298,
+            "critical": 304,
+            "speed": 301
+        }
+    },
+    {
+        "id": "npc_olympia_crusher.png",
+        "name": "olympia crusher",
+        "lvl": 41,
+        "skin": "/usr/src/app/images/npcs/npc/npc_olympia_crusher.png",
+        "attributes": {
+            "strength": 50,
+            "health": 44,
+            "dodge": 46,
+            "armor": 49,
+            "critical": 44,
+            "speed": 48
+        }
+    },
+    {
+        "id": "npc_olympia_fencer.png",
+        "name": "olympia fencer",
+        "lvl": 326,
+        "skin": "/usr/src/app/images/npcs/npc/npc_olympia_fencer.png",
+        "attributes": {
+            "strength": 332,
+            "health": 328,
+            "dodge": 330,
+            "armor": 333,
+            "critical": 332,
+            "speed": 334
+        }
+    },
+    {
+        "id": "npc_olympia_hippies.png",
+        "name": "olympia hippies",
+        "lvl": 104,
+        "skin": "/usr/src/app/images/npcs/npc/npc_olympia_hippies.png",
+        "attributes": {
+            "strength": 113,
+            "health": 104,
+            "dodge": 111,
+            "armor": 107,
+            "critical": 109,
+            "speed": 111
+        }
+    },
+    {
+        "id": "npc_olympia_robot_small.png",
+        "name": "olympia robot",
+        "lvl": 28,
+        "skin": "/usr/src/app/images/npcs/npc/npc_olympia_robot_small.png",
+        "attributes": {
+            "strength": 36,
+            "health": 34,
+            "dodge": 28,
+            "armor": 36,
+            "critical": 36,
+            "speed": 29
+        }
+    },
+    {
+        "id": "npc_olympia_winner.png",
+        "name": "olympia winner",
+        "lvl": 117,
+        "skin": "/usr/src/app/images/npcs/npc/npc_olympia_winner.png",
+        "attributes": {
+            "strength": 125,
+            "health": 120,
+            "dodge": 126,
+            "armor": 119,
+            "critical": 120,
+            "speed": 119
+        }
+    },
+    {
+        "id": "npc_opera_singer.png",
+        "name": "opera singer",
+        "lvl": 360,
+        "skin": "/usr/src/app/images/npcs/npc/npc_opera_singer.png",
+        "attributes": {
+            "strength": 365,
+            "health": 369,
+            "dodge": 365,
+            "armor": 367,
+            "critical": 368,
+            "speed": 360
+        }
+    },
+    {
+        "id": "npc_overzealous_policewoman.png",
+        "name": "overzealous policewoman",
+        "lvl": 19,
+        "skin": "/usr/src/app/images/npcs/npc/npc_overzealous_policewoman.png",
+        "attributes": {
+            "strength": 22,
+            "health": 22,
+            "dodge": 22,
+            "armor": 23,
+            "critical": 25,
+            "speed": 28
+        }
+    },
+    {
+        "id": "npc_paris_couple.png",
+        "name": "paris couple",
+        "lvl": 57,
+        "skin": "/usr/src/app/images/npcs/npc/npc_paris_couple.png",
+        "attributes": {
+            "strength": 57,
+            "health": 64,
+            "dodge": 58,
+            "armor": 60,
+            "critical": 57,
+            "speed": 58
+        }
+    },
+    {
+        "id": "npc_paris_frenchman.png",
+        "name": "paris frenchman",
+        "lvl": 250,
+        "skin": "/usr/src/app/images/npcs/npc/npc_paris_frenchman.png",
+        "attributes": {
+            "strength": 255,
+            "health": 251,
+            "dodge": 251,
+            "armor": 250,
+            "critical": 258,
+            "speed": 253
+        }
+    },
+    {
+        "id": "npc_paris_gredin.png",
+        "name": "paris gredin",
+        "lvl": 162,
+        "skin": "/usr/src/app/images/npcs/npc/npc_paris_gredin.png",
+        "attributes": {
+            "strength": 171,
+            "health": 166,
+            "dodge": 169,
+            "armor": 171,
+            "critical": 166,
+            "speed": 166
+        }
+    },
+    {
+        "id": "npc_paris_thief.png",
+        "name": "paris thief",
+        "lvl": 281,
+        "skin": "/usr/src/app/images/npcs/npc/npc_paris_thief.png",
+        "attributes": {
+            "strength": 283,
+            "health": 289,
+            "dodge": 290,
+            "armor": 288,
+            "critical": 284,
+            "speed": 282
+        }
+    },
+    {
+        "id": "npc_racoon.png",
+        "name": "racoon undefined",
+        "lvl": 246,
+        "skin": "/usr/src/app/images/npcs/npc/npc_racoon.png",
+        "attributes": {
+            "strength": 247,
+            "health": 250,
+            "dodge": 254,
+            "armor": 252,
+            "critical": 246,
+            "speed": 252
+        }
+    },
+    {
+        "id": "npc_sausage_thief.png",
+        "name": "sausage thief",
+        "lvl": 270,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sausage_thief.png",
+        "attributes": {
+            "strength": 279,
+            "health": 275,
+            "dodge": 274,
+            "armor": 273,
+            "critical": 278,
+            "speed": 278
+        }
+    },
+    {
+        "id": "npc_scratchy_cat.png",
+        "name": "scratchy cat",
+        "lvl": 292,
+        "skin": "/usr/src/app/images/npcs/npc/npc_scratchy_cat.png",
+        "attributes": {
+            "strength": 299,
+            "health": 300,
+            "dodge": 296,
+            "armor": 292,
+            "critical": 296,
+            "speed": 294
+        }
+    },
+    {
+        "id": "npc_sd10_mustard_scoundrel.png",
+        "name": "sd10 mustard",
+        "lvl": 125,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sd10_mustard_scoundrel.png",
+        "attributes": {
+            "strength": 132,
+            "health": 130,
+            "dodge": 129,
+            "armor": 128,
+            "critical": 132,
+            "speed": 132
+        }
+    },
+    {
+        "id": "npc_sd11_confused_robot_t_rex.png",
+        "name": "sd11 confused",
+        "lvl": 116,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sd11_confused_robot_t_rex.png",
+        "attributes": {
+            "strength": 124,
+            "health": 117,
+            "dodge": 118,
+            "armor": 120,
+            "critical": 124,
+            "speed": 121
+        }
+    },
+    {
+        "id": "npc_sd12_wombatmastermind.png",
+        "name": "sd12 wombatmastermind",
+        "lvl": 377,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sd12_wombatmastermind.png",
+        "attributes": {
+            "strength": 379,
+            "health": 385,
+            "dodge": 384,
+            "armor": 382,
+            "critical": 378,
+            "speed": 383
+        }
+    },
+    {
+        "id": "npc_sd13_cyborg_samurai.png",
+        "name": "sd13 cyborg",
+        "lvl": 389,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sd13_cyborg_samurai.png",
+        "attributes": {
+            "strength": 397,
+            "health": 398,
+            "dodge": 389,
+            "armor": 390,
+            "critical": 390,
+            "speed": 393
+        }
+    },
+    {
+        "id": "npc_sd1_underwear_tief.png",
+        "name": "sd1 underwear",
+        "lvl": 278,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sd1_underwear_tief.png",
+        "attributes": {
+            "strength": 281,
+            "health": 287,
+            "dodge": 280,
+            "armor": 279,
+            "critical": 278,
+            "speed": 278
+        }
+    },
+    {
+        "id": "npc_sd2_polluter.png",
+        "name": "sd2 polluter",
+        "lvl": 47,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sd2_polluter.png",
+        "attributes": {
+            "strength": 47,
+            "health": 50,
+            "dodge": 53,
+            "armor": 52,
+            "critical": 56,
+            "speed": 53
+        }
+    },
+    {
+        "id": "npc_sd3_dog_gangster.png",
+        "name": "sd3 dog",
+        "lvl": 213,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sd3_dog_gangster.png",
+        "attributes": {
+            "strength": 215,
+            "health": 217,
+            "dodge": 220,
+            "armor": 217,
+            "critical": 222,
+            "speed": 217
+        }
+    },
+    {
+        "id": "npc_sd4_traffic_offender.png",
+        "name": "sd4 traffic",
+        "lvl": 133,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sd4_traffic_offender.png",
+        "attributes": {
+            "strength": 138,
+            "health": 137,
+            "dodge": 137,
+            "armor": 141,
+            "critical": 139,
+            "speed": 134
+        }
+    },
+    {
+        "id": "npc_sd5_snow_smelter.png",
+        "name": "sd5 snow",
+        "lvl": 294,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sd5_snow_smelter.png",
+        "attributes": {
+            "strength": 295,
+            "health": 294,
+            "dodge": 300,
+            "armor": 300,
+            "critical": 303,
+            "speed": 303
+        }
+    },
+    {
+        "id": "npc_sd6_shady_sam.png",
+        "name": "sd6 shady",
+        "lvl": 301,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sd6_shady_sam.png",
+        "attributes": {
+            "strength": 310,
+            "health": 306,
+            "dodge": 306,
+            "armor": 304,
+            "critical": 303,
+            "speed": 304
+        }
+    },
+    {
+        "id": "npc_sd7_window_cleaner.png",
+        "name": "sd7 window",
+        "lvl": 239,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sd7_window_cleaner.png",
+        "attributes": {
+            "strength": 246,
+            "health": 247,
+            "dodge": 241,
+            "armor": 240,
+            "critical": 244,
+            "speed": 248
+        }
+    },
+    {
+        "id": "npc_sd8_hellagio_hammock.png",
+        "name": "sd8 hellagio",
+        "lvl": 300,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sd8_hellagio_hammock.png",
+        "attributes": {
+            "strength": 301,
+            "health": 300,
+            "dodge": 303,
+            "armor": 302,
+            "critical": 306,
+            "speed": 308
+        }
+    },
+    {
+        "id": "npc_sd9_professor.png",
+        "name": "sd9 professor",
+        "lvl": 16,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sd9_professor.png",
+        "attributes": {
+            "strength": 16,
+            "health": 19,
+            "dodge": 17,
+            "armor": 16,
+            "critical": 22,
+            "speed": 22
+        }
+    },
+    {
+        "id": "npc_shady_balloon_seller.png",
+        "name": "shady balloon",
+        "lvl": 26,
+        "skin": "/usr/src/app/images/npcs/npc/npc_shady_balloon_seller.png",
+        "attributes": {
+            "strength": 27,
+            "health": 30,
+            "dodge": 33,
+            "armor": 33,
+            "critical": 27,
+            "speed": 28
+        }
+    },
+    {
+        "id": "npc_shortsighted_nun.png",
+        "name": "shortsighted nun",
+        "lvl": 33,
+        "skin": "/usr/src/app/images/npcs/npc/npc_shortsighted_nun.png",
+        "attributes": {
+            "strength": 36,
+            "health": 41,
+            "dodge": 41,
+            "armor": 42,
+            "critical": 33,
+            "speed": 38
+        }
+    },
+    {
+        "id": "npc_sillycon_valley_boss.png",
+        "name": "sillycon valley",
+        "lvl": 25,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sillycon_valley_boss.png",
+        "attributes": {
+            "strength": 33,
+            "health": 32,
+            "dodge": 25,
+            "armor": 27,
+            "critical": 32,
+            "speed": 33
+        }
+    },
+    {
+        "id": "npc_sillycon_valley_killer_segway.png",
+        "name": "sillycon valley",
+        "lvl": 32,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sillycon_valley_killer_segway.png",
+        "attributes": {
+            "strength": 37,
+            "health": 34,
+            "dodge": 37,
+            "armor": 36,
+            "critical": 41,
+            "speed": 38
+        }
+    },
+    {
+        "id": "npc_sillycon_valley_nerd.png",
+        "name": "sillycon valley",
+        "lvl": 331,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sillycon_valley_nerd.png",
+        "attributes": {
+            "strength": 335,
+            "health": 338,
+            "dodge": 340,
+            "armor": 338,
+            "critical": 332,
+            "speed": 338
+        }
+    },
+    {
+        "id": "npc_sillycon_valley_stressed_manager.png",
+        "name": "sillycon valley",
+        "lvl": 185,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sillycon_valley_stressed_manager.png",
+        "attributes": {
+            "strength": 194,
+            "health": 186,
+            "dodge": 186,
+            "armor": 194,
+            "critical": 185,
+            "speed": 194
+        }
+    },
+    {
+        "id": "npc_street_dance_twins.png",
+        "name": "street dance",
+        "lvl": 160,
+        "skin": "/usr/src/app/images/npcs/npc/npc_street_dance_twins.png",
+        "attributes": {
+            "strength": 163,
+            "health": 163,
+            "dodge": 165,
+            "armor": 163,
+            "critical": 160,
+            "speed": 167
+        }
+    },
+    {
+        "id": "npc_summer_olympia_ice_vendor.png",
+        "name": "summer olympia",
+        "lvl": 138,
+        "skin": "/usr/src/app/images/npcs/npc/npc_summer_olympia_ice_vendor.png",
+        "attributes": {
+            "strength": 139,
+            "health": 140,
+            "dodge": 140,
+            "armor": 145,
+            "critical": 146,
+            "speed": 138
+        }
+    },
+    {
+        "id": "npc_summer_olympia_robot.png",
+        "name": "summer olympia",
+        "lvl": 114,
+        "skin": "/usr/src/app/images/npcs/npc/npc_summer_olympia_robot.png",
+        "attributes": {
+            "strength": 118,
+            "health": 120,
+            "dodge": 122,
+            "armor": 122,
+            "critical": 122,
+            "speed": 115
+        }
+    },
+    {
+        "id": "npc_summer_olympia_sprinter.png",
+        "name": "summer olympia",
+        "lvl": 19,
+        "skin": "/usr/src/app/images/npcs/npc/npc_summer_olympia_sprinter.png",
+        "attributes": {
+            "strength": 28,
+            "health": 28,
+            "dodge": 26,
+            "armor": 24,
+            "critical": 24,
+            "speed": 23
+        }
+    },
+    {
+        "id": "npc_sunnyboy.png",
+        "name": "sunnyboy undefined",
+        "lvl": 183,
+        "skin": "/usr/src/app/images/npcs/npc/npc_sunnyboy.png",
+        "attributes": {
+            "strength": 188,
+            "health": 190,
+            "dodge": 185,
+            "armor": 184,
+            "critical": 188,
+            "speed": 184
+        }
+    },
+    {
+        "id": "npc_thief.png",
+        "name": "thief undefined",
+        "lvl": 373,
+        "skin": "/usr/src/app/images/npcs/npc/npc_thief.png",
+        "attributes": {
+            "strength": 382,
+            "health": 374,
+            "dodge": 379,
+            "armor": 375,
+            "critical": 379,
+            "speed": 379
+        }
+    },
+    {
+        "id": "npc_tourist.png",
+        "name": "tourist undefined",
+        "lvl": 11,
+        "skin": "/usr/src/app/images/npcs/npc/npc_tourist.png",
+        "attributes": {
+            "strength": 12,
+            "health": 14,
+            "dodge": 15,
+            "armor": 11,
+            "critical": 11,
+            "speed": 16
+        }
+    },
+    {
+        "id": "npc_tourists.png",
+        "name": "tourists undefined",
+        "lvl": 329,
+        "skin": "/usr/src/app/images/npcs/npc/npc_tourists.png",
+        "attributes": {
+            "strength": 337,
+            "health": 336,
+            "dodge": 338,
+            "armor": 336,
+            "critical": 331,
+            "speed": 329
+        }
+    },
+    {
+        "id": "npc_vegetable_thief.png",
+        "name": "vegetable thief",
+        "lvl": 70,
+        "skin": "/usr/src/app/images/npcs/npc/npc_vegetable_thief.png",
+        "attributes": {
+            "strength": 74,
+            "health": 72,
+            "dodge": 71,
+            "armor": 77,
+            "critical": 78,
+            "speed": 79
+        }
+    },
+    {
+        "id": "npc_vending_machine.png",
+        "name": "vending machine",
+        "lvl": 252,
+        "skin": "/usr/src/app/images/npcs/npc/npc_vending_machine.png",
+        "attributes": {
+            "strength": 259,
+            "health": 253,
+            "dodge": 252,
+            "armor": 253,
+            "critical": 261,
+            "speed": 255
+        }
+    },
+    {
+        "id": "npc_violator.png",
+        "name": "violator undefined",
+        "lvl": 355,
+        "skin": "/usr/src/app/images/npcs/npc/npc_violator.png",
+        "attributes": {
+            "strength": 355,
+            "health": 359,
+            "dodge": 361,
+            "armor": 364,
+            "critical": 362,
+            "speed": 356
+        }
+    },
+    {
+        "id": "npc_westler.png",
+        "name": "westler undefined",
+        "lvl": 238,
+        "skin": "/usr/src/app/images/npcs/npc/npc_westler.png",
+        "attributes": {
+            "strength": 241,
+            "health": 242,
+            "dodge": 246,
+            "armor": 244,
+            "critical": 244,
+            "speed": 241
+        }
+    },
+    {
+        "id": "npc_winterolympics_coach.png",
+        "name": "winterolympics coach",
+        "lvl": 321,
+        "skin": "/usr/src/app/images/npcs/npc/npc_winterolympics_coach.png",
+        "attributes": {
+            "strength": 324,
+            "health": 329,
+            "dodge": 327,
+            "armor": 328,
+            "critical": 322,
+            "speed": 327
+        }
+    },
+    {
+        "id": "npc_winterolympics_protestors.png",
+        "name": "winterolympics protestors",
+        "lvl": 261,
+        "skin": "/usr/src/app/images/npcs/npc/npc_winterolympics_protestors.png",
+        "attributes": {
+            "strength": 267,
+            "health": 262,
+            "dodge": 265,
+            "armor": 269,
+            "critical": 261,
+            "speed": 269
+        }
+    },
+    {
+        "id": "npc_winterolympics_yeti.png",
+        "name": "winterolympics yeti",
+        "lvl": 98,
+        "skin": "/usr/src/app/images/npcs/npc/npc_winterolympics_yeti.png",
+        "attributes": {
+            "strength": 103,
+            "health": 98,
+            "dodge": 100,
+            "armor": 104,
+            "critical": 107,
+            "speed": 102
+        }
+    },
+    {
+        "id": "npc_worldcup_fan.png",
+        "name": "worldcup fan",
+        "lvl": 20,
+        "skin": "/usr/src/app/images/npcs/npc/npc_worldcup_fan.png",
+        "attributes": {
+            "strength": 24,
+            "health": 24,
+            "dodge": 21,
+            "armor": 24,
+            "critical": 28,
+            "speed": 28
+        }
+    },
+    {
+        "id": "npc_worldcup_hotdog_vendor.png",
+        "name": "worldcup hotdog",
+        "lvl": 21,
+        "skin": "/usr/src/app/images/npcs/npc/npc_worldcup_hotdog_vendor.png",
+        "attributes": {
+            "strength": 26,
+            "health": 28,
+            "dodge": 22,
+            "armor": 29,
+            "critical": 21,
+            "speed": 25
+        }
+    },
+    {
+        "id": "npc_worldcup_security.png",
+        "name": "worldcup security",
+        "lvl": 60,
+        "skin": "/usr/src/app/images/npcs/npc/npc_worldcup_security.png",
+        "attributes": {
+            "strength": 64,
+            "health": 64,
+            "dodge": 60,
+            "armor": 64,
+            "critical": 64,
+            "speed": 68
+        }
+    },
+    {
+        "id": "npc_worldcup_shirt_thief.png",
+        "name": "worldcup shirt",
+        "lvl": 368,
+        "skin": "/usr/src/app/images/npcs/npc/npc_worldcup_shirt_thief.png",
+        "attributes": {
+            "strength": 377,
+            "health": 377,
+            "dodge": 377,
+            "armor": 368,
+            "critical": 373,
+            "speed": 374
+        }
+    },
+    {
+        "id": "npc_yokyo_angry_cook.png",
+        "name": "yokyo angry",
+        "lvl": 367,
+        "skin": "/usr/src/app/images/npcs/npc/npc_yokyo_angry_cook.png",
+        "attributes": {
+            "strength": 375,
+            "health": 372,
+            "dodge": 373,
+            "armor": 373,
+            "critical": 369,
+            "speed": 373
+        }
+    },
+    {
+        "id": "npc_yokyo_mister_wiagi.png",
+        "name": "yokyo mister",
+        "lvl": 184,
+        "skin": "/usr/src/app/images/npcs/npc/npc_yokyo_mister_wiagi.png",
+        "attributes": {
+            "strength": 189,
+            "health": 193,
+            "dodge": 193,
+            "armor": 186,
+            "critical": 186,
+            "speed": 185
+        }
+    },
+    {
+        "id": "npc_yokyo_ninja.png",
+        "name": "yokyo ninja",
+        "lvl": 352,
+        "skin": "/usr/src/app/images/npcs/npc/npc_yokyo_ninja.png",
+        "attributes": {
+            "strength": 355,
+            "health": 358,
+            "dodge": 354,
+            "armor": 357,
+            "critical": 352,
+            "speed": 356
+        }
+    },
+    {
+        "id": "npc_yokyo_octopus.png",
+        "name": "yokyo octopus",
+        "lvl": 23,
+        "skin": "/usr/src/app/images/npcs/npc/npc_yokyo_octopus.png",
+        "attributes": {
+            "strength": 26,
+            "health": 24,
+            "dodge": 30,
+            "armor": 32,
+            "critical": 31,
+            "speed": 28
+        }
+    },
+    {
+        "id": "npc_yokyo_samurai.png",
+        "name": "yokyo samurai",
+        "lvl": 158,
+        "skin": "/usr/src/app/images/npcs/npc/npc_yokyo_samurai.png",
+        "attributes": {
+            "strength": 161,
+            "health": 164,
+            "dodge": 158,
+            "armor": 160,
+            "critical": 166,
+            "speed": 163
+        }
+    },
+    {
+        "id": "npc_yokyo_sumo.png",
+        "name": "yokyo sumo",
+        "lvl": 356,
+        "skin": "/usr/src/app/images/npcs/npc/npc_yokyo_sumo.png",
+        "attributes": {
+            "strength": 362,
+            "health": 365,
+            "dodge": 356,
+            "armor": 364,
+            "critical": 365,
+            "speed": 365
+        }
+    },
+    {
+        "id": "npc_yoyosurfer.png",
+        "name": "yoyosurfer undefined",
+        "lvl": 367,
+        "skin": "/usr/src/app/images/npcs/npc/npc_yoyosurfer.png",
+        "attributes": {
+            "strength": 370,
+            "health": 368,
+            "dodge": 373,
+            "armor": 369,
+            "critical": 370,
+            "speed": 369
+        }
+    }
+]

@@ -1,4 +1,12 @@
-import { ActionRowBuilder, ActionRowData, BaseMessageOptions, ButtonBuilder, ButtonInteraction, ButtonStyle, UserSelectMenuBuilder } from 'discord.js';
+import {
+    ActionRowBuilder,
+    ActionRowData,
+    BaseMessageOptions,
+    ButtonBuilder,
+    ButtonInteraction,
+    ButtonStyle,
+    UserSelectMenuBuilder,
+} from 'discord.js';
 import { UserModel } from '../../models/user/user';
 import MissionBuilder from '../../libs/message/MissionBuilder';
 import ItemBuilder from '../../libs/message/ItemBuilder';
@@ -21,35 +29,35 @@ export async function execute(interaction: ButtonInteraction) {
 
     const args = interaction.customId.split('-');
 
-    let response : BaseMessageOptions;
+    let response: BaseMessageOptions;
 
-    switch(args[1]) {
+    switch (args[1]) {
         case 'Mission':
             response = await MissionBuilder.showMissions(user);
-        break;
+            break;
         case 'Shop':
             response = await ItemBuilder.shop(user, interaction.user);
-        break;
+            break;
         case 'Inventory':
             response = await ItemBuilder.inventory(user, interaction.user);
-        break;
+            break;
         case 'Stuff':
             response = await ItemBuilder.stuff(user);
-        break;
+            break;
         case 'Profile':
             response = await UserBuilder.profile(user);
-        break;
+            break;
         case 'Skin':
             response = await UserBuilder.skinForm(user);
-        break;
+            break;
         case 'Back':
             interaction.editReply(await UserBuilder.menu(user));
             return;
-        default: 
+        default:
             interaction.editReply({
-                content : 'Aucun bouton ne match',
-                files : [],
-                components : []
+                content: 'Aucun bouton ne match',
+                files: [],
+                components: [],
             });
             return;
     }
@@ -57,18 +65,21 @@ export async function execute(interaction: ButtonInteraction) {
     // Ajout d'un bouton retour au menu
     const backToMenuButton = new ButtonBuilder()
         .setCustomId('Menu-Back')
-        .setLabel("Retour au menu")
+        .setLabel('Retour au menu')
         .setStyle(ButtonStyle.Secondary)
         .setEmoji('⬅️');
 
     const lastRow = response.components?.at(response.components.length - 1);
-    
-    if(lastRow === undefined) {
-        response.components = [new ActionRowBuilder<ButtonBuilder>().addComponents(backToMenuButton)]
-    } else if(lastRow instanceof ActionRowBuilder && lastRow.components.length < 5) {
+
+    if (lastRow === undefined) {
+        response.components = [new ActionRowBuilder<ButtonBuilder>().addComponents(backToMenuButton)];
+    } else if (lastRow instanceof ActionRowBuilder && lastRow.components.length < 5) {
         lastRow.addComponents(backToMenuButton);
-    } else if(response.components && response.components.length < 5) {
-        response.components = [...response.components, new ActionRowBuilder<ButtonBuilder>().addComponents(backToMenuButton)]
+    } else if (response.components && response.components.length < 5) {
+        response.components = [
+            ...response.components,
+            new ActionRowBuilder<ButtonBuilder>().addComponents(backToMenuButton),
+        ];
     }
 
     interaction.editReply(response);
