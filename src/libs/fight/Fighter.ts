@@ -10,6 +10,6 @@ export class Fighter {
         this.type = type;
         this.name = name
         this.attributes = attributes;
-        this.currentHealth = this.attributes.health * 100;
+        this.currentHealth = 100 + (this.attributes.health * 10);
     }
 }

@@ -34,12 +34,12 @@ export const AttributesSchema: Schema = new Schema<IAttributes, object, IAttribu
     strength: {
         type: Number,
         required: true,
-        default: 1,
+        default: 0,
     },
     health: {
         type: Number,
         required: true,
-        default: 100,
+        default: 0,
     },
     // dexterity: {
     //     type: Number,
