@@ -5,7 +5,7 @@ import { Fighter } from './Fighter';
 
 export default class FighterFactory {
     public static fromUser(user: User, discordUser: DiscordUser): Fighter {
-        return new Fighter('USER', discordUser.username, user.getTotalAttributes());
+        return new Fighter('USER', discordUser.displayName, user.getTotalAttributes());
     }
 
     public static fromMob(mob: Mob): Fighter {

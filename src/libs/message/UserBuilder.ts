@@ -77,7 +77,7 @@ export default class UserBuilder {
 
         const embed = new EmbedBuilder().setTitle('Résumé de votre aventure').setImage(`attachment://${file.name}`);
 
-        await user.shop.getItems();
+        await user.shop.getItems(user);
         let remainingTimeShop = user.shop.getRemainingTime();
 
         if (remainingTimeShop.startsWith('-')) {
