@@ -6,7 +6,9 @@
 # Image
 /public/skin/*.png
 /public/stuff/*.png
+/public/fight/*.png
 
 # Test
 /coverage
-.nyc_output/
+
+.nyc_output/*
