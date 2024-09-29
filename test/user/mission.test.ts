@@ -27,7 +27,6 @@ describe('Mission', () => {
         const missions = await user.mission.getMissions(user);
 
         expect(missions).to.be.an('array');
-        expect(missions).to.be.an('array');
         expect(user.mission.current).to.be.undefined;
     });
 
