@@ -1,4 +1,4 @@
-import { HydratedDocument, Schema } from 'mongoose';
+import { HydratedDocument, Model, model, Schema } from 'mongoose';
 import Rarity from '../../enum/rarity';
 import { EmbedBuilder } from 'discord.js';
 import { ItemModel } from '../item/item';
@@ -24,18 +24,22 @@ interface IAttributesMethods {
     toString(): string;
 }
 
+interface IAttributesModel extends Model<IAttributes, object, IAttributesMethods> {
+    static(): void;
+}
+
 export type AttributesModule = HydratedDocument<IAttributes, IAttributesMethods>;
 
 export const AttributesSchema: Schema = new Schema<IAttributes, object, IAttributesMethods>({
     strength: {
         type: Number,
         required: true,
-        default: 1,
+        default: 0,
     },
     health: {
         type: Number,
         required: true,
-        default: 100,
+        default: 0,
     },
     // dexterity: {
     //     type: Number,
@@ -75,9 +79,9 @@ export const AttributesSchema: Schema = new Schema<IAttributes, object, IAttribu
 AttributesSchema.methods.getTotalPoints = function (): number {
     let total = 0;
 
-    for (const key in this) {
-        total += this[key];
-    }
+    const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));
+
+    keys.forEach((k) => (total += this[k]));
 
     return total;
 };
@@ -114,14 +118,18 @@ AttributesSchema.methods.applyRarity = function (rarity: Rarity): void {
  * @returns
  */
 AttributesSchema.methods.add = function (attr: AttributesModule): AttributesModule {
-    const result = Object.assign({}, attr);
+    const result = new AttributesModel();
 
     const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));
 
     keys.map((k) => {
         let key = k as keyof IAttributes;
-        result[key] = (result[key] || 0) + this[k];
+        result[key] = attr[key] + this[key];
     });
 
-    return result as AttributesModule;
+    return result;
 };
+
+const AttributesModel = model<IAttributes, IAttributesModel>('Attributes', AttributesSchema);
+
+export { AttributesModel };

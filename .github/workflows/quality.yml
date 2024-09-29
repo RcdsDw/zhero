@@ -1,0 +1,23 @@
+name: Quality
+
+on:
+    push:
+
+jobs:
+    quality:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Build and run docker images
+              run: DB_USER=test DB_PASSWORD=password docker compose up -d
+
+            - name: Run Prettier
+              run: docker compose exec bot npm run pretty
+
+            - name: Run ESLint
+              run: docker compose exec bot npm run lint
+
+            - name: Run Unit Test + Coverage
+              run: docker compose exec bot npm run coverage

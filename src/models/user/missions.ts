@@ -13,9 +13,9 @@ interface IMissions {
 
 interface IMissionsMethods {
     getMissions(user: User): Promise<Mission[] | Current>;
-    confirmMission(n: Number): string;
+    confirmMission(n: Number, user: User, callBack?: (xp: number, gold: number) => void): Promise<string>;
     stopCurrentMission(): string;
-    sendRewards(user: User, xp: number, gold: number, msg: Message): void;
+    sendRewards(user: User, callBack?: (xp: number, gold: number) => void): Promise<void>;
 }
 
 interface IMissionsModel extends Model<IMissions, object, IMissionsMethods> {
@@ -46,7 +46,8 @@ MissionsSchema.methods.getMissions = async function (user: User): Promise<Missio
         for (let i = 0; i < 5; i++) {
             await this.createMission(user);
         }
-        return this.missions;
+
+        await user.save();
     }
     return this.missions;
 };
@@ -55,8 +56,8 @@ MissionsSchema.methods.createMission = async function (user: User) {
     let data = datas[Math.floor(Math.random() * datas.length)];
     let time = data.rank * Math.floor(Math.random() * 100) + 100 * (data.rank - 1);
 
-    let rewardXp = Math.floor(user.experience.level * 0.7 * time);
-    let rewardGold = Math.floor((user.experience.level / 2) * (time / 2));
+    let rewardXp = Math.floor(time * 0.507);
+    let rewardGold = Math.floor((user.experience.level / 10) * (time / 50));
 
     let mission = await MissionModel.create({
         title: data.title,
@@ -67,13 +68,12 @@ MissionsSchema.methods.createMission = async function (user: User) {
         rewardGold: rewardGold,
     });
     this.missions.push(mission);
-    await user.save();
 };
 
 MissionsSchema.methods.confirmMission = async function (
     n: string,
     user: User,
-    interaction: ButtonInteraction,
+    callBack?: (xp: number, gold: number) => void,
 ): Promise<string> {
     if (this.current) {
         return 'Vous avez déjà une mission en cours.';
@@ -83,17 +83,13 @@ MissionsSchema.methods.confirmMission = async function (
     this.current = {
         ...mission,
         startAt: Date.now(),
-        timeout_id: setTimeout(
-            () => this.sendRewards(user, mission.rewardXp, mission.rewardGold, interaction),
-            mission.time * 60 * 1000,
-        ),
+        timeout_id: setTimeout(() => this.sendRewards(user, callBack), mission.time * 60 * 1000),
     };
     this.missions.splice(n, 1);
-    await user.save();
     return `Vous avez décidé de réaliser la mission n°${parseInt(n) + 1}.`;
 };
 
-MissionsSchema.methods.stopCurrentMission = async function (): Promise<string> {
+MissionsSchema.methods.stopCurrentMission = function (): string {
     if (!this.current) {
         return "Vous n'avez pas de mission en cours.";
     }
@@ -104,16 +100,15 @@ MissionsSchema.methods.stopCurrentMission = async function (): Promise<string> {
     return `Vous avez décidé d'annuler la mission en cours.`;
 };
 
-MissionsSchema.methods.sendRewards = async function (user: User, xp: number, gold: number, interaction: Message) {
-    user.experience.add(xp);
-    user.gold += gold;
+MissionsSchema.methods.sendRewards = async function (user: User, callBack?: (xp: number, gold: number) => void) {
+    user.experience.add(this.current.rewardXp);
+    user.gold += this.current.rewardGold;
+
+    if (callBack) {
+        callBack(this.current.xp, this.current.gold);
+    }
 
     clearTimeout(this.current.timeout_id);
     await this.createMission(user);
     this.current = null;
-    await user.save();
-
-    interaction.reply(
-        `Félicitations ${userMention(user.id)} ! Vous avez gagné ${xp} XP et ${gold} pièces d'or pour avoir terminé votre mission !`,
-    );
 };

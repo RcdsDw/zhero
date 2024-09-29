@@ -15,7 +15,7 @@ interface IShop {
 // Méthodes sur l'instance
 interface IShopMethods {
     getItems(user: User): Promise<ItemModel[]>;
-    generateItems(): Promise<void>;
+    generateItems(user: User): Promise<void>;
     getRemainingTime(): string;
 }
 
@@ -38,6 +38,7 @@ ShopSchema.methods.getItems = async function (user: User): Promise<ItemModel[]> 
 
     if (this.generatedAt === undefined || this.generatedAt < currentDate) {
         await this.generateItems(user);
+        await user.save();
     }
 
     return this.items;
@@ -59,8 +60,6 @@ ShopSchema.methods.generateItems = async function (user: User) {
             rarity: rarity.key,
         };
     });
-
-    await user.save();
 };
 
 ShopSchema.methods.getRemainingTime = function (): string {

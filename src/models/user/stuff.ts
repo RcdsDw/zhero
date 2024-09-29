@@ -79,7 +79,7 @@ StuffSchema.methods.getTotalAttributes = function (): AttributesModule {
 
     const base: AttributesModule = allAttributes[0];
 
-    return allAttributes
-        .splice(0, 1)
-        .reduce((acc: AttributesModule, current: AttributesModule) => current.add(acc), base);
+    allAttributes.shift();
+
+    return allAttributes.reduce((acc: AttributesModule, current: AttributesModule) => current.add(acc), base);
 };
