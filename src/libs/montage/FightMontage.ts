@@ -42,7 +42,7 @@ export default class FightMontage {
 
         // Draw du texte de la barre de vie
         ctx.fillStyle = '#FFFFFF';
-        ctx.font = '32px Arial';
+        ctx.font = '36px sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle'; 
 

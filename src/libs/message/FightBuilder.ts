@@ -11,8 +11,7 @@ export default class FightBuilder {
         });
 
         const embed = new EmbedBuilder();
-        embed.setTitle(`${player1.name} - ${player1.currentHealth} PV vs ${player2.name} - ${player2.currentHealth} PV`);
-        //embed.setThumbnail(`attachment://${file.name}`);
+        embed.setTitle(`${player1.name} vs ${player2.name}`);
 
         embed.addFields({
             name : 'Tour',
