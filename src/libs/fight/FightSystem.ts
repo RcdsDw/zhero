@@ -1,4 +1,4 @@
-import { EmbedBuilder, TextChannel } from 'discord.js';
+import { log } from 'node:console';
 import { Fighter } from './Fighter';
 
 export default class FightSystem {
@@ -6,84 +6,68 @@ export default class FightSystem {
     Defender: Fighter;
     turnCount: number = 1;
     intervalId: number | NodeJS.Timeout = 0;
-    rowBattle: string[] = [];
-    embedMessage: EmbedBuilder;
-    channel: TextChannel;
+    history: string[] = [];
 
-    constructor(Attacker: Fighter, Defender: Fighter, channel: TextChannel) {
-        this.Attacker = Attacker;
-        this.Defender = Defender;
-        this.channel = channel;
-    }
+    winner : Fighter | null;
+   
+    onUpdate? : (fight : FightSystem) => void;
+    onEnd? : (fight : FightSystem) => void;
 
-    public async makeFight(player: Fighter, enemy: Fighter) {
-        this.setFirstPlayer(player, enemy);
-
-        let embed = new EmbedBuilder()
-            .setTitle(`${player.name} - ${player.currentHealth} VS ${enemy.name} - ${enemy.currentHealth}`)
-            .setDescription('Que le meilleur gagne...')
-            .addFields(
-                { name: 'Tour', value: `${this.turnCount}`, inline: true },
-                { name: 'Rapport de combat !', value: '...', inline: true}
-            )
-            .setColor('#ff0000');
-
-        this.embedMessage = await this.channel.send({ embeds: [embed] });
-
-        this.intervalId = setInterval(async () => {
-            let isFinished: boolean = await this.makeTurn();
-            if (isFinished) {
-                clearInterval(this.intervalId);
-                embed.setDescription(`${player.currentHealth <= 0 && enemy.currentHealth > 0 ? enemy.name : player.name} a gagné le combat!`);
-                await this.embedMessage.edit({ embeds: [embed] });
-            } else {
-                this.updateEmbed(player, enemy);
-            }
-        }, 2000); 
-    }
-
-    public async updateEmbed(player: Fighter, enemy: Fighter) {
-        const embed = this.embedMessage.embeds[0];
-        embed.fields[1].value = this.rowBattle.slice(-5).join('\n');
-        embed.fields[0].value = `[Tour ${this.turnCount}]`;
-        embed.title.value = `${player.name} - ${player.currentHealth} VS ${enemy.name} - ${enemy.currentHealth}`;
-        await this.embedMessage.edit({ embeds: [embed] });
-    }
-
-    public async makeTurn(): Promise<boolean> {
-        let attackDodged: boolean = this.isAttackDodged();
-        if (!attackDodged) {
-            const criticalMultiplier = this.isAttackCritical();
-            this.attack(criticalMultiplier);
-        } else {
-            // remplacer par une interaction
-            this.rowBattle.push((`${this.Defender.name} a esquivé l'attaque.`));
-        }
-
-        let turnDoubled: boolean = this.isTurnDoubled();
-        if (!turnDoubled) {
-            this.switchPlayers();
-        } else {
-            // remplacer par une interaction
-            this.rowBattle.push((`${this.Defender.name} est trop rapide et rejoue.`));
-        }
-
-        if(this.Attacker.currentHealth > 0 && this.Defender.currentHealth > 0) {
-            this.turnCount++;
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    // function qui determine le premier joueur (en random pour l'instant à changer avec de l'initiative surement)
-    public setFirstPlayer(player: Fighter, enemy: Fighter) {
+    constructor(player: Fighter, enemy: Fighter, onUpdate? : (fight : FightSystem) => void, onEnd? : (fight : FightSystem) => void) {
         if (Math.random() < 0.5) {
             this.Attacker = player;
             this.Defender = enemy;
         } else {
             this.Defender = player;
             this.Attacker = enemy;
+        }
+        
+        this.onUpdate = onUpdate;
+        this.onEnd = onEnd;
+
+        this.winner = null;
+    }
+
+    public makeFight() {
+        this.intervalId = setInterval(() => {
+            this.makeTurn();
+
+            if(this.onUpdate !== undefined) {
+                this.onUpdate(this);
+            }
+
+            if (this.winner !== null) {
+                clearInterval(this.intervalId);
+                if(this.onEnd !== undefined)
+                    this.onEnd(this);
+            }
+        }, 2000); 
+    }
+
+    public makeTurn() {
+        let logCurrent = [];
+
+        let attackDodged: boolean = this.isAttackDodged();
+        if (!attackDodged) {
+            const criticalMultiplier = this.isAttackCritical();
+            logCurrent.push(this.attack(criticalMultiplier));
+        } else {
+            logCurrent.push(`${this.Defender.name} a esquivé l'attaque de ${this.Attacker.name}`);
+        }
+
+        let turnDoubled: boolean = this.isTurnDoubled();
+        if (!turnDoubled) {
+            this.switchPlayers();
+        } else {
+            logCurrent.push((`${this.Attacker.name} est trop rapide et rejoue.`));
+        }
+
+        this.history.push(logCurrent.join('\n'));
+
+        if(this.Attacker.currentHealth > 0 && this.Defender.currentHealth > 0) {
+            this.turnCount++;
+        } else {
+            this.winner = this.Attacker.currentHealth > 0 ? this.Attacker : this.Defender;
         }
     }
 
@@ -97,11 +81,12 @@ export default class FightSystem {
         return Math.floor(Math.random() * 200) < this.Attacker.attributes.critical ? 2 : 1;
     }
 
-    // function qui évalue la puissance de l'attaque et enlève les points de l'ennemi
-    public attack(critical: number) {
+    // function qui évalue la puissance de l'attaque et enlève les points de l'ennemi, re tourne la string à ajouté dans l'historique
+    public attack(critical: number): string {
         let damage = Math.max(0, this.Attacker.attributes.strength * critical - this.Defender.attributes.armor);
-        this.Defender.currentHealth -= damage;
-        this.rowBattle.push(`${critical === 2 ? '{{ COUP CRITIQUE !!! }}' : ''}${this.Attacker.name} a infligé ${damage} dommages à ${this.Defender.name}, il lui reste ${this.Defender.currentHealth} PV.`);
+        this.Defender.currentHealth = Math.max(0 ,this.Defender.currentHealth - damage);
+    
+        return `${critical === 2 ? '**COUP CRITIQUE !!! **' : ''}${this.Attacker.name} a infligé ${damage} dommages à ${this.Defender.name}, il lui reste ${this.Defender.currentHealth} PV.`;
     }
 
     // function qui check la vitesse pour skip le tour de l'ennemi actuel

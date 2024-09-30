@@ -118,6 +118,11 @@ AttributesSchema.methods.applyRarity = function (rarity: Rarity): void {
  * @returns
  */
 AttributesSchema.methods.add = function (attr: AttributesModule): AttributesModule {
+
+    if(attr == undefined) {
+        return this as AttributesModule;
+    }
+
     const result = new AttributesModel();
 
     const keys = Object.keys(this.toObject()).filter((s) => !s.startsWith('_'));

@@ -5,12 +5,12 @@
         "lvl": 110,
         "skin": "/usr/src/app/images/npcs/npc/npc_adventurer.png",
         "attributes": {
-            "strength": 118,
-            "health": 115,
-            "dodge": 115,
-            "armor": 114,
-            "critical": 117,
-            "speed": 114
+            "strength": 1,
+            "health": 1,
+            "dodge": 0,
+            "armor": 0,
+            "critical": 0,
+            "speed": 0
         }
     },
     {
