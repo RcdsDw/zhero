@@ -1,4 +1,4 @@
-import { APIEmbedField, EmbedBuilder } from "discord.js";
+import { EmbedBuilder } from "discord.js";
 import FightSystem from "../fight/FightSystem";
 import { Fighter } from "../fight/Fighter";
 
