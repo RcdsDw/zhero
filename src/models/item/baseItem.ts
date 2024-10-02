@@ -3,6 +3,7 @@ import { AttributesModule, AttributesSchema } from '../user/attributes';
 import * as fs from 'fs';
 import * as path from 'path';
 import ItemType from '../../enum/itemType';
+import { translate } from '@vitalets/google-translate-api';
 
 // Données du document
 export interface IBaseItem {
@@ -117,9 +118,11 @@ BaseItemSchema.statics.populateDb = async (force: boolean = false, limit?: numbe
             .replace(/([a-zA-Z])(\d+)/g, '$1 $2')
             .replace(/\b\w/g, (char) => char.toUpperCase());
 
+        const { text } = await translate(label, { to: 'fr', from : 'en' });
+
         const doc = new BaseItemModel({
             icon: path.join('images/items', f),
-            name: label,
+            name: text,
             type: type,
             level: level,
         });
