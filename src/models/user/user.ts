@@ -9,8 +9,8 @@ import { InventoryModule, InventorySchema } from './inventory';
 import { StuffModule, StuffSchema } from './stuff';
 import { ShopModule, ShopSchema } from '../item/shop';
 import { ItemModel } from '../item/item';
+import { TowerModule, TowerSchema } from './tower';
 import StuffMontage from '../../libs/montage/StuffMontage';
-import { userInfo } from 'os';
 
 // Données du document
 interface IUser {
@@ -23,6 +23,7 @@ interface IUser {
     shop: ShopModule;
     inventory: InventoryModule;
     stuff: StuffModule;
+    tower: TowerModule;
 }
 
 // Méthodes sur l'instance
@@ -88,6 +89,11 @@ const UserSchema: Schema = new Schema<IUser, object, IUserMethods>(
             required: true,
             default: () => ({}),
         },
+        tower: {
+            type: TowerSchema,
+            required: true,
+            default: () => ({}),
+        }
     },
     {
         timestamps: true,
