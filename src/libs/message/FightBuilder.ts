@@ -1,12 +1,17 @@
-import { EmbedBuilder } from "discord.js";
+import { AttachmentBuilder, BaseMessageOptions, EmbedBuilder } from "discord.js";
 import FightSystem from "../fight/FightSystem";
 import { Fighter } from "../fight/Fighter";
-
+import FightMontage from "../montage/FightMontage";
 
 export default class FightBuilder {
-    public static getEmbed(player1 : Fighter, player2 : Fighter, fight : FightSystem) : EmbedBuilder {
+    public static async getEmbed(player1 : Fighter, player2 : Fighter, fight : FightSystem): Promise<BaseMessageOptions> {
+        const imagePath = await FightMontage.getImage(player1, player2);
+        const file = new AttachmentBuilder(imagePath, {
+            name: 'preview.png',
+        });
+
         const embed = new EmbedBuilder();
-        embed.setTitle(`${player1.name} - ${player1.currentHealth} PV vs ${player2.name} - ${player2.currentHealth} PV`);
+        embed.setTitle(`${player1.name} vs ${player2.name}`);
 
         embed.addFields({
             name : 'Tour',
@@ -61,6 +66,11 @@ export default class FightBuilder {
             )
         }
 
-        return embed;
+        return {
+            content: '',
+            embeds: [embed],
+            files: [file],
+            components: [],
+        };
     }
 }

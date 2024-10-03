@@ -17,24 +17,26 @@ export async function execute(interaction: CommandInteraction) {
         return;
     }
 
-    const mob = new Mob(mobs[0].name, mobs[0].lvl, mobs[0].skin, mobs[0].attributes);
+    const mobData = mobs[0];
+
+    const mob = new Mob(mobData.name, mobData.lvl, mobData.skin, mobData.attributes);
     const fighterMob: Fighter = FighterFactory.fromMob(mob);
-    const fighterUser: Fighter = FighterFactory.fromUser(user, interaction.user);
+    const fighterUser: Fighter = await FighterFactory.fromUser(user, interaction.user);
 
     const fight = new FightSystem(fighterUser, fighterMob, 
-        (fight : FightSystem) => {
-            interaction.editReply({
-                embeds : [FightBuilder.getEmbed(fighterUser, fighterMob, fight)]
-            })
+        async (fight : FightSystem) => {
+            interaction.editReply(
+                await FightBuilder.getEmbed(fighterUser, fighterMob, fight)
+            )
         },
         (fight : FightSystem) => {
             // Calcul des récompenses
         }
     );
 
-    interaction.reply({
-        embeds : [FightBuilder.getEmbed(fighterUser, fighterMob, fight)]
-    })
+    interaction.reply(
+        await FightBuilder.getEmbed(fighterUser, fighterMob, fight)
+    )
 
     fight.makeFight();
 }
