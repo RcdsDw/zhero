@@ -23,6 +23,7 @@ interface IBaseMobMethods {
 interface IBaseMobModel extends Model<IBaseMob, object, IBaseMobMethods> {
     populateDb(force: boolean, limit?: number): Promise<void>;
     createFromFile(fileName : string, type : "NORMAL"|"BOSS", level : number) : Promise<BaseMob>;
+    findByLevelAround(level: number): Promise<BaseMob>;
 }
 
 export type BaseMob = HydratedDocument<IBaseMob, IBaseMobMethods>;
@@ -99,7 +100,7 @@ BaseMobSchema.statics.populateDb = async (force: boolean = false, limit?: number
 
     await BaseMobModel.bulkSave(mobs);
 
-    console.log("Création réussi de " + mobs.length + " mob");
+    console.log("Création réussi de " + mobs.length + " mobs");
 };
 
 BaseMobSchema.statics.createFromFile = async (fileName : string, type : "NORMAL"|"BOSS", level : number) : Promise<BaseMob> => {
@@ -129,6 +130,20 @@ BaseMobSchema.statics.createFromFile = async (fileName : string, type : "NORMAL"
 
     return doc;
 }
+
+/**
+ * Retourne un mob aléatoire à -5, +5 niveaux autour du joueur
+ * @param level
+ * @returns
+ */
+BaseMobSchema.statics.findByLevelAround = async (level: number): Promise<BaseMob> => {
+    const agg = await BaseMobModel.aggregate([
+        { $match: { level: { $gte: level - 10, $lte: level + 10 } } },
+        { $sample: { size: 1 } },
+    ]).limit(1);
+
+    return new BaseMobModel(agg[0]);
+};
 
 const BaseMobModel = model<IBaseMob, IBaseMobModel>('BaseMob', BaseMobSchema);
 
