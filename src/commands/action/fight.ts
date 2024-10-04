@@ -20,20 +20,18 @@ export async function execute(interaction: CommandInteraction) {
     const fighterMob: Fighter = FighterFactory.fromMob(mob);
     const fighterUser: Fighter = await FighterFactory.fromUser(user, interaction.user);
 
-    const fight = new FightSystem(fighterUser, fighterMob, 
-        async (fight : FightSystem) => {
-            interaction.editReply(
-                await FightBuilder.getEmbed(fighterUser, fighterMob, fight)
-            )
+    const fight = new FightSystem(
+        fighterUser,
+        fighterMob,
+        async (fight: FightSystem) => {
+            interaction.editReply(await FightBuilder.getEmbed(fighterUser, fighterMob, fight));
         },
-        (fight : FightSystem) => {
+        (fight: FightSystem) => {
             // Calcul des récompenses
-        }
+        },
     );
 
-    interaction.reply(
-        await FightBuilder.getEmbed(fighterUser, fighterMob, fight)
-    )
+    interaction.reply(await FightBuilder.getEmbed(fighterUser, fighterMob, fight));
 
     fight.makeFight();
 }

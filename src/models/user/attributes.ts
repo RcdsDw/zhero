@@ -118,8 +118,7 @@ AttributesSchema.methods.applyRarity = function (rarity: Rarity): void {
  * @returns
  */
 AttributesSchema.methods.add = function (attr: AttributesModule): AttributesModule {
-
-    if(attr == undefined) {
+    if (attr == undefined) {
         return this as AttributesModule;
     }
 

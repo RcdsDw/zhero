@@ -94,7 +94,7 @@ BaseItemSchema.statics.populateDb = async (force: boolean = false, limit?: numbe
         belt: 0,
     };
 
-    const items : Array<BaseItem> = [];
+    const items: Array<BaseItem> = [];
 
     iconFiles.map(async (f: string) => {
         const match = f.match(/^(?<type>.+?)_(?<name>.+)_i.png$/);
@@ -136,12 +136,12 @@ BaseItemSchema.statics.populateDb = async (force: boolean = false, limit?: numbe
 
         item.attributes.distributePoints(level * 3);
 
-        items.push(item)
+        items.push(item);
     });
 
     await BaseItemModel.bulkSave(items);
 
-    console.log("Création réussi de " + items.length + " items");
+    console.log('Création réussi de ' + items.length + ' items');
 };
 
 /**

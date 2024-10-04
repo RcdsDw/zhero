@@ -9,8 +9,8 @@ import { translate } from '@vitalets/google-translate-api';
 export interface IBaseMob {
     name: string;
     level: number;
-    skin : string,
-    type: 'NORMAL'|'BOSS';
+    skin: string;
+    type: 'NORMAL' | 'BOSS';
     attributes: AttributesModule;
 }
 
@@ -22,7 +22,7 @@ interface IBaseMobMethods {
 // Méthodes statiques
 interface IBaseMobModel extends Model<IBaseMob, object, IBaseMobMethods> {
     populateDb(force: boolean, limit?: number): Promise<void>;
-    createFromFile(fileName : string, type : "NORMAL"|"BOSS", level : number) : Promise<BaseMob>;
+    createFromFile(fileName: string, type: 'NORMAL' | 'BOSS', level: number): Promise<BaseMob>;
     findByLevelAround(level: number): Promise<BaseMob>;
 }
 
@@ -34,17 +34,17 @@ export const BaseMobSchema: Schema = new Schema<IBaseMob, object, IBaseMobMethod
             type: String,
             required: true,
         },
-        level : {
-            type : Number,
-            required : true
+        level: {
+            type: Number,
+            required: true,
         },
         skin: {
             type: String,
             required: true,
         },
-        type : {
-            type : String,
-            required : true
+        type: {
+            type: String,
+            required: true,
         },
         attributes: {
             type: AttributesSchema,
@@ -72,16 +72,16 @@ BaseMobSchema.statics.populateDb = async (force: boolean = false, limit?: number
         skinNpcFiles = skinNpcFiles.slice(0, limit);
     }
 
-    const mobs : Array<BaseMob> = [];
+    const mobs: Array<BaseMob> = [];
 
     skinNpcFiles.map(async (f, index) => {
         const multiplier = 400 / skinNpcFiles.length;
         const level = Math.round(multiplier * (index + 1));
 
-        const mob = await BaseMobModel.createFromFile(f, "NORMAL", level);
+        const mob = await BaseMobModel.createFromFile(f, 'NORMAL', level);
 
         mobs.push(mob);
-    })
+    });
 
     let skinBossFiles = fs.readdirSync('images/npcs/npc-boss');
 
@@ -93,29 +93,32 @@ BaseMobSchema.statics.populateDb = async (force: boolean = false, limit?: number
         const multiplier = 400 / skinBossFiles.length;
         const level = Math.round(multiplier * (index + 1));
 
-        const mob = await BaseMobModel.createFromFile(f, "BOSS", level);
+        const mob = await BaseMobModel.createFromFile(f, 'BOSS', level);
 
         mobs.push(mob);
-    })
+    });
 
     await BaseMobModel.bulkSave(mobs);
 
-    console.log("Création réussi de " + mobs.length + " mobs");
+    console.log('Création réussi de ' + mobs.length + ' mobs');
 };
 
-BaseMobSchema.statics.createFromFile = async (fileName : string, type : "NORMAL"|"BOSS", level : number) : Promise<BaseMob> => {
-
+BaseMobSchema.statics.createFromFile = async (
+    fileName: string,
+    type: 'NORMAL' | 'BOSS',
+    level: number,
+): Promise<BaseMob> => {
     const label = fileName
-            .replace(/npc_/g, ' ')
-            .replace(/_/g, ' ')
-            .replace(/.png/, ' ')
-            .replace(/([a-zA-Z])(\d+)/g, '$1 $2')
-            .replace(/\b\w/g, (char) => char.toUpperCase())
-            .trim();
+        .replace(/npc_/g, ' ')
+        .replace(/_/g, ' ')
+        .replace(/.png/, ' ')
+        .replace(/([a-zA-Z])(\d+)/g, '$1 $2')
+        .replace(/\b\w/g, (char) => char.toUpperCase())
+        .trim();
 
     let filePath = path.join('images/npcs/npc', fileName);
 
-    if(type === "BOSS") {
+    if (type === 'BOSS') {
         filePath = path.join('images/npcs/npc-boss', fileName);
     }
 
@@ -123,13 +126,13 @@ BaseMobSchema.statics.createFromFile = async (fileName : string, type : "NORMAL"
         name: label,
         type: type,
         level: level,
-        skin : filePath,
+        skin: filePath,
     });
 
     doc.attributes.distributePoints(level * 3);
 
     return doc;
-}
+};
 
 /**
  * Retourne un mob aléatoire à -5, +5 niveaux autour du joueur

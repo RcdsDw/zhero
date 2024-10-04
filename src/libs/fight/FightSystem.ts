@@ -8,12 +8,17 @@ export default class FightSystem {
     intervalId: number | NodeJS.Timeout = 0;
     history: string[] = [];
 
-    winner : Fighter | null;
-   
-    onUpdate? : (fight : FightSystem) => void;
-    onEnd? : (fight : FightSystem) => void;
+    winner: Fighter | null;
 
-    constructor(player: Fighter, enemy: Fighter, onUpdate? : (fight : FightSystem) => void, onEnd? : (fight : FightSystem) => void) {
+    onUpdate?: (fight: FightSystem) => void;
+    onEnd?: (fight: FightSystem) => void;
+
+    constructor(
+        player: Fighter,
+        enemy: Fighter,
+        onUpdate?: (fight: FightSystem) => void,
+        onEnd?: (fight: FightSystem) => void,
+    ) {
         if (Math.random() < 0.5) {
             this.Attacker = player;
             this.Defender = enemy;
@@ -21,7 +26,7 @@ export default class FightSystem {
             this.Defender = player;
             this.Attacker = enemy;
         }
-        
+
         this.onUpdate = onUpdate;
         this.onEnd = onEnd;
 
@@ -32,16 +37,15 @@ export default class FightSystem {
         this.intervalId = setInterval(() => {
             this.makeTurn();
 
-            if(this.onUpdate !== undefined) {
+            if (this.onUpdate !== undefined) {
                 this.onUpdate(this);
             }
 
             if (this.winner !== null) {
                 clearInterval(this.intervalId);
-                if(this.onEnd !== undefined)
-                    this.onEnd(this);
+                if (this.onEnd !== undefined) this.onEnd(this);
             }
-        }, 2000); 
+        }, 2000);
     }
 
     public makeTurn() {
@@ -59,12 +63,12 @@ export default class FightSystem {
         if (!turnDoubled) {
             this.switchPlayers();
         } else {
-            logCurrent.push((`${this.Attacker.name} est trop rapide et rejoue.`));
+            logCurrent.push(`${this.Attacker.name} est trop rapide et rejoue.`);
         }
 
         this.history.push(logCurrent.join('\n'));
 
-        if(this.Attacker.currentHealth > 0 && this.Defender.currentHealth > 0) {
+        if (this.Attacker.currentHealth > 0 && this.Defender.currentHealth > 0) {
             this.turnCount++;
         } else {
             this.winner = this.Attacker.currentHealth > 0 ? this.Attacker : this.Defender;
@@ -84,8 +88,8 @@ export default class FightSystem {
     // function qui évalue la puissance de l'attaque et enlève les points de l'ennemi, re tourne la string à ajouté dans l'historique
     public attack(critical: number): string {
         let damage = Math.max(0, this.Attacker.attributes.strength * critical - this.Defender.attributes.armor);
-        this.Defender.currentHealth = Math.max(0 ,this.Defender.currentHealth - damage);
-    
+        this.Defender.currentHealth = Math.max(0, this.Defender.currentHealth - damage);
+
         return `${critical === 2 ? '**COUP CRITIQUE !!! **' : ''}${this.Attacker.name} a infligé ${damage} dommages à ${this.Defender.name}, il lui reste ${this.Defender.currentHealth} PV.`;
     }
 
