@@ -99,8 +99,6 @@ BaseMobSchema.statics.populateDb = async (force: boolean = false, limit?: number
     });
 
     await BaseMobModel.bulkSave(mobs);
-
-    console.log('Création réussi de ' + mobs.length + ' mobs');
 };
 
 BaseMobSchema.statics.createFromFile = async (
@@ -141,7 +139,7 @@ BaseMobSchema.statics.createFromFile = async (
  */
 BaseMobSchema.statics.findByLevelAround = async (level: number): Promise<BaseMob> => {
     const agg = await BaseMobModel.aggregate([
-        { $match: { level: { $gte: level - 10, $lte: level + 10 } } },
+        { $match: { level: { $gte: level - 5, $lte: level + 5 } } },
         { $sample: { size: 1 } },
     ]).limit(1);
 

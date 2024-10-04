@@ -140,8 +140,6 @@ BaseItemSchema.statics.populateDb = async (force: boolean = false, limit?: numbe
     });
 
     await BaseItemModel.bulkSave(items);
-
-    console.log('Création réussi de ' + items.length + ' items');
 };
 
 /**
