@@ -17,7 +17,7 @@ async function run() {
 
     BaseItemModel.populateDb(false);
 
-    BaseMobModel.populateDb(true);
+    BaseMobModel.populateDb(false);
 }
 
 run();

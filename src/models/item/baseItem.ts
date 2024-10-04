@@ -94,6 +94,8 @@ BaseItemSchema.statics.populateDb = async (force: boolean = false, limit?: numbe
         belt: 0,
     };
 
+    const items : Array<BaseItem> = [];
+
     iconFiles.map(async (f: string) => {
         const match = f.match(/^(?<type>.+?)_(?<name>.+)_i.png$/);
 
@@ -118,24 +120,28 @@ BaseItemSchema.statics.populateDb = async (force: boolean = false, limit?: numbe
             .replace(/([a-zA-Z])(\d+)/g, '$1 $2')
             .replace(/\b\w/g, (char) => char.toUpperCase());
 
-        const { text } = await translate(label, { to: 'fr', from : 'en' });
+        //const { text } = await translate(label, { to: 'fr', from : 'en' });
 
-        const doc = new BaseItemModel({
+        const item = new BaseItemModel({
             icon: path.join('images/items', f),
-            name: text,
+            name: label,
             type: type,
             level: level,
         });
 
         if (fs.existsSync(asset_path_men) && fs.existsSync(asset_path_women)) {
-            doc.asset_men = asset_path_men;
-            doc.asset_women = asset_path_women;
+            item.asset_men = asset_path_men;
+            item.asset_women = asset_path_women;
         }
 
-        doc.attributes.distributePoints(level * 3);
+        item.attributes.distributePoints(level * 3);
 
-        await doc.save();
+        items.push(item)
     });
+
+    await BaseItemModel.bulkSave(items);
+
+    console.log("Création réussi de " + items.length + " items");
 };
 
 /**
