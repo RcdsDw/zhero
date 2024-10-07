@@ -1,15 +1,14 @@
 import { HydratedDocument, model, Model, Schema } from 'mongoose';
-import Mob from '../../libs/mobs/Mob';
 import { User } from './user';
+import { BaseMob } from '../mob/baseMob';
 
 // Données du document
 export interface ITower {
-    id: string;
     maxStage: number;
     currentStage: number;
     isCurrentStageBig: boolean;
-    currentMob: Mob;
     rewardGold: number;
+    mobs: Array<BaseMob>
 }
 
 // Méthodes sur l'instance
@@ -27,11 +26,6 @@ interface ITowerModel extends Model<ITower, object, ITowerMethods> {
 export type TowerModule = HydratedDocument<ITower, ITowerMethods>;
 
 export const TowerSchema: Schema = new Schema<ITower, object, ITowerMethods>({
-    id: {
-        type: String,
-        required: true,
-        unique: true,
-    },
     maxStage: {
         type: Number,
         required: true,
@@ -47,16 +41,11 @@ export const TowerSchema: Schema = new Schema<ITower, object, ITowerMethods>({
         required: true,
         default: false,
     },
-    currentMob: {
-        type: Mob,
-        required: true,
-        default: () => ({})
-    },
     rewardGold: {
         type: Number,
         required: true,
         default: 0,
-    }
+    },
 });
 
 TowerSchema.methods.isBigStage = function (): void {
@@ -64,8 +53,13 @@ TowerSchema.methods.isBigStage = function (): void {
     return this.isCurrentStageBig;
 }
 
-TowerSchema.methods.getCurrentStage = function (): number {
-    return this.currentStage;
+TowerSchema.methods.getTowerInfo = function (): Object {
+    const res = {
+        currentStage: this.currentStage,
+        maxStage: this.maxStage,
+        rewardGold: this.rewardGold
+    }
+    return res
 }
 
 TowerSchema.methods.sendRewards = function (user: User): void {
