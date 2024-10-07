@@ -14,12 +14,14 @@ export interface ITower {
 
 // Méthodes sur l'instance
 interface ITowerMethods {
+    getCurrentStage(): number
+    isBigStage(currentStage: number, isCurrentStageBig: boolean): void;
     sendRewards(user: User, rewardGold: number, currentStage: number): void;
 }
 
 // Méthodes statiques
 interface ITowerModel extends Model<ITower, object, ITowerMethods> {
-    isBigStage(currentStage: number, isCurrentStageBig: boolean): void;
+    static(): void;
 }
 
 export type TowerModule = HydratedDocument<ITower, ITowerMethods>;
@@ -57,13 +59,18 @@ export const TowerSchema: Schema = new Schema<ITower, object, ITowerMethods>({
     }
 });
 
-TowerSchema.static.isBigStage = (currentStage: number, isCurrentStageBig: boolean): void => {
-    isCurrentStageBig = currentStage % 10 === 0;
+TowerSchema.methods.isBigStage = function (): void {
+    this.isCurrentStageBig = this.currentStage % 10 === 0;
+    return this.isCurrentStageBig;
 }
 
-TowerSchema.methods.sendRewards = (user: User, rewardGold: number, currentStage: number): void => {
-    user.gold += rewardGold;
-    currentStage >= 100 ? null : currentStage++
+TowerSchema.methods.getCurrentStage = function (): number {
+    return this.currentStage;
+}
+
+TowerSchema.methods.sendRewards = function (user: User): void {
+    user.gold += this.rewardGold;
+    this.currentStage >= 100 ? null : this.currentStage++
 };
 
 const TowerModel = model<ITower, ITowerModel>('Tower', TowerSchema);
