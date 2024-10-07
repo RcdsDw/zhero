@@ -1,11 +1,10 @@
 import { CommandInteraction, SlashCommandBuilder } from 'discord.js';
 import { UserModel } from '../../models/user/user';
-import Mob from '../../libs/mobs/Mob';
 import FighterFactory from '../../libs/fight/FighterFactory';
 import { Fighter } from '../../libs/fight/Fighter';
 import FightSystem from '../../libs/fight/FightSystem';
-import mobs from '../../datas/mobs.json';
 import FightBuilder from '../../libs/message/FightBuilder';
+import { BaseMobModel } from '../../models/mob/baseMob';
 
 export const data = new SlashCommandBuilder().setName('fight').setDescription('Faire un combat test');
 
@@ -17,26 +16,22 @@ export async function execute(interaction: CommandInteraction) {
         return;
     }
 
-    const mobData = mobs[0];
-
-    const mob = new Mob(mobData.name, mobData.lvl, mobData.skin, mobData.attributes);
+    const mob = await BaseMobModel.findByLevelAround(user.experience.level);
     const fighterMob: Fighter = FighterFactory.fromMob(mob);
     const fighterUser: Fighter = await FighterFactory.fromUser(user, interaction.user);
 
-    const fight = new FightSystem(fighterUser, fighterMob, 
-        async (fight : FightSystem) => {
-            interaction.editReply(
-                await FightBuilder.getEmbed(fighterUser, fighterMob, fight)
-            )
+    const fight = new FightSystem(
+        fighterUser,
+        fighterMob,
+        async (fight: FightSystem) => {
+            interaction.editReply(await FightBuilder.getEmbed(fighterUser, fighterMob, fight));
         },
-        (fight : FightSystem) => {
+        (fight: FightSystem) => {
             // Calcul des récompenses
-        }
+        },
     );
 
-    interaction.reply(
-        await FightBuilder.getEmbed(fighterUser, fighterMob, fight)
-    )
+    interaction.reply(await FightBuilder.getEmbed(fighterUser, fighterMob, fight));
 
     fight.makeFight();
 }
