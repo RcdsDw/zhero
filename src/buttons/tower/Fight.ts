@@ -26,8 +26,7 @@ export async function execute(interaction: ButtonInteraction) {
     // query for a mob
     const name = args[1];
     const mob = await BaseMobModel.findOne({ name });
-    console.log("MOB : ", mob)
-
+    
     // fight 
     const fighterMob: Fighter = FighterFactory.fromMob(mob);
     const fighterUser: Fighter = await FighterFactory.fromUser(user, interaction.user);
