@@ -10,7 +10,7 @@ import {
 import { basename } from 'node:path';
 import { createCanvas, loadImage } from 'canvas';
 import { User } from '../../models/user/user';
-import mobs from '../../datas/mobs.json'
+import mobs from '../../datas/tower.json'
 
 export default class TowerBuilder {
     public static async getEmbed(user: User, discordUser: DiscordUser): Promise<BaseMessageOptions> {
@@ -24,7 +24,7 @@ export default class TowerBuilder {
         const bgPath = await loadImage("https://img.freepik.com/premium-vector/dark-back-street-alley-with-door-bar-trash-can-car-with-open-trunk-night_273525-1119.jpg?semt=ais_hybrid");
         const mobPath = await loadImage(currentMob.skin);
 
-        ctx.drawImage(bgPath, 0, 0, 800, 400);
+        ctx.drawImage(bgPath, 0, 0, canvas.width, canvas.height);
         ctx.drawImage(mobPath, 300, 75, 200, 350);
 
         const buffer = canvas.toBuffer();
@@ -41,18 +41,13 @@ export default class TowerBuilder {
         );
         
         const embed = new EmbedBuilder()
-            .setTitle('La tour menaçante des méchants pas gentils du tout !!!')
+            .setTitle(`La tour de la terreur - ${towerInfo.currentStage} / ${towerInfo.maxStage}`)
             .setDescription(`C'est à toi de jouer ${discordUser.displayName}, ta quête pour devenir un héros continue...`)
             .setImage('attachment://tower-and-mob.png')
             .addFields(
                 {
                     name: `Votre prochain adversaire est : `,
-                    value: `Nom : ${currentMob.name} \n Niveau : ${currentMob.lvl}`,
-                    inline: true
-                },
-                {
-                    name: `Vous êtes actuellement à l'étage : `,
-                    value: `${towerInfo.currentStage} / ${towerInfo.maxStage}`,
+                    value: `${currentMob.type === "BOSS" ? "[🛑 BOSS 🛑] - \n" : ""}Nom : ${currentMob.name} \n Niveau : ${currentMob.lvl}`,
                     inline: true
                 }
             )

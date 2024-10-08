@@ -1,6 +1,4 @@
 import { ButtonInteraction } from 'discord.js';
-import { connect } from 'mongoose';
-import dotenv from 'dotenv';
 import { UserModel } from '../../models/user/user';
 import { BaseMobModel } from '../../models/mob/baseMob';
 import { Fighter } from '../../libs/fight/Fighter';
@@ -26,7 +24,7 @@ export async function execute(interaction: ButtonInteraction) {
     // query for a mob
     const name = args[1];
     const mob = await BaseMobModel.findOne({ name });
-    
+
     // fight 
     const fighterMob: Fighter = FighterFactory.fromMob(mob);
     const fighterUser: Fighter = await FighterFactory.fromUser(user, interaction.user);
