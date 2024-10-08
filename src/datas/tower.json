@@ -3,1470 +3,1715 @@
         "name": "Adventurer",
         "lvl": 2,
         "skin": "images/npcs/npc/npc_adventurer.png",
+        "type": "NORMAL",
         "step": 1
     },
     {
         "name": "Alps Alien",
         "lvl": 4,
         "skin": "images/npcs/npc/npc_alps_alien.png",
+        "type": "NORMAL",
         "step": 2
     },
     {
         "name": "Animator",
         "lvl": 6,
         "skin": "images/npcs/npc/npc_animator.png",
+        "type": "NORMAL",
         "step": 3
     },
     {
         "name": "Arrogant Skateboarder",
         "lvl": 8,
         "skin": "images/npcs/npc/npc_arrogant_skateboarder.png",
+        "type": "NORMAL",
         "step": 4
     },
     {
         "name": "Bad Artist",
         "lvl": 10,
         "skin": "images/npcs/npc/npc_bad_artist.png",
+        "type": "NORMAL",
         "step": 5
-    },
-    {
-        "name": "Ball Stabber",
-        "lvl": 12,
-        "skin": "images/npcs/npc/npc_ball_stabber.png",
-        "step": 6
-    },
-    {
-        "name": "Business Man Artless",
-        "lvl": 14,
-        "skin": "images/npcs/npc/npc_business_man_artless.png",
-        "step": 7
-    },
-    {
-        "name": "Business Man Cool",
-        "lvl": 15,
-        "skin": "images/npcs/npc/npc_business_man_cool.png",
-        "step": 8
-    },
-    {
-        "name": "Business Man Respectable",
-        "lvl": 17,
-        "skin": "images/npcs/npc/npc_business_man_respectable.png",
-        "step": 9
-    },
-    {
-        "name": "Business Man Threatening",
-        "lvl": 19,
-        "skin": "images/npcs/npc/npc_business_man_threatening.png",
-        "step": 10
-    },
-    {
-        "name": "Casualguy",
-        "lvl": 21,
-        "skin": "images/npcs/npc/npc_casualguy.png",
-        "step": 11
-    },
-    {
-        "name": "Cheater",
-        "lvl": 23,
-        "skin": "images/npcs/npc/npc_cheater.png",
-        "step": 12
-    },
-    {
-        "name": "Cheeky Rumour Spreader",
-        "lvl": 25,
-        "skin": "images/npcs/npc/npc_cheeky_rumour_spreader.png",
-        "step": 13
-    },
-    {
-        "name": "Cheese Technic",
-        "lvl": 27,
-        "skin": "images/npcs/npc/npc_cheese_technic.png",
-        "step": 14
-    },
-    {
-        "name": "Concierge",
-        "lvl": 29,
-        "skin": "images/npcs/npc/npc_concierge.png",
-        "step": 15
-    },
-    {
-        "name": "Cook",
-        "lvl": 31,
-        "skin": "images/npcs/npc/npc_cook.png",
-        "step": 16
-    },
-    {
-        "name": "Cyclist Rowdy",
-        "lvl": 33,
-        "skin": "images/npcs/npc/npc_cyclist_rowdy.png",
-        "step": 17
-    },
-    {
-        "name": "Disturbing Neighbor",
-        "lvl": 35,
-        "skin": "images/npcs/npc/npc_disturbing_neighbor.png",
-        "step": 18
-    },
-    {
-        "name": "Doglady",
-        "lvl": 37,
-        "skin": "images/npcs/npc/npc_doglady.png",
-        "step": 19
-    },
-    {
-        "name": "Drummer Street Musician",
-        "lvl": 39,
-        "skin": "images/npcs/npc/npc_drummer_street_musician.png",
-        "step": 20
-    },
-    {
-        "name": "Dubious Trader",
-        "lvl": 41,
-        "skin": "images/npcs/npc/npc_dubious_trader.png",
-        "step": 21
-    },
-    {
-        "name": "Dungeon 1 Npc 1",
-        "lvl": 43,
-        "skin": "images/npcs/npc/npc_dungeon1_npc1.png",
-        "step": 22
-    },
-    {
-        "name": "Dungeon 1 Npc 10",
-        "lvl": 44,
-        "skin": "images/npcs/npc/npc_dungeon1_npc10.png",
-        "step": 23
-    },
-    {
-        "name": "Dungeon 1 Npc 2",
-        "lvl": 46,
-        "skin": "images/npcs/npc/npc_dungeon1_npc2.png",
-        "step": 24
-    },
-    {
-        "name": "Dungeon 1 Npc 3",
-        "lvl": 48,
-        "skin": "images/npcs/npc/npc_dungeon1_npc3.png",
-        "step": 25
-    },
-    {
-        "name": "Dungeon 1 Npc 4",
-        "lvl": 50,
-        "skin": "images/npcs/npc/npc_dungeon1_npc4.png",
-        "step": 26
-    },
-    {
-        "name": "Dungeon 1 Npc 5",
-        "lvl": 52,
-        "skin": "images/npcs/npc/npc_dungeon1_npc5.png",
-        "step": 27
-    },
-    {
-        "name": "Dungeon 1 Npc 6",
-        "lvl": 54,
-        "skin": "images/npcs/npc/npc_dungeon1_npc6.png",
-        "step": 28
-    },
-    {
-        "name": "Dungeon 1 Npc 7",
-        "lvl": 56,
-        "skin": "images/npcs/npc/npc_dungeon1_npc7.png",
-        "step": 29
-    },
-    {
-        "name": "Dungeon 1 Npc 8",
-        "lvl": 58,
-        "skin": "images/npcs/npc/npc_dungeon1_npc8.png",
-        "step": 30
-    },
-    {
-        "name": "Dungeon 1 Npc 9",
-        "lvl": 60,
-        "skin": "images/npcs/npc/npc_dungeon1_npc9.png",
-        "step": 31
-    },
-    {
-        "name": "Dungeon 2 Npc 1",
-        "lvl": 62,
-        "skin": "images/npcs/npc/npc_dungeon2_npc1.png",
-        "step": 32
-    },
-    {
-        "name": "Dungeon 2 Npc 10",
-        "lvl": 64,
-        "skin": "images/npcs/npc/npc_dungeon2_npc10.png",
-        "step": 33
-    },
-    {
-        "name": "Dungeon 2 Npc 2",
-        "lvl": 66,
-        "skin": "images/npcs/npc/npc_dungeon2_npc2.png",
-        "step": 34
-    },
-    {
-        "name": "Dungeon 2 Npc 3",
-        "lvl": 68,
-        "skin": "images/npcs/npc/npc_dungeon2_npc3.png",
-        "step": 35
-    },
-    {
-        "name": "Dungeon 2 Npc 4",
-        "lvl": 70,
-        "skin": "images/npcs/npc/npc_dungeon2_npc4.png",
-        "step": 36
-    },
-    {
-        "name": "Dungeon 2 Npc 5",
-        "lvl": 71,
-        "skin": "images/npcs/npc/npc_dungeon2_npc5.png",
-        "step": 37
-    },
-    {
-        "name": "Dungeon 2 Npc 6",
-        "lvl": 73,
-        "skin": "images/npcs/npc/npc_dungeon2_npc6.png",
-        "step": 38
-    },
-    {
-        "name": "Dungeon 2 Npc 7",
-        "lvl": 75,
-        "skin": "images/npcs/npc/npc_dungeon2_npc7.png",
-        "step": 39
-    },
-    {
-        "name": "Dungeon 2 Npc 8",
-        "lvl": 77,
-        "skin": "images/npcs/npc/npc_dungeon2_npc8.png",
-        "step": 40
-    },
-    {
-        "name": "Dungeon 2 Npc 9",
-        "lvl": 79,
-        "skin": "images/npcs/npc/npc_dungeon2_npc9.png",
-        "step": 41
-    },
-    {
-        "name": "Dungeon 3 Npc 1",
-        "lvl": 81,
-        "skin": "images/npcs/npc/npc_dungeon3_npc1.png",
-        "step": 42
-    },
-    {
-        "name": "Dungeon 3 Npc 10",
-        "lvl": 83,
-        "skin": "images/npcs/npc/npc_dungeon3_npc10.png",
-        "step": 43
-    },
-    {
-        "name": "Dungeon 3 Npc 2",
-        "lvl": 85,
-        "skin": "images/npcs/npc/npc_dungeon3_npc2.png",
-        "step": 44
-    },
-    {
-        "name": "Dungeon 3 Npc 3",
-        "lvl": 87,
-        "skin": "images/npcs/npc/npc_dungeon3_npc3.png",
-        "step": 45
-    },
-    {
-        "name": "Dungeon 3 Npc 4",
-        "lvl": 89,
-        "skin": "images/npcs/npc/npc_dungeon3_npc4.png",
-        "step": 46
-    },
-    {
-        "name": "Dungeon 3 Npc 5",
-        "lvl": 91,
-        "skin": "images/npcs/npc/npc_dungeon3_npc5.png",
-        "step": 47
-    },
-    {
-        "name": "Dungeon 3 Npc 6",
-        "lvl": 93,
-        "skin": "images/npcs/npc/npc_dungeon3_npc6.png",
-        "step": 48
-    },
-    {
-        "name": "Dungeon 3 Npc 7",
-        "lvl": 95,
-        "skin": "images/npcs/npc/npc_dungeon3_npc7.png",
-        "step": 49
-    },
-    {
-        "name": "Dungeon 3 Npc 8",
-        "lvl": 97,
-        "skin": "images/npcs/npc/npc_dungeon3_npc8.png",
-        "step": 50
-    },
-    {
-        "name": "Dungeon 3 Npc 9",
-        "lvl": 99,
-        "skin": "images/npcs/npc/npc_dungeon3_npc9.png",
-        "step": 51
-    },
-    {
-        "name": "Dungeon 4 Npc 1",
-        "lvl": 100,
-        "skin": "images/npcs/npc/npc_dungeon4_npc1.png",
-        "step": 52
-    },
-    {
-        "name": "Dungeon 4 Npc 10",
-        "lvl": 102,
-        "skin": "images/npcs/npc/npc_dungeon4_npc10.png",
-        "step": 53
-    },
-    {
-        "name": "Dungeon 4 Npc 2",
-        "lvl": 104,
-        "skin": "images/npcs/npc/npc_dungeon4_npc2.png",
-        "step": 54
-    },
-    {
-        "name": "Dungeon 4 Npc 3",
-        "lvl": 106,
-        "skin": "images/npcs/npc/npc_dungeon4_npc3.png",
-        "step": 55
-    },
-    {
-        "name": "Dungeon 4 Npc 4",
-        "lvl": 108,
-        "skin": "images/npcs/npc/npc_dungeon4_npc4.png",
-        "step": 56
-    },
-    {
-        "name": "Dungeon 4 Npc 5",
-        "lvl": 110,
-        "skin": "images/npcs/npc/npc_dungeon4_npc5.png",
-        "step": 57
-    },
-    {
-        "name": "Dungeon 4 Npc 6",
-        "lvl": 112,
-        "skin": "images/npcs/npc/npc_dungeon4_npc6.png",
-        "step": 58
-    },
-    {
-        "name": "Dungeon 4 Npc 7",
-        "lvl": 114,
-        "skin": "images/npcs/npc/npc_dungeon4_npc7.png",
-        "step": 59
-    },
-    {
-        "name": "Dungeon 4 Npc 8",
-        "lvl": 116,
-        "skin": "images/npcs/npc/npc_dungeon4_npc8.png",
-        "step": 60
-    },
-    {
-        "name": "Dungeon 4 Npc 9",
-        "lvl": 118,
-        "skin": "images/npcs/npc/npc_dungeon4_npc9.png",
-        "step": 61
-    },
-    {
-        "name": "Dungeon 5 Npc 1",
-        "lvl": 120,
-        "skin": "images/npcs/npc/npc_dungeon5_npc1.png",
-        "step": 62
-    },
-    {
-        "name": "Dungeon 5 Npc 10",
-        "lvl": 122,
-        "skin": "images/npcs/npc/npc_dungeon5_npc10.png",
-        "step": 63
-    },
-    {
-        "name": "Dungeon 5 Npc 2",
-        "lvl": 124,
-        "skin": "images/npcs/npc/npc_dungeon5_npc2.png",
-        "step": 64
-    },
-    {
-        "name": "Dungeon 5 Npc 3",
-        "lvl": 126,
-        "skin": "images/npcs/npc/npc_dungeon5_npc3.png",
-        "step": 65
-    },
-    {
-        "name": "Dungeon 5 Npc 4",
-        "lvl": 128,
-        "skin": "images/npcs/npc/npc_dungeon5_npc4.png",
-        "step": 66
-    },
-    {
-        "name": "Dungeon 5 Npc 5",
-        "lvl": 129,
-        "skin": "images/npcs/npc/npc_dungeon5_npc5.png",
-        "step": 67
-    },
-    {
-        "name": "Dungeon 5 Npc 6",
-        "lvl": 131,
-        "skin": "images/npcs/npc/npc_dungeon5_npc6.png",
-        "step": 68
-    },
-    {
-        "name": "Dungeon 5 Npc 7",
-        "lvl": 133,
-        "skin": "images/npcs/npc/npc_dungeon5_npc7.png",
-        "step": 69
-    },
-    {
-        "name": "Dungeon 5 Npc 8",
-        "lvl": 135,
-        "skin": "images/npcs/npc/npc_dungeon5_npc8.png",
-        "step": 70
-    },
-    {
-        "name": "Dungeon 5 Npc 9",
-        "lvl": 137,
-        "skin": "images/npcs/npc/npc_dungeon5_npc9.png",
-        "step": 71
-    },
-    {
-        "name": "Dungeon 6 Npc 1",
-        "lvl": 139,
-        "skin": "images/npcs/npc/npc_dungeon6_npc1.png",
-        "step": 72
-    },
-    {
-        "name": "Dungeon 6 Npc 10",
-        "lvl": 141,
-        "skin": "images/npcs/npc/npc_dungeon6_npc10.png",
-        "step": 73
-    },
-    {
-        "name": "Dungeon 6 Npc 2",
-        "lvl": 143,
-        "skin": "images/npcs/npc/npc_dungeon6_npc2.png",
-        "step": 74
-    },
-    {
-        "name": "Dungeon 6 Npc 3",
-        "lvl": 145,
-        "skin": "images/npcs/npc/npc_dungeon6_npc3.png",
-        "step": 75
-    },
-    {
-        "name": "Dungeon 6 Npc 4",
-        "lvl": 147,
-        "skin": "images/npcs/npc/npc_dungeon6_npc4.png",
-        "step": 76
-    },
-    {
-        "name": "Dungeon 6 Npc 5",
-        "lvl": 149,
-        "skin": "images/npcs/npc/npc_dungeon6_npc5.png",
-        "step": 77
-    },
-    {
-        "name": "Dungeon 6 Npc 6",
-        "lvl": 151,
-        "skin": "images/npcs/npc/npc_dungeon6_npc6.png",
-        "step": 78
-    },
-    {
-        "name": "Dungeon 6 Npc 7",
-        "lvl": 153,
-        "skin": "images/npcs/npc/npc_dungeon6_npc7.png",
-        "step": 79
-    },
-    {
-        "name": "Dungeon 6 Npc 8",
-        "lvl": 155,
-        "skin": "images/npcs/npc/npc_dungeon6_npc8.png",
-        "step": 80
-    },
-    {
-        "name": "Dungeon 6 Npc 9",
-        "lvl": 157,
-        "skin": "images/npcs/npc/npc_dungeon6_npc9.png",
-        "step": 81
-    },
-    {
-        "name": "Dungeon 7 Npc 1",
-        "lvl": 158,
-        "skin": "images/npcs/npc/npc_dungeon7_npc1.png",
-        "step": 82
-    },
-    {
-        "name": "Dungeon 7 Npc 2",
-        "lvl": 160,
-        "skin": "images/npcs/npc/npc_dungeon7_npc2.png",
-        "step": 83
-    },
-    {
-        "name": "Dungeon 7 Npc 3",
-        "lvl": 162,
-        "skin": "images/npcs/npc/npc_dungeon7_npc3.png",
-        "step": 84
-    },
-    {
-        "name": "Dungeon 7 Npc 4",
-        "lvl": 164,
-        "skin": "images/npcs/npc/npc_dungeon7_npc4.png",
-        "step": 85
-    },
-    {
-        "name": "Dungeon 7 Npc 5",
-        "lvl": 166,
-        "skin": "images/npcs/npc/npc_dungeon7_npc5.png",
-        "step": 86
-    },
-    {
-        "name": "Dungeon 7 Npc 6",
-        "lvl": 168,
-        "skin": "images/npcs/npc/npc_dungeon7_npc6.png",
-        "step": 87
-    },
-    {
-        "name": "Dungeon 7 Npc 7",
-        "lvl": 170,
-        "skin": "images/npcs/npc/npc_dungeon7_npc7.png",
-        "step": 88
-    },
-    {
-        "name": "Dungeon 7 Npc 8",
-        "lvl": 172,
-        "skin": "images/npcs/npc/npc_dungeon7_npc8.png",
-        "step": 89
-    },
-    {
-        "name": "Dungeon 7 Npc 9",
-        "lvl": 174,
-        "skin": "images/npcs/npc/npc_dungeon7_npc9.png",
-        "step": 90
-    },
-    {
-        "name": "Dungeon 8 Npc 1",
-        "lvl": 176,
-        "skin": "images/npcs/npc/npc_dungeon8_npc1.png",
-        "step": 91
-    },
-    {
-        "name": "Dungeon 8 Npc 10",
-        "lvl": 178,
-        "skin": "images/npcs/npc/npc_dungeon8_npc10.png",
-        "step": 92
-    },
-    {
-        "name": "Dungeon 8 Npc 2",
-        "lvl": 180,
-        "skin": "images/npcs/npc/npc_dungeon8_npc2.png",
-        "step": 93
-    },
-    {
-        "name": "Dungeon 8 Npc 3",
-        "lvl": 182,
-        "skin": "images/npcs/npc/npc_dungeon8_npc3.png",
-        "step": 94
-    },
-    {
-        "name": "Dungeon 8 Npc 4",
-        "lvl": 184,
-        "skin": "images/npcs/npc/npc_dungeon8_npc4.png",
-        "step": 95
-    },
-    {
-        "name": "Dungeon 8 Npc 5",
-        "lvl": 186,
-        "skin": "images/npcs/npc/npc_dungeon8_npc5.png",
-        "step": 96
-    },
-    {
-        "name": "Dungeon 8 Npc 6",
-        "lvl": 187,
-        "skin": "images/npcs/npc/npc_dungeon8_npc6.png",
-        "step": 97
-    },
-    {
-        "name": "Dungeon 8 Npc 7",
-        "lvl": 189,
-        "skin": "images/npcs/npc/npc_dungeon8_npc7.png",
-        "step": 98
-    },
-    {
-        "name": "Dungeon 8 Npc 8",
-        "lvl": 191,
-        "skin": "images/npcs/npc/npc_dungeon8_npc8.png",
-        "step": 99
-    },
-    {
-        "name": "Dungeon 8 Npc 9",
-        "lvl": 193,
-        "skin": "images/npcs/npc/npc_dungeon8_npc9.png",
-        "step": 100
-    },
-    {
-        "name": "Dungeon 9 Npc 1",
-        "lvl": 195,
-        "skin": "images/npcs/npc/npc_dungeon9_npc1.png",
-        "step": 101
-    },
-    {
-        "name": "Dungeon 9 Npc 10",
-        "lvl": 197,
-        "skin": "images/npcs/npc/npc_dungeon9_npc10.png",
-        "step": 102
-    },
-    {
-        "name": "Dungeon 9 Npc 2",
-        "lvl": 199,
-        "skin": "images/npcs/npc/npc_dungeon9_npc2.png",
-        "step": 103
-    },
-    {
-        "name": "Dungeon 9 Npc 3",
-        "lvl": 201,
-        "skin": "images/npcs/npc/npc_dungeon9_npc3.png",
-        "step": 104
-    },
-    {
-        "name": "Dungeon 9 Npc 4",
-        "lvl": 203,
-        "skin": "images/npcs/npc/npc_dungeon9_npc4.png",
-        "step": 105
-    },
-    {
-        "name": "Dungeon 9 Npc 5",
-        "lvl": 205,
-        "skin": "images/npcs/npc/npc_dungeon9_npc5.png",
-        "step": 106
-    },
-    {
-        "name": "Dungeon 9 Npc 6",
-        "lvl": 207,
-        "skin": "images/npcs/npc/npc_dungeon9_npc6.png",
-        "step": 107
-    },
-    {
-        "name": "Dungeon 9 Npc 7",
-        "lvl": 209,
-        "skin": "images/npcs/npc/npc_dungeon9_npc7.png",
-        "step": 108
-    },
-    {
-        "name": "Dungeon 9 Npc 8",
-        "lvl": 211,
-        "skin": "images/npcs/npc/npc_dungeon9_npc8.png",
-        "step": 109
-    },
-    {
-        "name": "Dungeon 9 Npc 9",
-        "lvl": 213,
-        "skin": "images/npcs/npc/npc_dungeon9_npc9.png",
-        "step": 110
-    },
-    {
-        "name": "Egypt Animator",
-        "lvl": 214,
-        "skin": "images/npcs/npc/npc_egypt_animator.png",
-        "step": 111
-    },
-    {
-        "name": "Egypt Crocodile",
-        "lvl": 216,
-        "skin": "images/npcs/npc/npc_egypt_crocodile.png",
-        "step": 112
-    },
-    {
-        "name": "Egypt Evil Kids",
-        "lvl": 218,
-        "skin": "images/npcs/npc/npc_egypt_evil_kids.png",
-        "step": 113
-    },
-    {
-        "name": "Egypt Guard",
-        "lvl": 220,
-        "skin": "images/npcs/npc/npc_egypt_guard.png",
-        "step": 114
-    },
-    {
-        "name": "Egypt Ingenieur",
-        "lvl": 222,
-        "skin": "images/npcs/npc/npc_egypt_ingenieur.png",
-        "step": 115
-    },
-    {
-        "name": "Egypt Monkey",
-        "lvl": 224,
-        "skin": "images/npcs/npc/npc_egypt_monkey.png",
-        "step": 116
-    },
-    {
-        "name": "Egypt Mummy",
-        "lvl": 226,
-        "skin": "images/npcs/npc/npc_egypt_mummy.png",
-        "step": 117
-    },
-    {
-        "name": "Egypt Pharao",
-        "lvl": 228,
-        "skin": "images/npcs/npc/npc_egypt_pharao.png",
-        "step": 118
-    },
-    {
-        "name": "Egypt Shark",
-        "lvl": 230,
-        "skin": "images/npcs/npc/npc_egypt_shark.png",
-        "step": 119
-    },
-    {
-        "name": "Egypt Tourists",
-        "lvl": 232,
-        "skin": "images/npcs/npc/npc_egypt_tourists.png",
-        "step": 120
-    },
-    {
-        "name": "Egypt Window Cleaner",
-        "lvl": 234,
-        "skin": "images/npcs/npc/npc_egypt_window_cleaner.png",
-        "step": 121
-    },
-    {
-        "name": "Elvis",
-        "lvl": 236,
-        "skin": "images/npcs/npc/npc_elvis.png",
-        "step": 122
-    },
-    {
-        "name": "False Mayor",
-        "lvl": 238,
-        "skin": "images/npcs/npc/npc_false_mayor.png",
-        "step": 123
-    },
-    {
-        "name": "Flyer Distributor",
-        "lvl": 240,
-        "skin": "images/npcs/npc/npc_flyer_distributor.png",
-        "step": 124
-    },
-    {
-        "name": "Fondue Phantom",
-        "lvl": 242,
-        "skin": "images/npcs/npc/npc_fondue_phantom.png",
-        "step": 125
-    },
-    {
-        "name": "Gourmet Geiss",
-        "lvl": 243,
-        "skin": "images/npcs/npc/npc_gourmet_geiss.png",
-        "step": 126
-    },
-    {
-        "name": "Halloween Ghost",
-        "lvl": 245,
-        "skin": "images/npcs/npc/npc_halloween_ghost.png",
-        "step": 127
-    },
-    {
-        "name": "Hoody Evil",
-        "lvl": 247,
-        "skin": "images/npcs/npc/npc_hoody_evil.png",
-        "step": 128
-    },
-    {
-        "name": "Hoody Scruffy",
-        "lvl": 249,
-        "skin": "images/npcs/npc/npc_hoody_scruffy.png",
-        "step": 129
-    },
-    {
-        "name": "Hoody Very Evil",
-        "lvl": 251,
-        "skin": "images/npcs/npc/npc_hoody_very_evil.png",
-        "step": 130
-    },
-    {
-        "name": "Joker Hacker",
-        "lvl": 253,
-        "skin": "images/npcs/npc/npc_joker_hacker.png",
-        "step": 131
-    },
-    {
-        "name": "Kangaroo",
-        "lvl": 255,
-        "skin": "images/npcs/npc/npc_kangaroo.png",
-        "step": 132
-    },
-    {
-        "name": "Kids One Evil",
-        "lvl": 257,
-        "skin": "images/npcs/npc/npc_kids_one_evil.png",
-        "step": 133
-    },
-    {
-        "name": "Kids Two Evil",
-        "lvl": 259,
-        "skin": "images/npcs/npc/npc_kids_two_evil.png",
-        "step": 134
-    },
-    {
-        "name": "Kids Two Laughing",
-        "lvl": 261,
-        "skin": "images/npcs/npc/npc_kids_two_laughing.png",
-        "step": 135
-    },
-    {
-        "name": "Lonely Satanist",
-        "lvl": 263,
-        "skin": "images/npcs/npc/npc_lonely_satanist.png",
-        "step": 136
-    },
-    {
-        "name": "Loser",
-        "lvl": 265,
-        "skin": "images/npcs/npc/npc_loser.png",
-        "step": 137
-    },
-    {
-        "name": "Magicians",
-        "lvl": 267,
-        "skin": "images/npcs/npc/npc_magicians.png",
-        "step": 138
-    },
-    {
-        "name": "Mastermind",
-        "lvl": 269,
-        "skin": "images/npcs/npc/npc_mastermind.png",
-        "step": 139
-    },
-    {
-        "name": "Media Maniac",
-        "lvl": 271,
-        "skin": "images/npcs/npc/npc_media_maniac.png",
-        "step": 140
-    },
-    {
-        "name": "Meterman",
-        "lvl": 272,
-        "skin": "images/npcs/npc/npc_meterman.png",
-        "step": 141
-    },
-    {
-        "name": "Midsummer Cat",
-        "lvl": 274,
-        "skin": "images/npcs/npc/npc_midsummer_cat.png",
-        "step": 142
-    },
-    {
-        "name": "Midsummer Fake Shark",
-        "lvl": 276,
-        "skin": "images/npcs/npc/npc_midsummer_fake_shark.png",
-        "step": 143
-    },
-    {
-        "name": "Midsummer Rowdy",
-        "lvl": 278,
-        "skin": "images/npcs/npc/npc_midsummer_rowdy.png",
-        "step": 144
-    },
-    {
-        "name": "Moviestar",
-        "lvl": 280,
-        "skin": "images/npcs/npc/npc_moviestar.png",
-        "step": 145
-    },
-    {
-        "name": "Music Enthusiast",
-        "lvl": 282,
-        "skin": "images/npcs/npc/npc_music_enthusiast.png",
-        "step": 146
-    },
-    {
-        "name": "Nastier Employee",
-        "lvl": 284,
-        "skin": "images/npcs/npc/npc_nastier_employee.png",
-        "step": 147
-    },
-    {
-        "name": "Nasty Cheerleader",
-        "lvl": 286,
-        "skin": "images/npcs/npc/npc_nasty_cheerleader.png",
-        "step": 148
-    },
-    {
-        "name": "Olympia Crusher",
-        "lvl": 288,
-        "skin": "images/npcs/npc/npc_olympia_crusher.png",
-        "step": 149
-    },
-    {
-        "name": "Olympia Fencer",
-        "lvl": 290,
-        "skin": "images/npcs/npc/npc_olympia_fencer.png",
-        "step": 150
-    },
-    {
-        "name": "Olympia Hippies",
-        "lvl": 292,
-        "skin": "images/npcs/npc/npc_olympia_hippies.png",
-        "step": 151
-    },
-    {
-        "name": "Olympia Robot Small",
-        "lvl": 294,
-        "skin": "images/npcs/npc/npc_olympia_robot_small.png",
-        "step": 152
-    },
-    {
-        "name": "Olympia Winner",
-        "lvl": 296,
-        "skin": "images/npcs/npc/npc_olympia_winner.png",
-        "step": 153
-    },
-    {
-        "name": "Opera Singer",
-        "lvl": 298,
-        "skin": "images/npcs/npc/npc_opera_singer.png",
-        "step": 154
-    },
-    {
-        "name": "Overzealous Policewoman",
-        "lvl": 300,
-        "skin": "images/npcs/npc/npc_overzealous_policewoman.png",
-        "step": 155
-    },
-    {
-        "name": "Paris Couple",
-        "lvl": 301,
-        "skin": "images/npcs/npc/npc_paris_couple.png",
-        "step": 156
-    },
-    {
-        "name": "Paris Frenchman",
-        "lvl": 303,
-        "skin": "images/npcs/npc/npc_paris_frenchman.png",
-        "step": 157
-    },
-    {
-        "name": "Paris Gredin",
-        "lvl": 305,
-        "skin": "images/npcs/npc/npc_paris_gredin.png",
-        "step": 158
-    },
-    {
-        "name": "Paris Thief",
-        "lvl": 307,
-        "skin": "images/npcs/npc/npc_paris_thief.png",
-        "step": 159
-    },
-    {
-        "name": "Racoon",
-        "lvl": 309,
-        "skin": "images/npcs/npc/npc_racoon.png",
-        "step": 160
-    },
-    {
-        "name": "Sausage Thief",
-        "lvl": 311,
-        "skin": "images/npcs/npc/npc_sausage_thief.png",
-        "step": 161
-    },
-    {
-        "name": "Scratchy Cat",
-        "lvl": 313,
-        "skin": "images/npcs/npc/npc_scratchy_cat.png",
-        "step": 162
-    },
-    {
-        "name": "Sd 10 Mustard Scoundrel",
-        "lvl": 315,
-        "skin": "images/npcs/npc/npc_sd10_mustard_scoundrel.png",
-        "step": 163
-    },
-    {
-        "name": "Sd 11 Confused Robot T Rex",
-        "lvl": 317,
-        "skin": "images/npcs/npc/npc_sd11_confused_robot_t_rex.png",
-        "step": 164
-    },
-    {
-        "name": "Sd 12 Wombatmastermind",
-        "lvl": 319,
-        "skin": "images/npcs/npc/npc_sd12_wombatmastermind.png",
-        "step": 165
-    },
-    {
-        "name": "Sd 13 Cyborg Samurai",
-        "lvl": 321,
-        "skin": "images/npcs/npc/npc_sd13_cyborg_samurai.png",
-        "step": 166
-    },
-    {
-        "name": "Sd 1 Underwear Tief",
-        "lvl": 323,
-        "skin": "images/npcs/npc/npc_sd1_underwear_tief.png",
-        "step": 167
-    },
-    {
-        "name": "Sd 2 Polluter",
-        "lvl": 325,
-        "skin": "images/npcs/npc/npc_sd2_polluter.png",
-        "step": 168
-    },
-    {
-        "name": "Sd 3 Dog Gangster",
-        "lvl": 327,
-        "skin": "images/npcs/npc/npc_sd3_dog_gangster.png",
-        "step": 169
-    },
-    {
-        "name": "Sd 4 Traffic Offender",
-        "lvl": 329,
-        "skin": "images/npcs/npc/npc_sd4_traffic_offender.png",
-        "step": 170
-    },
-    {
-        "name": "Sd 5 Snow Smelter",
-        "lvl": 330,
-        "skin": "images/npcs/npc/npc_sd5_snow_smelter.png",
-        "step": 171
-    },
-    {
-        "name": "Sd 6 Shady Sam",
-        "lvl": 332,
-        "skin": "images/npcs/npc/npc_sd6_shady_sam.png",
-        "step": 172
-    },
-    {
-        "name": "Sd 7 Window Cleaner",
-        "lvl": 334,
-        "skin": "images/npcs/npc/npc_sd7_window_cleaner.png",
-        "step": 173
-    },
-    {
-        "name": "Sd 8 Hellagio Hammock",
-        "lvl": 336,
-        "skin": "images/npcs/npc/npc_sd8_hellagio_hammock.png",
-        "step": 174
-    },
-    {
-        "name": "Sd 9 Professor",
-        "lvl": 338,
-        "skin": "images/npcs/npc/npc_sd9_professor.png",
-        "step": 175
-    },
-    {
-        "name": "Shady Balloon Seller",
-        "lvl": 340,
-        "skin": "images/npcs/npc/npc_shady_balloon_seller.png",
-        "step": 176
-    },
-    {
-        "name": "Shortsighted Nun",
-        "lvl": 342,
-        "skin": "images/npcs/npc/npc_shortsighted_nun.png",
-        "step": 177
-    },
-    {
-        "name": "Sillycon Valley Boss",
-        "lvl": 344,
-        "skin": "images/npcs/npc/npc_sillycon_valley_boss.png",
-        "step": 178
-    },
-    {
-        "name": "Sillycon Valley Killer Segway",
-        "lvl": 346,
-        "skin": "images/npcs/npc/npc_sillycon_valley_killer_segway.png",
-        "step": 179
-    },
-    {
-        "name": "Sillycon Valley Nerd",
-        "lvl": 348,
-        "skin": "images/npcs/npc/npc_sillycon_valley_nerd.png",
-        "step": 180
-    },
-    {
-        "name": "Sillycon Valley Stressed Manager",
-        "lvl": 350,
-        "skin": "images/npcs/npc/npc_sillycon_valley_stressed_manager.png",
-        "step": 181
-    },
-    {
-        "name": "Street Dance Twins",
-        "lvl": 352,
-        "skin": "images/npcs/npc/npc_street_dance_twins.png",
-        "step": 182
-    },
-    {
-        "name": "Summer Olympia Ice Vendor",
-        "lvl": 354,
-        "skin": "images/npcs/npc/npc_summer_olympia_ice_vendor.png",
-        "step": 183
-    },
-    {
-        "name": "Summer Olympia Robot",
-        "lvl": 356,
-        "skin": "images/npcs/npc/npc_summer_olympia_robot.png",
-        "step": 184
-    },
-    {
-        "name": "Summer Olympia Sprinter",
-        "lvl": 357,
-        "skin": "images/npcs/npc/npc_summer_olympia_sprinter.png",
-        "step": 185
-    },
-    {
-        "name": "Sunnyboy",
-        "lvl": 359,
-        "skin": "images/npcs/npc/npc_sunnyboy.png",
-        "step": 186
-    },
-    {
-        "name": "Thief",
-        "lvl": 361,
-        "skin": "images/npcs/npc/npc_thief.png",
-        "step": 187
-    },
-    {
-        "name": "Tourist",
-        "lvl": 363,
-        "skin": "images/npcs/npc/npc_tourist.png",
-        "step": 188
-    },
-    {
-        "name": "Tourists",
-        "lvl": 365,
-        "skin": "images/npcs/npc/npc_tourists.png",
-        "step": 189
-    },
-    {
-        "name": "Vegetable Thief",
-        "lvl": 367,
-        "skin": "images/npcs/npc/npc_vegetable_thief.png",
-        "step": 190
-    },
-    {
-        "name": "Vending Machine",
-        "lvl": 369,
-        "skin": "images/npcs/npc/npc_vending_machine.png",
-        "step": 191
-    },
-    {
-        "name": "Violator",
-        "lvl": 371,
-        "skin": "images/npcs/npc/npc_violator.png",
-        "step": 192
-    },
-    {
-        "name": "Westler",
-        "lvl": 373,
-        "skin": "images/npcs/npc/npc_westler.png",
-        "step": 193
-    },
-    {
-        "name": "Winterolympics Coach",
-        "lvl": 375,
-        "skin": "images/npcs/npc/npc_winterolympics_coach.png",
-        "step": 194
-    },
-    {
-        "name": "Winterolympics Protestors",
-        "lvl": 377,
-        "skin": "images/npcs/npc/npc_winterolympics_protestors.png",
-        "step": 195
-    },
-    {
-        "name": "Winterolympics Yeti",
-        "lvl": 379,
-        "skin": "images/npcs/npc/npc_winterolympics_yeti.png",
-        "step": 196
-    },
-    {
-        "name": "Worldcup Fan",
-        "lvl": 381,
-        "skin": "images/npcs/npc/npc_worldcup_fan.png",
-        "step": 197
-    },
-    {
-        "name": "Worldcup Hotdog Vendor",
-        "lvl": 383,
-        "skin": "images/npcs/npc/npc_worldcup_hotdog_vendor.png",
-        "step": 198
-    },
-    {
-        "name": "Worldcup Security",
-        "lvl": 385,
-        "skin": "images/npcs/npc/npc_worldcup_security.png",
-        "step": 199
-    },
-    {
-        "name": "Worldcup Shirt Thief",
-        "lvl": 386,
-        "skin": "images/npcs/npc/npc_worldcup_shirt_thief.png",
-        "step": 200
-    },
-    {
-        "name": "Yokyo Angry Cook",
-        "lvl": 388,
-        "skin": "images/npcs/npc/npc_yokyo_angry_cook.png",
-        "step": 201
-    },
-    {
-        "name": "Yokyo Mister Wiagi",
-        "lvl": 390,
-        "skin": "images/npcs/npc/npc_yokyo_mister_wiagi.png",
-        "step": 202
-    },
-    {
-        "name": "Yokyo Ninja",
-        "lvl": 392,
-        "skin": "images/npcs/npc/npc_yokyo_ninja.png",
-        "step": 203
-    },
-    {
-        "name": "Yokyo Octopus",
-        "lvl": 394,
-        "skin": "images/npcs/npc/npc_yokyo_octopus.png",
-        "step": 204
-    },
-    {
-        "name": "Yokyo Samurai",
-        "lvl": 396,
-        "skin": "images/npcs/npc/npc_yokyo_samurai.png",
-        "step": 205
-    },
-    {
-        "name": "Yokyo Sumo",
-        "lvl": 398,
-        "skin": "images/npcs/npc/npc_yokyo_sumo.png",
-        "step": 206
-    },
-    {
-        "name": "Yoyosurfer",
-        "lvl": 400,
-        "skin": "images/npcs/npc/npc_yoyosurfer.png",
-        "step": 207
     },
     {
         "name": "Air Polluter",
         "lvl": 11,
         "skin": "images/npcs/npc-boss/npc_air_polluter.png",
-        "step": 208
+        "type": "BOSS",
+        "step": 6
+    },
+    {
+        "name": "Ball Stabber",
+        "lvl": 12,
+        "skin": "images/npcs/npc/npc_ball_stabber.png",
+        "type": "NORMAL",
+        "step": 7
+    },
+    {
+        "name": "Business Man Artless",
+        "lvl": 14,
+        "skin": "images/npcs/npc/npc_business_man_artless.png",
+        "type": "NORMAL",
+        "step": 8
+    },
+    {
+        "name": "Business Man Cool",
+        "lvl": 15,
+        "skin": "images/npcs/npc/npc_business_man_cool.png",
+        "type": "NORMAL",
+        "step": 9
+    },
+    {
+        "name": "Business Man Respectable",
+        "lvl": 17,
+        "skin": "images/npcs/npc/npc_business_man_respectable.png",
+        "type": "NORMAL",
+        "step": 10
+    },
+    {
+        "name": "Business Man Threatening",
+        "lvl": 19,
+        "skin": "images/npcs/npc/npc_business_man_threatening.png",
+        "type": "NORMAL",
+        "step": 11
+    },
+    {
+        "name": "Casualguy",
+        "lvl": 21,
+        "skin": "images/npcs/npc/npc_casualguy.png",
+        "type": "NORMAL",
+        "step": 12
     },
     {
         "name": "Artist",
         "lvl": 21,
         "skin": "images/npcs/npc-boss/npc_artist.png",
-        "step": 209
+        "type": "BOSS",
+        "step": 13
+    },
+    {
+        "name": "Cheater",
+        "lvl": 23,
+        "skin": "images/npcs/npc/npc_cheater.png",
+        "type": "NORMAL",
+        "step": 14
+    },
+    {
+        "name": "Cheeky Rumour Spreader",
+        "lvl": 25,
+        "skin": "images/npcs/npc/npc_cheeky_rumour_spreader.png",
+        "type": "NORMAL",
+        "step": 15
+    },
+    {
+        "name": "Cheese Technic",
+        "lvl": 27,
+        "skin": "images/npcs/npc/npc_cheese_technic.png",
+        "type": "NORMAL",
+        "step": 16
+    },
+    {
+        "name": "Concierge",
+        "lvl": 29,
+        "skin": "images/npcs/npc/npc_concierge.png",
+        "type": "NORMAL",
+        "step": 17
+    },
+    {
+        "name": "Cook",
+        "lvl": 31,
+        "skin": "images/npcs/npc/npc_cook.png",
+        "type": "NORMAL",
+        "step": 18
     },
     {
         "name": "Bttf Buff",
         "lvl": 32,
         "skin": "images/npcs/npc-boss/npc_bttf_buff.png",
-        "step": 210
+        "type": "BOSS",
+        "step": 19
+    },
+    {
+        "name": "Cyclist Rowdy",
+        "lvl": 33,
+        "skin": "images/npcs/npc/npc_cyclist_rowdy.png",
+        "type": "NORMAL",
+        "step": 20
+    },
+    {
+        "name": "Disturbing Neighbor",
+        "lvl": 35,
+        "skin": "images/npcs/npc/npc_disturbing_neighbor.png",
+        "type": "NORMAL",
+        "step": 21
+    },
+    {
+        "name": "Doglady",
+        "lvl": 37,
+        "skin": "images/npcs/npc/npc_doglady.png",
+        "type": "NORMAL",
+        "step": 22
+    },
+    {
+        "name": "Drummer Street Musician",
+        "lvl": 39,
+        "skin": "images/npcs/npc/npc_drummer_street_musician.png",
+        "type": "NORMAL",
+        "step": 23
+    },
+    {
+        "name": "Dubious Trader",
+        "lvl": 41,
+        "skin": "images/npcs/npc/npc_dubious_trader.png",
+        "type": "NORMAL",
+        "step": 24
     },
     {
         "name": "Burglar Duo",
         "lvl": 42,
         "skin": "images/npcs/npc-boss/npc_burglar_duo.png",
-        "step": 211
+        "type": "BOSS",
+        "step": 25
+    },
+    {
+        "name": "Dungeon 1 Npc 1",
+        "lvl": 43,
+        "skin": "images/npcs/npc/npc_dungeon1_npc1.png",
+        "type": "NORMAL",
+        "step": 26
+    },
+    {
+        "name": "Dungeon 1 Npc 10",
+        "lvl": 44,
+        "skin": "images/npcs/npc/npc_dungeon1_npc10.png",
+        "type": "NORMAL",
+        "step": 27
+    },
+    {
+        "name": "Dungeon 1 Npc 2",
+        "lvl": 46,
+        "skin": "images/npcs/npc/npc_dungeon1_npc2.png",
+        "type": "NORMAL",
+        "step": 28
+    },
+    {
+        "name": "Dungeon 1 Npc 3",
+        "lvl": 48,
+        "skin": "images/npcs/npc/npc_dungeon1_npc3.png",
+        "type": "NORMAL",
+        "step": 29
+    },
+    {
+        "name": "Dungeon 1 Npc 4",
+        "lvl": 50,
+        "skin": "images/npcs/npc/npc_dungeon1_npc4.png",
+        "type": "NORMAL",
+        "step": 30
+    },
+    {
+        "name": "Dungeon 1 Npc 5",
+        "lvl": 52,
+        "skin": "images/npcs/npc/npc_dungeon1_npc5.png",
+        "type": "NORMAL",
+        "step": 31
     },
     {
         "name": "C 3 D 2",
         "lvl": 53,
         "skin": "images/npcs/npc-boss/npc_c3_d2.png",
-        "step": 212
+        "type": "BOSS",
+        "step": 32
+    },
+    {
+        "name": "Dungeon 1 Npc 6",
+        "lvl": 54,
+        "skin": "images/npcs/npc/npc_dungeon1_npc6.png",
+        "type": "NORMAL",
+        "step": 33
+    },
+    {
+        "name": "Dungeon 1 Npc 7",
+        "lvl": 56,
+        "skin": "images/npcs/npc/npc_dungeon1_npc7.png",
+        "type": "NORMAL",
+        "step": 34
+    },
+    {
+        "name": "Dungeon 1 Npc 8",
+        "lvl": 58,
+        "skin": "images/npcs/npc/npc_dungeon1_npc8.png",
+        "type": "NORMAL",
+        "step": 35
+    },
+    {
+        "name": "Dungeon 1 Npc 9",
+        "lvl": 60,
+        "skin": "images/npcs/npc/npc_dungeon1_npc9.png",
+        "type": "NORMAL",
+        "step": 36
+    },
+    {
+        "name": "Dungeon 2 Npc 1",
+        "lvl": 62,
+        "skin": "images/npcs/npc/npc_dungeon2_npc1.png",
+        "type": "NORMAL",
+        "step": 37
     },
     {
         "name": "Carnival Boss",
         "lvl": 63,
         "skin": "images/npcs/npc-boss/npc_carnival_boss.png",
-        "step": 213
+        "type": "BOSS",
+        "step": 38
+    },
+    {
+        "name": "Dungeon 2 Npc 10",
+        "lvl": 64,
+        "skin": "images/npcs/npc/npc_dungeon2_npc10.png",
+        "type": "NORMAL",
+        "step": 39
+    },
+    {
+        "name": "Dungeon 2 Npc 2",
+        "lvl": 66,
+        "skin": "images/npcs/npc/npc_dungeon2_npc2.png",
+        "type": "NORMAL",
+        "step": 40
+    },
+    {
+        "name": "Dungeon 2 Npc 3",
+        "lvl": 68,
+        "skin": "images/npcs/npc/npc_dungeon2_npc3.png",
+        "type": "NORMAL",
+        "step": 41
+    },
+    {
+        "name": "Dungeon 2 Npc 4",
+        "lvl": 70,
+        "skin": "images/npcs/npc/npc_dungeon2_npc4.png",
+        "type": "NORMAL",
+        "step": 42
+    },
+    {
+        "name": "Dungeon 2 Npc 5",
+        "lvl": 71,
+        "skin": "images/npcs/npc/npc_dungeon2_npc5.png",
+        "type": "NORMAL",
+        "step": 43
+    },
+    {
+        "name": "Dungeon 2 Npc 6",
+        "lvl": 73,
+        "skin": "images/npcs/npc/npc_dungeon2_npc6.png",
+        "type": "NORMAL",
+        "step": 44
     },
     {
         "name": "Dark Father",
         "lvl": 74,
         "skin": "images/npcs/npc-boss/npc_dark_father.png",
-        "step": 214
+        "type": "BOSS",
+        "step": 45
+    },
+    {
+        "name": "Dungeon 2 Npc 7",
+        "lvl": 75,
+        "skin": "images/npcs/npc/npc_dungeon2_npc7.png",
+        "type": "NORMAL",
+        "step": 46
+    },
+    {
+        "name": "Dungeon 2 Npc 8",
+        "lvl": 77,
+        "skin": "images/npcs/npc/npc_dungeon2_npc8.png",
+        "type": "NORMAL",
+        "step": 47
+    },
+    {
+        "name": "Dungeon 2 Npc 9",
+        "lvl": 79,
+        "skin": "images/npcs/npc/npc_dungeon2_npc9.png",
+        "type": "NORMAL",
+        "step": 48
+    },
+    {
+        "name": "Dungeon 3 Npc 1",
+        "lvl": 81,
+        "skin": "images/npcs/npc/npc_dungeon3_npc1.png",
+        "type": "NORMAL",
+        "step": 49
+    },
+    {
+        "name": "Dungeon 3 Npc 10",
+        "lvl": 83,
+        "skin": "images/npcs/npc/npc_dungeon3_npc10.png",
+        "type": "NORMAL",
+        "step": 50
     },
     {
         "name": "Dirty Slob",
         "lvl": 84,
         "skin": "images/npcs/npc-boss/npc_dirty_slob.png",
-        "step": 215
+        "type": "BOSS",
+        "step": 51
+    },
+    {
+        "name": "Dungeon 3 Npc 2",
+        "lvl": 85,
+        "skin": "images/npcs/npc/npc_dungeon3_npc2.png",
+        "type": "NORMAL",
+        "step": 52
+    },
+    {
+        "name": "Dungeon 3 Npc 3",
+        "lvl": 87,
+        "skin": "images/npcs/npc/npc_dungeon3_npc3.png",
+        "type": "NORMAL",
+        "step": 53
+    },
+    {
+        "name": "Dungeon 3 Npc 4",
+        "lvl": 89,
+        "skin": "images/npcs/npc/npc_dungeon3_npc4.png",
+        "type": "NORMAL",
+        "step": 54
+    },
+    {
+        "name": "Dungeon 3 Npc 5",
+        "lvl": 91,
+        "skin": "images/npcs/npc/npc_dungeon3_npc5.png",
+        "type": "NORMAL",
+        "step": 55
+    },
+    {
+        "name": "Dungeon 3 Npc 6",
+        "lvl": 93,
+        "skin": "images/npcs/npc/npc_dungeon3_npc6.png",
+        "type": "NORMAL",
+        "step": 56
+    },
+    {
+        "name": "Dungeon 3 Npc 7",
+        "lvl": 95,
+        "skin": "images/npcs/npc/npc_dungeon3_npc7.png",
+        "type": "NORMAL",
+        "step": 57
     },
     {
         "name": "Disneyinfinity Maleficent",
         "lvl": 95,
         "skin": "images/npcs/npc-boss/npc_disneyinfinity_maleficent.png",
-        "step": 216
+        "type": "BOSS",
+        "step": 58
+    },
+    {
+        "name": "Dungeon 3 Npc 8",
+        "lvl": 97,
+        "skin": "images/npcs/npc/npc_dungeon3_npc8.png",
+        "type": "NORMAL",
+        "step": 59
+    },
+    {
+        "name": "Dungeon 3 Npc 9",
+        "lvl": 99,
+        "skin": "images/npcs/npc/npc_dungeon3_npc9.png",
+        "type": "NORMAL",
+        "step": 60
+    },
+    {
+        "name": "Dungeon 4 Npc 1",
+        "lvl": 100,
+        "skin": "images/npcs/npc/npc_dungeon4_npc1.png",
+        "type": "NORMAL",
+        "step": 61
+    },
+    {
+        "name": "Dungeon 4 Npc 10",
+        "lvl": 102,
+        "skin": "images/npcs/npc/npc_dungeon4_npc10.png",
+        "type": "NORMAL",
+        "step": 62
+    },
+    {
+        "name": "Dungeon 4 Npc 2",
+        "lvl": 104,
+        "skin": "images/npcs/npc/npc_dungeon4_npc2.png",
+        "type": "NORMAL",
+        "step": 63
     },
     {
         "name": "Dystopia Season Worldboss",
         "lvl": 105,
         "skin": "images/npcs/npc-boss/npc_dystopia_season_worldboss.png",
-        "step": 217
+        "type": "BOSS",
+        "step": 64
+    },
+    {
+        "name": "Dungeon 4 Npc 3",
+        "lvl": 106,
+        "skin": "images/npcs/npc/npc_dungeon4_npc3.png",
+        "type": "NORMAL",
+        "step": 65
+    },
+    {
+        "name": "Dungeon 4 Npc 4",
+        "lvl": 108,
+        "skin": "images/npcs/npc/npc_dungeon4_npc4.png",
+        "type": "NORMAL",
+        "step": 66
+    },
+    {
+        "name": "Dungeon 4 Npc 5",
+        "lvl": 110,
+        "skin": "images/npcs/npc/npc_dungeon4_npc5.png",
+        "type": "NORMAL",
+        "step": 67
+    },
+    {
+        "name": "Dungeon 4 Npc 6",
+        "lvl": 112,
+        "skin": "images/npcs/npc/npc_dungeon4_npc6.png",
+        "type": "NORMAL",
+        "step": 68
+    },
+    {
+        "name": "Dungeon 4 Npc 7",
+        "lvl": 114,
+        "skin": "images/npcs/npc/npc_dungeon4_npc7.png",
+        "type": "NORMAL",
+        "step": 69
+    },
+    {
+        "name": "Dungeon 4 Npc 8",
+        "lvl": 116,
+        "skin": "images/npcs/npc/npc_dungeon4_npc8.png",
+        "type": "NORMAL",
+        "step": 70
     },
     {
         "name": "Easterthief",
         "lvl": 116,
         "skin": "images/npcs/npc-boss/npc_easterthief.png",
-        "step": 218
+        "type": "BOSS",
+        "step": 71
+    },
+    {
+        "name": "Dungeon 4 Npc 9",
+        "lvl": 118,
+        "skin": "images/npcs/npc/npc_dungeon4_npc9.png",
+        "type": "NORMAL",
+        "step": 72
+    },
+    {
+        "name": "Dungeon 5 Npc 1",
+        "lvl": 120,
+        "skin": "images/npcs/npc/npc_dungeon5_npc1.png",
+        "type": "NORMAL",
+        "step": 73
+    },
+    {
+        "name": "Dungeon 5 Npc 10",
+        "lvl": 122,
+        "skin": "images/npcs/npc/npc_dungeon5_npc10.png",
+        "type": "NORMAL",
+        "step": 74
+    },
+    {
+        "name": "Dungeon 5 Npc 2",
+        "lvl": 124,
+        "skin": "images/npcs/npc/npc_dungeon5_npc2.png",
+        "type": "NORMAL",
+        "step": 75
+    },
+    {
+        "name": "Dungeon 5 Npc 3",
+        "lvl": 126,
+        "skin": "images/npcs/npc/npc_dungeon5_npc3.png",
+        "type": "NORMAL",
+        "step": 76
     },
     {
         "name": "Egypt Mummy Robot",
         "lvl": 126,
         "skin": "images/npcs/npc-boss/npc_egypt_mummy_robot.png",
-        "step": 219
+        "type": "BOSS",
+        "step": 77
+    },
+    {
+        "name": "Dungeon 5 Npc 4",
+        "lvl": 128,
+        "skin": "images/npcs/npc/npc_dungeon5_npc4.png",
+        "type": "NORMAL",
+        "step": 78
+    },
+    {
+        "name": "Dungeon 5 Npc 5",
+        "lvl": 129,
+        "skin": "images/npcs/npc/npc_dungeon5_npc5.png",
+        "type": "NORMAL",
+        "step": 79
+    },
+    {
+        "name": "Dungeon 5 Npc 6",
+        "lvl": 131,
+        "skin": "images/npcs/npc/npc_dungeon5_npc6.png",
+        "type": "NORMAL",
+        "step": 80
+    },
+    {
+        "name": "Dungeon 5 Npc 7",
+        "lvl": 133,
+        "skin": "images/npcs/npc/npc_dungeon5_npc7.png",
+        "type": "NORMAL",
+        "step": 81
+    },
+    {
+        "name": "Dungeon 5 Npc 8",
+        "lvl": 135,
+        "skin": "images/npcs/npc/npc_dungeon5_npc8.png",
+        "type": "NORMAL",
+        "step": 82
+    },
+    {
+        "name": "Dungeon 5 Npc 9",
+        "lvl": 137,
+        "skin": "images/npcs/npc/npc_dungeon5_npc9.png",
+        "type": "NORMAL",
+        "step": 83
     },
     {
         "name": "Fonic",
         "lvl": 137,
         "skin": "images/npcs/npc-boss/npc_fonic.png",
-        "step": 220
+        "type": "BOSS",
+        "step": 84
+    },
+    {
+        "name": "Dungeon 6 Npc 1",
+        "lvl": 139,
+        "skin": "images/npcs/npc/npc_dungeon6_npc1.png",
+        "type": "NORMAL",
+        "step": 85
+    },
+    {
+        "name": "Dungeon 6 Npc 10",
+        "lvl": 141,
+        "skin": "images/npcs/npc/npc_dungeon6_npc10.png",
+        "type": "NORMAL",
+        "step": 86
+    },
+    {
+        "name": "Dungeon 6 Npc 2",
+        "lvl": 143,
+        "skin": "images/npcs/npc/npc_dungeon6_npc2.png",
+        "type": "NORMAL",
+        "step": 87
+    },
+    {
+        "name": "Dungeon 6 Npc 3",
+        "lvl": 145,
+        "skin": "images/npcs/npc/npc_dungeon6_npc3.png",
+        "type": "NORMAL",
+        "step": 88
+    },
+    {
+        "name": "Dungeon 6 Npc 4",
+        "lvl": 147,
+        "skin": "images/npcs/npc/npc_dungeon6_npc4.png",
+        "type": "NORMAL",
+        "step": 89
     },
     {
         "name": "Gontrilla Roboter",
         "lvl": 147,
         "skin": "images/npcs/npc-boss/npc_gontrilla_roboter.png",
-        "step": 221
+        "type": "BOSS",
+        "step": 90
+    },
+    {
+        "name": "Dungeon 6 Npc 5",
+        "lvl": 149,
+        "skin": "images/npcs/npc/npc_dungeon6_npc5.png",
+        "type": "NORMAL",
+        "step": 91
+    },
+    {
+        "name": "Dungeon 6 Npc 6",
+        "lvl": 151,
+        "skin": "images/npcs/npc/npc_dungeon6_npc6.png",
+        "type": "NORMAL",
+        "step": 92
+    },
+    {
+        "name": "Dungeon 6 Npc 7",
+        "lvl": 153,
+        "skin": "images/npcs/npc/npc_dungeon6_npc7.png",
+        "type": "NORMAL",
+        "step": 93
+    },
+    {
+        "name": "Dungeon 6 Npc 8",
+        "lvl": 155,
+        "skin": "images/npcs/npc/npc_dungeon6_npc8.png",
+        "type": "NORMAL",
+        "step": 94
+    },
+    {
+        "name": "Dungeon 6 Npc 9",
+        "lvl": 157,
+        "skin": "images/npcs/npc/npc_dungeon6_npc9.png",
+        "type": "NORMAL",
+        "step": 95
+    },
+    {
+        "name": "Dungeon 7 Npc 1",
+        "lvl": 158,
+        "skin": "images/npcs/npc/npc_dungeon7_npc1.png",
+        "type": "NORMAL",
+        "step": 96
     },
     {
         "name": "Grinch",
         "lvl": 158,
         "skin": "images/npcs/npc-boss/npc_grinch.png",
-        "step": 222
+        "type": "BOSS",
+        "step": 97
+    },
+    {
+        "name": "Dungeon 7 Npc 2",
+        "lvl": 160,
+        "skin": "images/npcs/npc/npc_dungeon7_npc2.png",
+        "type": "NORMAL",
+        "step": 98
+    },
+    {
+        "name": "Dungeon 7 Npc 3",
+        "lvl": 162,
+        "skin": "images/npcs/npc/npc_dungeon7_npc3.png",
+        "type": "NORMAL",
+        "step": 99
+    },
+    {
+        "name": "Dungeon 7 Npc 4",
+        "lvl": 164,
+        "skin": "images/npcs/npc/npc_dungeon7_npc4.png",
+        "type": "NORMAL",
+        "step": 100
+    },
+    {
+        "name": "Dungeon 7 Npc 5",
+        "lvl": 166,
+        "skin": "images/npcs/npc/npc_dungeon7_npc5.png",
+        "type": "NORMAL",
+        "step": 101
+    },
+    {
+        "name": "Dungeon 7 Npc 6",
+        "lvl": 168,
+        "skin": "images/npcs/npc/npc_dungeon7_npc6.png",
+        "type": "NORMAL",
+        "step": 102
     },
     {
         "name": "Hercules Hydra",
         "lvl": 168,
         "skin": "images/npcs/npc-boss/npc_hercules_hydra.png",
-        "step": 223
+        "type": "BOSS",
+        "step": 103
+    },
+    {
+        "name": "Dungeon 7 Npc 7",
+        "lvl": 170,
+        "skin": "images/npcs/npc/npc_dungeon7_npc7.png",
+        "type": "NORMAL",
+        "step": 104
+    },
+    {
+        "name": "Dungeon 7 Npc 8",
+        "lvl": 172,
+        "skin": "images/npcs/npc/npc_dungeon7_npc8.png",
+        "type": "NORMAL",
+        "step": 105
+    },
+    {
+        "name": "Dungeon 7 Npc 9",
+        "lvl": 174,
+        "skin": "images/npcs/npc/npc_dungeon7_npc9.png",
+        "type": "NORMAL",
+        "step": 106
+    },
+    {
+        "name": "Dungeon 8 Npc 1",
+        "lvl": 176,
+        "skin": "images/npcs/npc/npc_dungeon8_npc1.png",
+        "type": "NORMAL",
+        "step": 107
+    },
+    {
+        "name": "Dungeon 8 Npc 10",
+        "lvl": 178,
+        "skin": "images/npcs/npc/npc_dungeon8_npc10.png",
+        "type": "NORMAL",
+        "step": 108
     },
     {
         "name": "Joker",
         "lvl": 179,
         "skin": "images/npcs/npc-boss/npc_joker.png",
-        "step": 224
+        "type": "BOSS",
+        "step": 109
+    },
+    {
+        "name": "Dungeon 8 Npc 2",
+        "lvl": 180,
+        "skin": "images/npcs/npc/npc_dungeon8_npc2.png",
+        "type": "NORMAL",
+        "step": 110
+    },
+    {
+        "name": "Dungeon 8 Npc 3",
+        "lvl": 182,
+        "skin": "images/npcs/npc/npc_dungeon8_npc3.png",
+        "type": "NORMAL",
+        "step": 111
+    },
+    {
+        "name": "Dungeon 8 Npc 4",
+        "lvl": 184,
+        "skin": "images/npcs/npc/npc_dungeon8_npc4.png",
+        "type": "NORMAL",
+        "step": 112
+    },
+    {
+        "name": "Dungeon 8 Npc 5",
+        "lvl": 186,
+        "skin": "images/npcs/npc/npc_dungeon8_npc5.png",
+        "type": "NORMAL",
+        "step": 113
+    },
+    {
+        "name": "Dungeon 8 Npc 6",
+        "lvl": 187,
+        "skin": "images/npcs/npc/npc_dungeon8_npc6.png",
+        "type": "NORMAL",
+        "step": 114
+    },
+    {
+        "name": "Dungeon 8 Npc 7",
+        "lvl": 189,
+        "skin": "images/npcs/npc/npc_dungeon8_npc7.png",
+        "type": "NORMAL",
+        "step": 115
     },
     {
         "name": "Mad Scientist",
         "lvl": 189,
         "skin": "images/npcs/npc-boss/npc_mad_scientist.png",
-        "step": 225
+        "type": "BOSS",
+        "step": 116
+    },
+    {
+        "name": "Dungeon 8 Npc 8",
+        "lvl": 191,
+        "skin": "images/npcs/npc/npc_dungeon8_npc8.png",
+        "type": "NORMAL",
+        "step": 117
+    },
+    {
+        "name": "Dungeon 8 Npc 9",
+        "lvl": 193,
+        "skin": "images/npcs/npc/npc_dungeon8_npc9.png",
+        "type": "NORMAL",
+        "step": 118
+    },
+    {
+        "name": "Dungeon 9 Npc 1",
+        "lvl": 195,
+        "skin": "images/npcs/npc/npc_dungeon9_npc1.png",
+        "type": "NORMAL",
+        "step": 119
+    },
+    {
+        "name": "Dungeon 9 Npc 10",
+        "lvl": 197,
+        "skin": "images/npcs/npc/npc_dungeon9_npc10.png",
+        "type": "NORMAL",
+        "step": 120
+    },
+    {
+        "name": "Dungeon 9 Npc 2",
+        "lvl": 199,
+        "skin": "images/npcs/npc/npc_dungeon9_npc2.png",
+        "type": "NORMAL",
+        "step": 121
     },
     {
         "name": "Mafioso Godfather",
         "lvl": 200,
         "skin": "images/npcs/npc-boss/npc_mafioso_godfather.png",
-        "step": 226
+        "type": "BOSS",
+        "step": 122
+    },
+    {
+        "name": "Dungeon 9 Npc 3",
+        "lvl": 201,
+        "skin": "images/npcs/npc/npc_dungeon9_npc3.png",
+        "type": "NORMAL",
+        "step": 123
+    },
+    {
+        "name": "Dungeon 9 Npc 4",
+        "lvl": 203,
+        "skin": "images/npcs/npc/npc_dungeon9_npc4.png",
+        "type": "NORMAL",
+        "step": 124
+    },
+    {
+        "name": "Dungeon 9 Npc 5",
+        "lvl": 205,
+        "skin": "images/npcs/npc/npc_dungeon9_npc5.png",
+        "type": "NORMAL",
+        "step": 125
+    },
+    {
+        "name": "Dungeon 9 Npc 6",
+        "lvl": 207,
+        "skin": "images/npcs/npc/npc_dungeon9_npc6.png",
+        "type": "NORMAL",
+        "step": 126
+    },
+    {
+        "name": "Dungeon 9 Npc 7",
+        "lvl": 209,
+        "skin": "images/npcs/npc/npc_dungeon9_npc7.png",
+        "type": "NORMAL",
+        "step": 127
+    },
+    {
+        "name": "Dungeon 9 Npc 8",
+        "lvl": 211,
+        "skin": "images/npcs/npc/npc_dungeon9_npc8.png",
+        "type": "NORMAL",
+        "step": 128
     },
     {
         "name": "Mario",
         "lvl": 211,
         "skin": "images/npcs/npc-boss/npc_mario.png",
-        "step": 227
+        "type": "BOSS",
+        "step": 129
+    },
+    {
+        "name": "Dungeon 9 Npc 9",
+        "lvl": 213,
+        "skin": "images/npcs/npc/npc_dungeon9_npc9.png",
+        "type": "NORMAL",
+        "step": 130
+    },
+    {
+        "name": "Egypt Animator",
+        "lvl": 214,
+        "skin": "images/npcs/npc/npc_egypt_animator.png",
+        "type": "NORMAL",
+        "step": 131
+    },
+    {
+        "name": "Egypt Crocodile",
+        "lvl": 216,
+        "skin": "images/npcs/npc/npc_egypt_crocodile.png",
+        "type": "NORMAL",
+        "step": 132
+    },
+    {
+        "name": "Egypt Evil Kids",
+        "lvl": 218,
+        "skin": "images/npcs/npc/npc_egypt_evil_kids.png",
+        "type": "NORMAL",
+        "step": 133
+    },
+    {
+        "name": "Egypt Guard",
+        "lvl": 220,
+        "skin": "images/npcs/npc/npc_egypt_guard.png",
+        "type": "NORMAL",
+        "step": 134
     },
     {
         "name": "Marshmellow Man",
         "lvl": 221,
         "skin": "images/npcs/npc-boss/npc_marshmellow_man.png",
-        "step": 228
+        "type": "BOSS",
+        "step": 135
+    },
+    {
+        "name": "Egypt Ingenieur",
+        "lvl": 222,
+        "skin": "images/npcs/npc/npc_egypt_ingenieur.png",
+        "type": "NORMAL",
+        "step": 136
+    },
+    {
+        "name": "Egypt Monkey",
+        "lvl": 224,
+        "skin": "images/npcs/npc/npc_egypt_monkey.png",
+        "type": "NORMAL",
+        "step": 137
+    },
+    {
+        "name": "Egypt Mummy",
+        "lvl": 226,
+        "skin": "images/npcs/npc/npc_egypt_mummy.png",
+        "type": "NORMAL",
+        "step": 138
+    },
+    {
+        "name": "Egypt Pharao",
+        "lvl": 228,
+        "skin": "images/npcs/npc/npc_egypt_pharao.png",
+        "type": "NORMAL",
+        "step": 139
+    },
+    {
+        "name": "Egypt Shark",
+        "lvl": 230,
+        "skin": "images/npcs/npc/npc_egypt_shark.png",
+        "type": "NORMAL",
+        "step": 140
+    },
+    {
+        "name": "Egypt Tourists",
+        "lvl": 232,
+        "skin": "images/npcs/npc/npc_egypt_tourists.png",
+        "type": "NORMAL",
+        "step": 141
     },
     {
         "name": "Olympia Worldboss",
         "lvl": 232,
         "skin": "images/npcs/npc-boss/npc_olympia_worldboss.png",
-        "step": 229
+        "type": "BOSS",
+        "step": 142
+    },
+    {
+        "name": "Egypt Window Cleaner",
+        "lvl": 234,
+        "skin": "images/npcs/npc/npc_egypt_window_cleaner.png",
+        "type": "NORMAL",
+        "step": 143
+    },
+    {
+        "name": "Elvis",
+        "lvl": 236,
+        "skin": "images/npcs/npc/npc_elvis.png",
+        "type": "NORMAL",
+        "step": 144
+    },
+    {
+        "name": "False Mayor",
+        "lvl": 238,
+        "skin": "images/npcs/npc/npc_false_mayor.png",
+        "type": "NORMAL",
+        "step": 145
+    },
+    {
+        "name": "Flyer Distributor",
+        "lvl": 240,
+        "skin": "images/npcs/npc/npc_flyer_distributor.png",
+        "type": "NORMAL",
+        "step": 146
+    },
+    {
+        "name": "Fondue Phantom",
+        "lvl": 242,
+        "skin": "images/npcs/npc/npc_fondue_phantom.png",
+        "type": "NORMAL",
+        "step": 147
     },
     {
         "name": "Pacman",
         "lvl": 242,
         "skin": "images/npcs/npc-boss/npc_pacman.png",
-        "step": 230
+        "type": "BOSS",
+        "step": 148
+    },
+    {
+        "name": "Gourmet Geiss",
+        "lvl": 243,
+        "skin": "images/npcs/npc/npc_gourmet_geiss.png",
+        "type": "NORMAL",
+        "step": 149
+    },
+    {
+        "name": "Halloween Ghost",
+        "lvl": 245,
+        "skin": "images/npcs/npc/npc_halloween_ghost.png",
+        "type": "NORMAL",
+        "step": 150
+    },
+    {
+        "name": "Hoody Evil",
+        "lvl": 247,
+        "skin": "images/npcs/npc/npc_hoody_evil.png",
+        "type": "NORMAL",
+        "step": 151
+    },
+    {
+        "name": "Hoody Scruffy",
+        "lvl": 249,
+        "skin": "images/npcs/npc/npc_hoody_scruffy.png",
+        "type": "NORMAL",
+        "step": 152
+    },
+    {
+        "name": "Hoody Very Evil",
+        "lvl": 251,
+        "skin": "images/npcs/npc/npc_hoody_very_evil.png",
+        "type": "NORMAL",
+        "step": 153
+    },
+    {
+        "name": "Joker Hacker",
+        "lvl": 253,
+        "skin": "images/npcs/npc/npc_joker_hacker.png",
+        "type": "NORMAL",
+        "step": 154
     },
     {
         "name": "Poacher",
         "lvl": 253,
         "skin": "images/npcs/npc-boss/npc_poacher.png",
-        "step": 231
+        "type": "BOSS",
+        "step": 155
+    },
+    {
+        "name": "Kangaroo",
+        "lvl": 255,
+        "skin": "images/npcs/npc/npc_kangaroo.png",
+        "type": "NORMAL",
+        "step": 156
+    },
+    {
+        "name": "Kids One Evil",
+        "lvl": 257,
+        "skin": "images/npcs/npc/npc_kids_one_evil.png",
+        "type": "NORMAL",
+        "step": 157
+    },
+    {
+        "name": "Kids Two Evil",
+        "lvl": 259,
+        "skin": "images/npcs/npc/npc_kids_two_evil.png",
+        "type": "NORMAL",
+        "step": 158
+    },
+    {
+        "name": "Kids Two Laughing",
+        "lvl": 261,
+        "skin": "images/npcs/npc/npc_kids_two_laughing.png",
+        "type": "NORMAL",
+        "step": 159
+    },
+    {
+        "name": "Lonely Satanist",
+        "lvl": 263,
+        "skin": "images/npcs/npc/npc_lonely_satanist.png",
+        "type": "NORMAL",
+        "step": 160
     },
     {
         "name": "Pompous Salesman",
         "lvl": 263,
         "skin": "images/npcs/npc-boss/npc_pompous_salesman.png",
-        "step": 232
+        "type": "BOSS",
+        "step": 161
+    },
+    {
+        "name": "Loser",
+        "lvl": 265,
+        "skin": "images/npcs/npc/npc_loser.png",
+        "type": "NORMAL",
+        "step": 162
+    },
+    {
+        "name": "Magicians",
+        "lvl": 267,
+        "skin": "images/npcs/npc/npc_magicians.png",
+        "type": "NORMAL",
+        "step": 163
+    },
+    {
+        "name": "Mastermind",
+        "lvl": 269,
+        "skin": "images/npcs/npc/npc_mastermind.png",
+        "type": "NORMAL",
+        "step": 164
+    },
+    {
+        "name": "Media Maniac",
+        "lvl": 271,
+        "skin": "images/npcs/npc/npc_media_maniac.png",
+        "type": "NORMAL",
+        "step": 165
+    },
+    {
+        "name": "Meterman",
+        "lvl": 272,
+        "skin": "images/npcs/npc/npc_meterman.png",
+        "type": "NORMAL",
+        "step": 166
+    },
+    {
+        "name": "Midsummer Cat",
+        "lvl": 274,
+        "skin": "images/npcs/npc/npc_midsummer_cat.png",
+        "type": "NORMAL",
+        "step": 167
     },
     {
         "name": "Primal Season Worldboss",
         "lvl": 274,
         "skin": "images/npcs/npc-boss/npc_primal_season_worldboss.png",
-        "step": 233
+        "type": "BOSS",
+        "step": 168
+    },
+    {
+        "name": "Midsummer Fake Shark",
+        "lvl": 276,
+        "skin": "images/npcs/npc/npc_midsummer_fake_shark.png",
+        "type": "NORMAL",
+        "step": 169
+    },
+    {
+        "name": "Midsummer Rowdy",
+        "lvl": 278,
+        "skin": "images/npcs/npc/npc_midsummer_rowdy.png",
+        "type": "NORMAL",
+        "step": 170
+    },
+    {
+        "name": "Moviestar",
+        "lvl": 280,
+        "skin": "images/npcs/npc/npc_moviestar.png",
+        "type": "NORMAL",
+        "step": 171
+    },
+    {
+        "name": "Music Enthusiast",
+        "lvl": 282,
+        "skin": "images/npcs/npc/npc_music_enthusiast.png",
+        "type": "NORMAL",
+        "step": 172
+    },
+    {
+        "name": "Nastier Employee",
+        "lvl": 284,
+        "skin": "images/npcs/npc/npc_nastier_employee.png",
+        "type": "NORMAL",
+        "step": 173
     },
     {
         "name": "Prof Evil",
         "lvl": 284,
         "skin": "images/npcs/npc-boss/npc_prof_evil.png",
-        "step": 234
+        "type": "BOSS",
+        "step": 174
+    },
+    {
+        "name": "Nasty Cheerleader",
+        "lvl": 286,
+        "skin": "images/npcs/npc/npc_nasty_cheerleader.png",
+        "type": "NORMAL",
+        "step": 175
+    },
+    {
+        "name": "Olympia Crusher",
+        "lvl": 288,
+        "skin": "images/npcs/npc/npc_olympia_crusher.png",
+        "type": "NORMAL",
+        "step": 176
+    },
+    {
+        "name": "Olympia Fencer",
+        "lvl": 290,
+        "skin": "images/npcs/npc/npc_olympia_fencer.png",
+        "type": "NORMAL",
+        "step": 177
+    },
+    {
+        "name": "Olympia Hippies",
+        "lvl": 292,
+        "skin": "images/npcs/npc/npc_olympia_hippies.png",
+        "type": "NORMAL",
+        "step": 178
+    },
+    {
+        "name": "Olympia Robot Small",
+        "lvl": 294,
+        "skin": "images/npcs/npc/npc_olympia_robot_small.png",
+        "type": "NORMAL",
+        "step": 179
     },
     {
         "name": "Real Estate Shark",
         "lvl": 295,
         "skin": "images/npcs/npc-boss/npc_real_estate_shark.png",
-        "step": 235
+        "type": "BOSS",
+        "step": 180
+    },
+    {
+        "name": "Olympia Winner",
+        "lvl": 296,
+        "skin": "images/npcs/npc/npc_olympia_winner.png",
+        "type": "NORMAL",
+        "step": 181
+    },
+    {
+        "name": "Opera Singer",
+        "lvl": 298,
+        "skin": "images/npcs/npc/npc_opera_singer.png",
+        "type": "NORMAL",
+        "step": 182
+    },
+    {
+        "name": "Overzealous Policewoman",
+        "lvl": 300,
+        "skin": "images/npcs/npc/npc_overzealous_policewoman.png",
+        "type": "NORMAL",
+        "step": 183
+    },
+    {
+        "name": "Paris Couple",
+        "lvl": 301,
+        "skin": "images/npcs/npc/npc_paris_couple.png",
+        "type": "NORMAL",
+        "step": 184
+    },
+    {
+        "name": "Paris Frenchman",
+        "lvl": 303,
+        "skin": "images/npcs/npc/npc_paris_frenchman.png",
+        "type": "NORMAL",
+        "step": 185
+    },
+    {
+        "name": "Paris Gredin",
+        "lvl": 305,
+        "skin": "images/npcs/npc/npc_paris_gredin.png",
+        "type": "NORMAL",
+        "step": 186
     },
     {
         "name": "Revenger",
         "lvl": 305,
         "skin": "images/npcs/npc-boss/npc_revenger.png",
-        "step": 236
+        "type": "BOSS",
+        "step": 187
+    },
+    {
+        "name": "Paris Thief",
+        "lvl": 307,
+        "skin": "images/npcs/npc/npc_paris_thief.png",
+        "type": "NORMAL",
+        "step": 188
+    },
+    {
+        "name": "Racoon",
+        "lvl": 309,
+        "skin": "images/npcs/npc/npc_racoon.png",
+        "type": "NORMAL",
+        "step": 189
+    },
+    {
+        "name": "Sausage Thief",
+        "lvl": 311,
+        "skin": "images/npcs/npc/npc_sausage_thief.png",
+        "type": "NORMAL",
+        "step": 190
+    },
+    {
+        "name": "Scratchy Cat",
+        "lvl": 313,
+        "skin": "images/npcs/npc/npc_scratchy_cat.png",
+        "type": "NORMAL",
+        "step": 191
+    },
+    {
+        "name": "Sd 10 Mustard Scoundrel",
+        "lvl": 315,
+        "skin": "images/npcs/npc/npc_sd10_mustard_scoundrel.png",
+        "type": "NORMAL",
+        "step": 192
     },
     {
         "name": "Reverse Nerd",
         "lvl": 316,
         "skin": "images/npcs/npc-boss/npc_reverse_nerd.png",
-        "step": 237
+        "type": "BOSS",
+        "step": 193
+    },
+    {
+        "name": "Sd 11 Confused Robot T Rex",
+        "lvl": 317,
+        "skin": "images/npcs/npc/npc_sd11_confused_robot_t_rex.png",
+        "type": "NORMAL",
+        "step": 194
+    },
+    {
+        "name": "Sd 12 Wombatmastermind",
+        "lvl": 319,
+        "skin": "images/npcs/npc/npc_sd12_wombatmastermind.png",
+        "type": "NORMAL",
+        "step": 195
+    },
+    {
+        "name": "Sd 13 Cyborg Samurai",
+        "lvl": 321,
+        "skin": "images/npcs/npc/npc_sd13_cyborg_samurai.png",
+        "type": "NORMAL",
+        "step": 196
+    },
+    {
+        "name": "Sd 1 Underwear Tief",
+        "lvl": 323,
+        "skin": "images/npcs/npc/npc_sd1_underwear_tief.png",
+        "type": "NORMAL",
+        "step": 197
+    },
+    {
+        "name": "Sd 2 Polluter",
+        "lvl": 325,
+        "skin": "images/npcs/npc/npc_sd2_polluter.png",
+        "type": "NORMAL",
+        "step": 198
     },
     {
         "name": "Rtl 2promo Lora Ley",
         "lvl": 326,
         "skin": "images/npcs/npc-boss/npc_rtl2promo_lora_ley.png",
-        "step": 238
+        "type": "BOSS",
+        "step": 199
+    },
+    {
+        "name": "Sd 3 Dog Gangster",
+        "lvl": 327,
+        "skin": "images/npcs/npc/npc_sd3_dog_gangster.png",
+        "type": "NORMAL",
+        "step": 200
+    },
+    {
+        "name": "Sd 4 Traffic Offender",
+        "lvl": 329,
+        "skin": "images/npcs/npc/npc_sd4_traffic_offender.png",
+        "type": "NORMAL",
+        "step": 201
+    },
+    {
+        "name": "Sd 5 Snow Smelter",
+        "lvl": 330,
+        "skin": "images/npcs/npc/npc_sd5_snow_smelter.png",
+        "type": "NORMAL",
+        "step": 202
+    },
+    {
+        "name": "Sd 6 Shady Sam",
+        "lvl": 332,
+        "skin": "images/npcs/npc/npc_sd6_shady_sam.png",
+        "type": "NORMAL",
+        "step": 203
+    },
+    {
+        "name": "Sd 7 Window Cleaner",
+        "lvl": 334,
+        "skin": "images/npcs/npc/npc_sd7_window_cleaner.png",
+        "type": "NORMAL",
+        "step": 204
+    },
+    {
+        "name": "Sd 8 Hellagio Hammock",
+        "lvl": 336,
+        "skin": "images/npcs/npc/npc_sd8_hellagio_hammock.png",
+        "type": "NORMAL",
+        "step": 205
     },
     {
         "name": "Rude Rocker",
         "lvl": 337,
         "skin": "images/npcs/npc-boss/npc_rude_rocker.png",
-        "step": 239
+        "type": "BOSS",
+        "step": 206
+    },
+    {
+        "name": "Sd 9 Professor",
+        "lvl": 338,
+        "skin": "images/npcs/npc/npc_sd9_professor.png",
+        "type": "NORMAL",
+        "step": 207
+    },
+    {
+        "name": "Shady Balloon Seller",
+        "lvl": 340,
+        "skin": "images/npcs/npc/npc_shady_balloon_seller.png",
+        "type": "NORMAL",
+        "step": 208
+    },
+    {
+        "name": "Shortsighted Nun",
+        "lvl": 342,
+        "skin": "images/npcs/npc/npc_shortsighted_nun.png",
+        "type": "NORMAL",
+        "step": 209
+    },
+    {
+        "name": "Sillycon Valley Boss",
+        "lvl": 344,
+        "skin": "images/npcs/npc/npc_sillycon_valley_boss.png",
+        "type": "NORMAL",
+        "step": 210
+    },
+    {
+        "name": "Sillycon Valley Killer Segway",
+        "lvl": 346,
+        "skin": "images/npcs/npc/npc_sillycon_valley_killer_segway.png",
+        "type": "NORMAL",
+        "step": 211
     },
     {
         "name": "Sergant",
         "lvl": 347,
         "skin": "images/npcs/npc-boss/npc_sergant.png",
-        "step": 240
+        "type": "BOSS",
+        "step": 212
+    },
+    {
+        "name": "Sillycon Valley Nerd",
+        "lvl": 348,
+        "skin": "images/npcs/npc/npc_sillycon_valley_nerd.png",
+        "type": "NORMAL",
+        "step": 213
+    },
+    {
+        "name": "Sillycon Valley Stressed Manager",
+        "lvl": 350,
+        "skin": "images/npcs/npc/npc_sillycon_valley_stressed_manager.png",
+        "type": "NORMAL",
+        "step": 214
+    },
+    {
+        "name": "Street Dance Twins",
+        "lvl": 352,
+        "skin": "images/npcs/npc/npc_street_dance_twins.png",
+        "type": "NORMAL",
+        "step": 215
+    },
+    {
+        "name": "Summer Olympia Ice Vendor",
+        "lvl": 354,
+        "skin": "images/npcs/npc/npc_summer_olympia_ice_vendor.png",
+        "type": "NORMAL",
+        "step": 216
+    },
+    {
+        "name": "Summer Olympia Robot",
+        "lvl": 356,
+        "skin": "images/npcs/npc/npc_summer_olympia_robot.png",
+        "type": "NORMAL",
+        "step": 217
+    },
+    {
+        "name": "Summer Olympia Sprinter",
+        "lvl": 357,
+        "skin": "images/npcs/npc/npc_summer_olympia_sprinter.png",
+        "type": "NORMAL",
+        "step": 218
     },
     {
         "name": "Telekom",
         "lvl": 358,
         "skin": "images/npcs/npc-boss/npc_telekom.png",
-        "step": 241
+        "type": "BOSS",
+        "step": 219
+    },
+    {
+        "name": "Sunnyboy",
+        "lvl": 359,
+        "skin": "images/npcs/npc/npc_sunnyboy.png",
+        "type": "NORMAL",
+        "step": 220
+    },
+    {
+        "name": "Thief",
+        "lvl": 361,
+        "skin": "images/npcs/npc/npc_thief.png",
+        "type": "NORMAL",
+        "step": 221
+    },
+    {
+        "name": "Tourist",
+        "lvl": 363,
+        "skin": "images/npcs/npc/npc_tourist.png",
+        "type": "NORMAL",
+        "step": 222
+    },
+    {
+        "name": "Tourists",
+        "lvl": 365,
+        "skin": "images/npcs/npc/npc_tourists.png",
+        "type": "NORMAL",
+        "step": 223
+    },
+    {
+        "name": "Vegetable Thief",
+        "lvl": 367,
+        "skin": "images/npcs/npc/npc_vegetable_thief.png",
+        "type": "NORMAL",
+        "step": 224
     },
     {
         "name": "Tmnt Shredder",
         "lvl": 368,
         "skin": "images/npcs/npc-boss/npc_tmnt_shredder.png",
-        "step": 242
+        "type": "BOSS",
+        "step": 225
+    },
+    {
+        "name": "Vending Machine",
+        "lvl": 369,
+        "skin": "images/npcs/npc/npc_vending_machine.png",
+        "type": "NORMAL",
+        "step": 226
+    },
+    {
+        "name": "Violator",
+        "lvl": 371,
+        "skin": "images/npcs/npc/npc_violator.png",
+        "type": "NORMAL",
+        "step": 227
+    },
+    {
+        "name": "Westler",
+        "lvl": 373,
+        "skin": "images/npcs/npc/npc_westler.png",
+        "type": "NORMAL",
+        "step": 228
+    },
+    {
+        "name": "Winterolympics Coach",
+        "lvl": 375,
+        "skin": "images/npcs/npc/npc_winterolympics_coach.png",
+        "type": "NORMAL",
+        "step": 229
+    },
+    {
+        "name": "Winterolympics Protestors",
+        "lvl": 377,
+        "skin": "images/npcs/npc/npc_winterolympics_protestors.png",
+        "type": "NORMAL",
+        "step": 230
+    },
+    {
+        "name": "Winterolympics Yeti",
+        "lvl": 379,
+        "skin": "images/npcs/npc/npc_winterolympics_yeti.png",
+        "type": "NORMAL",
+        "step": 231
     },
     {
         "name": "Utopia Season Worldboss",
         "lvl": 379,
         "skin": "images/npcs/npc-boss/npc_utopia_season_worldboss.png",
-        "step": 243
+        "type": "BOSS",
+        "step": 232
+    },
+    {
+        "name": "Worldcup Fan",
+        "lvl": 381,
+        "skin": "images/npcs/npc/npc_worldcup_fan.png",
+        "type": "NORMAL",
+        "step": 233
+    },
+    {
+        "name": "Worldcup Hotdog Vendor",
+        "lvl": 383,
+        "skin": "images/npcs/npc/npc_worldcup_hotdog_vendor.png",
+        "type": "NORMAL",
+        "step": 234
+    },
+    {
+        "name": "Worldcup Security",
+        "lvl": 385,
+        "skin": "images/npcs/npc/npc_worldcup_security.png",
+        "type": "NORMAL",
+        "step": 235
+    },
+    {
+        "name": "Worldcup Shirt Thief",
+        "lvl": 386,
+        "skin": "images/npcs/npc/npc_worldcup_shirt_thief.png",
+        "type": "NORMAL",
+        "step": 236
+    },
+    {
+        "name": "Yokyo Angry Cook",
+        "lvl": 388,
+        "skin": "images/npcs/npc/npc_yokyo_angry_cook.png",
+        "type": "NORMAL",
+        "step": 237
     },
     {
         "name": "Worldcup Killjoy",
         "lvl": 389,
         "skin": "images/npcs/npc-boss/npc_worldcup_killjoy.png",
+        "type": "BOSS",
+        "step": 238
+    },
+    {
+        "name": "Yokyo Mister Wiagi",
+        "lvl": 390,
+        "skin": "images/npcs/npc/npc_yokyo_mister_wiagi.png",
+        "type": "NORMAL",
+        "step": 239
+    },
+    {
+        "name": "Yokyo Ninja",
+        "lvl": 392,
+        "skin": "images/npcs/npc/npc_yokyo_ninja.png",
+        "type": "NORMAL",
+        "step": 240
+    },
+    {
+        "name": "Yokyo Octopus",
+        "lvl": 394,
+        "skin": "images/npcs/npc/npc_yokyo_octopus.png",
+        "type": "NORMAL",
+        "step": 241
+    },
+    {
+        "name": "Yokyo Samurai",
+        "lvl": 396,
+        "skin": "images/npcs/npc/npc_yokyo_samurai.png",
+        "type": "NORMAL",
+        "step": 242
+    },
+    {
+        "name": "Yokyo Sumo",
+        "lvl": 398,
+        "skin": "images/npcs/npc/npc_yokyo_sumo.png",
+        "type": "NORMAL",
+        "step": 243
+    },
+    {
+        "name": "Yoyosurfer",
+        "lvl": 400,
+        "skin": "images/npcs/npc/npc_yoyosurfer.png",
+        "type": "NORMAL",
         "step": 244
     },
     {
         "name": "Zombie",
         "lvl": 400,
         "skin": "images/npcs/npc-boss/npc_zombie.png",
+        "type": "BOSS",
         "step": 245
     }
 ]

@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import { BaseMob, BaseMobModel } from '../../models/mob/baseMob';
 
 const outputDir = path.join(__dirname, '../../datas');
-const outputPath = path.join(outputDir, 'mobs.json');
+const outputPath = path.join(outputDir, 'tower.json');
 
 const generateMobsJSON = async () => {
     try {
@@ -14,7 +14,7 @@ const generateMobsJSON = async () => {
         });
         dotenv.config();
 
-        const mobs = await BaseMobModel.find();
+        const mobs = await BaseMobModel.find().sort({level: 'asc'});
         console.log(mobs)
         const mobsToJSON: Object[] = [];
         let count: number = 1;
@@ -24,6 +24,7 @@ const generateMobsJSON = async () => {
                 name: mob.name,
                 lvl: mob.level,
                 skin: mob.skin,
+                type: mob.type,
                 step: count
             };
             mobsToJSON.push(mobJSON);
@@ -36,7 +37,7 @@ const generateMobsJSON = async () => {
             if (err) {
                 console.log('Erreur :', err);
             } else {
-                console.log("C'est écrit mon gars");
+                console.log("C'est bon ça a bien été écrit mon gars");
             }
         });
     } catch (error) {
