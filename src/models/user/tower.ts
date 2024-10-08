@@ -15,7 +15,7 @@ export interface ITower {
 interface ITowerMethods {
     getCurrentStage(): number
     isBigStage(currentStage: number, isCurrentStageBig: boolean): void;
-    sendRewards(user: User, rewardGold: number, currentStage: number): void;
+    sendRewards(user: User, lvlMob: number): void;
 }
 
 // Méthodes statiques
@@ -62,7 +62,8 @@ TowerSchema.methods.getTowerInfo = function (): Object {
     return res
 }
 
-TowerSchema.methods.sendRewards = function (user: User): void {
+TowerSchema.methods.sendRewards = function (user: User, lvlMob: number): void {
+    this.rewardGold = lvlMob * 10
     user.gold += this.rewardGold;
     this.currentStage >= 100 ? null : this.currentStage++
 };
