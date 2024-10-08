@@ -7,40 +7,57 @@ import {
     BaseMessageOptions,
     User as DiscordUser
 } from 'discord.js';
+import { basename } from 'node:path';
+import { createCanvas, loadImage } from 'canvas';
 import { User } from '../../models/user/user';
 import mobs from '../../datas/mobs.json'
-import { basename } from 'node:path';
 
 export default class TowerBuilder {
     public static async getEmbed(user: User, discordUser: DiscordUser): Promise<BaseMessageOptions> {
         const towerInfo = user.tower.getTowerInfo();
         const currentMob = mobs[towerInfo.currentStage - 1]
-        const file = new AttachmentBuilder(currentMob.skin);
+
+        // canvas
+        const canvas = createCanvas(800, 400);
+        const ctx = canvas.getContext('2d');
+
+        const bgPath = await loadImage("https://img.freepik.com/premium-vector/dark-back-street-alley-with-door-bar-trash-can-car-with-open-trunk-night_273525-1119.jpg?semt=ais_hybrid");
+        const mobPath = await loadImage(currentMob.skin);
+
+        ctx.drawImage(bgPath, 0, 0, 800, 400);
+        ctx.drawImage(mobPath, 300, 75, 200, 350);
+
+        const buffer = canvas.toBuffer();
+        const file = new AttachmentBuilder(buffer, {name: "tower-and-mob.png"});
+
+        const logo: string =
+        'https://img.freepik.com/free-vector/cute-boy-super-hero-flying-cartoon-vector-icon-illustration-people-holiday-icon-concept-isolated_138676-5451.jpg';
         
         const row: ActionRowBuilder<ButtonBuilder> = new ActionRowBuilder<ButtonBuilder>().setComponents(
             new ButtonBuilder()
             .setLabel(`Se battre`)
-            .setCustomId(`TowerButton-fight`)
+            .setCustomId(`TowerButton-${currentMob.name}`)
             .setStyle(ButtonStyle.Success),
         );
         
-
-        console.log(basename(currentMob.skin))
         const embed = new EmbedBuilder()
-            .setTitle('La tour des méchants pas gentils !!!')
+            .setTitle('La tour menaçante des méchants pas gentils du tout !!!')
             .setDescription(`C'est à toi de jouer ${discordUser.displayName}, ta quête pour devenir un héros continue...`)
-            .setThumbnail(`attachment://${basename(currentMob.skin)}`)
-            .setImage(`https://img.freepik.com/premium-vector/dark-back-street-alley-with-door-bar-trash-can-car-with-open-trunk-night_273525-1119.jpg?semt=ais_hybrid`)
+            .setImage('attachment://tower-and-mob.png')
             .addFields(
                 {
                     name: `Votre prochain adversaire est : `,
                     value: `Nom : ${currentMob.name} \n Niveau : ${currentMob.lvl}`,
+                    inline: true
                 },
                 {
                     name: `Vous êtes actuellement à l'étage : `,
                     value: `${towerInfo.currentStage} / ${towerInfo.maxStage}`,
+                    inline: true
                 }
             )
+            .setTimestamp()
+            .setFooter({ text: "L'équipe ZHero", iconURL: logo })
 
             return {
                 embeds: [embed],
