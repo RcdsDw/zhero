@@ -1,5 +1,7 @@
 import fs from 'fs';
 import path from 'path';
+import { connect } from 'mongoose';
+import dotenv from 'dotenv';
 import { BaseMob, BaseMobModel } from '../../models/mob/baseMob';
 
 const outputDir = path.join(__dirname, '../../datas');
@@ -7,7 +9,13 @@ const outputPath = path.join(outputDir, 'mobs.json');
 
 const generateMobsJSON = async () => {
     try {
+        await connect(process.env.DB_URL ?? '', {
+            dbName: 'zhero',
+        });
+        dotenv.config();
+
         const mobs = await BaseMobModel.find();
+        console.log(mobs)
         const mobsToJSON: Object[] = [];
         let count: number = 1;
 
