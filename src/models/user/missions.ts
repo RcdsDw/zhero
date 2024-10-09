@@ -14,7 +14,8 @@ interface IMissionsMethods {
     getMissions(user: User): Promise<Mission[] | Current>;
     confirmMission(n: Number, user: User, callBack?: (xp: number, gold: number) => void): Promise<string>;
     stopCurrentMission(): string;
-    sendRewards(user: User, callBack?: (xp: number, gold: number) => void): Promise<void>;
+    addMission(user: User): Promise<void>;
+    onEnd(user: User, callBack?: (xp: number, gold: number) => void): Promise<void>;
 }
 
 interface IMissionsModel extends Model<IMissions, object, IMissionsMethods> {
@@ -43,7 +44,7 @@ MissionsSchema.methods.getMissions = async function (user: User): Promise<Missio
     }
     if (this.missions.length === 0) {
         for (let i = 0; i < 5; i++) {
-            await this.createMission(user);
+            await this.addMission(user);
         }
 
         await user.save();
@@ -51,17 +52,24 @@ MissionsSchema.methods.getMissions = async function (user: User): Promise<Missio
     return this.missions;
 };
 
-MissionsSchema.methods.createMission = async function (user: User) {
-    let data = datas[Math.floor(Math.random() * datas.length)];
-    let time = data.rank * Math.floor(Math.random() * 100) + 100 * (data.rank - 1);
+MissionsSchema.methods.addMission = async function (user: User) {
+    const data = datas[Math.floor(Math.random() * datas.length)];
+    const time = data.rank * Math.floor(Math.random() * 100) + 100 * (data.rank - 1);
 
     let rewardXp = Math.floor(time * 0.507);
     let rewardGold = Math.floor((user.experience.level / 10) * (time / 50));
+
+    // On double les récompenses pour les combats, car il y a un risque de ne rien gagner
+    if(data.type === 'FIGHT') {
+        rewardXp *= 2;
+        rewardGold *= 2;
+    }
 
     let mission = await MissionModel.create({
         title: data.title,
         desc: data.description,
         rank: data.rank,
+        type : data.type,
         time: time,
         rewardXp: rewardXp,
         rewardGold: rewardGold,
@@ -82,7 +90,7 @@ MissionsSchema.methods.confirmMission = async function (
     this.current = {
         ...mission,
         startAt: Date.now(),
-        timeout_id: setTimeout(() => this.sendRewards(user, callBack), mission.time * 60 * 1000),
+        timeout_id: setTimeout(() => this.onEnd(user, callBack), mission.time * 60 * 1000),
     };
     this.missions.splice(n, 1);
     return `Vous avez décidé de réaliser la mission n°${parseInt(n) + 1}.`;
@@ -99,7 +107,7 @@ MissionsSchema.methods.stopCurrentMission = function (): string {
     return `Vous avez décidé d'annuler la mission en cours.`;
 };
 
-MissionsSchema.methods.sendRewards = async function (user: User, callBack?: (xp: number, gold: number) => void) {
+MissionsSchema.methods.onEnd = async function (user: User, callBack?: (xp: number, gold: number) => void) {
     user.experience.add(this.current.rewardXp);
     user.gold += this.current.rewardGold;
 
