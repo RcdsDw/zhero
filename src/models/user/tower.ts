@@ -57,7 +57,8 @@ TowerSchema.methods.getTowerInfo = function (): Object {
     const res = {
         currentStage: this.currentStage,
         maxStage: this.maxStage,
-        rewardGold: this.rewardGold
+        rewardGold: this.rewardGold,
+        isBigStage: this.isBigStage
     }
     return res
 }
@@ -66,6 +67,7 @@ TowerSchema.methods.sendRewards = function (user: User, lvlMob: number): void {
     this.rewardGold = lvlMob * 10
     user.gold += this.rewardGold;
     this.currentStage >= 100 ? null : this.currentStage++
+    this.isBigStage();
 };
 
 const TowerModel = model<ITower, ITowerModel>('Tower', TowerSchema);
