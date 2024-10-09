@@ -28,9 +28,9 @@ Bienvenue dans **ZHero**, un bot Discord qui te permettra de devenir le héros d
    - Renomme `.env.dist` en `.env`.
    - Ajoute ton **token Discord** et autres variables nécessaires dans le fichier `.env`.
 
-4. Lance le bot :
+4. Lance les conteneurs :
    ```bash
-   npm start
+   docker compose up
    ```
 
 ## 🛠️ Technologies
@@ -48,4 +48,4 @@ Bienvenue dans **ZHero**, un bot Discord qui te permettra de devenir le héros d
 
 ## 🧑‍💻 Auteur
 
-Développé par **[ALexis]** et **[Rafael]**
+Développé par **[Alexis]** et **[Rafael]**

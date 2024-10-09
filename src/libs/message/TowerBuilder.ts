@@ -7,7 +7,6 @@ import {
     BaseMessageOptions,
     User as DiscordUser
 } from 'discord.js';
-import { basename } from 'node:path';
 import { createCanvas, loadImage } from 'canvas';
 import { User } from '../../models/user/user';
 import mobs from '../../datas/tower.json'
@@ -15,7 +14,14 @@ import mobs from '../../datas/tower.json'
 export default class TowerBuilder {
     public static async getEmbed(user: User, discordUser: DiscordUser): Promise<BaseMessageOptions> {
         const towerInfo = user.tower.getTowerInfo();
-        const currentMob = mobs[towerInfo.currentStage - 1]
+
+        // get current mob
+        const npcs: any[] = []
+        const boss: any[] = []
+
+        mobs.map((mob) => mob.type === "BOSS" ? boss.push(mob) : npcs.push(mob))
+
+        const currentMob = towerInfo.isBigStage ? boss[(towerInfo.currentStage.slice(-2, -1)) - 1] : npcs[towerInfo.currentStage - 1]
 
         // canvas
         const canvas = createCanvas(800, 400);
