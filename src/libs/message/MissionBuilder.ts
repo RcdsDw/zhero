@@ -31,6 +31,18 @@ export default class MissionBuilder {
                         `Récompenses : ${res.rewardXp} 🦸‍♂️ / ${res.rewardGold} 🪙`,
                 })
                 .setColor('White');
+            
+            if(res.type === "TIME") {
+                embed.setAuthor({
+                    name : "Temps",
+                    iconURL : "https://cdn-icons-png.flaticon.com/512/148/148855.png"
+                });
+            } else {
+                embed.setAuthor({
+                    name : "Combat",
+                    iconURL : "https://cdn-icons-png.flaticon.com/512/5022/5022167.png"
+                });
+            }
 
             return {
                 content: '# Mission en cours',
@@ -53,7 +65,20 @@ export default class MissionBuilder {
                             ` / Temps: ${Math.floor(mission.time / 60)}h${mission.time % 60}m\n\n` +
                             `Récompenses : ${mission.rewardXp} 🦸‍♂️ / ${mission.rewardGold} 🪙`,
                     })
-                    .setColor(colors[mission.rank - 1]);
+                    .setColor(colors[mission.rank - 1])
+
+                if(mission.type === "TIME") {
+                    embed.setAuthor({
+                        name : "Temps",
+                        iconURL : "https://cdn-icons-png.flaticon.com/512/148/148855.png"
+                    });
+                } else {
+                    embed.setAuthor({
+                        name : "Combat",
+                        iconURL : "https://cdn-icons-png.flaticon.com/512/5022/5022167.png"
+                    });
+                }
+
                 row.addComponents(
                     new ButtonBuilder()
                         .setLabel(`${i + 1}`)
