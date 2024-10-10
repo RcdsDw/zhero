@@ -4,10 +4,10 @@ import { createCanvas, loadImage } from 'canvas';
 import { Fighter } from '../fight/Fighter';
 
 export default class FightMontage {
-    public static async getImage(player1: Fighter, player2: Fighter): Promise<string> {
-        const imagePath = this.getFightImagePath(player1, player2);
+    public static async getImage(player1: Fighter, player2: Fighter, bg: string): Promise<string> {
+        const imagePath = this.getFightImagePath(player1, player2, bg);
 
-        await this.generateImage(player1, player2);
+        await this.generateImage(player1, player2, bg);
 
         return imagePath;
     }
@@ -15,14 +15,16 @@ export default class FightMontage {
     /**
      * Génère une image en fonction d'un skin
      */
-    public static async generateImage(player1: Fighter, player2: Fighter): Promise<void> {
-        const canvas = createCanvas(1200, 1000);
+    public static async generateImage(player1: Fighter, player2: Fighter, bg: string): Promise<void> {
+        const canvas = createCanvas(1300, 1000);
         const ctx = canvas.getContext('2d');
 
         // Draw des sprites
+        const bgImage = await loadImage(bg);
         const player1Image = await loadImage(player1.image);
         const player2Image = await loadImage(player2.image);
 
+        ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height)
         ctx.drawImage(player1Image, 150, 0);
         ctx.drawImage(player2Image, 600, -100, 620, 1100);
 
@@ -54,13 +56,13 @@ export default class FightMontage {
 
         // Génération de l'image
         const buffer = canvas.toBuffer('image/png');
-        fs.writeFileSync(this.getFightImagePath(player1, player2), buffer);
+        fs.writeFileSync(this.getFightImagePath(player1, player2, bg), buffer);
     }
 
     /**
      * Retourne le chemin de l'image en fonction du skin
      */
-    private static getFightImagePath(player1: Fighter, player2: Fighter) {
-        return path.join('public/fight', `${player1.name}_${player2.name}.png`);
+    private static getFightImagePath(player1: Fighter, player2: Fighter, bg: string) {
+        return path.join('public/fight', `${player1.name}_${player2.name}_bg.png`);
     }
 }

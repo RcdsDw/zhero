@@ -16,18 +16,20 @@ export default class TowerBuilder {
         const towerInfo = user.tower.getTowerInfo();
 
         // get current mob
-        const npcs: any[] = []
-        const boss: any[] = []
+        const npcs: Object[] = []
+        const boss: Object[] = []
 
         mobs.map((mob) => mob.type === "BOSS" ? boss.push(mob) : npcs.push(mob))
 
-        const currentMob = towerInfo.isBigStage ? boss[(towerInfo.currentStage.slice(-2, -1)) - 1] : npcs[towerInfo.currentStage - 1]
+        const currentMob: Object = towerInfo.isBigStage === true ? boss[(towerInfo.currentStage / 10) - 1] : npcs[towerInfo.currentStage - 1]
 
         // canvas
         const canvas = createCanvas(800, 400);
         const ctx = canvas.getContext('2d');
 
-        const bgPath = await loadImage("https://img.freepik.com/premium-vector/dark-back-street-alley-with-door-bar-trash-can-car-with-open-trunk-night_273525-1119.jpg?semt=ais_hybrid");
+        // const bg = "https://img.freepik.com/premium-vector/dark-back-street-alley-with-door-bar-trash-can-car-with-open-trunk-night_273525-1119.jpg?semt=ais_hybrid"
+        const bg = "images/assets/other_bg.jpg"
+        const bgPath = await loadImage(bg);
         const mobPath = await loadImage(currentMob.skin);
 
         ctx.drawImage(bgPath, 0, 0, canvas.width, canvas.height);
@@ -42,7 +44,7 @@ export default class TowerBuilder {
         const row: ActionRowBuilder<ButtonBuilder> = new ActionRowBuilder<ButtonBuilder>().setComponents(
             new ButtonBuilder()
             .setLabel(`Se battre`)
-            .setCustomId(`TowerButton-${currentMob.name}`)
+            .setCustomId(`TowerButton-${currentMob.name}-tower-${bg}`)
             .setStyle(ButtonStyle.Success),
         );
         
@@ -53,7 +55,7 @@ export default class TowerBuilder {
             .addFields(
                 {
                     name: `Votre prochain adversaire est : `,
-                    value: `${currentMob.type === "BOSS" ? "[🛑 BOSS 🛑] - \n" : ""}Nom : ${currentMob.name} \n Niveau : ${currentMob.lvl}`,
+                    value: `${currentMob.type === "BOSS" ? "🛑 BOSS 🛑 \n" : ""}Nom : ${currentMob.name} \n Niveau : ${currentMob.lvl}`,
                     inline: true
                 }
             )
