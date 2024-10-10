@@ -4,14 +4,15 @@ import { Fighter } from '../fight/Fighter';
 import FightMontage from '../montage/FightMontage';
 
 export default class FightBuilder {
-    public static async getEmbed(player1: Fighter, player2: Fighter, fight: FightSystem): Promise<BaseMessageOptions> {
-        const imagePath = await FightMontage.getImage(player1, player2);
+    public static async getEmbed(player1: Fighter, player2: Fighter, fight: FightSystem, tower: string, bg: string): Promise<BaseMessageOptions> {
+        const imagePath = await FightMontage.getImage(player1, player2, bg);
         const file = new AttachmentBuilder(imagePath, {
             name: 'preview.png',
         });
 
         const embed = new EmbedBuilder();
         embed.setTitle(`${player1.name} vs ${player2.name}`);
+        tower ? embed.setDescription(`Combat dans la tour de la terreur`) : null
 
         embed.addFields(
             {
