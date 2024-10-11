@@ -14,15 +14,10 @@ import mobs from '../../datas/tower.json'
 export default class TowerBuilder {
     public static async getEmbed(user: User, discordUser: DiscordUser): Promise<BaseMessageOptions> {
         const towerInfo = user.tower.getTowerInfo();
-
-        // get current mob
-        const npcs: Object[] = []
-        const boss: Object[] = []
-
-        mobs.map((mob) => mob.type === "BOSS" ? boss.push(mob) : npcs.push(mob))
-
-        const currentMob: Object = towerInfo.isBigStage === true ? boss[(towerInfo.currentStage / 10) - 1] : npcs[towerInfo.currentStage - 1]
-
+        const currentMob = mobs.find((mob) => mob.step === towerInfo.currentStage)
+        if (!currentMob) {
+            return;
+        }
         // canvas
         const canvas = createCanvas(800, 400);
         const ctx = canvas.getContext('2d');
@@ -49,7 +44,7 @@ export default class TowerBuilder {
         );
         
         const embed = new EmbedBuilder()
-            .setTitle(`La tour de la terreur - ${towerInfo.currentStage} / ${towerInfo.maxStage}`)
+            .setTitle(`La tour de la terreur - ${towerInfo.currentStage} / 100`)
             .setDescription(`C'est à toi de jouer ${discordUser.displayName}, ta quête pour devenir un héros continue...`)
             .setImage('attachment://tower-and-mob.png')
             .addFields(

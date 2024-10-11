@@ -4,7 +4,6 @@ import { BaseMob } from '../mob/baseMob';
 
 // Données du document
 export interface ITower {
-    maxStage: number;
     currentStage: number;
     isCurrentStageBig: boolean;
     rewardGold: number;
@@ -26,11 +25,6 @@ interface ITowerModel extends Model<ITower, object, ITowerMethods> {
 export type TowerModule = HydratedDocument<ITower, ITowerMethods>;
 
 export const TowerSchema: Schema = new Schema<ITower, object, ITowerMethods>({
-    maxStage: {
-        type: Number,
-        required: true,
-        default: 100,
-    },
     currentStage: {
         type: Number,
         required: true,
@@ -56,7 +50,6 @@ TowerSchema.methods.isBigStage = function (): void {
 TowerSchema.methods.getTowerInfo = function (): Object {
     const res = {
         currentStage: this.currentStage,
-        maxStage: this.maxStage,
         rewardGold: this.rewardGold,
         isBigStage: this.isBigStage
     }
