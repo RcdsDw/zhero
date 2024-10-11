@@ -4,7 +4,7 @@ import { createCanvas, loadImage } from 'canvas';
 import { Fighter } from '../fight/Fighter';
 
 export default class FightMontage {
-    public static async getImage(player1: Fighter, player2: Fighter, bg: string): Promise<string> {
+    public static async getImage(player1: Fighter, player2: Fighter, bg?: string): Promise<string> {
         const imagePath = this.getFightImagePath(player1, player2, bg);
 
         await this.generateImage(player1, player2, bg);
@@ -15,7 +15,7 @@ export default class FightMontage {
     /**
      * Génère une image en fonction d'un skin
      */
-    public static async generateImage(player1: Fighter, player2: Fighter, bg: string): Promise<void> {
+    public static async generateImage(player1: Fighter, player2: Fighter, bg?: string): Promise<void> {
         const canvas = createCanvas(1300, 1000);
         const ctx = canvas.getContext('2d');
 
@@ -62,7 +62,7 @@ export default class FightMontage {
     /**
      * Retourne le chemin de l'image en fonction du skin
      */
-    private static getFightImagePath(player1: Fighter, player2: Fighter, bg: string) {
-        return path.join('public/fight', `${player1.name}_${player2.name}_bg.png`);
+    private static getFightImagePath(player1: Fighter, player2: Fighter, bg?: string) {
+        return path.join('public/fight', `${player1.name}_${player2.name}_${bg ? "bg" : ""}.png`);
     }
 }

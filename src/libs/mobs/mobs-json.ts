@@ -37,7 +37,7 @@ const generateMobsJSON = async () => {
             if (err) {
                 console.log('Erreur :', err);
             } else {
-                console.log("C'est bon ça a bien été écrit mon gars");
+                console.log(`Les ${count} mobs ont été écrit`);
             }
         });
     } catch (error) {
