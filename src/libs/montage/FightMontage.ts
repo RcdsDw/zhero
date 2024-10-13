@@ -19,12 +19,16 @@ export default class FightMontage {
         const canvas = createCanvas(1300, 1000);
         const ctx = canvas.getContext('2d');
 
-        // Draw des sprites
-        const bgImage = await loadImage(bg);
+        // Draw du background
+        if(bg) {
+            const bgImage = await loadImage(bg);
+            ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
+        }
+
+        // Draw des fighters
         const player1Image = await loadImage(player1.image);
         const player2Image = await loadImage(player2.image);
 
-        ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height)
         ctx.drawImage(player1Image, 150, 0);
         ctx.drawImage(player2Image, 600, -100, 620, 1100);
 

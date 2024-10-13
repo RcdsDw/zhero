@@ -8,6 +8,9 @@ import {
 } from 'discord.js';
 import { Mission } from '../../models/user/mission/mission';
 import { User } from '../../models/user/user';
+import { Fighter } from '../fight/Fighter';
+import FightSystem from '../fight/FightSystem';
+import FightBuilder from './FightBuilder';
 
 export default class MissionBuilder {
     public static async showMissions(user: User): Promise<BaseMessageOptions> {
@@ -95,5 +98,13 @@ export default class MissionBuilder {
                 files: [],
             };
         }
+    }
+
+    public static async getFightEmbed(player1: Fighter, player2: Fighter, fight: FightSystem, bg?: string): Promise<BaseMessageOptions> {
+        const res = await FightBuilder.getEmbed(player1, player2, fight, bg)
+
+        res.embeds[0].setDescription(`Combat pour une mission`);
+
+        return res;
     }
 }

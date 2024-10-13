@@ -10,6 +10,9 @@ import {
 import { createCanvas, loadImage } from 'canvas';
 import { User } from '../../models/user/user';
 import mobs from '../../datas/tower.json'
+import { Fighter } from '../fight/Fighter';
+import FightSystem from '../fight/FightSystem';
+import FightBuilder from './FightBuilder';
 
 export default class TowerBuilder {
     public static async getEmbed(user: User, discordUser: DiscordUser): Promise<BaseMessageOptions> {
@@ -62,5 +65,13 @@ export default class TowerBuilder {
                 components: [row],
                 files: [file],
             };
+    }
+
+    public static async getFightEmbed(player1: Fighter, player2: Fighter, fight: FightSystem, bg?: string): Promise<BaseMessageOptions> {
+        const res = await FightBuilder.getEmbed(player1, player2, fight, bg)
+
+        res.embeds[0].setDescription(`Combat dans la tour de la terreur`);
+
+        return res;
     }
 }

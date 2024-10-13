@@ -4,8 +4,8 @@ import { BaseMobModel } from '../../models/mob/baseMob';
 import { Fighter } from '../../libs/fight/Fighter';
 import FighterFactory from '../../libs/fight/FighterFactory';
 import FightSystem from '../../libs/fight/FightSystem';
-import FightBuilder from '../../libs/message/FightBuilder';
 import { TowerSchema } from '../../models/user/tower';
+import TowerBuilder from '../../libs/message/TowerBuilder';
 export const id = /TowerButton/i;
 
 export async function execute(interaction: ButtonInteraction) {
@@ -25,7 +25,6 @@ export async function execute(interaction: ButtonInteraction) {
     const name = args[1];
     const mob = await BaseMobModel.findOne({ name });
 
-    // bg
     const bg = args[3]
 
     // fight 
@@ -36,14 +35,14 @@ export async function execute(interaction: ButtonInteraction) {
         fighterUser,
         fighterMob,
         async (fight: FightSystem) => {
-            interaction.editReply(await FightBuilder.getEmbed(fighterUser, fighterMob, fight, args[2], bg));
+            interaction.editReply(await TowerBuilder.getFightEmbed(fighterUser, fighterMob, fight, bg));
         },
         (fight: FightSystem) => {
             fight.winner?.name === interaction.user.displayName ? TowerSchema.sendRewards(user, mob.lvl) : null
         },
     );
     
-    await interaction.update(await FightBuilder.getEmbed(fighterUser, fighterMob, fight, args[2], bg));
+    await interaction.update(await TowerBuilder.getFightEmbed(fighterUser, fighterMob, fight, bg));
 
     fight.makeFight();
 }

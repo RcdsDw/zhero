@@ -2,8 +2,13 @@ import { HydratedDocument, model, Model, Schema } from 'mongoose';
 import { Mission, MissionModel, MissionSchema } from './mission/mission';
 import { Current, CurrentSchema } from './mission/current';
 import { User } from './user';
+import { ButtonInteraction, User as DiscordUser } from 'discord.js';
 
 import datas from '../../datas/missions.json';
+import { BaseMobModel } from '../mob/baseMob';
+import FighterFactory from '../../libs/fight/FighterFactory';
+import FightSystem from '../../libs/fight/FightSystem';
+import MissionBuilder from '../../libs/message/MissionBuilder';
 
 interface IMissions {
     missions: Mission[];
@@ -12,10 +17,11 @@ interface IMissions {
 
 interface IMissionsMethods {
     getMissions(user: User): Promise<Mission[] | Current>;
-    confirmMission(n: Number, user: User, callBack?: (xp: number, gold: number) => void): Promise<string>;
+    confirmMission(n: Number, user: User, interaction : ButtonInteraction, onSuccess?: (xp: number, gold: number) => void): Promise<string>;
     stopCurrentMission(): string;
     addMission(user: User): Promise<void>;
-    onEnd(user: User, callBack?: (xp: number, gold: number) => void): Promise<void>;
+    onEnd(user: User, interaction : ButtonInteraction, onSuccess?: (xp: number, gold: number) => void): Promise<void>;
+    sendReward(user: User, onSuccess?: (xp: number, gold: number) => void) : void;
 }
 
 interface IMissionsModel extends Model<IMissions, object, IMissionsMethods> {
@@ -44,7 +50,7 @@ MissionsSchema.methods.getMissions = async function (user: User): Promise<Missio
     }
     if (this.missions.length === 0) {
         for (let i = 0; i < 5; i++) {
-            await this.addMission(user);
+            this.addMission(user);
         }
 
         await user.save();
@@ -52,7 +58,7 @@ MissionsSchema.methods.getMissions = async function (user: User): Promise<Missio
     return this.missions;
 };
 
-MissionsSchema.methods.addMission = async function (user: User) {
+MissionsSchema.methods.addMission = function (user: User) {
     const data = datas[Math.floor(Math.random() * datas.length)];
     const time = data.rank * Math.floor(Math.random() * 100) + 100 * (data.rank - 1);
 
@@ -65,7 +71,7 @@ MissionsSchema.methods.addMission = async function (user: User) {
         rewardGold *= 2;
     }
 
-    let mission = await MissionModel.create({
+    let mission = new MissionModel({
         title: data.title,
         desc: data.description,
         rank: data.rank,
@@ -80,7 +86,8 @@ MissionsSchema.methods.addMission = async function (user: User) {
 MissionsSchema.methods.confirmMission = async function (
     n: string,
     user: User,
-    callBack?: (xp: number, gold: number) => void,
+    interaction : ButtonInteraction,
+    onSuccess?: (xp: number, gold: number) => void,
 ): Promise<string> {
     if (this.current) {
         return 'Vous avez déjà une mission en cours.';
@@ -90,7 +97,7 @@ MissionsSchema.methods.confirmMission = async function (
     this.current = {
         ...mission,
         startAt: Date.now(),
-        timeout_id: setTimeout(() => this.onEnd(user, callBack), mission.time * 60 * 1000),
+        timeout_id: setTimeout(() => this.onEnd(user, interaction, onSuccess), 10000/* mission.time * 60 * 1000 */),
     };
     this.missions.splice(n, 1);
     return `Vous avez décidé de réaliser la mission n°${parseInt(n) + 1}.`;
@@ -107,15 +114,52 @@ MissionsSchema.methods.stopCurrentMission = function (): string {
     return `Vous avez décidé d'annuler la mission en cours.`;
 };
 
-MissionsSchema.methods.onEnd = async function (user: User, callBack?: (xp: number, gold: number) => void) {
+MissionsSchema.methods.onEnd = async function (user: User, interaction : ButtonInteraction, onSuccess?: (xp: number, gold: number) => void) {
+    // Combat à la fin du temps
+    if(this.current.type === "FIGHT") {
+        const mob = await BaseMobModel.findByLevelAround(user.experience.level);
+        const fighterMob = FighterFactory.fromMob(mob);
+        const fighterUser = await FighterFactory.fromUser(user, interaction.user);
+
+        const message = await interaction.channel?.send({
+            content : "Le chemin jusqu'au combat est terminé, le combat va commencer"
+        });
+
+        if(!message) {
+            throw new Error("Erreur lors de l'envoie du message");
+        }
+
+        const fight = new FightSystem(
+            fighterUser,
+            fighterMob,
+            async (fight: FightSystem) => {
+                message.edit(await MissionBuilder.getFightEmbed(fighterUser, fighterMob, fight));
+            },
+            (fight: FightSystem) => {
+                if(fight.winner?.name === fighterUser.name) {
+                    this.sendReward(user, onSuccess);
+                } else {
+                    interaction.channel?.send(`${interaction.user.toString()}, Vous avez raté votre combat de mission, vous n'avez eu aucune récompense !`);
+                    this.addMission(user);
+                    this.current = null;    
+                }
+            },
+        );
+
+        fight.makeFight();
+    } else {
+        this.sendReward(user, onSuccess);
+    }
+};
+
+MissionsSchema.methods.sendReward = function(user: User, onSuccess?: (xp: number, gold: number) => void) {
     user.experience.add(this.current.rewardXp);
     user.gold += this.current.rewardGold;
 
-    if (callBack) {
-        callBack(this.current.xp, this.current.gold);
+    if (onSuccess) {
+        onSuccess(this.current.rewardXp, this.current.rewardGold);
     }
 
-    clearTimeout(this.current.timeout_id);
-    await this.createMission(user);
+    this.addMission(user);
     this.current = null;
-};
+}
