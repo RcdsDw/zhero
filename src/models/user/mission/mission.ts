@@ -7,7 +7,7 @@ export interface IMission {
     time: number;
     rewardXp: number;
     rewardGold: number;
-    type: 'TIME'|'FIGHT'
+    type: 'TIME' | 'FIGHT';
 }
 
 interface IMissionMethods {
@@ -45,10 +45,10 @@ export const MissionSchema: Schema = new Schema<IMission, object, IMissionMethod
         type: Number,
         required: true,
     },
-    type : {
-        type : String,
-        required : true,
-    }
+    type: {
+        type: String,
+        required: true,
+    },
 });
 
 const MissionModel = model<IMission, IMissionModel>('Mission', MissionSchema);

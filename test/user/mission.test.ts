@@ -56,7 +56,7 @@ describe('Mission', () => {
         const goldBefore = user.gold;
         const xpBefore = user.experience.total;
 
-        await user.mission.sendRewards(user);
+        await user.mission.sendReward(user);
 
         expect(user.mission.current).to.be.null;
         expect(user.gold).to.be.equal(goldBefore + currentMission.rewardGold);

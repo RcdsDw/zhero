@@ -4,7 +4,12 @@ import { Fighter } from '../fight/Fighter';
 import FightMontage from '../montage/FightMontage';
 
 export default class FightBuilder {
-    public static async getEmbed(player1: Fighter, player2: Fighter, fight: FightSystem, bg?: string): Promise<BaseMessageOptions> {
+    public static async getEmbed(
+        player1: Fighter,
+        player2: Fighter,
+        fight: FightSystem,
+        bg?: string,
+    ): Promise<BaseMessageOptions> {
         const imagePath = await FightMontage.getImage(player1, player2, bg);
         const file = new AttachmentBuilder(imagePath, {
             name: 'preview.png',

@@ -3,7 +3,6 @@ import { AttributesModule, AttributesSchema } from '../user/attributes';
 import * as fs from 'fs';
 import * as path from 'path';
 import ItemType from '../../enum/itemType';
-import { translate } from '@vitalets/google-translate-api';
 
 // Données du document
 export interface IBaseItem {

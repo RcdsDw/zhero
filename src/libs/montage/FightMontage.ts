@@ -20,7 +20,7 @@ export default class FightMontage {
         const ctx = canvas.getContext('2d');
 
         // Draw du background
-        if(bg) {
+        if (bg) {
             const bgImage = await loadImage(bg);
             ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
         }
@@ -67,6 +67,6 @@ export default class FightMontage {
      * Retourne le chemin de l'image en fonction du skin
      */
     private static getFightImagePath(player1: Fighter, player2: Fighter, bg?: string) {
-        return path.join('public/fight', `${player1.name}_${player2.name}_${bg ? "bg" : ""}.png`);
+        return path.join('public/fight', `${player1.name}_${player2.name}_${bg ? 'bg' : ''}.png`);
     }
 }

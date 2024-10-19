@@ -34,16 +34,16 @@ export default class MissionBuilder {
                         `Récompenses : ${res.rewardXp} 🦸‍♂️ / ${res.rewardGold} 🪙`,
                 })
                 .setColor('White');
-            
-            if(res.type === "TIME") {
+
+            if (res.type === 'TIME') {
                 embed.setAuthor({
-                    name : "Temps",
-                    iconURL : "https://cdn-icons-png.flaticon.com/512/148/148855.png"
+                    name: 'Temps',
+                    iconURL: 'https://cdn-icons-png.flaticon.com/512/148/148855.png',
                 });
             } else {
                 embed.setAuthor({
-                    name : "Combat",
-                    iconURL : "https://cdn-icons-png.flaticon.com/512/5022/5022167.png"
+                    name: 'Combat',
+                    iconURL: 'https://cdn-icons-png.flaticon.com/512/5022/5022167.png',
                 });
             }
 
@@ -68,17 +68,17 @@ export default class MissionBuilder {
                             ` / Temps: ${Math.floor(mission.time / 60)}h${mission.time % 60}m\n\n` +
                             `Récompenses : ${mission.rewardXp} 🦸‍♂️ / ${mission.rewardGold} 🪙`,
                     })
-                    .setColor(colors[mission.rank - 1])
+                    .setColor(colors[mission.rank - 1]);
 
-                if(mission.type === "TIME") {
+                if (mission.type === 'TIME') {
                     embed.setAuthor({
-                        name : "Temps",
-                        iconURL : "https://cdn-icons-png.flaticon.com/512/148/148855.png"
+                        name: 'Temps',
+                        iconURL: 'https://cdn-icons-png.flaticon.com/512/148/148855.png',
                     });
                 } else {
                     embed.setAuthor({
-                        name : "Combat",
-                        iconURL : "https://cdn-icons-png.flaticon.com/512/5022/5022167.png"
+                        name: 'Combat',
+                        iconURL: 'https://cdn-icons-png.flaticon.com/512/5022/5022167.png',
                     });
                 }
 
@@ -100,10 +100,17 @@ export default class MissionBuilder {
         }
     }
 
-    public static async getFightEmbed(player1: Fighter, player2: Fighter, fight: FightSystem, bg?: string): Promise<BaseMessageOptions> {
-        const res = await FightBuilder.getEmbed(player1, player2, fight, bg)
+    public static async getFightEmbed(
+        player1: Fighter,
+        player2: Fighter,
+        fight: FightSystem,
+        bg?: string,
+    ): Promise<BaseMessageOptions> {
+        const res = await FightBuilder.getEmbed(player1, player2, fight, bg);
 
-        res.embeds[0].setDescription(`Combat pour une mission`);
+        if (res.embeds && res.embeds[0] instanceof EmbedBuilder) {
+            res.embeds[0].setDescription('Combat pour une mission');
+        }
 
         return res;
     }
