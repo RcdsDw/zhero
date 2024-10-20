@@ -5,25 +5,29 @@ import {
     ButtonBuilder,
     ButtonStyle,
     BaseMessageOptions,
-    User as DiscordUser
+    User as DiscordUser,
 } from 'discord.js';
 import { createCanvas, loadImage } from 'canvas';
 import { User } from '../../models/user/user';
-import mobs from '../../datas/tower.json'
+import mobs from '../../datas/tower.json';
+import { Fighter } from '../fight/Fighter';
+import FightSystem from '../fight/FightSystem';
+import FightBuilder from './FightBuilder';
 
 export default class TowerBuilder {
-    public static async getEmbed(user: User, discordUser: DiscordUser): Promise<BaseMessageOptions> {
-        const towerInfo = user.tower.getTowerInfo();
-        const currentMob = mobs.find((mob) => mob.step === towerInfo.currentStage)
+    public static async getEmbed(user: User, discordUser: DiscordUser): Promise<BaseMessageOptions|void> {
+        const currentMob = mobs.find((mob) => mob.step === user.tower.currentStage);
+
         if (!currentMob) {
             return;
         }
+
         // canvas
         const canvas = createCanvas(800, 400);
         const ctx = canvas.getContext('2d');
 
         // const bg = "https://img.freepik.com/premium-vector/dark-back-street-alley-with-door-bar-trash-can-car-with-open-trunk-night_273525-1119.jpg?semt=ais_hybrid"
-        const bg = "images/assets/other_bg.jpg"
+        const bg = 'images/assets/other_bg.jpg';
         const bgPath = await loadImage(bg);
         const mobPath = await loadImage(currentMob.skin);
 
@@ -31,36 +35,51 @@ export default class TowerBuilder {
         ctx.drawImage(mobPath, 300, 75, 200, 350);
 
         const buffer = canvas.toBuffer();
-        const file = new AttachmentBuilder(buffer, {name: "tower-and-mob.png"});
+        const file = new AttachmentBuilder(buffer, { name: 'tower-and-mob.png' });
 
         const logo: string =
-        'https://img.freepik.com/free-vector/cute-boy-super-hero-flying-cartoon-vector-icon-illustration-people-holiday-icon-concept-isolated_138676-5451.jpg';
-        
+            'https://img.freepik.com/free-vector/cute-boy-super-hero-flying-cartoon-vector-icon-illustration-people-holiday-icon-concept-isolated_138676-5451.jpg';
+
         const row: ActionRowBuilder<ButtonBuilder> = new ActionRowBuilder<ButtonBuilder>().setComponents(
             new ButtonBuilder()
-            .setLabel(`Se battre`)
-            .setCustomId(`TowerButton-${currentMob.name}-tower-${bg}`)
-            .setStyle(ButtonStyle.Success),
+                .setLabel(`Se battre`)
+                .setCustomId(`TowerButton-${currentMob.name}-tower-${bg}`)
+                .setStyle(ButtonStyle.Success),
         );
-        
-        const embed = new EmbedBuilder()
-            .setTitle(`La tour de la terreur - ${towerInfo.currentStage} / 100`)
-            .setDescription(`C'est à toi de jouer ${discordUser.displayName}, ta quête pour devenir un héros continue...`)
-            .setImage('attachment://tower-and-mob.png')
-            .addFields(
-                {
-                    name: `Votre prochain adversaire est : `,
-                    value: `${currentMob.type === "BOSS" ? "🛑 BOSS 🛑 \n" : ""}Nom : ${currentMob.name} \n Niveau : ${currentMob.lvl}`,
-                    inline: true
-                }
-            )
-            .setTimestamp()
-            .setFooter({ text: "L'équipe ZHero", iconURL: logo })
 
-            return {
-                embeds: [embed],
-                components: [row],
-                files: [file],
-            };
+        const embed = new EmbedBuilder()
+            .setTitle(`La tour de la terreur - ${user.tower.currentStage} / 100`)
+            .setDescription(
+                `C'est à toi de jouer ${discordUser.displayName}, ta quête pour devenir un héros continue...`,
+            )
+            .setImage('attachment://tower-and-mob.png')
+            .addFields({
+                name: `Votre prochain adversaire est : `,
+                value: `${currentMob.type === 'BOSS' ? '🛑 BOSS 🛑 \n' : ''}Nom : ${currentMob.name} \n Niveau : ${currentMob.lvl}`,
+                inline: true,
+            })
+            .setTimestamp()
+            .setFooter({ text: "L'équipe ZHero", iconURL: logo });
+
+        return {
+            embeds: [embed],
+            components: [row],
+            files: [file],
+        };
+    }
+
+    public static async getFightEmbed(
+        player1: Fighter,
+        player2: Fighter,
+        fight: FightSystem,
+        bg?: string,
+    ): Promise<BaseMessageOptions> {
+        const res = await FightBuilder.getEmbed(player1, player2, fight, bg);
+
+        if (res.embeds && res.embeds[0] instanceof EmbedBuilder) {
+            res.embeds[0].setDescription('Combat dans la tour de la terreur');
+        }
+
+        return res;
     }
 }

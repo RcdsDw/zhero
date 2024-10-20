@@ -7,12 +7,12 @@ export interface ITower {
     currentStage: number;
     isCurrentStageBig: boolean;
     rewardGold: number;
-    mobs: Array<BaseMob>
+    mobs: Array<BaseMob>;
 }
 
 // Méthodes sur l'instance
 interface ITowerMethods {
-    getCurrentStage(): number
+    getCurrentStage(): number;
     isBigStage(currentStage: number, isCurrentStageBig: boolean): void;
     sendRewards(user: User, lvlMob: number): void;
 }
@@ -45,21 +45,12 @@ export const TowerSchema: Schema = new Schema<ITower, object, ITowerMethods>({
 TowerSchema.methods.isBigStage = function (): void {
     this.isCurrentStageBig = this.currentStage % 10 === 0;
     return this.isCurrentStageBig;
-}
-
-TowerSchema.methods.getTowerInfo = function (): Object {
-    const res = {
-        currentStage: this.currentStage,
-        rewardGold: this.rewardGold,
-        isBigStage: this.isBigStage
-    }
-    return res
-}
+};
 
 TowerSchema.methods.sendRewards = function (user: User, lvlMob: number): void {
-    this.rewardGold = lvlMob * 10
+    this.rewardGold = lvlMob * 10;
     user.gold += this.rewardGold;
-    this.currentStage >= 100 ? null : this.currentStage++
+    this.currentStage >= 100 ? null : this.currentStage++;
     this.isBigStage();
 };
 

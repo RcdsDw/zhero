@@ -14,8 +14,8 @@ const generateMobsJSON = async () => {
         });
         dotenv.config();
 
-        const mobs = await BaseMobModel.find().sort({level: 'asc'});
-        console.log(mobs)
+        const mobs = await BaseMobModel.find().sort({ level: 'asc' });
+        console.log(mobs);
         const mobsToJSON: Object[] = [];
         let count: number = 1;
 
@@ -25,7 +25,7 @@ const generateMobsJSON = async () => {
                 lvl: mob.level,
                 skin: mob.skin,
                 type: mob.type,
-                step: count
+                step: count,
             };
             mobsToJSON.push(mobJSON);
             count++;

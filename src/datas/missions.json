@@ -2,211 +2,469 @@
     {
         "title": "Ramasser des chaussettes",
         "description": "Trouver et ramasser toutes les chaussettes égarées dans la maison.",
-        "rank": 1
+        "rank": 1,
+        "type": "TIME"
     },
     {
         "title": "Broyer des légumes",
         "description": "Utiliser un mixeur pour broyer des légumes sans faire de dégâts.",
-        "rank": 1
+        "rank": 1,
+        "type": "TIME"
     },
     {
         "title": "Réorganiser les livres",
         "description": "Réorganiser les livres par couleur dans la bibliothèque.",
-        "rank": 1
+        "rank": 1,
+        "type": "TIME"
     },
     {
         "title": "Collectionner des pierres",
         "description": "Trouver et collectionner des pierres intéressantes dans le parc.",
-        "rank": 1
+        "rank": 1,
+        "type": "TIME"
     },
     {
         "title": "Faire des bulles",
         "description": "Faire des bulles avec du savon et les attraper avant qu'elles n'éclatent.",
-        "rank": 1
+        "rank": 1,
+        "type": "TIME"
     },
     {
         "title": "Danser comme une grenouille",
         "description": "Faire une danse inspirée des mouvements des grenouilles.",
-        "rank": 1
+        "rank": 1,
+        "type": "TIME"
     },
     {
         "title": "Se déguiser en super-héros",
         "description": "Créer un déguisement de super-héros avec des matériaux disponibles à la maison.",
-        "rank": 1
+        "rank": 1,
+        "type": "TIME"
     },
     {
         "title": "Organiser un concours de blagues",
         "description": "Raconter des blagues à des amis et voir qui rit le plus.",
-        "rank": 1
+        "rank": 1,
+        "type": "TIME"
     },
     {
         "title": "Créer une œuvre d'art avec des pâtes",
         "description": "Assembler une œuvre d'art en utilisant des pâtes alimentaires.",
-        "rank": 1
+        "rank": 1,
+        "type": "TIME"
     },
     {
         "title": "Faire une course en sac",
         "description": "Organiser une course en sac avec des amis et voir qui gagne.",
-        "rank": 2
+        "rank": 2,
+        "type": "TIME"
     },
     {
         "title": "Éviter les flaques d'eau",
         "description": "Marcher à travers la ville sans toucher aucune flaque d'eau.",
-        "rank": 2
+        "rank": 2,
+        "type": "TIME"
     },
     {
         "title": "Chasser les papillons",
         "description": "Essayer de capturer des papillons avec un filet sans leur faire de mal.",
-        "rank": 2
+        "rank": 2,
+        "type": "TIME"
     },
     {
         "title": "Construire un château de sable",
         "description": "Construire le plus grand château de sable possible sur la plage.",
-        "rank": 2
+        "rank": 2,
+        "type": "TIME"
     },
     {
         "title": "Créer un mini-golf",
         "description": "Construire un parcours de mini-golf avec des obstacles faits maison.",
-        "rank": 2
+        "rank": 2,
+        "type": "TIME"
     },
     {
         "title": "Apprendre une nouvelle compétence",
         "description": "Apprendre à jongler avec 3 balles et le démontrer.",
-        "rank": 2
+        "rank": 2,
+        "type": "TIME"
     },
     {
         "title": "Rédiger un discours inspirant",
         "description": "Écrire et prononcer un discours qui motive et inspire un public imaginaire.",
-        "rank": 2
+        "rank": 2,
+        "type": "TIME"
     },
     {
         "title": "Faire un discours en public",
         "description": "Prononcer un discours devant un public réel et recueillir des retours.",
-        "rank": 3
+        "rank": 3,
+        "type": "TIME"
     },
     {
         "title": "Grimper aux arbres",
         "description": "Essayer de grimper le plus haut possible dans un arbre sans danger.",
-        "rank": 3
+        "rank": 3,
+        "type": "TIME"
     },
     {
         "title": "Lancer des balles de tennis",
         "description": "Lancer des balles de tennis dans des cerceaux placés à différentes distances.",
-        "rank": 3
+        "rank": 3,
+        "type": "TIME"
     },
     {
         "title": "S'entraîner au tir à l'arc",
         "description": "S'entraîner à tirer à l'arc en visant des cibles de plus en plus petites.",
-        "rank": 4
+        "rank": 4,
+        "type": "TIME"
     },
     {
         "title": "Créer une application mobile",
         "description": "Développer une application mobile simple avec des fonctionnalités de base.",
-        "rank": 4
+        "rank": 4,
+        "type": "TIME"
     },
     {
         "title": "Construire une cabane dans le jardin",
         "description": "Utiliser des matériaux trouvés dans le jardin pour construire une cabane.",
-        "rank": 4
+        "rank": 4,
+        "type": "TIME"
     },
     {
         "title": "Résoudre un puzzle complexe",
         "description": "Compléter un puzzle de 1000 pièces en moins de 5 heures.",
-        "rank": 4
+        "rank": 4,
+        "type": "TIME"
     },
     {
         "title": "Développer un jeu vidéo",
         "description": "Créer un simple jeu vidéo avec un moteur de jeu de base.",
-        "rank": 4
+        "rank": 4,
+        "type": "TIME"
     },
     {
         "title": "Organiser un événement caritatif",
         "description": "Planifier et organiser un petit événement pour une cause locale.",
-        "rank": 4
+        "rank": 4,
+        "type": "TIME"
     },
     {
         "title": "S'entraîner à l'escalade",
         "description": "Participer à une session d'escalade et atteindre le sommet d'une paroi.",
-        "rank": 4
+        "rank": 4,
+        "type": "TIME"
     },
     {
         "title": "Réaliser un court-métrage",
         "description": "Écrire, tourner et monter un court-métrage de 5 minutes.",
-        "rank": 4
+        "rank": 4,
+        "type": "TIME"
     },
     {
         "title": "Participer à une compétition sportive",
         "description": "Inscription et participation à une compétition sportive locale.",
-        "rank": 4
+        "rank": 4,
+        "type": "TIME"
     },
     {
         "title": "Créer un site web interactif",
         "description": "Développer un site web avec des fonctionnalités interactives et un design attrayant.",
-        "rank": 4
+        "rank": 4,
+        "type": "TIME"
     },
     {
         "title": "Concevoir un plan d'affaires",
         "description": "Rédiger un plan d'affaires complet pour une idée de start-up.",
-        "rank": 4
+        "rank": 4,
+        "type": "TIME"
     },
     {
         "title": "Faire du bénévolat à l'étranger",
         "description": "Participer à un programme de bénévolat international pour une durée déterminée.",
-        "rank": 5
+        "rank": 5,
+        "type": "TIME"
     },
     {
         "title": "Réussir un entraînement militaire",
         "description": "Compléter un programme d'entraînement physique rigoureux inspiré des standards militaires.",
-        "rank": 5
+        "rank": 5,
+        "type": "TIME"
     },
     {
         "title": "Rédiger un livre",
         "description": "Écrire un roman ou un livre non-fictionnel de 200 pages.",
-        "rank": 5
+        "rank": 5,
+        "type": "TIME"
     },
     {
         "title": "Créer un projet de développement durable",
         "description": "Concevoir et mettre en œuvre un projet qui contribue à la durabilité environnementale.",
-        "rank": 5
+        "rank": 5,
+        "type": "TIME"
     },
     {
         "title": "Développer une technologie innovante",
         "description": "Créer un prototype pour une technologie innovante avec un impact potentiel.",
-        "rank": 5
+        "rank": 5,
+        "type": "TIME"
     },
     {
         "title": "Faire face à une situation de crise",
         "description": "Gérer une situation de crise simulée avec des compétences en leadership et en résolution de problèmes.",
-        "rank": 5
+        "rank": 5,
+        "type": "TIME"
     },
     {
         "title": "Infiltrer une organisation secrète",
         "description": "Simuler une infiltration dans une organisation secrète avec des missions de collecte d'informations.",
-        "rank": 5
+        "rank": 5,
+        "type": "TIME"
     },
     {
         "title": "Sauver des vies en situation d'urgence",
         "description": "Participer à une simulation de sauvetage en situation d'urgence avec des compétences médicales avancées.",
-        "rank": 5
+        "rank": 5,
+        "type": "TIME"
     },
     {
         "title": "Créer une œuvre d'art monumentale",
         "description": "Concevoir et réaliser une grande œuvre d'art publique avec un message significatif.",
-        "rank": 5
+        "rank": 5,
+        "type": "TIME"
     },
     {
         "title": "Devenir un héros dans un jeu vidéo",
         "description": "Atteindre le niveau le plus élevé et accomplir toutes les quêtes dans un jeu vidéo complexe.",
-        "rank": 5
+        "rank": 5,
+        "type": "TIME"
     },
     {
         "title": "Découvrir un trésor caché",
         "description": "Participer à une chasse au trésor élaborée avec des énigmes et des indices à résoudre.",
-        "rank": 5
+        "rank": 5,
+        "type": "TIME"
     },
     {
         "title": "Démontrer des pouvoirs surnaturels",
         "description": "Participer à une simulation où l'on doit utiliser des pouvoirs imaginaires pour résoudre des défis complexes.",
-        "rank": 5
+        "rank": 5,
+        "type": "TIME"
+    },
+    {
+        "title": "Chasser des chaussettes intrépides",
+        "description": "Poursuivre une bande de chaussettes vivantes qui se sont échappées de la machine à laver et les ramener avant qu'elles ne forment une armée.",
+        "rank": 2,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Démêler des spaghettis magiques",
+        "description": "Engager une bataille épique contre un plat de spaghettis ensorcelés qui tentent de s'enrouler autour de ta taille.",
+        "rank": 3,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Affronter les muffins rebelles",
+        "description": "Déjouer une révolte de muffins qui ont pris le contrôle d'un café, armés de cerises explosives.",
+        "rank": 4,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Réparer le grille-pain maléfique",
+        "description": "Démanteler un grille-pain devenu fou, qui crache des tranches de pain brûlant sur tout le quartier.",
+        "rank": 1,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Libérer les escargots du zoo",
+        "description": "Infiltrer un zoo pour libérer des escargots emprisonnés, tout en évitant les gardiens qui croient que tu es un agent secret.",
+        "rank": 5,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Sauver le café au lait en détresse",
+        "description": "Duel contre un café au lait qui menace de déborder et de provoquer une inondation de lait sur la ville.",
+        "rank": 3,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Escalader une montagne de fromage",
+        "description": "Grimper une montagne de fromage géant pour affronter le fromage maître, gardien des snacks perdus.",
+        "rank": 5,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Dégoter des bonbons volants",
+        "description": "Partir à la chasse de bonbons qui ont pris leur envol et combattre le bonbon roi pour les ramener dans leur jarre.",
+        "rank": 2,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Vaincre le blender enragé",
+        "description": "Affronter un blender devenu fou, projetant des smoothies aux fruits dans tous les sens, dans une bataille épique de la cuisine.",
+        "rank": 4,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Éteindre le feu des nouilles",
+        "description": "S'attaquer à un feu de nouilles qui menace de consumer la cuisine, armé d'une spatule et de beaucoup de détermination.",
+        "rank": 1,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Récupérer le trésor des bouteilles en plastique",
+        "description": "Plonger dans un océan de bouteilles en plastique pour retrouver le trésor des recyclables, tout en combattant des créatures aquatiques en plastique.",
+        "rank": 3,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Déjouer le complot des légumes",
+        "description": "Participer à une réunion secrète de légumes complotant pour envahir le frigo et les stopper avant qu'ils ne prennent le contrôle.",
+        "rank": 4,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Sauver le cupcake égaré",
+        "description": "S'aventurer dans un monde de friandises pour retrouver un cupcake perdu, tout en évitant les pièges sucrés.",
+        "rank": 2,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Battre le roi des popcorns",
+        "description": "Affronter le roi des popcorns dans une bataille explosive de maïs soufflé, où chaque grain compte.",
+        "rank": 5,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Élever un dragon en peluche",
+        "description": "Devenir le dresseur d'un dragon en peluche récalcitrant qui refuse d'apprendre à cracher des flammes (ou du chocolat).",
+        "rank": 3,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Brouiller les œufs suspects",
+        "description": "Infiltrer une cuisine pour empêcher des œufs malicieusement brouillés de se transformer en omelette explosive.",
+        "rank": 2,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Construire un château de sucre",
+        "description": "Recueillir des ingrédients pour construire un château en sucre tout en se battant contre des créatures sucrées qui cherchent à le détruire.",
+        "rank": 4,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Dominer le royaume des canapés",
+        "description": "Lutter contre des canapés garnis qui prennent vie et tentent de conquérir le salon, un coussin à la fois.",
+        "rank": 5,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Affronter le gâteau de mariage maléfique",
+        "description": "Se battre contre un gâteau de mariage animé qui projette des couches de crème à l’attaque.",
+        "rank": 5,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Sauver le chat ninja des brocolis",
+        "description": "Infiltrer un jardin envahi de brocolis agressifs pour sauver un chat ninja qui s'est perdu dans la verdure.",
+        "rank": 3,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Chasser les chaussettes volantes",
+        "description": "Pourchasser des chaussettes qui se sont évadées de la machine à laver pour éviter qu'elles ne forment un réseau de chaussettes de combat.",
+        "rank": 1,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Vaincre le serpent de plastique",
+        "description": "Affronter un serpent en plastique qui a pris vie et menace de s'enrouler autour des meubles.",
+        "rank": 2,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Démasquer le soupçon de la mayonnaise",
+        "description": "Enquêter sur un pot de mayonnaise suspect qui semble conspirer avec les autres condiments pour dominer le frigo.",
+        "rank": 4,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Lutter contre le fromage ricanant",
+        "description": "Engager un combat contre un fromage qui se moque de toi tout en roulant sur le sol.",
+        "rank": 2,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Déjouer le plan du thé glacé",
+        "description": "Neutraliser un groupe de thé glacé qui se prend pour des agents secrets dans une quête pour conquérir le frigo.",
+        "rank": 3,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Construire un pont en gaufres",
+        "description": "Rassembler des gaufres pour construire un pont sucré tout en combattant des insectes gourmands.",
+        "rank": 4,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Pacifier les biscuits en colère",
+        "description": "Apaiser des biscuits qui se sont rebellés contre la jarre à biscuits, armé d'un verre de lait.",
+        "rank": 3,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Dominer la bataille des marshmallows",
+        "description": "Engager un combat épique contre une armée de marshmallows qui tentent de prendre le contrôle de la fête.",
+        "rank": 2,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Recueillir les œufs de Pâques en fuite",
+        "description": "Poursuivre des œufs de Pâques animés qui se sont échappés, tout en évitant les pièges en chocolat.",
+        "rank": 3,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Démêler le labyrinthe de spaghetti",
+        "description": "S'aventurer dans un labyrinthe de spaghetti géant, en combattant des boulettes de viande ennemies pour trouver la sortie.",
+        "rank": 4,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Neutraliser le blender sauvage",
+        "description": "Affronter un blender qui tourne sans relâche, projetant des smoothies partout dans la cuisine.",
+        "rank": 3,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Récupérer la télécommande des griffes du chat",
+        "description": "Infiltrer un territoire de chat pour récupérer la télécommande volée, tout en évitant les pièges à griffes.",
+        "rank": 1,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Vaincre le roi des sushis",
+        "description": "Engager un combat contre un roi des sushis qui a déclaré la guerre aux plats de pâtes.",
+        "rank": 5,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Capturer les bonbons fugueurs",
+        "description": "Chasser des bonbons qui ont pris la fuite lors d'une fête d'anniversaire, tout en évitant les enfants affamés.",
+        "rank": 2,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Brouiller les plans du café tyrannique",
+        "description": "Contrecarrer les plans d'un café qui veut devenir la seule boisson de la ville, avec l'aide de ses sous-fifres, les gobelets.",
+        "rank": 4,
+        "type": "FIGHT"
+    },
+    {
+        "title": "Réunir les jouets perdus",
+        "description": "Partir à la recherche de jouets perdus dans un monde chaotique, armé d'une épée en plastique et d'un grand cœur.",
+        "rank": 3,
+        "type": "FIGHT"
     }
 ]

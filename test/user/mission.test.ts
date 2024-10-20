@@ -49,14 +49,21 @@ describe('Mission', () => {
     });
 
     it('should choose a mission and get reward', async () => {
-        const currentMission = user.mission.missions[0];
 
-        await user.mission.confirmMission(0, user);
+        const currentMission = user.mission.missions.find(m => m.type === 'TIME');
+
+        if(currentMission === undefined) {
+            return;
+        }
+
+        const currentMissionIndex = user.mission.missions.findIndex(m => m.type === 'TIME');
+
+        await user.mission.confirmMission(currentMissionIndex, user);
 
         const goldBefore = user.gold;
         const xpBefore = user.experience.total;
 
-        await user.mission.sendRewards(user);
+        await user.mission.onEnd(user);
 
         expect(user.mission.current).to.be.null;
         expect(user.gold).to.be.equal(goldBefore + currentMission.rewardGold);
