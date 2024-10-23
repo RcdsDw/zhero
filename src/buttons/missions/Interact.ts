@@ -21,7 +21,7 @@ export async function execute(interaction: ButtonInteraction) {
             break;
         default:
             interaction.reply(
-                await user.mission.confirmMission(parseInt(args[1]), user, (xp, gold) => {
+                await user.mission.confirmMission(parseInt(args[1]), user, interaction, (xp, gold) => {
                     interaction.channel?.send(
                         `Félicitations ${interaction.user.toString()} ! Vous avez gagné ${xp} XP et ${gold} pièces d'or pour avoir terminé votre mission !`,
                     );

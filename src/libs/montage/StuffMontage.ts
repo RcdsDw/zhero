@@ -1,8 +1,9 @@
 import { User } from '../../models/user/user';
 import * as fs from 'fs';
 import * as path from 'path';
-import { createCanvas, loadImage } from 'canvas';
+import { CanvasRenderingContext2D, createCanvas, loadImage } from 'canvas';
 import { Gender } from '../../models/user/skin';
+import { ItemModel } from '../../models/item/item';
 
 export default class StuffMontage {
     public static async getImage(user: User): Promise<string> {
@@ -24,32 +25,19 @@ export default class StuffMontage {
         const canvas = createCanvas(350, 900);
         const ctx = canvas.getContext('2d');
 
+        // On dessine la cape avant car elle doit être derrière le personnage
+        this.drawItem(ctx, user.stuff.cape, user);
+
         const skinPath = await user.skin.getImage();
         const skinImage = await loadImage(skinPath);
 
         ctx.drawImage(skinImage, 0, 0);
 
-        const items = user.stuff.getAllItems();
+        const items = user.stuff.getAllItems().filter(item => item && item.type !== 'cape');
 
         await Promise.all(
             items.map(async (item) => {
-                if (item === null || item.asset_men === undefined) {
-                    return;
-                }
-
-                let itemPath = item.asset_men;
-
-                if (user.skin.gender === Gender.Women) {
-                    itemPath = item.asset_women;
-                }
-
-                const itemImage = await loadImage(itemPath);
-
-                if (user.skin.gender === Gender.Men) {
-                    ctx.drawImage(itemImage, -201, -35, 683, 1010);
-                } else {
-                    ctx.drawImage(itemImage, -205, -12, 687, 1010);
-                }
+                this.drawItem(ctx, item, user);
             }),
         );
 
@@ -63,5 +51,23 @@ export default class StuffMontage {
      */
     private static getStuffImagePath(user: User) {
         return path.join('public/stuff', user.id + '.png');
+    }
+    
+    /**
+     * Dessine un item sur un canvas
+     */
+    private static async drawItem(ctx: CanvasRenderingContext2D, item : ItemModel, user : User) : Promise<void> {
+        if (item === null || item.asset_men === undefined) {
+            return;
+        }
+
+        const itemPath = user.skin.gender === Gender.Men ? item.asset_men : item.asset_women;
+        const itemImage = await loadImage(itemPath);
+
+        if (user.skin.gender === Gender.Men) {
+            ctx.drawImage(itemImage, -201, -35, 683, 1010);
+        } else {
+            ctx.drawImage(itemImage, -205, -12, 687, 1010);
+        }
     }
 }

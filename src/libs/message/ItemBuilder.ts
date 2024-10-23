@@ -101,6 +101,7 @@ Vous avez **${user.gold} 🪙**. La boutique est vide, le marchand aura de nouve
 Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
                 embeds: [],
                 components: [],
+                files : []
             };
         }
 
@@ -183,7 +184,7 @@ Votre inventaire est vide, la commande \`/shop\` permet d'acheter des items`,
 
             embed.addFields({
                 name: `__${type.name}__ - ${item ? item.name : 'Aucun'}`,
-                value: item ? AttributeBuilder.toString(item.attributes) : ' ',
+                value: item ? AttributeBuilder.toString(item.attributes) : ' '
             });
         });
 

@@ -11,7 +11,7 @@
         "lint": "eslint .",
         "checkall": "npm run pretty && npm run lint",
         "deploy-command": "npx ts-node src/deploy-commands.ts",
-        "test": "mocha -r ts-node/register 'test/**/*.test.ts'",
+        "test": "mocha -r ts-node/register 'test/**/*.test.ts' --exit",
         "test-dev": "nodemon --legacy-watch --watch 'test/**/*.test.ts' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'npm run test'",
         "coverage": "nyc npm test"
     },

@@ -24,7 +24,7 @@ describe('Shop', () => {
         await connection.close();
     });
 
-    it('should populate db', async() => {
+    it('should populate db', async () => {
         await BaseMobModel.populateDb(true, 50);
     });
 

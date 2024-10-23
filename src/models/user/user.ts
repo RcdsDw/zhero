@@ -93,7 +93,7 @@ const UserSchema: Schema = new Schema<IUser, object, IUserMethods>(
             type: TowerSchema,
             required: true,
             default: () => ({}),
-        }
+        },
     },
     {
         timestamps: true,

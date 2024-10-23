@@ -8,6 +8,9 @@ import {
 } from 'discord.js';
 import { Mission } from '../../models/user/mission/mission';
 import { User } from '../../models/user/user';
+import { Fighter } from '../fight/Fighter';
+import FightSystem from '../fight/FightSystem';
+import FightBuilder from './FightBuilder';
 
 export default class MissionBuilder {
     public static async showMissions(user: User): Promise<BaseMessageOptions> {
@@ -32,6 +35,18 @@ export default class MissionBuilder {
                 })
                 .setColor('White');
 
+            if (res.type === 'TIME') {
+                embed.setAuthor({
+                    name: 'Temps',
+                    iconURL: 'https://cdn-icons-png.flaticon.com/512/148/148855.png',
+                });
+            } else {
+                embed.setAuthor({
+                    name: 'Combat',
+                    iconURL: 'https://cdn-icons-png.flaticon.com/512/5022/5022167.png',
+                });
+            }
+
             return {
                 content: '# Mission en cours',
                 embeds: [embed],
@@ -54,6 +69,19 @@ export default class MissionBuilder {
                             `Récompenses : ${mission.rewardXp} 🦸‍♂️ / ${mission.rewardGold} 🪙`,
                     })
                     .setColor(colors[mission.rank - 1]);
+
+                if (mission.type === 'TIME') {
+                    embed.setAuthor({
+                        name: 'Temps',
+                        iconURL: 'https://cdn-icons-png.flaticon.com/512/148/148855.png',
+                    });
+                } else {
+                    embed.setAuthor({
+                        name: 'Combat',
+                        iconURL: 'https://cdn-icons-png.flaticon.com/512/5022/5022167.png',
+                    });
+                }
+
                 row.addComponents(
                     new ButtonBuilder()
                         .setLabel(`${i + 1}`)
@@ -70,5 +98,20 @@ export default class MissionBuilder {
                 files: [],
             };
         }
+    }
+
+    public static async getFightEmbed(
+        player1: Fighter,
+        player2: Fighter,
+        fight: FightSystem,
+        bg?: string,
+    ): Promise<BaseMessageOptions> {
+        const res = await FightBuilder.getEmbed(player1, player2, fight, bg);
+
+        if (res.embeds && res.embeds[0] instanceof EmbedBuilder) {
+            res.embeds[0].setDescription('Combat pour une mission');
+        }
+
+        return res;
     }
 }
